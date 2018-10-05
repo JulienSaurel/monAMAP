@@ -2,7 +2,15 @@
 require_once '../model/ModelPersonne.php';
 
 class ControllerPersonne
-{
+{   
+
+    public static function readAll() 
+    {
+        $tab_pers = ModelPersonne::getAllPersonnes();//appel au modèle pour gerer la BD
+        //var_dump($tab_v);
+        require ('../view/personne/list.php');  //"redirige" vers la vue
+    }
+
 	public static function read() 
     {
     	$p = $_GET['idPersonne'];
@@ -21,4 +29,12 @@ class ControllerPersonne
     {
         require ('../view/personne/create.php'); //redirige vers la vue
     }
+
+    public static function created() 
+    {
+    $p = new ModelPersonne($_POST['idPersonne'],$_POST['nomPersonne'],$_POST['prenomPersonne'],$_POST['mailPersonne']);
+    $p->save();
+    self::readAll();
+    }
+
 }

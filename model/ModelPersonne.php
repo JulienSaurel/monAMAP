@@ -63,7 +63,7 @@ class ModelPersonne
     }
 
     public function save() {    
-    $sql = "INSERT INTO Personne (idPersonne, nomPersonne, prenomPersonne, mailPersonne) VALUES (:nom_tag1 ,:nom_tag2,:nom_tag3,)";
+    $sql = "INSERT INTO Personne (idPersonne, nomPersonne, prenomPersonne, mailPersonne) VALUES (:nom_tag1 ,:nom_tag2,:nom_tag3,:nom_tag4)";
     
     // Préparation de la requête
     $req_prep = Model::$pdo->prepare($sql);
@@ -80,6 +80,16 @@ class ModelPersonne
     $req_prep->execute($values);
 }
 
+    static public function getAllPersonnes() {
+
+        $rep = Model::$pdo->query('SELECT * FROM Personne');
+        $rep->setFetchMode(PDO::FETCH_CLASS, 'ModelPersonne');
+        $tab_pers = $rep->fetchAll();
+
+
+
+        return $tab_pers;
+    }
     // // une methode d'affichage.
     // public function afficher() 
     // {
