@@ -54,7 +54,7 @@ class ModelPersonne
     // On récupère les résultats comme précédemment
     $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelPersonne');
     $tab_pers = $req_prep->fetchAll();
-    // Attention, si il n'y a pas de résultats, on renvoie false
+    // S'il n'y a pas de résultats, on renvoie false
         if (empty($tab_pers)) 
         {
             return false;

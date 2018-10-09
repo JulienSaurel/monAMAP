@@ -27,14 +27,14 @@ class ModelAdherents
     }
 
     // un constructeur
-    public function __construct($idAdherent /*= NULL*/, $idPersonne /*= NULL*/, $nomPersonne, $prenomPersonne, $mailPersonne, $adressepostaleAdherent /*= NULL*/, $PW_Adherent /*= NULL*/) 
+    public function __construct($idAdherent = NULL, $idPersonne = NULL, $nomPersonne = NULL, $prenomPersonne = NULL, $mailPersonne = NULL, $adressepostaleAdherent = NULL, $PW_Adherent = NULL) 
     {
-        /*if (!is_null($idAdherent) && !is_null($idPersonne) && !is_null($adressepostaleAdherent) && !is_null($PW_Adherent)) {*/
+        if (!is_null($idAdherent) && !is_null($idPersonne) && !is_null($nomPersonne) && !is_null($prenomPersonne) && !is_null($mailPersonne) && !is_null($adressepostaleAdherent) && !is_null($PW_Adherent)) {
             $this->idAdherent = $idAdherent;
             $this->idPersonne = new ModelPersonne($idPersonne, $nomPersonne, $prenomPersonne, $mailPersonne);
             $this->adressepostaleAdherent = $adressepostaleAdherent;
             $this->PW_Adherent = $PW_Adherent;
-        //}
+        }
     }
 
     static public function getAdherentById($idAdherent) 
@@ -53,7 +53,7 @@ class ModelAdherents
     // On récupère les résultats comme précédemment
     $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelAdherents');
     $tab_adh = $req_prep->fetchAll();
-    // Attention, si il n'y a pas de résultats, on renvoie false
+    // S'il n'y a pas de résultats, on renvoie false
         if (empty($tab_adh)) 
         {
             return false;

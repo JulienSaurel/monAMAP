@@ -6,7 +6,7 @@
     </head>
     <body>
         <?php
-     echo "404: Adherent Not Found";
+     echo "404: Adherent Not Found"; //on affiche un message d'erreur
         ?>
     </body>
 </html>

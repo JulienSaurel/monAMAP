@@ -7,7 +7,7 @@
    
     <body>
       <form method="post" action="./routeur.php?actionP=created"> 
-
+ <!-- On recupere les infos avec la methode post et on redirige vers la sauvegarde dans la base de donnees -->
   <fieldset>
     <legend>Mon formulaire :</legend>
     <p>
