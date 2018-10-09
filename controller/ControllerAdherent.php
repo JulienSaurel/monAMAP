@@ -1,5 +1,5 @@
 <?php
-require_once '../model/ModelAdherents.php';
+require_once '../model/ModelAdherent.php';
 
 class ControllerAdherent
 {   
