@@ -37,9 +37,9 @@ class ModelAdherents
         //}
     }
 
-    static public function getAdherentById($idPersonne) 
+    static public function getAdherentById($idAdherent) 
     {
-    $sql = "SELECT * from Personne WHERE idAdherent=:nom_tag";
+    $sql = "SELECT * from Adherents WHERE idAdherent=:nom_tag";
     // Préparation de la requête
     $req_prep = Model::$pdo->prepare($sql);
 
@@ -61,11 +61,40 @@ class ModelAdherents
         return $tab_adh[0];
     }
 
-    // une methode d'affichage.
-    public function afficher() 
-    {
-        echo "Adherent: {$this->idAdherent}: " . $this->idPersonne->toString() . "adresse postale :  {$this->adressepostaleAdherent}\n";
+    public function save() {    
+    $sql = "INSERT INTO Adherents (idAdherent, idPersonne, adressepostaleAdherent, PW_Adherent) VALUES (:nom_tag1 ,:nom_tag2,:nom_tag3,:nom_tag4)";
+    
+    // Préparation de la requête
+    $req_prep = Model::$pdo->prepare($sql);
+    
+    $values = array(
+        "nom_tag1" => $this->idAdherent,     
+        "nom_tag2" => $this->idPersonne,
+        "nom_tag3" => $this->adressepostaleAdherent,
+        "nom_tag4" => $this->PW_Adherent,
+        //nomdutag => valeur, ...
+    );
+    
+    // On donne les valeurs et on exécute la requête     
+    $req_prep->execute($values);
+}
+
+    static public function getAllAdherents() {
+
+        $rep = Model::$pdo->query('SELECT * FROM Adherents');
+        $rep->setFetchMode(PDO::FETCH_CLASS, 'ModelAdherents');
+        $tab_adh = $rep->fetchAll();
+
+
+
+        return $tab_adh;
     }
+
+    // une methode d'affichage.
+    // public function afficher() 
+    // {
+    //     echo "Adherent: {$this->idAdherent}: " . $this->idPersonne->toString() . "adresse postale :  {$this->adressepostaleAdherent}\n";
+    // }
 
     public function toString() 
     {
