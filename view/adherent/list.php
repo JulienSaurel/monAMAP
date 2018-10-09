@@ -2,14 +2,14 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Liste des personnes</title>
+        <title>Liste des Adherents</title>
     </head>
     <body>
         <?php
         foreach ($tab_pers as $p) 
         {
-            $idPersonne = $p->get('idPersonne');
-            echo "<p> Personne d'id:  <a href=\"http://localhost/Mon%20AMAP/controller/routeur.php?action=read&idPersonne={$idPersonne}\"> $idPersonne </a> . </p>";
+            $idAdherent = $p->get('idAdherent');
+            echo "<p> Adherent d'id:  <a href=\"http://localhost/Mon%20AMAP/controller/routeur.php?action=read&idAdherent={$idAdherent}\"> $idAdherent </a> . </p>";
         }
         ?>
     </body>

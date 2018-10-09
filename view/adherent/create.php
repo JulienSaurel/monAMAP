@@ -26,8 +26,7 @@
       <label for="mail_id">Mail</label> :
       <input type="text" placeholder="Ex : dsambuc@free.fr" name="mailPersonne" id="mail_id" required/>
     </p>
-<!--           	    <input type='hidden' name='action' value='created'> 
- -->    <p>
+  <p>
       <input type="submit" value="Envoyer" />
     </p>
   </fieldset> 

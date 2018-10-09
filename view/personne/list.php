@@ -9,7 +9,7 @@
         foreach ($tab_pers as $p) 
         {
             $idPersonne = $p->get('idPersonne');
-            echo "<p> Personne d'id:  <a href=\"http://localhost/Mon%20AMAP/controller/routeur.php?action=read&idPersonne={$idPersonne}\"> $idPersonne </a> . </p>";
+            echo "<p> Personne d'id:  <a href=\"http://localhost/Mon%20AMAP/controller/routeur.php?actionP=read&idPersonne={$idPersonne}\"> $idPersonne </a> . </p>";
         }
         ?>
     </body>

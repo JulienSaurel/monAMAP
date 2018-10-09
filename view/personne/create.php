@@ -6,7 +6,7 @@
     </head>
    
     <body>
-      <form method="post" action="./routeur.php?action=created"> 
+      <form method="post" action="./routeur.php?actionP=created"> 
 
   <fieldset>
     <legend>Mon formulaire :</legend>
