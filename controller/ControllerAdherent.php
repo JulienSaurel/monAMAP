@@ -32,9 +32,9 @@ class ControllerAdherent
 
     public static function created() 
     {
-    $a = new ModelAdherent($_POST['idAdherent'],$_POST['idPersonne'],$_POST['adressepostaleAdherent'],$_POST['PW_Adherent']);
-    $a->save();
-    self::readAll();
+    $a = new ModelAdherent($_POST['idAdherent'],$_POST['idPersonne'],$_POST['adressepostaleAdherent'],$_POST['PW_Adherent']); //on recupere les infos du formulaires
+    $a->save();// on les sauve dans la base de donnees
+    self::readAll(); //on affiche la liste des personnes
     }
 
 }

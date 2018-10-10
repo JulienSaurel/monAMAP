@@ -32,9 +32,9 @@ class ControllerPersonne
 
     public static function created() 
     {
-    $p = new ModelPersonne($_POST['idPersonne'],$_POST['nomPersonne'],$_POST['prenomPersonne'],$_POST['mailPersonne']);
-    $p->save();
-    self::readAll();
+    $p = new ModelPersonne($_POST['idPersonne'],$_POST['nomPersonne'],$_POST['prenomPersonne'],$_POST['mailPersonne']); //on recupere les infos du formulaires
+    $p->save(); // on les sauve dans la base de donnees
+    self::readAll(); //on affiche la liste des personnes
     }
 
 }
