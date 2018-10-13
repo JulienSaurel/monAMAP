@@ -1,6 +1,6 @@
 <?php
-require_once 'ControllerPersonne.php';
-require_once 'ControllerAdherent.php';
+require_once File::build_path(array('controller','ControllerPersonne.php'));
+require_once File::build_path(array('controller','ControllerAdherent.php'));
 
 //Personne
 if(isset($_GET['actionP'])) { //Si l'action a été spécifiée
