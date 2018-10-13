@@ -1,33 +1,38 @@
 <?php
-require_once '../model/ModelPersonne.php';
+require_once File::build_path(array('model','ModelPersonne.php'));
 
 class ControllerPersonne
 {   
 
     public static function readAll() 
     {
-        $tab_pers = ModelPersonne::getAllPersonnes();//appel au modèle pour gerer la BD
-        //var_dump($tab_v);
-        require ('../view/personne/list.php');  //"redirige" vers la vue
+        $tab_pers = ModelPersonne::getAllPersonnes();
+        //appel au modèle pour gerer la BD
+        require File::build_path(array('view','personne','list.php'));  
+        //"redirige" vers la vue list.php qui affiche la liste des personnes
     }
 
 	public static function read() 
     {
     	$p = $_GET['idPersonne'];
-        $p = ModelPersonne::getPersonneById($p);//appel au modèle pour gerer la BD
+        $p = ModelPersonne::getPersonneById($p);
+        //appel au modèle pour gerer la BD
         if($p) 
         {
-        require ('../view/personne/detail.php');  //"redirige" vers la vue
+        require File::build_path(array('view','personne','detail.php'));  
+        //"redirige" vers la vue qui affiche les details d'une personne
         }
         else 
         {
-        require ('../view/personne/error.php');  //"redirige" vers la vue
+        require File::build_path(array('view','personne','error.php'));  
+        //"redirige" vers la vue erreur.php qui affiche un msg d'erreur
         }
     }
 
     public static function create()
     {
-        require ('../view/personne/create.php'); //redirige vers la vue
+        require File::build_path(array('view','personne','create.php')); 
+        //redirige vers la vue create.php (formulaire)
     }
 
     public static function created() 
