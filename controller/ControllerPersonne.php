@@ -15,7 +15,9 @@ class ControllerPersonne
 	public static function read() 
     {
     	$p = $_GET['idPersonne'];
+        var_dump($p);
         $p = ModelPersonne::getPersonneById($p);
+        var_dump($p);
         //appel au modèle pour gerer la BD
         if($p) 
         {

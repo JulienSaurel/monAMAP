@@ -6,7 +6,7 @@
     </head>
    
     <body>
-      <form method="post" action="./routeur.php?actionP=created"> 
+      <form method="post" action="./?actionP=created"> 
  <!-- On recupere les infos avec la methode post et on redirige vers la sauvegarde dans la base de donnees -->
   <fieldset>
     <legend>Mon formulaire :</legend>
@@ -26,8 +26,7 @@
       <label for="mail_id">Mail</label> :
       <input type="text" placeholder="Ex : dsambuc@free.fr" name="mailPersonne" id="mail_id" required/>
     </p>
-<!--           	    <input type='hidden' name='action' value='created'> 
- -->    <p>
+    <p>
       <input type="submit" value="Envoyer" />
     </p>
   </fieldset> 
