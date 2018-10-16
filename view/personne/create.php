@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <title> formulairePersonne </title>
-    </head>
-   
-    <body>
-      <form method="post" action="./?actionP=created"> 
+<form method="post" action="./?action=created&controller=personne"> 
  <!-- On recupere les infos avec la methode post et on redirige vers la sauvegarde dans la base de donnees -->
   <fieldset>
     <legend>Mon formulaire :</legend>
@@ -31,9 +23,3 @@
     </p>
   </fieldset> 
 </form>
-
-
-
-
-    </body>
-</html> 

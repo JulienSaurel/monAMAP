@@ -2,21 +2,40 @@
 require_once File::build_path(array('controller','ControllerPersonne.php'));
 require_once File::build_path(array('controller','ControllerAdherent.php'));
 
-//Personne
-if(isset($_GET['actionP'])) { //Si l'action a été spécifiée
 
-$actionPersonne = $_GET['actionP']; // On recupère l'action passée dans l'URL
+//------------controller-------------
+if(!isset($_GET['controller'])) //Si le controller n'a  pas été spécifiée
+	{
+		$controller = 'personne'; //On définit un controller par defaut (Personne)
+	}
 
-ControllerPersonne::$actionPersonne(); // Appel de la méthode statique $action de ControllerPersonne
-}
+	else
+	{
+		$controller = $_GET['controller']; // On recupère le controller passée dans l'URL
+	}
 
+$controller_class = 'Controller' . ucfirst($controller); 
+//on crée la variable qui represente la classe dur laquelle on appellera l'action
 
-//Adherent
-if(isset($_GET['actionA'])) { //Si l'action a été spécifiée
+//--------------action---------------
+	if(!isset($_GET['action'])) //Si l'action n'a  pas été spécifiée
+	{
+		$action = 'readAll'; //On définit une action par defaut (readAll)
+	}
 
-$actionAdherent = $_GET['actionA']; // On recupère l'action passée dans l'URL
+	else 
+	{
+		if (in_array($_GET['action'], get_class_methods($controller_class))) 
+		{
+			$action = $_GET['action']; // On recupère l'action passée dans l'URL
+		}
+		else 
+		{
+			$action = 'error';
+		}
 
-ControllerAdherent::$actionAdherent(); // Appel de la méthode statique $action de ControllerAdherent
-}
+	}
+$controller_class::$action(); 
+// Appel de la méthode statique $action de ControllerPersonne
 ?>
 

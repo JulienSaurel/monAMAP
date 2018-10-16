@@ -9,6 +9,6 @@
             
             //var_dump($idPersonne);
             
-            echo "<p> Personne d'id:  <a href=\"?actionP=read&idPersonne={$idPersonne}\"> $idPersonne </a> . </p>";
+            echo "<p> Personne d'id:  <a href=\"?action=read&controller=$controller&idPersonne={$idPersonne}\"> $idPersonne </a> . </p>";
         //on affiche l'id personne avec un lien vers ses détails
         }
