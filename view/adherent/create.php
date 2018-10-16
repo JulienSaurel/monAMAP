@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <title> formulaireAdherent </title>
-    </head>
-   
-    <body>
-      <form method="post" action="./routeur.php?actionA=created"> 
+      <form method="post" action="./?action=created&controller=adherent"> 
         <!-- On recupere les infos avec la methode post et on redirige vers la sauvegarde dans la base de donnees -->
 
   <fieldset>
@@ -32,9 +24,3 @@
     </p>
   </fieldset> 
 </form>
-
-
-
-
-    </body>
-</html> 

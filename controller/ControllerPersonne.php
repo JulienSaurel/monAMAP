@@ -8,32 +8,43 @@ class ControllerPersonne
     {
         $tab_pers = ModelPersonne::getAllPersonnes();
         //appel au modèle pour gerer la BD
-        require File::build_path(array('view','personne','list.php'));  
+        $controller ='personne';
+        $view = 'list';
+        $pagetitle = 'Liste des personnes';
+        require File::build_path(array('view','view.php'));  
         //"redirige" vers la vue list.php qui affiche la liste des personnes
     }
 
 	public static function read() 
     {
     	$p = $_GET['idPersonne'];
-        var_dump($p);
+
         $p = ModelPersonne::getPersonneById($p);
-        var_dump($p);
         //appel au modèle pour gerer la BD
+        $controller ='personne';
+
         if($p) 
         {
-        require File::build_path(array('view','personne','detail.php'));  
+        $view = 'detail';
+        $pagetitle = 'Personnes';
+        require File::build_path(array('view','view.php'));  
         //"redirige" vers la vue qui affiche les details d'une personne
         }
         else 
         {
-        require File::build_path(array('view','personne','error.php'));  
+        $view = 'error';
+        $pagetitle = 'Error 404';
+        require File::build_path(array('view','view.php'));  
         //"redirige" vers la vue erreur.php qui affiche un msg d'erreur
         }
     }
 
     public static function create()
     {
-        require File::build_path(array('view','personne','create.php')); 
+    $controller ='personne';
+    $view = 'create';
+    $pagetitle = 'Inscription Personne';
+    require File::build_path(array('view','view.php')); 
         //redirige vers la vue create.php (formulaire)
     }
 
@@ -41,7 +52,20 @@ class ControllerPersonne
     {
     $p = new ModelPersonne($_POST['idPersonne'],$_POST['nomPersonne'],$_POST['prenomPersonne'],$_POST['mailPersonne']); //on recupere les infos du formulaires
     $p->save(); // on les sauve dans la base de donnees
+    $controller ='personne';
+    $view = 'created';
+    $pagetitle = 'Liste des personnes';
+    require File::build_path(array('view','view.php')); 
+        //redirige vers la vue created.php 
     self::readAll(); //on affiche la liste des personnes
+    }
+
+    public static function error()
+    {
+    $controller ='personne';
+    $view = 'error';
+    $pagetitle = 'Error 404';
+    require File::build_path(array('view','view.php'));
     }
 
 }

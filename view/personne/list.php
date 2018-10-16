@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Liste des personnes</title>
-    </head>
-    <body>
         <?php
         foreach ($tab_pers as $p) //pour chaque personne dans la base de données
         {
@@ -16,10 +9,6 @@
             
             //var_dump($idPersonne);
             
-            echo "<p> Personne d'id:  <a href=\"?actionP=read&idPersonne={$idPersonne}\"> $idPersonne </a> . </p>";
+            echo "<p> Personne d'id:  <a href=\"?action=read&controller=$controller&idPersonne={$idPersonne}\"> $idPersonne </a> . </p>";
         //on affiche l'id personne avec un lien vers ses détails
         }
-        ?>
-    </body>
-</html>
-
