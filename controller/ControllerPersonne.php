@@ -8,7 +8,10 @@ class ControllerPersonne
     {
         $tab_pers = ModelPersonne::getAllPersonnes();
         //appel au modèle pour gerer la BD
-        require File::build_path(array('view','personne','list.php'));  
+        $controller ='personne';
+        $view = 'list';
+        $pagetitle = 'Liste des personnes';
+        require File::build_path(array('view','view.php'));  
         //"redirige" vers la vue list.php qui affiche la liste des personnes
     }
 
