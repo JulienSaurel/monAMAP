@@ -1,12 +1,19 @@
 <?php
 require_once File::build_path(array('controller','ControllerPersonne.php'));
 require_once File::build_path(array('controller','ControllerAdherent.php'));
+require_once File::build_path(array('controller','ControllerAccueil.php'));
+require_once File::build_path(array('controller','ControllerNousConnaitre.php'));
+require_once File::build_path(array('controller','ControllerNousSoutenir.php'));
+require_once File::build_path(array('controller','ControllerNosProduits.php'));
+require_once File::build_path(array('controller','ControllerNosContrats.php'));
+require_once File::build_path(array('controller','ControllerMonProfil.php'));
+require_once File::build_path(array('controller','ControllerLaVieAlAMAP.php'));
 
 
 //------------controller-------------
 if(!isset($_GET['controller'])) //Si le controller n'a  pas été spécifiée
 	{
-		$controller = 'personne'; //On définit un controller par defaut (Personne)
+		$controller = 'accueil'; //On définit un controller par defaut (Personne)
 	}
 
 	else
@@ -20,7 +27,7 @@ $controller_class = 'Controller' . ucfirst($controller);
 //--------------action---------------
 	if(!isset($_GET['action'])) //Si l'action n'a  pas été spécifiée
 	{
-		$action = 'readAll'; //On définit une action par defaut (readAll)
+		$action = 'display'; //On définit une action par defaut (readAll)
 	}
 
 	else 
