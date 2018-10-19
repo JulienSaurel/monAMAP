@@ -4,7 +4,7 @@
 <!-- ------------------------------MENU----------------------------------------- -->
 <nav>
 <ul id="menu">
-
+<li class="accueil"><a href="?action=display&controller=accueil">Accueil</a></li>
 <li class="nousConnaitre"><a href="?action=display1st&controller=nousConnaitre">Nous connaitre</a></li>
 	<ul>
       <li><a href="?action=display2nd&controller=nousConnaitre">l'AMAP</a></li>
