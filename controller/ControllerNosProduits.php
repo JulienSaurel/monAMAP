@@ -9,6 +9,22 @@ class ControllerNosProduits
         require File::build_path(array('view','view.php')); 
 	}
 
+    public static function display1st()
+    {
+        $controller ='nosProduits';
+        $view = 'nosproducteurs';
+        $pagetitle = 'Nos Produits';
+        require File::build_path(array('view','view.php')); 
+    }
+
+    public static function display2nd()
+    {
+        $controller ='nosProduits';
+        $view = 'produitsdumoment';
+        $pagetitle = 'Nos Produits';
+        require File::build_path(array('view','view.php')); 
+    }
+
 	 public static function error()
     {
     $controller ='nosProduits';

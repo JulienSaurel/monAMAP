@@ -9,6 +9,30 @@ class ControllerLaVieAlAMAP
         require File::build_path(array('view','view.php')); 
 	}
 
+    public static function display1st()
+    {
+        $controller ='laVieAlAMAP';
+        $view = 'articles';
+        $pagetitle = 'La vie à l\' AMAP';
+        require File::build_path(array('view','view.php')); 
+    }
+
+    public static function display2nd()
+    {
+        $controller ='laVieAlAMAP';
+        $view = 'evenements';
+        $pagetitle = 'La vie à l\' AMAP';
+        require File::build_path(array('view','view.php')); 
+    }
+
+    public static function display3rd()
+    {
+        $controller ='laVieAlAMAP';
+        $view = 'livredor';
+        $pagetitle = 'La vie à l\' AMAP';
+        require File::build_path(array('view','view.php')); 
+    }
+
 	 public static function error()
     {
     $controller ='laVieAlAMAP';

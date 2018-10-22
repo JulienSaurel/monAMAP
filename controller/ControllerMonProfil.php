@@ -9,6 +9,22 @@ class ControllerMonProfil
         require File::build_path(array('view','view.php')); 
 	}
 
+    public static function display1st()
+    {
+        $controller ='monProfil';
+        $view = 'voirmonprofil';
+        $pagetitle = 'Mon Profil';
+        require File::build_path(array('view','view.php')); 
+    }
+
+    public static function display2nd()
+    {
+        $controller ='monProfil';
+        $view = 'devenirproducteur';
+        $pagetitle = 'Mon Profil';
+        require File::build_path(array('view','view.php')); 
+    }
+
 	 public static function error()
     {
     $controller ='monProfil';
