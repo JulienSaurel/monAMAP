@@ -3,9 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <title><?php echo $pagetitle; ?></title>
+    <?php require File::build_path(array("view", "menu.php")); ?>
     </head>
-<!-- <?php require File::build_path(array("view", "menu.php")); ?> -->
-    <body>
+    	<body>
 <?php
 
 $filepath = File::build_path(array("view", $controller, "$view.php"));

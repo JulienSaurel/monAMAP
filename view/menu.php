@@ -1,7 +1,3 @@
-
-<!-- <body> -->
-
-<!-- ------------------------------MENU----------------------------------------- -->
 <nav>
 <ul id="menu">
 <li class="accueil"><a href="?action=display&controller=accueil">Accueil</a></li>
@@ -38,4 +34,3 @@
 
 </ul>
 </nav>
-<!-- </body>
