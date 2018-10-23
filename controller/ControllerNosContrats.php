@@ -13,7 +13,7 @@ class ControllerNosContrats
     {
         $controller ='nosContrats';
         $view = 'laitier';
-        $pagetitle = 'Nos Contrats';
+        $pagetitle = 'Nos Contrats Laitiers';
         require File::build_path(array('view','view.php')); 
     }
 
@@ -21,7 +21,7 @@ class ControllerNosContrats
     {
         $controller ='nosContrats';
         $view = 'viande';
-        $pagetitle = 'Nos Contrats';
+        $pagetitle = 'Nos Contrats Viande';
         require File::build_path(array('view','view.php')); 
     }
 
@@ -29,7 +29,7 @@ class ControllerNosContrats
     {
         $controller ='nosContrats';
         $view = 'legumes';
-        $pagetitle = 'Nos Contrats';
+        $pagetitle = 'Nos Contrats Légumes';
         require File::build_path(array('view','view.php')); 
     }
 
@@ -37,7 +37,7 @@ class ControllerNosContrats
     {
         $controller ='nosContrats';
         $view = 'mix';
-        $pagetitle = 'Nos Contrats';
+        $pagetitle = 'Nos Contrats Mix';
         require File::build_path(array('view','view.php')); 
     }
 

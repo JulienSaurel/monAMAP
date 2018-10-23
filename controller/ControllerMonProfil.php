@@ -21,7 +21,7 @@ class ControllerMonProfil
     {
         $controller ='monProfil';
         $view = 'devenirproducteur';
-        $pagetitle = 'Mon Profil';
+        $pagetitle = 'Devenir Producteur';
         require File::build_path(array('view','view.php')); 
     }
 

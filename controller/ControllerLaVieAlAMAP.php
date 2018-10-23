@@ -13,7 +13,7 @@ class ControllerLaVieAlAMAP
     {
         $controller ='laVieAlAMAP';
         $view = 'articles';
-        $pagetitle = 'La vie à l\' AMAP';
+        $pagetitle = 'Articles';
         require File::build_path(array('view','view.php')); 
     }
 
@@ -21,7 +21,7 @@ class ControllerLaVieAlAMAP
     {
         $controller ='laVieAlAMAP';
         $view = 'evenements';
-        $pagetitle = 'La vie à l\' AMAP';
+        $pagetitle = 'Evenements';
         require File::build_path(array('view','view.php')); 
     }
 
@@ -29,7 +29,7 @@ class ControllerLaVieAlAMAP
     {
         $controller ='laVieAlAMAP';
         $view = 'livredor';
-        $pagetitle = 'La vie à l\' AMAP';
+        $pagetitle = 'Livre d\'or';
         require File::build_path(array('view','view.php')); 
     }
 

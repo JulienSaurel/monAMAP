@@ -13,7 +13,7 @@ class ControllerNosProduits
     {
         $controller ='nosProduits';
         $view = 'nosproducteurs';
-        $pagetitle = 'Nos Produits';
+        $pagetitle = 'Nos Producteurs';
         require File::build_path(array('view','view.php')); 
     }
 
@@ -21,7 +21,7 @@ class ControllerNosProduits
     {
         $controller ='nosProduits';
         $view = 'produitsdumoment';
-        $pagetitle = 'Nos Produits';
+        $pagetitle = 'Produits du moment';
         require File::build_path(array('view','view.php')); 
     }
 
