@@ -6,7 +6,7 @@ class ControllerAccueil
 		$controller ='accueil';
         $view = 'accueil';
         $pagetitle = 'Accueil';
-        require File::build_path(array('view','accueil','accueil.php')); 
+        require File::build_path(array('view','view.php')); 
 	}
 
 	 public static function error()
