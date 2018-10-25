@@ -6,16 +6,16 @@ class Conf {
     static private $databases = array(
         // Le nom d'hote est webinfo a l'IUT
         // ou localhost sur votre machine
-        'hostname' => 'localhost',
+        'hostname' => 'webinfo',
         // A l'IUT -> login
         // Chez vous -> vous le coisissez en creant la base
-        'database' => 'Mon AMAP',
+        'database' => 'robertl',
         // A l'IUT, c'est votre login
         // Sur votre machine, vous avez surement un compte 'root'
-        'login' => 'root',
+        'login' => 'robertl',
         // A l'IUT, c'est votre mdp (INE par defaut)
         // Pas de mdp en local par defaut
-        'password' => ''
+        'password' => 'chapeaumelon'
     );
 
     static public function getDebug() {
