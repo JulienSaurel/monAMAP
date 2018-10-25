@@ -26,7 +26,7 @@
       <li><a href="?action=display2nd&controller=laVieAlAMAP">Evénements</a></li>
 	  <li><a href="?action=display3rd&controller=laVieAlAMAP">Livre d'or</a></li>
     </ul>
-<li class="monProfil"><a href="?action=display&controller=monProfil">Mon profil</a></li>
+<li class="monProfil"><a href="?action=display1st&controller=monProfil">Mon profil</a></li>
 	<ul>
       <li><a href="?action=display1st&controller=monProfil">Voir mon profil</a></li>
       <li><a href="?action=display2nd&controller=monProfil">Devenir producteur</a></li>
