@@ -1,4 +1,3 @@
-<link href="./CSS/style.css" rel="stylesheet" type="text/css" media="screen" />
 <nav>
 <ul id="menu">
 <li class="accueil"><a href="?action=display&controller=accueil">Accueil</a></li>
