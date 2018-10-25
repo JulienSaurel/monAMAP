@@ -9,13 +9,15 @@ class Conf {
         'hostname' => 'webinfo',
         // A l'IUT -> login
         // Chez vous -> vous le coisissez en creant la base
-        'database' => 'robertl',
+
+        'database' => 'saurelj',
         // A l'IUT, c'est votre login
         // Sur votre machine, vous avez surement un compte 'root'
-        'login' => 'robertl',
+        'login' => 'saurelj',
         // A l'IUT, c'est votre mdp (INE par defaut)
         // Pas de mdp en local par defaut
-        'password' => 'chapeaumelon'
+        'password' => 'gandalf'
+
     );
 
     static public function getDebug() {
