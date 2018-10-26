@@ -11,4 +11,5 @@
             
             echo "<p> Personne d'id:  <a href=\"?action=read&controller=$controller&idPersonne={$idPersonne}\"> $idPersonne </a> . </p>";
         //on affiche l'id personne avec un lien vers ses détails
-        }
+        } 
+        ?>

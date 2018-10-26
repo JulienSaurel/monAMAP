@@ -101,3 +101,4 @@ class ModelPersonne
         return ("{$this->idPersonne}: {$this->prenomPersonne} {$this->nomPersonne} \n mail: {$this->mailPersonne} ");
     }
 }
+?>

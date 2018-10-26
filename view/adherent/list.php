@@ -9,3 +9,4 @@
             echo "<p> Adherent d'id:  <a href=\"?actionA=read&idAdherent={$idAdherent}\"> $idAdherent </a> . </p>"; 
             //on affiche l'id adherent avec un lien vers ses détails
         }
+        ?>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" type="text/css" href="view/CSS/styles.css">
+<link rel="stylesheet" type="text/css" href="css/styles.css">
     <head>
         <meta charset="UTF-8">
         <title><?php echo $pagetitle; ?></title>

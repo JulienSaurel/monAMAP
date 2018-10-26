@@ -17,3 +17,4 @@ class ControllerAccueil
     require File::build_path(array('accueil','accueil.php'));
     }
 }
+?>

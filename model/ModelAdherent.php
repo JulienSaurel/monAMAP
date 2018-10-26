@@ -101,3 +101,4 @@ class ModelAdherent
     	return ("Adherent: {$this->idAdherent}: " . $this->idPersonne->toString() . "\n");
     }
 }
+?>

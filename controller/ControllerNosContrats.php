@@ -48,4 +48,4 @@ class ControllerNosContrats
     $pagetitle = 'Error 404';
     require File::build_path(array('view','view.php'));
     }
-}
+} ?>
