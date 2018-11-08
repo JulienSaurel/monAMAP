@@ -11,7 +11,7 @@ require_once File::build_path(array('controller','ControllerLaVieAlAMAP.php'));
 
 
 //------------controller-------------
-if(!isset($_GET['controller'])) //Si le controller n'a  pas été spécifiée
+if(!isset($_GET['controller'])) //Si le controller n'a  pas été spécifié
 	{
 		$controller = 'accueil'; //On définit un controller par defaut (Personne)
 	}

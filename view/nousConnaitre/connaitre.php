@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html>
-	<meta charset="utf-8">
-	<html lang="fr">
 
-	<head> 
-		<link rel="stylesheet" href="connaitreCSS.css">
-		<title> Nous connaitre </title>
-	</head>
-	<body>
 
 		<h1>Nous connaitre</h1>
 		
@@ -20,6 +11,3 @@
 		<h4>Nous contacter</h4>
 		<div id="contact"><p> Lorem Ipsum </p><div>
 
-
-	</body>
-</html>
