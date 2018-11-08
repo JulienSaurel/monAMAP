@@ -6,6 +6,8 @@
    height: 50px;
    width: 80%;
    text-align:center;
+   background-color: white;
+
 }
 
 #menu {
@@ -16,17 +18,25 @@
   margin-left: 20%;
  }
 #menu li {
+	list-style-type:none;
+ height: 50px;
  float:left;
- margin:auto;
+ margin:0;
  padding:0;
+ background-color: white;
+  border-width:1px;
+ border-style:dotted;
+ border-color:black;
 
  }
 #menu li a {
+	margin: auto;
  display:block;
  width:100px;
  color:black;
  text-decoration:none;
  padding:5px;
+    background-color: white;
  }
 #menu li a:hover {
  color:#FFD700;
@@ -36,10 +46,16 @@
  }
  #menu li:hover ul {
  display:block;
+    background-color: white;
+    margin-top:3px;
+    margin-left: -40px;
  }
 #menu li:hover ul li {
+   
  float:none;
+       background-color: white;
  }
  #menu li ul {
  position:absolute;
+    
  }
