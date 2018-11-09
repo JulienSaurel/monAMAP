@@ -1,12 +1,17 @@
 
+body {
+  background-color: #cce3ce;
+}
+header {
+  width: 100%;
+  height: 20%;
+}
 
 #navMenu {
-   margin-left: 10%;
-   margin-right: 10%;
+  margin-left: 5%;
    height: 50px;
-   width: 80%;
    text-align:center;
-   background-color: white;
+ 
 
 }
 
@@ -23,40 +28,39 @@
  float:left;
  margin:0;
  padding:0;
- background-color: white;
-  border-width:1px;
+ background-color: #f1f9f1;
+  border-width:2px;
  border-style:solid;
- border-color:black;
+ border-color:#115611;
 
  }
 #menu li a {
+  height: 100%;
 	margin: auto;
- display:block;
+ display:inline-block;
  width:100px;
  color:black;
  text-decoration:none;
- padding:5px;
-    background-color: white;
+    background-color: #f1f9f1;
+
  }
 #menu li a:hover {
- color:#481ca5;
+ color:teal;
  }
  #menu li ul {
  display:none;
  }
  #menu li:hover ul {
- 	margin-top:3px;
     margin-left: -40px;
  display:block;
-    background-color: white;
     
  }
 #menu li:hover ul li {
    
  float:none;
-       background-color: white;
+       background-color: #f1f9f1;
  }
  #menu li ul {
- position:absolute;
+ position:relative;
     
  }

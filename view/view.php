@@ -6,8 +6,11 @@
         <title><?php echo $pagetitle; ?></title>
     
     </head>
+    <header>
+    	 <?php require File::build_path(array("view", "menu.php")); ?>
+    </header>
     	<body>
-    <?php require File::build_path(array("view", "menu.php")); ?>
+   
 
 <?php
 

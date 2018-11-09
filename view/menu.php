@@ -38,4 +38,4 @@
 <li class="nousSoutenir"><a href="?action=display&controller=nousSoutenir">Nous soutenir</a></li>
 
 </ul>
-</div> <br>
+</div> 
