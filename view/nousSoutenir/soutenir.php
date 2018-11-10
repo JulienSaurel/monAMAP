@@ -12,15 +12,14 @@
 			<p>
 		      <input type='hidden' name='controller' value='NousSoutenir'>
 		    </p>
-		    <p>
-		      <label for="nom_donnateur">Nom: </label> :
-		      <input type="text" placeholder="Ex : Dupont" name="Nom_donnateur" id="nom_donnateur" required/>
-		    </p>
-		    <p>
+			<p>
 		      <label for="prenom_donnateur">Prénom : </label> :
 		      <input type="text" placeholder="Ex : Henri" name="Prenom_donnateur" id="prenom_donnateur" required/>
 		    </p>
 		    <p>
+		      <label for="nom_donnateur">Nom: </label> :
+		      <input type="text" placeholder="Ex : Dupont" name="Nom_donnateur" id="nom_donnateur" required/>
+		    </p>
 			<p>
 		      <label for="mail_donnateur">Adresse mail : </label> :
 		      <input type="text" placeholder="Ex : henridupont@gmail.com" name="Mail_donnateur" id="mail_donnateur" required/>

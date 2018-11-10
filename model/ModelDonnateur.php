@@ -34,7 +34,7 @@ class ModelDonnateur
             $this->nomDonnateur = $nomDonnateur;
             $this->prenomDonnateur = $prenomDonnateur;
 			$this->montantTotal = $montantTotal;
-
+			
         }
     }
 
@@ -62,7 +62,8 @@ class ModelDonnateur
         return $tab_donn[0];
     }
 
-    public function save() {    
+    public function save() { 
+	
 		$sql="INSERT INTO donnateur(mailAddressDonnateur,nomDonnateur,prenomDonnateur,montantTotal) VALUES (:mail, :nom, :prenom, :montant);";
 		$req_prep = Model::$pdo->prepare($sql);
 
@@ -71,8 +72,8 @@ class ModelDonnateur
 			"nom" => $this->nomDonnateur,
 			"prenom" => $this->prenomDonnateur,
 			"montant" => $this->montantTotal);
-
 		$req_prep->execute($valeurs);
+	
 }
 
     static public function getAllDonnateurs() {
