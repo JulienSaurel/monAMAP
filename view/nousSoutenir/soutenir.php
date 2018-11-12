@@ -5,7 +5,7 @@
 
 
 		  <fieldset>
-		    <legend>Créer une voiture :</legend>
+		    <legend>Faire un don :</legend>
 		    <p>
 		      <input type='hidden' name='action' value='donnated'>
 		    </p>
@@ -33,4 +33,4 @@
 		    </p>
 		  </fieldset> 
 </form>
->>>>>>> refs/remotes/origin/master
+
