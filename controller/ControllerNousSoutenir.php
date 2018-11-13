@@ -24,6 +24,7 @@ class ControllerNousSoutenir
         $mail = $_GET['Mail_donnateur'];
 		$montant = $_GET['Montant_don'];
 		
+		if($montant > 0){
 		$sql="SELECT COUNT(*) FROM donnateur WHERE mailAddressDonnateur=:tag";
 
     	$req_prep = Model::$pdo->prepare($sql);
@@ -66,5 +67,12 @@ class ControllerNousSoutenir
         $view = 'donnated';
         $pagetitle = 'Merci !';
         require File::build_path(array('view','view.php'));
-	}
-} ?>
+    } else {
+    	$controller ='nousSoutenir';
+        $view = 'erreurMontant';
+        $pagetitle = 'Erreur';
+        require File::build_path(array('view','view.php'));
+    	
+    }
+		}
+	} ?>
