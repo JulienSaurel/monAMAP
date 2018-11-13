@@ -8,6 +8,7 @@ body {
 header {
 }
 
+
 nav {
   text-align: center;
 }
@@ -18,7 +19,6 @@ nav ul {
   list-style-type: none;
   position: fixed;
   top: 0;
-    background-color: #81b578;
 
 
  }
@@ -26,6 +26,7 @@ nav ul {
  nav a {
   text-decoration: none;
   color: black;
+  display: block;
  }
 
 #menu {
@@ -35,38 +36,55 @@ nav ul {
   left: 50%;
   transform: translate(-50%);
   width: 1320px;
-
+   
 }
 
 #menu > li {
   display: inline-block;
   width: 170px;
-  background-color: #b6eead;
-  
-  padding: 5px;
-  border-radius: 50px;
+  background-color: #adbfab;
+  border: 1px solid #cbdcc9;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 7px;
   text-align: center;
+  margin-top: 10px;
 
 }
 
 #menu > li > a {
   width: 100%;
+  display: block;
+  padding-top: 5px;
+    padding-bottom: 5px;
+    height: 40px;
+
+
 }
 
 #menu > li > ul {
-  top: -300%;
+  top: -500%;
   text-align: center;
-  background-color: #81b578;
-  border: 2px solid #b6eead;
+  background-color: #cbdcc9;
+  border: 2px solid #adbfab;
   border-radius: 8px;
-  transition: top .7s;
-  width: 170px;
+  transition: top .6s;
+  width: 168px;
   z-index: -50;
 
 }
 
 #menu > li:hover > ul {
-  top: 29px;
-  transition: top .7s;
+  top: 60px;
+  transition: top 0.2s;
 }
 
+#menu > li:hover, #menu > li > ul > li:hover {
+  border: 1px solid #adbfab;
+}
+
+#menu > li > ul > li > a{
+  border-bottom:1px solid #adbfab;
+  padding-top:8px;
+  padding-bottom: 8px;
+}
