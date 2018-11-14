@@ -2,4 +2,4 @@
 <p> Au total, vous avez aidé l'AMAP de <?php echo $donnateur->get('montantTotal') ?> € ! </p>
 
 
-<a href="files/facture.pdf" target="_blank"> télécharger</a>
+<a href="files/facture.pdf" target="_blank"> télécharger la facture </a>
