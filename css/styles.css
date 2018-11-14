@@ -6,15 +6,21 @@ src: url("font/Philosopher-Regular.ttf");
 
 body {
   background-color: #cce3ce;
-  margin-top: 90px;
+  margin-top: 10%;
   font-family: "Philosopher";
   font-size: 20px;
+  margin-left: 5%;
 
 
 }
 
 
+footer {
+  margin-top: 20%;
+}
+
 header {
+
 }
 
 
@@ -113,3 +119,18 @@ nav ul {
   padding-bottom: 8px;
 }
 
+#logos {
+  height: 15%;
+  width: 100%;
+  display: inline-block;
+}
+
+#logoFB , #logoTT , #logoGP {
+  padding-left: 1%;
+  height: 2%;
+  width: 2%;
+} 
+
+a {
+  text-decoration: none;
+}
