@@ -1,6 +1,8 @@
 <?php 
 class ControllerLaVieAlAMAP
 {
+    protected static $object='laVieAlAMAP';
+
 	public static function display()
 	{
 		$controller ='laVieAlAMAP';

@@ -2,13 +2,15 @@
 
 require_once File::build_path(array('model','Model.php'));
 
-class ModelLivreDor 
+class ModelLivreDor extends Model
 {
 
     private $message;
     private $date;
     private $id_message;
 	private $idAuteur;
+    static protected $object = 'livreDor';
+    protected static $primary='id_message';
 
     // Getter générique
     public function get($nom_attribut) 
@@ -38,7 +40,7 @@ class ModelLivreDor
         }
     }
 
-    static public function getMessageById($idMess) 
+    /*static public function getMessageById($idMess) 
     {
     $sql = "SELECT * from livreDor WHERE id_message=:nom_tag";
     // Préparation de la requête
@@ -60,7 +62,7 @@ class ModelLivreDor
             return false;
         }
         return $tab_mess[0];
-    }
+    }*/
 
     public function save() { 
 	
@@ -76,7 +78,7 @@ class ModelLivreDor
 	
 }
 
-    static public function getAllMessages() {
+    /*static public function getAllMessages() {
 
         $rep = Model::$pdo->query('SELECT * FROM livreDor');
         $rep->setFetchMode(PDO::FETCH_CLASS, 'ModelLivreDor');
@@ -86,7 +88,7 @@ class ModelLivreDor
 
         return $tab_mess;
     }
-
+*/
     /*
     public function toString() 
     {

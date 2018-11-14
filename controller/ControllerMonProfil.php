@@ -1,6 +1,9 @@
 <?php 
 class ControllerMonProfil
 {
+
+    protected static $object='monProfil';
+
 	public static function display()
 	{
 		$controller ='monProfil';
