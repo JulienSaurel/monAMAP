@@ -10,13 +10,14 @@ body {
   font-family: "Philosopher";
   font-size: 20px;
   margin-left: 5%;
+  margin-right: 5%;
 
 
 }
 
 
 footer {
-  margin-top: 20%;
+  top: 80%;
 }
 
 header {
@@ -51,6 +52,7 @@ nav ul {
   left: 50%;
   transform: translate(-50%);
   width: 1320px;
+  background-color: #cce3ce;
    
 }
 
@@ -120,9 +122,12 @@ nav ul {
 }
 
 #logos {
+  display: inline-block;
   height: 15%;
   width: 100%;
   display: inline-block;
+  margin-top: 10%;
+  border-top: 1px solid #adbfab;
 }
 
 #logoFB , #logoTT , #logoGP {
