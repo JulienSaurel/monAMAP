@@ -1,6 +1,8 @@
 <?php 
 class ControllerNosProduits
 {
+    protected static $object='nosProduits';
+
 	public static function display()
 	{
 		$controller ='nosProduits';

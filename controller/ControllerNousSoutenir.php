@@ -2,9 +2,10 @@
 require_once File::build_path(array('model','ModelDonnateur.php')); // chargement du modèle
 class ControllerNousSoutenir
 {
+	protected static $object='nousSoutenir';
+
 	public static function display()
 	{
-		$controller ='nousSoutenir';
         $view = 'soutenir';
         $pagetitle = 'Nous Soutenir';
         require File::build_path(array('view','view.php')); 
@@ -12,7 +13,6 @@ class ControllerNousSoutenir
 
 	 public static function error()
     {
-    $controller ='nousSoutenir';
     $view = 'error';
     $pagetitle = 'Error 404';
     require File::build_path(array('view','view.php'));
@@ -63,12 +63,10 @@ class ControllerNousSoutenir
 		$tab_donn = $req_prep->fetchAll();
 		$donnateur = $tab_donn[0];
 		
-		$controller ='nousSoutenir';
         $view = 'donnated';
         $pagetitle = 'Merci !';
         require File::build_path(array('view','view.php'));
     } else {
-    	$controller ='nousSoutenir';
         $view = 'erreurMontant';
         $pagetitle = 'Erreur';
         require File::build_path(array('view','view.php'));

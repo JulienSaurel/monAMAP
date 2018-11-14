@@ -1,7 +1,9 @@
 <?php 
 require_once File::build_path(array('model','ModelDonnateur.php')); // chargement du modèle
-class ControllerNousSoutenir
+class ControllerLivreDor
 {
+    protected static $object='livreDor';
+
 	public static function display()
 	{
 		$controller ='nousSoutenir';
