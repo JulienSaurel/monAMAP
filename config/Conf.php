@@ -9,13 +9,15 @@ class Conf {
         'hostname' => 'localhost',
         // A l'IUT -> login
         // Chez vous -> vous le coisissez en creant la base
-        'database' => 'Mon AMAP',
+
+        'database' => 'mon amap',
         // A l'IUT, c'est votre login
         // Sur votre machine, vous avez surement un compte 'root'
         'login' => 'root',
         // A l'IUT, c'est votre mdp (INE par defaut)
         // Pas de mdp en local par defaut
         'password' => ''
+
     );
 
     static public function getDebug() {

@@ -1,18 +1,8 @@
-<!DOCTYPE html>
-<html>
-	<meta charset="utf-8">
-	<html lang="fr">
 
-	<head> 
 		<link rel="stylesheet" href="lamapCSS.css">
-		<title> Où trouver l'AMAP </title>
-	</head>
-	<body>
+	
 		<h2>Où nous trouver ?</h2>
-		<div id="map"><p>GOOGLE MAP</p></div>
+		<div id="map"><iframe src="https://www.google.com/maps/d/embed?mid=1jXR-N1Ge3qSqQ48tiTxcWRYDfhcAoGb2" width="640" height="480"></iframe></div>
 		
 
-	</body>
-	<footer>
-	</footer>
-</html>
+

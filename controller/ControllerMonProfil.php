@@ -1,6 +1,9 @@
 <?php 
 class ControllerMonProfil
 {
+
+    protected static $object='monProfil';
+
 	public static function display()
 	{
 		$controller ='monProfil';
@@ -21,7 +24,7 @@ class ControllerMonProfil
     {
         $controller ='monProfil';
         $view = 'devenirproducteur';
-        $pagetitle = 'Mon Profil';
+        $pagetitle = 'Devenir Producteur';
         require File::build_path(array('view','view.php')); 
     }
 
@@ -32,4 +35,4 @@ class ControllerMonProfil
     $pagetitle = 'Error 404';
     require File::build_path(array('view','view.php'));
     }
-}
+} ?>

@@ -1,6 +1,8 @@
 <?php 
 class ControllerAccueil
 {
+    protected static $object='accueil';
+
 	public static function display()
 	{
 		$controller ='accueil';
@@ -14,6 +16,7 @@ class ControllerAccueil
     $controller ='accueil';
     $view = 'error';
     $pagetitle = 'Error 404';
-    require File::build_path(array('view','view.php'));
+    require File::build_path(array('accueil','accueil.php'));
     }
 }
+?>
