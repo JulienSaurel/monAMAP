@@ -1,8 +1,6 @@
 <?php 
 class ControllerNousConnaitre
 {
-	protected static $object='nousConnaitre';
-
 	public static function display1st()
 	{
 		$controller ='nousConnaitre';

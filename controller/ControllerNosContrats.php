@@ -1,8 +1,6 @@
 <?php 
 class ControllerNosContrats
 {
-    protected static $object='nosContrats';
-
 	public static function display()
 	{
 		$controller ='nosContrats';

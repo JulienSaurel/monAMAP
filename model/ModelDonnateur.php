@@ -2,15 +2,13 @@
 
 require_once File::build_path(array('model','Model.php'));
 
-class ModelDonnateur extends Model
+class ModelDonnateur 
 {
 
     private $mailAddressDonnateur;
     private $nomDonnateur;
     private $prenomDonnateur;
 	private $montantTotal;
-    static protected $object = 'donnateur';
-    protected static $primary='mailAddressDonnateur';
 
     // Getter générique
     public function get($nom_attribut) 
@@ -40,7 +38,7 @@ class ModelDonnateur extends Model
         }
     }
 
-    /*static public function getDonnateurByMail($mailAddressDonnateur) 
+    static public function getDonnateurByMail($mailAddressDonnateur) 
     {
     $sql = "SELECT * from donnateur WHERE mailAddressDonnateur=:nom_tag";
     // Préparation de la requête
@@ -62,7 +60,7 @@ class ModelDonnateur extends Model
             return false;
         }
         return $tab_donn[0];
-    }*/
+    }
 
     public function save() { 
 	
@@ -78,7 +76,7 @@ class ModelDonnateur extends Model
 	
 }
 
-    /*static public function getAllDonnateurs() {
+    static public function getAllDonnateurs() {
 
         $rep = Model::$pdo->query('SELECT * FROM donnateur');
         $rep->setFetchMode(PDO::FETCH_CLASS, 'ModelDonnateur');
@@ -93,6 +91,6 @@ class ModelDonnateur extends Model
     public function toString() 
     {
     	return ("Donnateur: {$this->$prenomDonnateur} " . $this->$nomDonnateur ." d'adresse mail : " . $this->$mailAddressDonnateur ."\n");
-    }*/
+    }
 }
 ?>

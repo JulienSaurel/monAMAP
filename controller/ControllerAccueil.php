@@ -1,8 +1,6 @@
 <?php 
 class ControllerAccueil
 {
-    protected static $object='accueil';
-
 	public static function display()
 	{
 		$controller ='accueil';

@@ -3,12 +3,12 @@ require_once File::build_path(array('model','ModelPersonne.php'));
 
 class ControllerPersonne
 {   
-    protected static $object='personne';
 
     public static function readAll() 
     {
-        $tab_pers = ModelPersonne::selectAll();
+        $tab_pers = ModelPersonne::getAllPersonnes();
         //appel au modèle pour gerer la BD
+        $controller ='personne';
         $view = 'list';
         $pagetitle = 'Liste des personnes';
         require File::build_path(array('view','view.php'));  
@@ -19,9 +19,10 @@ class ControllerPersonne
     {
     	$p = $_GET['idPersonne'];
 
-        $p = ModelPersonne::select($p);
+        $p = ModelPersonne::getPersonneById($p);
         //appel au modèle pour gerer la BD
-        
+        $controller ='personne';
+
         if($p) 
         {
         $view = 'detail';

@@ -2,15 +2,13 @@
 
 require_once File::build_path(array('model','ModelPersonne.php'));
 
-class ModelAdherents extends Model 
+class ModelAdherent 
 {
 
     private $idAdherent;
     private $idPersonne;
     private $adressepostaleAdherent;
     private $PW_Adherent;
-    static protected $object = 'adherents';
-    protected static $primary='idAdherent';
 
     // Getter générique
     public function get($nom_attribut) 
@@ -39,7 +37,7 @@ class ModelAdherents extends Model
         }
     }
 
-    /*static public function getAdherentById($idAdherent) 
+    static public function getAdherentById($idAdherent) 
     {
     $sql = "SELECT * from Adherents WHERE idAdherent=:nom_tag";
     // Préparation de la requête
@@ -61,7 +59,7 @@ class ModelAdherents extends Model
             return false;
         }
         return $tab_adh[0];
-    }*/
+    }
 
     public function save() {    
     $sql = "INSERT INTO Adherents (idAdherent, idPersonne, adressepostaleAdherent, PW_Adherent) VALUES (:nom_tag1 ,:nom_tag2,:nom_tag3,:nom_tag4)";
@@ -81,7 +79,7 @@ class ModelAdherents extends Model
     $req_prep->execute($values);
 }
 
-    /*static public function getAllAdherents() {
+    static public function getAllAdherents() {
 
         $rep = Model::$pdo->query('SELECT * FROM Adherents');
         $rep->setFetchMode(PDO::FETCH_CLASS, 'ModelAdherents');
@@ -90,7 +88,7 @@ class ModelAdherents extends Model
 
 
         return $tab_adh;
-    }*/
+    }
 
     // une methode d'affichage.
     // public function afficher() 
@@ -98,9 +96,9 @@ class ModelAdherents extends Model
     //     echo "Adherent: {$this->idAdherent}: " . $this->idPersonne->toString() . "adresse postale :  {$this->adressepostaleAdherent}\n";
     // }
 
-   /* public function toString() 
+    public function toString() 
     {
     	return ("Adherent: {$this->idAdherent}: " . $this->idPersonne->toString() . "\n");
-    }*/
+    }
 }
 ?>

@@ -2,15 +2,13 @@
 
 require_once File::build_path(array('model','Model.php'));
 
-class ModelPersonne extends Model 
+class ModelPersonne 
 {
 
     private $idPersonne;
     private $nomPersonne;
     private $prenomPersonne;
     private $mailPersonne;
-    static protected $object = 'personne';
-    protected static $primary='idPersonne';
 
     // Getter générique
     public function get($nom_attribut) 
@@ -40,7 +38,7 @@ class ModelPersonne extends Model
     }
 
 
-    /*static public function getPersonneById($idPersonne) 
+    static public function getPersonneById($idPersonne) 
     {
     $sql = "SELECT * from Personne WHERE idPersonne=:nom_tag";
     // Préparation de la requête
@@ -62,7 +60,7 @@ class ModelPersonne extends Model
             return false;
         }
         return $tab_pers[0];
-    }*/
+    }
 
     public function save() {    
     $sql = "INSERT INTO Personne (idPersonne, nomPersonne, prenomPersonne, mailPersonne) VALUES (:nom_tag1 ,:nom_tag2,:nom_tag3,:nom_tag4)";
@@ -82,7 +80,7 @@ class ModelPersonne extends Model
     $req_prep->execute($values);
 }
 
-    /*static public function getAllPersonnes() {
+    static public function getAllPersonnes() {
 
         $rep = Model::$pdo->query('SELECT * FROM Personne');
         $rep->setFetchMode(PDO::FETCH_CLASS, 'ModelPersonne');
@@ -91,16 +89,16 @@ class ModelPersonne extends Model
 
 
         return $tab_pers;
-    }*/
+    }
     // // une methode d'affichage.
     // public function afficher() 
     // {
     //     echo "{$this->idPersonne}: {$this->prenomPersonne} {$this->nomPersonne} \n mail: {$this->mailPersonne} ";
     // }
 
-    /*public function toString() 
+    public function toString() 
     {
         return ("{$this->idPersonne}: {$this->prenomPersonne} {$this->nomPersonne} \n mail: {$this->mailPersonne} ");
-    }*/
+    }
 }
 ?>
