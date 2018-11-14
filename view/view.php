@@ -6,10 +6,12 @@
         <title><?php echo $pagetitle; ?></title>
     
     </head>
-    <header>
-    	 <?php require File::build_path(array("view", "menu.php")); ?>
-    </header>
+    
     	<body>
+        <header>
+         <?php require File::build_path(array("view", "menu.php")); ?>
+        </header>
+            <main>
    
 
 <?php
@@ -18,6 +20,7 @@ $filepath = File::build_path(array("view", $controller, "$view.php"));
 require $filepath;
 
 ?>
+    </main>
     </body>
 </html>
 

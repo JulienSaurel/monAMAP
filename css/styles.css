@@ -1,7 +1,15 @@
 
+@font-face {
+font-family: "Philosopher";
+src: url("font/Philosopher-Regular.ttf");
+}
+
 body {
   background-color: #cce3ce;
   margin-top: 90px;
+  font-family: "Philosopher";
+  font-size: 20px;
+
 
 }
 
@@ -50,18 +58,33 @@ nav ul {
   border-radius: 7px;
   text-align: center;
   margin-top: 10px;
+  top: 50%;
 
 }
 
 #menu > li > a {
   width: 100%;
   display: block;
-  padding-top: 5px;
-    padding-bottom: 5px;
+  padding-top: 15px;
     height: 40px;
 
 
+
 }
+
+#menu > li:hover > a{
+  color: black;
+    transition: color 250ms linear;
+    
+}
+
+#menu > li:hover{
+  background-color: #cbdcc9;
+    transition: background-color 500ms linear;
+    
+}
+
+
 
 #menu > li > ul {
   top: -500%;
@@ -76,7 +99,7 @@ nav ul {
 }
 
 #menu > li:hover > ul {
-  top: 60px;
+  top: 65px;
   transition: top 0.2s;
 }
 
@@ -89,3 +112,4 @@ nav ul {
   padding-top:8px;
   padding-bottom: 8px;
 }
+
