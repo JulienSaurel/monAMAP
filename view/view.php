@@ -19,5 +19,8 @@ require $filepath;
 
 ?>
     </body>
+    <footer>
+       <?php require File::build_path(array("view","footer.php")); ?>
+    </footer>
 </html>
 

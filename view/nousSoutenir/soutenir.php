@@ -25,7 +25,7 @@
 		      <input type="email" placeholder="Ex : henridupont@gmail.com" name="Mail_donnateur" id="mail_donnateur" required/>
 		    </p>
 		    <p>
-		      <label for="montant_don">Montant à donner (en euro): </label> :
+		      <label for="montant_don">Montant à donner (en euro) </label> :
 		      <input type="number" placeholder="Ex : 5" name="Montant_don" id="montant_don" required/>
 		    </p>
 		    <p>
