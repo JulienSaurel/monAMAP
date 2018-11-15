@@ -8,7 +8,7 @@
       <input type="text" placeholder="" name="Pseudo" id="pseudo" required/>
     </p>
     <p>
-      <label for="message">Message</label> :
+      <label for="message">Message :</label> 
       <input type="text" placeholder="288 caracteres maximum" name="Message" id="message" required/>
     </p> 
     <p>

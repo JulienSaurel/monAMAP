@@ -13,19 +13,19 @@
 		      <input type='hidden' name='controller' value='NousSoutenir'>
 		    </p>
 			<p>
-		      <label for="prenom_donnateur">Prénom : </label> :
+		      <label for="prenom_donnateur">Prénom :</label> 
 		      <input type="text" placeholder="Ex : Henri" name="Prenom_donnateur" id="prenom_donnateur" required/>
 		    </p>
 		    <p>
-		      <label for="nom_donnateur">Nom: </label> :
+		      <label for="nom_donnateur">Nom :</label> 
 		      <input type="text" placeholder="Ex : Dupont" name="Nom_donnateur" id="nom_donnateur" required/>
 		    </p>
 			<p>
-		      <label for="mail_donnateur">Adresse mail : </label> :
+		      <label for="mail_donnateur">Adresse mail :</label> 
 		      <input type="email" placeholder="Ex : henridupont@gmail.com" name="Mail_donnateur" id="mail_donnateur" required/>
 		    </p>
 		    <p>
-		      <label for="montant_don">Montant à donner (en euro) </label> :
+		      <label for="montant_don">Montant à donner (en euro) :</label> 
 		      <input type="number" placeholder="Ex : 5" name="Montant_don" id="montant_don" required/>
 		    </p>
 		    <p>
