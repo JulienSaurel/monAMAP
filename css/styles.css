@@ -187,6 +187,28 @@ transition: color 300ms;
 transition: background-color 300ms
 }
 
-#message {
-  border: 2px solid #738173;
+textarea {
+  border-left: 0px;
+  border-bottom: 2px solid #738173;
+  border-top: 2px solid #738173;
+  border-right: 0px;
+  resize: none;
+  background-color: #cce3ce;
+  width: 15%;
+   transition: color 500ms;
+transition: background-color 500ms;
+transition: width 500ms;
+}
+
+textarea:focus {
+  background-color: #738173;
+  color: white;
+  width:25%;
+ transition: color 500ms;
+transition: background-color 500ms;
+transition: width 500ms;
+}
+
+form {
+  border: 0px;
 }
