@@ -21,11 +21,11 @@ header {
 }
 
 
-nav {
+#navMenu {
   text-align: center;
 }
 
-nav ul {
+#menu, #menu ul {
   list-style: none;
   padding: 0;
   list-style-type: none;
