@@ -147,7 +147,7 @@ a {
 a:not(.lienMenu) {
   text-decoration: none;
   color: #636363;
-  border-bottom: 0.1em solid #636363
+  border-bottom: 0.02em solid #636363
 
 }
 
@@ -225,6 +225,7 @@ transition: width 500ms;
 form {
   border: 0px;
 }
+
 @-webkit-keyframes blinker {
   from { opacity: 1.0; }
   to { opacity: 0.0; }
