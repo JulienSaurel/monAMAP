@@ -7,10 +7,11 @@ class ModelLivreDor extends Model
 
     private $message;
     private $date;
-    private $id_message;
+    private $id;
 	private $idAuteur;
+    private static $nbmessagepage = 5;
     static protected $object = 'livreDor';
-    protected static $primary='id_message';
+    protected static $primary='id';
 
     // Getter générique
     public function get($nom_attribut) 
@@ -40,30 +41,6 @@ class ModelLivreDor extends Model
         }
     }
 
-    /*static public function getMessageById($idMess) 
-    {
-    $sql = "SELECT * from livreDor WHERE id_message=:nom_tag";
-    // Préparation de la requête
-    $req_prep = Model::$pdo->prepare($sql);
-
-    $values = array(
-        "nom_tag" => $idMess,
-        //nomdutag => valeur, ...
-    );
-    // On donne les valeurs et on exécute la requête     
-    $req_prep->execute($values);
-
-    // On récupère les résultats comme précédemment
-    $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelLivreDor');
-    $tab_mess = $req_prep->fetchAll();
-    // S'il n'y a pas de résultats, on renvoie false
-        if (empty($tab_mess)) 
-        {
-            return false;
-        }
-        return $tab_mess[0];
-    }*/
-
     public function save() { 
 	
 		$sql="INSERT INTO livreDor(message,date,id_message,idAuteur) VALUES (:msg, :date, :idMess, :author);";
@@ -78,21 +55,14 @@ class ModelLivreDor extends Model
 	
 }
 
-    static public function getAllMessages() {
-
-        $rep = Model::$pdo->query('SELECT * FROM livreDor');
-        $rep->setFetchMode(PDO::FETCH_CLASS, 'ModelLivreDor');
-        $tab_mess = $rep->fetchAll();
-
-
-
-        return $tab_mess;
-    }
-
-    /*
-    public function toString() 
+    public static function getNbPages()
     {
-    	return ("Donnateur: {$this->$prenomDonnateur} " . $this->$nomDonnateur ." d'adresse mail : " . $this->$mailAddressDonnateur ."\n");
-    }*/
+        
+        $totalDesMessages = self::countAll();
+        $nombreDePages = ceil($totalDesMessages / self::$nbmessagepage);
+        //var_dump($nombreDePages);
+        
+        return $nombreDePages;
+    }
 }
 ?>

@@ -8,8 +8,6 @@ require_once File::build_path(array('controller','ControllerNosProduits.php'));
 require_once File::build_path(array('controller','ControllerNosContrats.php'));
 require_once File::build_path(array('controller','ControllerMonProfil.php'));
 require_once File::build_path(array('controller','ControllerLaVieAlAMAP.php'));
-require_once File::build_path(array('controller','ControllerLivreDor.php'));
-
 
 //------------controller-------------
 if(!isset($_GET['controller'])) //Si le controller n'a  pas été spécifié

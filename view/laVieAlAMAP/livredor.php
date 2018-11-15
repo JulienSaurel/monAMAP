@@ -1,15 +1,16 @@
 
-<form method="post" action="./?action=created&controller=personne"> 
+<form method="post" action="TODO"> 
  <!-- On recupere les infos avec la methode post et on redirige vers la sauvegarde dans la base de donnees -->
   <fieldset>
     <legend>Mon site vous plaît? Laissez moi un message !</legend>
     <p>
       <label for="pseudo">Pseudo :</label> 
-      <input type="text" placeholder="" name="Pseudo" id="pseudo" required/>
+       <input type="text" name="Message" id="message" required/>
     </p>
     <p>
-      <label for="message">Message</label> :
-      <input type="text" placeholder="288 caracteres maximum" name="Message" id="message" required/>
+      <label for="message">Message :</label> 
+      <textarea name="message" placeholder="288 caracteres maximum" rows="8" cols="35"></textarea><br />
+
     </p> 
     <p>
       <input type="submit" value="Envoyer" />
@@ -17,22 +18,7 @@
   </fieldset> 
 </form>
 
-<?php
-foreach ($tabMess as $m){            
-            $msg = rawurlencode($m->get('message'));//htmlspecialchars($v->getImmatriculation());
-            echo <<< FIN
-            <p>  
-                $msg
-            </p>
-FIN;
+ <?php
 
-if($m->get('idAuteur') != NULL ){
-  $aut = rawurlencode($m->get('idAuteur'));//htmlspecialchars($v->getImmatriculation());
-  echo <<< AUT
-  <p>
-  $aut
-  </p>
-AUT;
-}
-        }
+
 ?>

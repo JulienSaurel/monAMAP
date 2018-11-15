@@ -72,6 +72,21 @@ static public function selectAll() {
    
         $req_prep->execute();
     }
+
+    static public function countAll()
+    {
+        $table_name = static::$object;
+        $class_name = 'Model' . ucfirst($table_name);        
+        $sql = 'SELECT COUNT('.static::$primary.') FROM '.ucfirst($table_name);
+        // var_dump($sql);
+        $req_prep = Model::$pdo->prepare($sql);
+
+        $req_prep->execute();
+
+        $tab = $req_prep->fetchColumn();
+        // var_dump($tab[0][0]);
+        return (int)$tab;
+    }
 }
 Model::Init();
 /* 
