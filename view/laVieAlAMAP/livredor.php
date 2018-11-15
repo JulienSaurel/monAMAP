@@ -10,7 +10,6 @@
     <p>
       <label for="message">Message :</label> 
       <textarea name="message" placeholder="288 caracteres maximum" rows="8" cols="35"></textarea><br />
-
     </p> 
     <p>
       <input type="submit" value="Envoyer" />
