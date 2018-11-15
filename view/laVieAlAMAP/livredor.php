@@ -1,3 +1,4 @@
+
 <form method="post" action="./?action=created&controller=personne"> 
  <!-- On recupere les infos avec la methode post et on redirige vers la sauvegarde dans la base de donnees -->
   <fieldset>
@@ -15,3 +16,23 @@
     </p>
   </fieldset> 
 </form>
+
+<?php
+foreach ($tabMess as $m){            
+            $msg = rawurlencode($m->get('message'));//htmlspecialchars($v->getImmatriculation());
+            echo <<< FIN
+            <p>  
+                $msg
+            </p>
+FIN;
+
+if($m->get('idAuteur') != NULL ){
+  $aut = rawurlencode($m->get('idAuteur'));//htmlspecialchars($v->getImmatriculation());
+  echo <<< AUT
+  <p>
+  $aut
+  </p>
+AUT;
+}
+        }
+?>

@@ -78,7 +78,7 @@ class ModelLivreDor extends Model
 	
 }
 
-    /*static public function getAllMessages() {
+    static public function getAllMessages() {
 
         $rep = Model::$pdo->query('SELECT * FROM livreDor');
         $rep->setFetchMode(PDO::FETCH_CLASS, 'ModelLivreDor');
@@ -88,7 +88,7 @@ class ModelLivreDor extends Model
 
         return $tab_mess;
     }
-*/
+
     /*
     public function toString() 
     {
