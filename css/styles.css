@@ -10,10 +10,11 @@ body {
   margin-top: 10%;
   font-family: "Philosopher";
   font-size: 20px;
-  margin-left: 5%;
-  margin-right: 5%;
+}
 
-
+main {
+    margin-left: 10%;
+  margin-right: 10%;
 }
 
 header {
@@ -119,6 +120,8 @@ header {
 
 /* Reglage footer */
 footer {
+  margin-left: 10%;
+  margin-right: 10%;
   top: 80%;
 }
 
@@ -137,10 +140,20 @@ footer {
   width: 25px;
 }
 
-
-
 a {
   text-decoration: none;
+}
+
+a:not(.lienMenu) {
+  text-decoration: none;
+  color: #636363;
+  border-bottom: 0.1em solid #636363
+
+}
+
+a:hover:not(.lienMenu) {
+  color: #828282;
+
 }
 
 input {
@@ -211,4 +224,29 @@ transition: width 500ms;
 
 form {
   border: 0px;
+}
+@-webkit-keyframes blinker {
+  from { opacity: 1.0; }
+  to { opacity: 0.0; }
+}
+
+
+.erreurFormulaire {
+  font-size: 25px;
+  color:red;
+  padding: 3px;
+  transition: color 500ms;
+transition: background-color 500ms;
+animation-name: blinker;
+animation-iteration-count: infinite;
+animation-timing-function: cubic-bezier(.5, 0, 1, 1);
+animation-duration: 1000ms;
+}
+
+.erreurFormulaire:hover {
+  font-size: 25px;
+  background-color:red;
+  color: white;
+  transition: color 500ms;
+transition: background-color 500ms;
 }
