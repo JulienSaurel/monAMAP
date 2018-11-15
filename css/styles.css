@@ -132,10 +132,11 @@ nav ul {
 
 #logoFB , #logoTT , #logoGP {
   padding-left: 1%;
-  height: 2%;
-  width: 2%;
+  height: 25px;
+  width: 25px;
 } 
 
 a {
   text-decoration: none;
 }
+
