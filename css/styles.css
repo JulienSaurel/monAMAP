@@ -1,9 +1,10 @@
-
+/* Déclaration police du site */
 @font-face {
 font-family: "Philosopher";
 src: url("font/Philosopher-Regular.ttf");
 }
 
+/* Regles du body */
 body {
   background-color: #cce3ce;
   margin-top: 10%;
@@ -15,21 +16,16 @@ body {
 
 }
 
-
-footer {
-  top: 80%;
-}
-
 header {
 
 }
 
 
-nav {
+#navMenu {
   text-align: center;
 }
 
-nav ul {
+#menu {
   list-style: none;
   padding: 0;
   list-style-type: none;
@@ -39,7 +35,7 @@ nav ul {
 
  }
 
- nav a {
+ #menu a {
   text-decoration: none;
   color: black;
   display: block;
@@ -121,6 +117,11 @@ nav ul {
   padding-bottom: 8px;
 }
 
+/* Reglage footer */
+footer {
+  top: 80%;
+}
+
 #logos {
   display: inline-block;
   height: 15%;
@@ -134,7 +135,9 @@ nav ul {
   padding-left: 1%;
   height: 25px;
   width: 25px;
-} 
+}
+
+
 
 a {
   text-decoration: none;

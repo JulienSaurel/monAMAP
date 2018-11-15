@@ -1,4 +1,4 @@
-<nav>
+<nav id="navMenu">
   <ul id="menu">
     <li class="accueil">
       <a href="?action=display&controller=accueil">Accueil</a>
