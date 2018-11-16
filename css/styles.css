@@ -5,19 +5,27 @@ src: url("font/Philosopher-Regular.ttf");
 }
 
 /* Regles du body */
-body {
+body, html{
   background-color: #cce3ce;
-  margin-top: 10%;
   font-family: "Philosopher";
   font-size: 20px;
+    height: 99%;
+}
+
+body {
+    display: flex !important;
+  flex-direction: column !important;
 }
 
 main {
     margin-left: 10%;
   margin-right: 10%;
+    margin-top: 10%;
+    flex: 1 0 auto !important;
 }
 
 header {
+
 
 }
 
@@ -30,7 +38,7 @@ header {
   list-style: none;
   padding: 0;
   list-style-type: none;
-  position: fixed;
+  position: absolute;
   top: 0;
 
 
@@ -116,28 +124,6 @@ header {
   border-bottom:1px solid #adbfab;
   padding-top:8px;
   padding-bottom: 8px;
-}
-
-/* Reglage footer */
-footer {
-  margin-left: 10%;
-  margin-right: 10%;
-  top: 80%;
-}
-
-#logos {
-  display: inline-block;
-  height: 15%;
-  width: 100%;
-  display: inline-block;
-  margin-top: 10%;
-  border-top: 1px solid #adbfab;
-}
-
-#logoFB , #logoTT , #logoGP {
-  padding-left: 1%;
-  height: 25px;
-  width: 25px;
 }
 
 a {
@@ -251,3 +237,31 @@ animation-duration: 1000ms;
   transition: color 500ms;
 transition: background-color 500ms;
 }
+
+/* Reglage footer */
+footer {
+  margin-left: 10%;
+  margin-right: 10%;
+   flex-shrink: 0 !important;
+}
+
+#logos {
+  display: inline-block;
+  height: 15%;
+  width: 100%;
+  display: inline-block;
+  margin-top: 10%;
+  border-top: 1px solid #adbfab;
+}
+
+#logoFB , #logoTT , #logoGP {
+  padding-left: 1%;
+  height: 25px;h
+  width: 25px;
+}
+
+
+
+
+
+
