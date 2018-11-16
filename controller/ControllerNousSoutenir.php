@@ -66,7 +66,7 @@ class ControllerNousSoutenir
       <body>
        <p> L'.$quote.'équipe de AMAP Occitanie vous remercie mour votre don de '. $montant .'€ à notre association </p>
       </body>
-      <footer> <p> le site de l'.$quote.'AMAP : http://webinfo.iutmontp.univ-montp2.fr/~robertl/AMAP/monAMAP/index.php?action=display&controller=accueil</p>
+      <footer> <p> le site de l'.$quote.'AMAP : http://webinfo.iutmontp.univ-montp2.fr/~robertl/AMAP/monAMAP/</p>
       </footer>
      </html>
      ';

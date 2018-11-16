@@ -15,6 +15,7 @@ body, html{
 body {
     display: flex !important;
   flex-direction: column !important;
+ 
 }
 
 main {
@@ -27,6 +28,10 @@ main {
 header {
 
 
+}
+
+label {
+  vertical-align: top;
 }
 
 
@@ -93,7 +98,7 @@ header {
 
 #menu > li:hover{
   background-color: #cbdcc9;
-    transition: background-color 500ms linear;
+    transition: background-color 0.9s linear;
     
 }
 
@@ -108,12 +113,16 @@ header {
   transition: top .6s;
   width: 168px;
   z-index: -50;
+  /*opacity: 0.0;*/
 
 }
 
 #menu > li:hover > ul {
   top: 65px;
   transition: top 0.2s;
+  /*opacity: 1.0;
+  transition: opacity 0.9s;*/
+
 }
 
 #menu > li:hover, #menu > li > ul > li:hover {
