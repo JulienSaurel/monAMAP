@@ -55,17 +55,19 @@ class ControllerNousSoutenir
      $to  = $mail; // notez la virgule
      $quote = "'";
      // Sujet
-     $subject = 'Remerciements de monAMAP';
+     $subject = 'Remerciements de AMAP Occitanie';
 
      // message
      $message = '
      <html>
       <head>
-       <title>Remerciements de monAMAP</title>
+       <title>Remerciements de AMAP Occitanie</title>
       </head>
       <body>
-       <p> L'.$quote.'équipe de l'.$quote.'AMAP monAMAP vous remercie mour votre don de '. $montant .'€ à notre association </p>
+       <p> L'.$quote.'équipe de AMAP Occitanie vous remercie mour votre don de '. $montant .'€ à notre association </p>
       </body>
+      <footer> <p> le site de l'.$quote.'AMAP : http://webinfo.iutmontp.univ-montp2.fr/~robertl/AMAP/monAMAP/index.php?action=display&controller=accueil</p>
+      </footer>
      </html>
      ';
 
@@ -74,7 +76,7 @@ class ControllerNousSoutenir
      $headers[] = 'Content-type: text/html; charset=iso-8859-1';
 
      // En-têtes additionnels
-     $headers[] = 'From: monAMAP <monAMAP@no-reply.com>';
+     $headers[] = 'From: AMAP Occitanie <AMAP-Occitanie@no-reply.com>';
      // Envoi
      mail($to, $subject, $message, implode("\r\n", $headers));
 
