@@ -2,6 +2,7 @@
 <html>
     <head>
        	<link rel="stylesheet" type="text/css" href="css/styles.css">
+        <script src="script/jquery.min.js"></script>
         <script src="script/script.js"></script>
         <meta charset="UTF-8">
         <title><?php echo $pagetitle; ?></title>
