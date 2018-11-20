@@ -1,4 +1,3 @@
-<html>
 
 <h1> Produits du moment: </h1>
 
@@ -8,5 +7,3 @@
          <img src="images/artichaud.jpeg" alt="artichaud" />
           
 </div>
-
-</html>
