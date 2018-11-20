@@ -255,6 +255,7 @@ animation-duration: 1000ms;
   color: white;
   transition: color 500ms;
 transition: background-color 500ms;
+<<<<<<< HEAD
 }
 
 <<<<<<< HEAD
@@ -443,3 +444,6 @@ footer {
 
 
 >>>>>>> 134256029a64f6a903781d5b544e1b354218f4a6
+=======
+}
+>>>>>>> parent of 6e5c986... amap
