@@ -1,6 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <p> Produits </p>
 =======
+=======
+>>>>>>> parent of 6343953... correction
 <html>
 <head>
 <link rel="stylesheet" href="styles_produits.css" />
@@ -20,5 +23,9 @@
 
 </body>
 
+<<<<<<< HEAD
+</html>
+>>>>>>> parent of 6343953... correction
+=======
 </html>
 >>>>>>> parent of 6343953... correction
