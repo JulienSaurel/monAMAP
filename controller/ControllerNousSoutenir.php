@@ -51,6 +51,37 @@ class ControllerNousSoutenir
 			$req_prep->execute($valeurs);
 		}
 		
+		// Plusieurs destinataires
+     $to  = $mail; // notez la virgule
+     $quote = "'";
+     // Sujet
+     $subject = 'Remerciements de AMAP Occitanie';
+
+     // message
+     $message = '
+     <html>
+      <head>
+       <title>Remerciements de AMAP Occitanie</title>
+      </head>
+      <body>
+       <p> L'.$quote.'équipe de AMAP Occitanie vous remercie mour votre don de '. $montant .'€ à notre association </p>
+      </body>
+      <footer> <p> le site de l'.$quote.'AMAP : http://webinfo.iutmontp.univ-montp2.fr/~robertl/AMAP/monAMAP/</p>
+      </footer>
+     </html>
+     ';
+
+     // Pour envoyer un mail HTML, l'en-tête Content-type doit être défini
+     $headers[] = 'MIME-Version: 1.0';
+     $headers[] = 'Content-type: text/html; charset=iso-8859-1';
+
+     // En-têtes additionnels
+     $headers[] = 'From: AMAP Occitanie <AMAP-Occitanie@no-reply.com>';
+     // Envoi
+     mail($to, $subject, $message, implode("\r\n", $headers));
+
+
+
 		$sql="SELECT * FROM donnateur WHERE mailAddressDonnateur=:tag";
 
     	$req_prep = Model::$pdo->prepare($sql);
@@ -72,5 +103,6 @@ class ControllerNousSoutenir
         require File::build_path(array('view','view.php'));
     	
     }
-		}
-	} ?>
+}
+}
+?>

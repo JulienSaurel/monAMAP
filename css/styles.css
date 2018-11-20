@@ -4,25 +4,16 @@ font-family: "Philosopher";
 src: url("font/Philosopher-Regular.ttf");
 }
 
-/* Regles du body */
-body {
-  background-color: #cce3ce;
-  margin-top: 10%;
-  font-family: "Philosopher";
-  font-size: 20px;
-}
+@media screen and (min-width: 1315px) {
 
-main {
-    margin-left: 10%;
-  margin-right: 10%;
-}
+  .sidenav {
+    display: none;
+  }
+  #openav {
+        display: none;
 
-header {
-
-}
-
-
-#navMenu {
+  }
+  #navMenu {
   text-align: center;
 }
 
@@ -30,7 +21,7 @@ header {
   list-style: none;
   padding: 0;
   list-style-type: none;
-  position: fixed;
+  position: absolute;
   top: 0;
 
 
@@ -85,7 +76,7 @@ header {
 
 #menu > li:hover{
   background-color: #cbdcc9;
-    transition: background-color 500ms linear;
+    transition: background-color 0.9s linear;
     
 }
 
@@ -95,17 +86,21 @@ header {
   top: -500%;
   text-align: center;
   background-color: #cbdcc9;
-  border: 2px solid #adbfab;
+  border: 2px solid #ad://bfab;
   border-radius: 8px;
   transition: top .6s;
   width: 168px;
   z-index: -50;
+  /*opacity: 0.0;*/
 
 }
 
 #menu > li:hover > ul {
   top: 65px;
   transition: top 0.2s;
+  /*opacity: 1.0;://
+  transition: opacity 0.9s;*/
+
 }
 
 #menu > li:hover, #menu > li > ul > li:hover {
@@ -117,28 +112,38 @@ header {
   padding-top:8px;
   padding-bottom: 8px;
 }
+}
 
-/* Reglage footer */
-footer {
-  margin-left: 10%;
+/* Regles du body */
+body, html{
+  background-color: #cce3ce;
+  font-family: "Philosopher";
+  font-size: 20px;
+    height: 99%;
+}
+
+body {://
+    display: flex !important;
+  flex-direction: column !important;
+ 
+}
+
+main {
+    margin-left: 10%;
   margin-right: 10%;
-  top: 80%;
+    margin-top: 10%;
+    flex: 1 0 auto !important;
 }
 
-#logos {
-  display: inline-block;
-  height: 15%;
-  width: 100%;
-  display: inline-block;
-  margin-top: 10%;
-  border-top: 1px solid #adbfab;
+header {
+
+://
 }
 
-#logoFB , #logoTT , #logoGP {
-  padding-left: 1%;
-  height: 25px;
-  width: 25px;
+label {
+  vertical-align: top;
 }
+
 
 a {
   text-decoration: none;
@@ -183,7 +188,7 @@ input:not([type='submit']):not([type='number']):focus {
 input[type=number] {
   height: 30px;
   width: 5%;
-  border: 2px solid #738173;
+  border: 2px solid #73://8173;
   border-radius: 5px;
 }
 
@@ -195,7 +200,7 @@ input[type=submit]{
 input[type=submit]:hover, input[type=submit]:focus {
 box-shadow: 2px 2px 2px #85ad85;
 color:white;
-background-color: #85ad85;
+background-color: #85ad://85;
 transition: color 300ms;
 transition: background-color 300ms
 }
@@ -219,7 +224,7 @@ textarea:focus {
   width:25%;
  transition: color 500ms;
 transition: background-color 500ms;
-transition: width 500ms;
+transition: width 500ms://;
 }
 
 form {
@@ -228,7 +233,7 @@ form {
 
 @-webkit-keyframes blinker {
   from { opacity: 1.0; }
-  to { opacity: 0.0; }
+  to { opacity: 0.0; }://
 }
 
 
@@ -252,6 +257,7 @@ animation-duration: 1000ms;
 transition: background-color 500ms;
 }
 
+<<<<<<< HEAD
 @media screen and (max-width: 1011px) { /*responsive*/ 
     #nav{
     display: none;
@@ -265,3 +271,174 @@ transition: background-color 500ms;
   width: 80%;
   }
 }
+=======
+/* Reglage footer */
+footer {
+  margin-left: 10%;
+  margin-right: 10%;
+   flex-shrink: 0 !important;
+}
+
+#logos {
+  display: inline-block;
+  height: 15%;
+  width: 100%;
+  display: inline-block;
+  margin-top: 10%;
+  border-top: 1px solid #adbfab;
+}
+
+#logoFB , #logoTT , #logoGP {
+  padding-left: 1%;
+  height: 25px;
+  width: 25px;
+}
+
+
+
+
+@media screen and (max-width: 1315px) {
+  #navMenu {
+    display: none;
+  }
+
+ /* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;<<<<< HEAD
+@media screen and (max-width: 1011px) { /*responsive*/ 
+    #nav{
+    display: none;
+    }
+  .menub {
+    display:flex;
+    flex-direction:column;  
+    margin:auto;
+  }
+  form {
+  width: 80%;
+  }
+}
+=======
+/* Reglage footer */
+footer {
+  margin-left: 10%;
+  margin-right: 10%;
+   flex-shrink: 0 !important;
+}
+
+#logos {
+  display: inline-block;
+  height: 15%;<<<<< HEAD
+@media screen and (max-width: 1011px) { /*responsive*/ 
+    #nav{
+    display: none;
+    }
+  .menub {
+    display:flex;
+    flex-direction:column;  
+    margin:auto;
+  }
+  form {
+  width: 80%;
+  }
+}
+=======
+/* Reglage footer */
+footer {
+  margin-left: 10%;
+  margin-right: 10%;
+   flex-shrink: 0 !important;
+}
+
+#logos {
+  display: inline-block;
+  height: 15%;
+  width: 100%;
+  display: inline-block;
+  margin-top: 10%;
+  border-top: 1px solid #adbfab;
+  width: 100%;
+  display: inline-block;
+  margin-top: 10%;
+  border-top: 1px solid #adbfab;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}<<<<< HEAD
+@media screen and (max-width: 1011px) { /*responsive*/ 
+    #nav{
+    display: none;
+    }
+  .menub {
+    display:flex;
+    flex-direction:column;  
+    margin:auto;
+  }
+  form {
+  width: 80%;
+  }
+}
+=======
+/* Reglage footer */
+footer {
+  margin-left: 10%;
+  margin-right: 10%;
+   flex-shrink: 0 !important;
+}
+
+#logos {
+  display: inline-block;
+  height: 15%;
+  width: 100%;
+  display: inline-block;
+  margin-top: 10%;
+  border-top: 1px solid #adbfab;
+} 
+
+}
+
+
+
+
+>>>>>>> 134256029a64f6a903781d5b544e1b354218f4a6
