@@ -251,3 +251,17 @@ animation-duration: 1000ms;
   transition: color 500ms;
 transition: background-color 500ms;
 }
+
+@media screen and (max-width: 1011px) { /*responsive*/ 
+    #nav{
+    display: none;
+    }
+  .menub {
+    display:flex;
+    flex-direction:column;  
+    margin:auto;
+  }
+  form {
+  width: 80%;
+  }
+}
