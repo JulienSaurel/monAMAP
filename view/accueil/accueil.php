@@ -37,8 +37,8 @@
 
 
   <section>
-    <img src="./images/section2-accueil.jpg" alt="AMAP présentation"/> <!--width="925" height="335"-->
     <h2>Q'est-ce qu'une AMAP ?</h2>
+    <img src="./images/section2-accueil.jpg" alt="AMAP présentation"/> <!--width="925" height="335"-->
     <p>
     	À travers notre site, vous pouvez profiter d'une multitude de fonctionnalités :
     <ul>
