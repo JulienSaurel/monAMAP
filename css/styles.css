@@ -38,7 +38,7 @@ src: url("font/Philosopher-Regular.ttf");
       left: 50%;
       transform: translate(-50%);
       width: 1320px;
-      background-color: #cce3ce;
+      
        
     }
 
@@ -132,7 +132,7 @@ body {
 main {
     margin-left: 10%;
   margin-right: 10%;
-    margin-top: 10%;
+    padding-top: 10%;
     flex: 1 0 auto !important;
 }
 
@@ -276,7 +276,7 @@ footer {
   border-top: 1px solid #adbfab;
 }
 
-#logoFB , #logoTT , #logoGP {
+#logoFB , #logoTT , #logoGP, #logoBurger {
   padding-left: 1%;
   height: 25px;
   width: 25px;
@@ -284,10 +284,25 @@ footer {
 
 
 @media screen and (max-width: 1315px) {
+
+      #logocroix, #openav {
+        margin-top: 10px;
+        width: 25px;
+        height: 25px;
+      }
+
+      #logoBurger {
+        width: 55px;
+        height: 55px;
+      }
+
       #navMenu {
         display: none;
       }
-     
+      #menu{
+        padding-left: 0px;
+      }
+    
 
      /* The side navigation menu */
     .sidenav {
@@ -297,10 +312,22 @@ footer {
         z-index: 1; /* Stay on top */
         top: 0; /* Stay at the top */
         left: 0;
-        background-color: #111; /* Black*/
+        background-color: #adbfab; /* Black*/
         overflow-x: hidden; /* Disable horizontal scroll */
         padding-top: 60px; /* Place content 60px from the top */
         transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+         
+      padding: 0;
+      
+      top: 0;
+
+
+    }
+
+    .sidenav ul, .sidenav li {
+
+        list-style: none;
+        list-style-type: none;  
     }
 
     /* The navigation menu links */
@@ -308,9 +335,10 @@ footer {
         padding: 8px 8px 8px 32px;
         text-decoration: none;
         font-size: 25px;
-        color: #818181;
+        color: black;
         display: block;
         transition: 0.3s;
+
     }
 
     /* When you mouse over the navigation links, change their color */
@@ -320,8 +348,23 @@ footer {
 
     /* Position and style the close button (top right corner) */
     .sidenav .closebtn {
+      padding: 0px;
         position: absolute;
-      }  
+        display: block;
+        margin-left: 45%;
+      margin-bottom: 15px !important;
+      text-decoration: none;
+      border-bottom: none !important;
+      }
+
+    #closebtn {
+      height: 5%;
+      
+    }  
+    .lienMenu{
+      display:none;
+    }
+
 }
 
 
