@@ -5,105 +5,111 @@ src: url("font/Philosopher-Regular.ttf");
 }
 
 @media screen and (min-width: 1315px) {
-  #navMenu {
-  text-align: center;
-}
 
-#menu, #menu ul {
-  list-style: none;
-  padding: 0;
-  list-style-type: none;
-  position: absolute;
-  top: 0;
+      .sidenav, #openav {
+        display: none;
+      }
 
 
- }
+      #navMenu {
+      text-align: center;
+    }
 
- ul a {
-  text-decoration: none;
-  color: black;
-  display: block;
- }
-
-#menu {
-  padding: 0; 
-  margin: 0;
-  position: fixed;
-  left: 50%;
-  transform: translate(-50%);
-  width: 1320px;
-  background-color: #cce3ce;
-   
-}
-
-#menu > li {
-  display: inline-block;
-  width: 170px;
-  background-color: #adbfab;
-  border: 1px solid #cbdcc9;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-radius: 7px;
-  text-align: center;
-  margin-top: 10px;
-  top: 50%;
-
-}
-
-#menu > li > a {
-  width: 100%;
-  display: block;
-  padding-top: 15px;
-    height: 40px;
+    #menu, #menu ul {
+      list-style: none;
+      padding: 0;
+      list-style-type: none;
+      position: absolute;
+      top: 0;
 
 
+     }
 
-}
+     ul a {
+      text-decoration: none;
+      color: black;
+      display: block;
+     }
 
-#menu > li:hover > a{
-  color: black;
-    transition: color 250ms linear;
-    
-}
+    #menu {
+      padding: 0; 
+      margin: 0;
+      position: fixed;
+      left: 50%;
+      transform: translate(-50%);
+      width: 1320px;
+      
+       
+    }
 
-#menu > li:hover{
-  background-color: #cbdcc9;
-    transition: background-color 0.9s linear;
-    
-}
+    #menu > li {
+      display: inline-block;
+      width: 170px;
+      background-color: #adbfab;
+      border: 1px solid #cbdcc9;
+      padding-left: 5px;
+      padding-right: 5px;
+      border-radius: 7px;
+      text-align: center;
+      margin-top: 10px;
+      top: 50%;
+
+    }
+
+    #menu > li > a {
+      width: 100%;
+      display: block;
+      padding-top: 15px;
+        height: 40px;
 
 
 
-#menu > li > ul {
-  top: -500%;
-  text-align: center;
-  background-color: #cbdcc9;
-  border: 2px solid #adbfab;
-  border-radius: 8px;
-  transition: top .6s;
-  width: 168px;
-  z-index: -50;
-  /*opacity: 0.0;*/
+    }
 
-}
+    #menu > li:hover > a{
+      color: black;
+        transition: color 250ms linear;
+        
+    }
 
-#menu > li:hover > ul {
-  top: 65px;
-  transition: top 0.2s;
-  /*opacity: 1.0;
-  transition: opacity 0.9s;*/
+    #menu > li:hover{
+      background-color: #cbdcc9;
+        transition: background-color 0.9s linear;
+        
+    }
 
-}
 
-#menu > li:hover, #menu > li > ul > li:hover {
-  border: 1px solid #adbfab;
-}
 
-#menu > li > ul > li > a{
-  border-bottom:1px solid #adbfab;
-  padding-top:8px;
-  padding-bottom: 8px;
-}
+    #menu > li > ul {
+      top: -500%;
+      text-align: center;
+      background-color: #cbdcc9;
+      border: 2px solid #adbfab;
+      border-radius: 8px;
+      transition: top .6s;
+      width: 168px;
+      z-index: -50;
+      /*opacity: 0.0;*/
+
+    }
+
+    #menu > li:hover > ul {
+      top: 65px;
+      transition: top 0.2s;
+      /*opacity: 1.0;
+      transition: opacity 0.9s;*/
+
+    }
+
+    #menu > li:hover, #menu > li > ul > li:hover {
+      border: 1px solid #adbfab;
+    }
+
+    #menu > li > ul > li > a{
+      border-bottom:1px solid #adbfab;
+      padding-top:8px;
+      padding-bottom: 8px;
+    }
 }
 
 
@@ -126,7 +132,7 @@ body {
 main {
     margin-left: 10%;
   margin-right: 10%;
-    margin-top: 10%;
+    padding-top: 10%;
     flex: 1 0 auto !important;
 }
 
@@ -270,7 +276,7 @@ footer {
   border-top: 1px solid #adbfab;
 }
 
-#logoFB , #logoTT , #logoGP {
+#logoFB , #logoTT , #logoGP, #logoBurger {
   padding-left: 1%;
   height: 25px;
   width: 25px;
@@ -278,44 +284,87 @@ footer {
 
 
 @media screen and (max-width: 1315px) {
-  #navMenu {
-    display: none;
-  }
- 
 
- /* The side navigation menu */
-.sidenav {
-    height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
-    left: 0;
-    background-color: #111; /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-}
+      #logocroix, #openav {
+        margin-top: 10px;
+        width: 25px;
+        height: 25px;
+      }
 
-/* The navigation menu links */
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-}
+      #logoBurger {
+        width: 55px;
+        height: 55px;
+      }
 
-/* When you mouse over the navigation links, change their color */
-.sidenav a:hover {
-    color: #f1f1f1;
-}
+      #navMenu {
+        display: none;
+      }
+      #menu{
+        padding-left: 0px;
+      }
+    
 
-/* Position and style the close button (top right corner) */
-.sidenav .closebtn {
-    position: absolute;
-  }  
+     /* The side navigation menu */
+    .sidenav {
+        height: 100%; /* 100% Full-height */
+        width: 0; /* 0 width - change this with JavaScript */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Stay on top */
+        top: 0; /* Stay at the top */
+        left: 0;
+        background-color: #adbfab; /* Black*/
+        overflow-x: hidden; /* Disable horizontal scroll */
+        padding-top: 60px; /* Place content 60px from the top */
+        transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+         
+      padding: 0;
+      
+      top: 0;
+
+
+    }
+
+    .sidenav ul, .sidenav li {
+
+        list-style: none;
+        list-style-type: none;  
+    }
+
+    /* The navigation menu links */
+    .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: black;
+        display: block;
+        transition: 0.3s;
+
+    }
+
+    /* When you mouse over the navigation links, change their color */
+    .sidenav a:hover {
+        color: #f1f1f1;
+    }
+
+    /* Position and style the close button (top right corner) */
+    .sidenav .closebtn {
+      padding: 0px;
+        position: absolute;
+        display: block;
+        margin-left: 45%;
+      margin-bottom: 15px !important;
+      text-decoration: none;
+      border-bottom: none !important;
+      }
+
+    #closebtn {
+      height: 5%;
+      
+    }  
+    .lienMenu{
+      display:none;
+    }
+
 }
 
 

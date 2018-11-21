@@ -13,7 +13,7 @@
         <header>
          <?php require File::build_path(array("view", "menu.php")); ?>
         </header>
-            <main>
+            <main onclick="closeNav()">
    
 
 <?php
