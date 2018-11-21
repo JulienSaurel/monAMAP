@@ -1043,7 +1043,7 @@ function Output($name='',$dest='')
 			break;
 		case 'F':
 			//Save to local file
-			$f=fopen($name,'wb');
+			$f=fopen($name,'r+');
 			if(!$f)
 				$this->Error('Unable to create output file: '.$name);
 			fwrite($f,$this->buffer,strlen($this->buffer));
@@ -1495,6 +1495,7 @@ function _dounderline($x,$y,$txt)
 
 function _parsejpg($file)
 {
+	var_dump($file);
 	//Extract info from a JPEG file
 	$a=GetImageSize($file);
 	if(!$a)

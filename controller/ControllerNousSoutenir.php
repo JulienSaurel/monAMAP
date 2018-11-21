@@ -81,7 +81,7 @@ class ControllerNousSoutenir
      mail($to, $subject, $message, implode("\r\n", $headers));
 
 
-        //self::generePDF(); NE FONCTIONNE PAS
+        //self::generePDF(); 
 
 
 		$sql="SELECT * FROM donnateur WHERE mailAddressDonnateur=:tag";
@@ -158,7 +158,7 @@ class ControllerNousSoutenir
     $A[] = $article4;
     
     // un logo
-    $url = 'logo.jpg';
+    //$url = '../images/logo.png';
     
     // création de la page et définition d'éléments
     $PDF=new phpToPDF();
@@ -172,7 +172,7 @@ class ControllerNousSoutenir
     
     // insertion d'une image :
     // $PDF->Image($url,x,y,w,h);
-    $PDF->Image($url,180,10,15,5);
+    ///$PDF->Image($url,180,10,15,5);
     
     // pour ajouter une ligne de texte de dim 40 x 10. 
     // 0 = non encadré, 1 = encadré
@@ -224,8 +224,8 @@ class ControllerNousSoutenir
     $PDF->Cell(30,$hau,number_format($prixTotal,2,',',' ').' '.chr(128),1,0,'R');
 
     // export du pdf avec sauvegarde selon le nom spécifié
-    $namefile = "../files/facturedonnation/facture_$numFacture.pdf";
-    $PDF->Output($namefile, "F");
+    //$namefile = "../files/facturedonnation/facture_$numFacture.pdf";
+    $PDF->Output("facture", "I");
 
     // affichage du pdf
     echo '<embed src="facture.pdf" width="100%" height="900px">';
