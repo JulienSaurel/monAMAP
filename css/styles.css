@@ -1,0 +1,372 @@
+/* Déclaration police du site */
+@font-face {
+font-family: "Philosopher";
+src: url("font/Philosopher-Regular.ttf");
+}
+
+@media screen and (min-width: 1315px) {
+
+      .sidenav, #openav {
+        display: none;
+      }
+
+
+      #navMenu {
+      text-align: center;
+    }
+
+    #menu, #menu ul {
+      list-style: none;
+      padding: 0;
+      list-style-type: none;
+      position: absolute;
+      top: 0;
+
+
+     }
+
+     ul a {
+      text-decoration: none;
+      color: black;
+      display: block;
+     }
+
+    #menu {
+      padding: 0; 
+      margin: 0;
+      position: fixed;
+      left: 50%;
+      transform: translate(-50%);
+      width: 1320px;
+      
+       
+    }
+
+    #menu > li {
+      display: inline-block;
+      width: 170px;
+      background-color: #adbfab;
+      border: 1px solid #cbdcc9;
+      padding-left: 5px;
+      padding-right: 5px;
+      border-radius: 7px;
+      text-align: center;
+      margin-top: 10px;
+      top: 50%;
+
+    }
+
+    #menu > li > a {
+      width: 100%;
+      display: block;
+      padding-top: 15px;
+        height: 40px;
+
+
+
+    }
+
+    #menu > li:hover > a{
+      color: black;
+        transition: color 250ms linear;
+        
+    }
+
+    #menu > li:hover{
+      background-color: #cbdcc9;
+        transition: background-color 0.9s linear;
+        
+    }
+
+
+
+    #menu > li > ul {
+      top: -500%;
+      text-align: center;
+      background-color: #cbdcc9;
+      border: 2px solid #adbfab;
+      border-radius: 8px;
+      transition: top .6s;
+      width: 168px;
+      z-index: -50;
+      /*opacity: 0.0;*/
+
+    }
+
+    #menu > li:hover > ul {
+      top: 65px;
+      transition: top 0.2s;
+      /*opacity: 1.0;
+      transition: opacity 0.9s;*/
+
+    }
+
+    #menu > li:hover, #menu > li > ul > li:hover {
+      border: 1px solid #adbfab;
+    }
+
+    #menu > li > ul > li > a{
+      border-bottom:1px solid #adbfab;
+      padding-top:8px;
+      padding-bottom: 8px;
+    }
+}
+
+
+
+
+/* Regles du body */
+body, html{
+  background-color: #cce3ce;
+  font-family: "Philosopher";
+  font-size: 20px;
+    height: 99%;
+}
+
+body {
+    display: flex !important;
+  flex-direction: column !important;
+ 
+}
+
+main {
+    margin-left: 10%;
+  margin-right: 10%;
+    padding-top: 10%;
+    flex: 1 0 auto !important;
+}
+
+header {
+
+
+}
+
+label {
+  vertical-align: top;
+}
+
+
+
+
+a {
+  text-decoration: none;
+}
+
+a:not(.lienMenu) {
+  text-decoration: none;
+  color: #636363;
+  border-bottom: 0.02em solid #636363
+
+}
+
+a:hover:not(.lienMenu) {
+  color: #828282;
+
+}
+
+input {
+    border: 2px solid #adbfab;
+   border-radius: 0px; 
+
+}
+input:not([type='submit']) {
+    border: none;
+    border-bottom: 2px solid #738173;
+    background-color: #cce3ce;
+  }
+
+input:not([type='submit']):not([type='number']) {
+  height: 25px;
+  width:20%;
+  transition: width 500ms;
+  font-size: 15px;
+
+}
+
+input:not([type='submit']):not([type='number']):focus {
+    width:25%;
+  transition: width 500ms;
+
+}
+input[type=number] {
+  height: 30px;
+  width: 5%;
+  border: 2px solid #738173;
+  border-radius: 5px;
+}
+
+
+input[type=submit]{
+  height:30px;
+}
+
+input[type=submit]:hover, input[type=submit]:focus {
+box-shadow: 2px 2px 2px #85ad85;
+color:white;
+background-color: #85ad85;
+transition: color 300ms;
+transition: background-color 300ms
+}
+
+textarea {
+  border-left: 0px;
+  border-bottom: 2px solid #738173;
+  border-top: 2px solid #738173;
+  border-right: 0px;
+  resize: none;
+  background-color: #cce3ce;
+  width: 15%;
+   transition: color 500ms;
+transition: background-color 500ms;
+transition: width 500ms;
+}
+
+textarea:focus {
+  background-color: #738173;
+  color: white;
+  width:25%;
+ transition: color 500ms;
+transition: background-color 500ms;
+transition: width 500ms;
+}
+
+form {
+  border: 0px;
+}
+
+@-webkit-keyframes blinker {
+  from { opacity: 1.0; }
+  to { opacity: 0.0; }
+}
+
+
+.erreurFormulaire {
+  font-size: 25px;
+  color:red;
+  padding: 3px;
+  transition: color 500ms;
+transition: background-color 500ms;
+animation-name: blinker;
+animation-iteration-count: infinite;
+animation-timing-function: cubic-bezier(.5, 0, 1, 1);
+animation-duration: 1000ms;
+}
+
+.erreurFormulaire:hover {
+  font-size: 25px;
+  background-color:red;
+  color: white;
+  transition: color 500ms;
+transition: background-color 500ms;
+}
+
+/* Reglage footer */
+footer {
+  margin-left: 10%;
+  margin-right: 10%;
+   flex-shrink: 0 !important;
+}
+
+#logos {
+  display: inline-block;
+  height: 15%;
+  width: 100%;
+  display: inline-block;
+  margin-top: 10%;
+  border-top: 1px solid #adbfab;
+}
+
+#logoFB , #logoTT , #logoGP, #logoBurger {
+  padding-left: 1%;
+  height: 25px;
+  width: 25px;
+}
+
+
+@media screen and (max-width: 1315px) {
+
+      #logocroix, #openav {
+        margin-top: 10px;
+        width: 25px;
+        height: 25px;
+      }
+
+      #logoBurger {
+        width: 55px;
+        height: 55px;
+      }
+
+      #navMenu {
+        display: none;
+      }
+      #menu{
+        padding-left: 0px;
+      }
+    
+
+     /* The side navigation menu */
+    .sidenav {
+        height: 100%; /* 100% Full-height */
+        width: 0; /* 0 width - change this with JavaScript */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Stay on top */
+        top: 0; /* Stay at the top */
+        left: 0;
+        background-color: #adbfab; /* Black*/
+        overflow-x: hidden; /* Disable horizontal scroll */
+        padding-top: 60px; /* Place content 60px from the top */
+        transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+         
+      padding: 0;
+      
+      top: 0;
+
+
+    }
+
+    .sidenav ul, .sidenav li {
+
+        list-style: none;
+        list-style-type: none;  
+    }
+
+    /* The navigation menu links */
+    .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: black;
+        display: block;
+        transition: 0.3s;
+
+    }
+
+    /* When you mouse over the navigation links, change their color */
+    .sidenav a:hover {
+        color: #f1f1f1;
+    }
+
+    /* Position and style the close button (top right corner) */
+    .sidenav .closebtn {
+      padding: 0px;
+        position: absolute;
+        display: block;
+        margin-left: 45%;
+      margin-bottom: 15px !important;
+      text-decoration: none;
+      border-bottom: none !important;
+      }
+
+    #closebtn {
+      height: 5%;
+      
+    }  
+    .lienMenu{
+      display:none;
+    }
+
+}
+
+
+
+
