@@ -1,5 +1,4 @@
 <div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <div id="closebtn" >
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><img id="logocroix" src="images/croix.png" alt="logo burger" /></a>
 </div>
@@ -54,6 +53,7 @@
 
 <!-- Use any element to open the sidenav -->
 <span id="openav" onclick="openNav()"> <img id="logoBurger" src="images/burger.png" alt="logo burger" /></span>
+
 
 <nav id="navMenu">
   <ul id="menu">
