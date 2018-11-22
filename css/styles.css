@@ -152,7 +152,7 @@ a {
   text-decoration: none;
 }
 
-a:not(.lienMenu) {
+a:not(.lienMenu, .imgfooter) {
   text-decoration: none;
   color: #636363;
   border-bottom: 0.02em solid #636363
@@ -177,20 +177,20 @@ input:not([type='submit']) {
 
 input:not([type='submit']):not([type='number']) {
   height: 25px;
-  width:20%;
+  width:200px;
   transition: width 500ms;
   font-size: 15px;
 
 }
 
 input:not([type='submit']):not([type='number']):focus {
-    width:25%;
+    width:250px;
   transition: width 500ms;
 
 }
 input[type=number] {
   height: 30px;
-  width: 5%;
+  width: 50px;
   border: 2px solid #738173;
   border-radius: 5px;
 }
@@ -280,10 +280,44 @@ footer {
   padding-left: 1%;
   height: 25px;
   width: 25px;
+  text-decoration: none;
 }
 
 
 @media screen and (max-width: 1315px) {
+
+      div form{
+        width: 95%;
+        margin: 5%;
+        font-size: 20px;
+      }
+
+      label, input:not([type=submit], [type=number]) {
+        font-size: 25px;
+
+      }
+
+
+      iframe {
+        width: 50%;
+        height: 400px;
+      }
+
+      section img, form {
+        width: 100%;
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+       main {
+        width: 100%;
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+
+      body, main, form, p {
+        font-size: 20px;
+        margin-right: 20px;
+      }
 
       #logocroix, #openav {
         margin-top: 10px;
@@ -292,8 +326,8 @@ footer {
       }
 
       #logoBurger {
-        width: 55px;
-        height: 55px;
+        width: 15%;
+        height: 100%;
       }
 
       #navMenu {
@@ -362,8 +396,56 @@ footer {
       
     }  
     .lienMenu{
-      display:none;
+      display:inline;
     }
+
+    .imgfooter {
+      text-decoration: none !important;
+    }
+
+  input {
+      border: 2px solid #adbfab;
+     border-radius: 0px; 
+
+  }
+  input:not([type='submit']) {
+      border: none;
+      border-bottom: 2px solid #738173;
+      background-color: #cce3ce;
+    }
+
+  input:not([type='submit']):not([type='number']) {
+    height: 100px;
+    width:200px;
+    transition: width 500ms;
+    font-size: 15px;
+
+  }
+
+  input:not([type='submit']):not([type='number']):focus {
+      width:250px;
+    transition: width 500ms;
+
+  }
+  input[type=number] {
+    height: 30px;
+    width: 50px;
+    border: 2px solid #738173;
+    border-radius: 5px;
+  }
+
+
+  input[type=submit]{
+    height:30px;
+  }
+
+  input[type=submit]:hover, input[type=submit]:focus {
+  box-shadow: 2px 2px 2px #85ad85;
+  color:white;
+  background-color: #85ad85;
+  transition: color 300ms;
+  transition: background-color 300ms
+  }
 
 }
 

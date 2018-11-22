@@ -1,4 +1,4 @@
-<p> Vous souhaitez faire un don à l'AMAP? c'est ici: </p>
+<div> <p> Vous souhaitez faire un don à l'AMAP? c'est ici: </p>
 
 
     	<form method="get" action="index.php">
@@ -33,4 +33,4 @@
 		    </p>
 		  </fieldset> 
 </form>
-
+</div>
