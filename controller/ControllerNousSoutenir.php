@@ -20,12 +20,12 @@ class ControllerNousSoutenir
     }
 	
 	public static function donnated(){
-		$nom = $_GET['Nom_donnateur'];
+		$nom = $_GET['Nom_donnateur']; //on récupère les données passées dans le formulaire
         $prenom = $_GET['Prenom_donnateur'];
         $mail = $_GET['Mail_donnateur'];
 		$montant = $_GET['Montant_don'];
 		
-		if($montant > 0){
+		if($montant > 0){ // si le montant n'est pas correct
 
         // création donnateur ou update
 		$sql="SELECT COUNT(*) FROM donnateur WHERE mailAddressDonnateur=:tag";
@@ -54,40 +54,41 @@ class ControllerNousSoutenir
 			$req_prep->execute($valeurs);
 		}
 
-        $instanceDon = new ModelDon($montant,$mail);
-        $instanceDon->save();
+        $instanceDon = new ModelDon($montant,$mail); // on crée un don
+        $instanceDon->save(); // et on l'enregistre dans la BD
 		
-		// Plusieurs destinataires
-     $to  = $mail; // notez la virgule
-     $quote = "'";
-     // Sujet
-     $subject = 'Remerciements de AMAP Occitanie';
+        //envoi de mail
+		
+        $to  = $mail; 
+        $quote = "'";
+        // Sujet
+        $subject = 'Remerciements de AMAP Occitanie';
 
-     // message
-     $message = '
-     <html>
-      <head>
-       <title>Remerciements de AMAP Occitanie</title>
-      </head>
-      <body>
-       <p> L'.$quote.'équipe de AMAP Occitanie vous remercie mour votre don de '. $montant .'€ à notre association </p>
-      </body>
-      <footer> <p> le site de l'.$quote.'AMAP : http://webinfo.iutmontp.univ-montp2.fr/~robertl/AMAP/monAMAP/</p>
-      </footer>
-     </html>
-     ';
+        // message
+        $message = '
+        <html>
+            <head>
+              <title>Remerciements de AMAP Occitanie</title>
+            </head>
+            <body>
+                <p> L'.$quote.'équipe de AMAP Occitanie vous remercie mour votre don de '. $montant .'€ à notre association </p>
+            </body>
+            <footer> <p> le site de l'.$quote.'AMAP : http://webinfo.iutmontp.univ-montp2.fr/~robertl/AMAP/monAMAP/</p>
+            </footer>
+        </html>
+        ';
 
-     // Pour envoyer un mail HTML, l'en-tête Content-type doit être défini
-     $headers[] = 'MIME-Version: 1.0';
-     $headers[] = 'Content-type: text/html; charset=iso-8859-1';
+        // Pour envoyer un mail HTML, l'en-tête Content-type doit être défini
+        $headers[] = 'MIME-Version: 1.0';
+        $headers[] = 'Content-type: text/html; charset=iso-8859-1';
 
-     // En-têtes additionnels
-     $headers[] = 'From: AMAP Occitanie <AMAP-Occitanie@no-reply.com>';
-     // Envoi
-     mail($to, $subject, $message, implode("\r\n", $headers));
+        // En-têtes additionnels
+        $headers[] = 'From: AMAP Occitanie <AMAP-Occitanie@no-reply.com>';
+        // Envoi
+        mail($to, $subject, $message, implode("\r\n", $headers));
 
 
-        //self::generePDF(); 
+        // génération de la page de remerciments 
 
 
 		$sql="SELECT * FROM donnateur WHERE mailAddressDonnateur=:tag";
@@ -114,6 +115,7 @@ class ControllerNousSoutenir
     }
 }
 
+    
     public static function generePDF(){
         $mail = $_GET['mail'];
 
@@ -131,7 +133,7 @@ class ControllerNousSoutenir
         $donnateur = $tab_donn[0];
 
 
-        $sql="SELECT * FROM don WHERE mailAddressDonnateur=:tag";
+        $sql="SELECT * FROM don WHERE mailAddressDonnateur=:tag AND idDon = (SELECT MAX(idDon) FROM don WHERE mailAddressDonnateur=:tag )";
 
         $req_prep = Model::$pdo->prepare($sql);
 
