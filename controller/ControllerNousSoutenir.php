@@ -108,6 +108,23 @@ class ControllerNousSoutenir
 }
 
     public static function generePDF(){
+        $nom = $_GET['Nom_donnateur'];
+        $prenom = $_GET['Prenom_donnateur'];
+        $mail = $_GET['Mail_donnateur'];
+        $montant = $_GET['Montant_don'];
+
+        $sql="SELECT * FROM donnateur WHERE mailAddressDonnateur=:tag";
+
+        $req_prep = Model::$pdo->prepare($sql);
+
+        $valeurs = array(
+            "tag" => $mail);
+
+        $req_prep->execute($valeurs);
+        $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelDonnateur');
+        $tab_donn = $req_prep->fetchAll();
+        $donnateur = $tab_donn[0];
+
         include_once('libExternes/phpToPDF/phpToPDF.php');
 
     // quelques remarques :
@@ -117,46 +134,23 @@ class ControllerNousSoutenir
 
     // l'adhérent à qui s'adresse la facture
     $adh = array(
-        'idAdherent' => 137,
-        'nom' => 'Haddock',
-        'prenom' => 'Archibald',
-        'adresse' => 'château de Moulinsart',
-        'cp' => '34000',
-        'ville' => 'Moulinsart',
-        'email' => 'archibald@yopmail.com',
-        'tel' => '06.05.04.03.02'
+        'nom' => $donnateur->get['nomDonnateur'],
+        'prenom' => $donnateur->get['prenomDonnateur'],
+        'email' => $donnateur->get['mailAddressDonnateur'],
     );
 
     // la facture
-    $numFacture = "137-17";
+    $numFacture = "SANS_NUMERO";
     
     // les articles de la facture
     $A = array();
     $article1 = array(
-        'libelleArticle' => 'panier de légumes',
-        'quantite' => 2,
-        'prixUnitaire' => 10
+        'typeMontant' => 'don',
+        'montant' => $montant,
     );
-    $article2 = array(
-        'libelleArticle' => 'confiture de fraises',
-        'quantite' => 3,
-        'prixUnitaire' => 4.5
-    );
-    $article3 = array(
-        'libelleArticle' => 'pain d\'épices',
-        'quantite' => 1,
-        'prixUnitaire' => 4
-    );
-    $article4 = array(
-        'libelleArticle' => 'poulet',
-        'quantite' => 2,
-        'prixUnitaire' => 10.5
-    );
+
     $A[] = $article1;
-    $A[] = $article2;
-    $A[] = $article3;
-    $A[] = $article4;
-    
+
     // un logo
     //$url = '../images/logo.png';
     
@@ -189,8 +183,8 @@ class ControllerNousSoutenir
     $PDF->Ln($esp);
 
     // descriptif de l'adhérent
-    $strAdh = $adh['prenom']." ".$adh['nom'].", ".$adh['adresse']." ".$adh['cp']." ".$adh['ville'];
-    $PDF->Cell(190,$hau,utf8_decode("adhérent : ".$strAdh),0,0,'L');
+    $strAdh = $adh['prenom']." ".$adh['nom'].", ".$adh['email'];
+    $PDF->Cell(190,$hau,utf8_decode("donnateur : ".$strAdh),0,0,'L');
     $PDF->Ln($esp);
 
     // descriptif de la facture (identifiant de facure)
@@ -211,7 +205,7 @@ class ControllerNousSoutenir
         $qte = $article['quantite'];
         $prU = $article['prixUnitaire'];
         $prT = $qte * $prU;
-        $prixTotal += $prT;
+        //$prixTotal += $prT;
         $PDF->Cell(100,$hau,$lib,1,0,'L');
         $PDF->Cell(30,$hau,$qte,1,0,'C');
         $PDF->Cell(30,$hau,number_format($prU,2,',',' ').' '.chr(128),1,0,'R');
