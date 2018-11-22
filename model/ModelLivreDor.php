@@ -6,12 +6,11 @@ class ModelLivreDor extends Model
 {
 
     private $message;
-    private $date;
-    private $id;
-	private $idAuteur;
+    private $id_message;
+	private $pseudo;
     private static $nbmessagepage = 5;
     static protected $object = 'livreDor';
-    protected static $primary='id';
+    protected static $primary='id_message';
 
     // Getter générique
     public function get($nom_attribut) 
@@ -30,27 +29,28 @@ class ModelLivreDor extends Model
     }
 
     // un constructeur
-    public function __construct($message = NULL, $date = NULL, $id_message = NULL, $idAuteur = NULL) 
+    public function __construct($pseudo = NULL, $message = NULL) 
     {
-        if (!is_null($message) && !is_null($date) && !is_null($id_message)) {
+        if (!is_null($message) && !is_null($pseudo)) {
             $this->message = $message;
-            $this->date = $date;
-            $this->id_message = $id_message;
-			$this->idAuteur = $idAuteur;
+			$this->pseudo = $pseudo;
 			
         }
     }
 
+    public static function getnbmsgpg()
+    {
+        return self::$nbmessagepage;
+    }
+
     public function save() { 
 	
-		$sql="INSERT INTO livreDor(message,date,id_message,idAuteur) VALUES (:msg, :date, :idMess, :author);";
+		$sql="INSERT INTO LivreDor(message,pseudo) VALUES (:msg,:author);";
 		$req_prep = Model::$pdo->prepare($sql);
 
 		$valeurs = array(
 			"msg" => $this->message,
-			"date" => $this->date,
-			"idMess" => $this->id_message,
-			"author" => $this->idAuteur);
+			"author" => $this->pseudo);
 		$req_prep->execute($valeurs);
 	
 }
@@ -63,6 +63,22 @@ class ModelLivreDor extends Model
         //var_dump($nombreDePages);
         
         return $nombreDePages;
+    }
+
+    public static function getAllBetween($deb, $fin)
+    {     
+        $sql = 'SELECT * FROM LivreDor ORDER BY id_message DESC LIMIT ' . $deb . ', ' . ($fin-$deb);
+        
+
+        $req_prep = Model::$pdo->prepare($sql);
+
+        $req_prep->execute();
+        
+        $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelLivreDor');
+        
+
+        $tab = $req_prep->fetchAll();
+        return $tab;
     }
 }
 ?>

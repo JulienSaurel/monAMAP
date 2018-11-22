@@ -1,5 +1,6 @@
 /* Set the width of the side navigation to 250px */
 function openNav() {
+
     document.getElementById("mySidenav").style.width = "350px";
 }
 
@@ -8,6 +9,7 @@ function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 } 
 
+
 function openLink(){
 	document.getElementsByClassName("linkmenu").children.style.display = "block";
 }
@@ -15,3 +17,4 @@ function openLink(){
 function closeLink(){
 	document.getElementByClassName("linkmenu").children.style.display = "none";
 }
+

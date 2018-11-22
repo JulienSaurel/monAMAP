@@ -27,20 +27,35 @@ class ControllerLaVieAlAMAP
     }
 
     public static function display3rd()
-    {
+    {   
+        $nombrepages = ModelLivreDor::getNbPages();
         $view = 'livredor';
         $pagetitle = 'Livre d\'or';
         require File::build_path(array('view','view.php')); 
     }
 
-    public static function Count()
-    {
-        $totmsg = ModelLivreDor::getNbPages();
-        //var_dump($totmsg);
-        $view = 'livredor';
-        $pagetitle = 'Livre d\'or';
-        require File::build_path(array('view','view.php')); 
+    public static function liremessage() {
+        $nombrepages = ModelLivreDor::getNbPages(); 
+        $page = $_GET['page'];
+        $tab = ModelLivreDor::getAllBetween($page, $page + ModelLivreDor::getnbmsgpg());
+        $view = 'livre';
+        $pagetitle = 'Livre d\'or page ' . $_GET['page'];
+        require File::build_path(array('view','view.php'));
+    }
 
+    public static function created()
+    {
+        if (isset($_POST['pseudo']) AND isset($_POST['message']))
+        {
+            $pseudo = htmlspecialchars($_POST['pseudo']); // On utilise mysql_real_escape_string et htmlspecialchars par mesure de sécurité
+            $message = nl2br(htmlspecialchars($_POST['message'])); // pour le msg on gere aussi les retours charriots
+        }
+        $m = new ModelLivreDor($pseudo, $message);
+        $m->save();
+        $nombrepages = ModelLivreDor::getNbPages();
+        $view = 'created';
+        $pagetitle = 'Livre d\'or';
+        require File::build_path(array('view','view.php'));
     }
 
 	 public static function error()
