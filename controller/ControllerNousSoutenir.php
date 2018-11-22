@@ -1,5 +1,6 @@
 <?php 
 require_once File::build_path(array('model','ModelDonnateur.php')); // chargement du modèle
+require_once File::build_path(array('model','ModelDon.php')); // chargement du modèle
 class ControllerNousSoutenir
 {
 	protected static $object='nousSoutenir';
@@ -25,6 +26,8 @@ class ControllerNousSoutenir
 		$montant = $_GET['Montant_don'];
 		
 		if($montant > 0){
+
+        // création donnateur ou update
 		$sql="SELECT COUNT(*) FROM donnateur WHERE mailAddressDonnateur=:tag";
 
     	$req_prep = Model::$pdo->prepare($sql);
@@ -36,10 +39,10 @@ class ControllerNousSoutenir
     	$resultat = $req_prep->fetch();
     	$nbDonnateur = $resultat[0];
 		
-		if($nbDonnateur == 0){
+		if($nbDonnateur == 0){ // si le donnateur n'existe pas on le crée
 			$instanceDonnateur = new ModelDonnateur($mail, $nom, $prenom,$montant);
 			$instanceDonnateur->save();
-		} else {
+		} else { // sinon on l'update 
 			$sql="UPDATE donnateur SET montantTotal = montantTotal + :montant WHERE mailAddressDonnateur= :mail;";
 
 			$req_prep = Model::$pdo->prepare($sql);
@@ -50,6 +53,9 @@ class ControllerNousSoutenir
 
 			$req_prep->execute($valeurs);
 		}
+
+        $instanceDon = new ModelDon($montant,$mail);
+        $instanceDon->save();
 		
 		// Plusieurs destinataires
      $to  = $mail; // notez la virgule
@@ -95,6 +101,7 @@ class ControllerNousSoutenir
     	$req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelDonnateur');
 		$tab_donn = $req_prep->fetchAll();
 		$donnateur = $tab_donn[0];
+
 		
         $view = 'donnated';
         $pagetitle = 'Merci !';
@@ -108,10 +115,8 @@ class ControllerNousSoutenir
 }
 
     public static function generePDF(){
-        $nom = $_GET['Nom_donnateur'];
-        $prenom = $_GET['Prenom_donnateur'];
-        $mail = $_GET['Mail_donnateur'];
-        $montant = $_GET['Montant_don'];
+        $mail = $_GET['mail'];
+
 
         $sql="SELECT * FROM donnateur WHERE mailAddressDonnateur=:tag";
 
@@ -125,6 +130,19 @@ class ControllerNousSoutenir
         $tab_donn = $req_prep->fetchAll();
         $donnateur = $tab_donn[0];
 
+
+        $sql="SELECT * FROM don WHERE mailAddressDonnateur=:tag";
+
+        $req_prep = Model::$pdo->prepare($sql);
+
+        $valeur = array(
+            "tag" => $mail);
+
+        $req_prep->execute($valeur);
+        $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelDon');
+        $tab_don = $req_prep->fetchAll();
+        $don = $tab_don[0];
+
         include_once('libExternes/phpToPDF/phpToPDF.php');
 
     // quelques remarques :
@@ -134,19 +152,19 @@ class ControllerNousSoutenir
 
     // l'adhérent à qui s'adresse la facture
     $adh = array(
-        'nom' => $donnateur->get['nomDonnateur'],
-        'prenom' => $donnateur->get['prenomDonnateur'],
-        'email' => $donnateur->get['mailAddressDonnateur'],
+        'nom' => $donnateur->get('nomDonnateur'),
+        'prenom' => $donnateur->get('prenomDonnateur'),
+        'email' => $donnateur->get('mailAddressDonnateur')
     );
 
     // la facture
-    $numFacture = "SANS_NUMERO";
+    $numFacture = $don->get('idDon');
     
     // les articles de la facture
     $A = array();
     $article1 = array(
         'typeMontant' => 'don',
-        'montant' => $montant,
+        'montant' => $don->get('montantDon')
     );
 
     $A[] = $article1;
@@ -188,41 +206,39 @@ class ControllerNousSoutenir
     $PDF->Ln($esp);
 
     // descriptif de la facture (identifiant de facure)
-    $PDF->Cell(190,$hau,utf8_decode("facture n°".$numFacture),0,0,'L');
+    $PDF->Cell(190,$hau,utf8_decode("don n°".$numFacture),0,0,'L');
     $PDF->Ln($esp);
 
     // ligne d'entête du tableau
-    $PDF->Cell(100,$hau,utf8_decode("article"),1,0,'C',true);
-    $PDF->Cell(30,$hau,utf8_decode("quantité"),1,0,'C',true);
-    $PDF->Cell(30,$hau,utf8_decode("prix unitaire"),1,0,'C',true);
-    $PDF->Cell(30,$hau,utf8_decode("prix total"),1,0,'C',true);
+    $PDF->Cell(100,$hau,utf8_decode("Montant du don: "),1,0,'C',true);
+    $PDF->Cell(90,$hau,$don->get('montantDon')." ".chr(128),1,0,'C',false);
     $PDF->Ln();
 
     // ligne par article, et calcul du prix total au fur et à mesure
     $prixTotal = 0;
     foreach ($A as $i => $article) {
-        $lib = utf8_decode($article['libelleArticle']);
-        $qte = $article['quantite'];
-        $prU = $article['prixUnitaire'];
-        $prT = $qte * $prU;
+        //$lib = utf8_decode($article['libelleArticle']);
+        //$qte = $article['quantite'];
+        //$prU = $article['prixUnitaire'];
+        //$prT = $qte * $prU;
         //$prixTotal += $prT;
-        $PDF->Cell(100,$hau,$lib,1,0,'L');
-        $PDF->Cell(30,$hau,$qte,1,0,'C');
-        $PDF->Cell(30,$hau,number_format($prU,2,',',' ').' '.chr(128),1,0,'R');
-        $PDF->Cell(30,$hau,number_format($prT,2,',',' ').' '.chr(128),1,0,'R');
+        //$PDF->Cell(100,$hau,$lib,1,0,'L');
+        //$PDF->Cell(30,$hau,$qte,1,0,'C');
+        //$PDF->Cell(30,$hau,number_format($prU,2,',',' ').' '.chr(128),1,0,'R');
+        //$PDF->Cell(30,$hau,number_format($prT,2,',',' ').' '.chr(128),1,0,'R');
         $PDF->Ln();
     }
 
     // ligne du prix total
-    $PDF->Cell(160,$hau,utf8_decode("total "),0,0,'R',false);
-    $PDF->Cell(30,$hau,number_format($prixTotal,2,',',' ').' '.chr(128),1,0,'R');
+    //$PDF->Cell(160,$hau,utf8_decode("total "),0,0,'R',false);
+    //$PDF->Cell(30,$hau,number_format($prixTotal,2,',',' ').' '.chr(128),1,0,'R');
 
     // export du pdf avec sauvegarde selon le nom spécifié
     //$namefile = "../files/facturedonnation/facture_$numFacture.pdf";
     $PDF->Output("facture", "I");
 
     // affichage du pdf
-    echo '<embed src="facture.pdf" width="100%" height="900px">';
+    echo '<embed src="facture".$numFacture.".pdf" width="100%" height="900px">';
     }
 }
 ?>

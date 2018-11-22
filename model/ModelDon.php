@@ -2,12 +2,12 @@
 
 require_once File::build_path(array('model','Model.php'));
 
-class ModelDonnateur extends Model
+class ModelDon extends Model
 {
 
     private $idDon;
     private $montantDon;
-    private $mailAddressDonnateur
+    private $mailAddressDonnateur;
 
     // Getter générique
     public function get($nom_attribut) 
@@ -26,10 +26,10 @@ class ModelDonnateur extends Model
     }
 
     // un constructeur
-    public function __construct($idDon = NULL, $montantDon = NULL, $mailAddressDonnateur = NULL) 
+    public function __construct($montantDon = NULL, $mailAddressDonnateur = NULL) 
     {
-        if (!is_null($idDon) && !is_null($montantDon) && !is_null($mailAddressDonnateur)) {
-            $this->idDon = $idDon;
+        if (!is_null($montantDon) && !is_null($mailAddressDonnateur)) {
+
             $this->montantDon = $montantDon;
             $this->mailAddressDonnateur = $mailAddressDonnateur;			
         }
@@ -61,11 +61,10 @@ class ModelDonnateur extends Model
 
     public function save() { 
 	
-		$sql="INSERT INTO don(idDon,montantDon,mailAddressDonnateur) VALUES (:id, :montant, :mail);";
+		$sql="INSERT INTO don(montantDon,mailAddressDonnateur) VALUES (:montant, :mail);";
 		$req_prep = Model::$pdo->prepare($sql);
 
 		$valeurs = array(
-			"id" => $this->idDon,
 			"montant" => $this->montantDon,
 			"mail" => $this->mailAddressDonnateur);
 		$req_prep->execute($valeurs);
