@@ -38,6 +38,9 @@
         <li><a class="lienMenu" href="?action=display3rd&controller=laVieAlAMAP">Livre d'or</a></li>
       </ul>
     </li>
+    <li class="nousSoutenir">
+      <a onclick="openLink()" class="lienMenu " href="?action=display&controller=nousSoutenir">Nous soutenir</a>
+    </li>
     <li class="monProfil">
       <a onclick="openLink()" class="lienMenu" href="?action=display1st&controller=monProfil">Mon profil</a>
       <ul>
@@ -45,9 +48,7 @@
         <li><a class="lienMenu" href="?action=display2nd&controller=monProfil">Devenir producteur</a></li>
       </ul>
     </li>
-    <li class="nousSoutenir">
-      <a onclick="openLink()" class="lienMenu " href="?action=display&controller=nousSoutenir">Nous soutenir</a>
-    </li>
+    
   </ul>
 </div>
 
@@ -92,6 +93,9 @@
     	  <li><a class="lienMenu" href="?action=display3rd&controller=laVieAlAMAP">Livre d'or</a></li>
       </ul>
     </li>
+    <li class="nousSoutenir">
+      <a class="lienMenu" href="?action=display&controller=nousSoutenir">Nous soutenir</a>
+    </li>
     <li class="monProfil">
       <a class="lienMenu" href="?action=display1st&controller=monProfil">Mon profil</a>
     	<ul>
@@ -99,8 +103,6 @@
         <li><a class="lienMenu" href="?action=display2nd&controller=monProfil">Devenir producteur</a></li>
       </ul>
     </li>
-    <li class="nousSoutenir">
-      <a class="lienMenu" href="?action=display&controller=nousSoutenir">Nous soutenir</a>
-    </li>
+    
   </ul>
 </nav> 
