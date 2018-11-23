@@ -15,7 +15,7 @@ class ControllerNosContrats
     {
         $controller ='nosContrats';
         $view = 'laitier';
-        $pagetitle = 'Nos Contrats Laitiers';
+        $pagetitle = 'Nos Contrats';
         require File::build_path(array('view','view.php')); 
     }
 
@@ -51,59 +51,33 @@ class ControllerNosContrats
     require File::build_path(array('view','view.php'));
     }
 
+    public static function souscripted(){
+        //on va chercher l'id de l'adhérent dans la base
+        // on crée un contrat (instance de contrat)
+        // on l'enregistre dans la base
+        // on redirige vers une page type "merci !"
+
+        // VÉRIFIER SI QLQUN EST CONNECTÉ ET SI OUI RECCUPÉRER SON IDAHERENT
+        // ET SON PRENOM DANS DES VARIABLES idAdherent et prenomAdherent
+        $type = $_GET['typeContrat'];
+        $taille = $_GET['tailleContrat'];
+        $frequence = $_GET['frequenceContrat'];
+
+        $instanceContrat = new ModelContrat($idAdherent,$type,$taille,$frequence);
+        $instanceContrat->save();
+
+        $view = 'souscripted';
+        $pagetitle = 'Merci !';
+        require File::build_path(array('view','view.php'));
+
+    }
+
     public static function generePDF(){
         include_once('libExternes/phpToPDF/phpToPDF.php');
 
     // quelques remarques :
     // 1. FPDF ne gère pas les accents => utilisation de utf8_decode()
     // 2. FPDF de gère pas le caractère € => chr(128)
-    
-
-    // l'adhérent à qui s'adresse la facture
-        /*
-    $adh = array(
-        'idAdherent' => 137,
-        'nom' => 'Haddock',
-        'prenom' => 'Archibald',
-        'adresse' => 'château de Moulinsart',
-        'cp' => '34000',
-        'ville' => 'Moulinsart',
-        'email' => 'archibald@yopmail.com',
-        'tel' => '06.05.04.03.02'
-    );
-
-    // la facture
-    $numFacture = "137-17";
-    
-    // les articles de la facture
-    $A = array();
-    $article1 = array(
-        'libelleArticle' => 'panier de légumes',
-        'quantite' => 2,
-        'prixUnitaire' => 10
-    );
-    $article2 = array(
-        'libelleArticle' => 'confiture de fraises',
-        'quantite' => 3,
-        'prixUnitaire' => 4.5
-    );
-    $article3 = array(
-        'libelleArticle' => 'pain d\'épices',
-        'quantite' => 1,
-        'prixUnitaire' => 4
-    );
-    $article4 = array(
-        'libelleArticle' => 'poulet',
-        'quantite' => 2,
-        'prixUnitaire' => 10.5
-    );
-    $A[] = $article1;
-    $A[] = $article2;
-    $A[] = $article3;
-    $A[] = $article4;
-    
-    // un logo
-    //$url = 'logo.jpg'; */
     
     // création de la page et définition d'éléments
     $PDF=new phpToPDF();

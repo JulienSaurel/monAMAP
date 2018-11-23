@@ -6,9 +6,10 @@ class ModelAdherents extends Model
 {
 
     private $idAdherent;
-    private $idPersonne;
-    private $adressepostaleAdherent;
-    private $PW_Adherent;
+    private $nomAdherent;
+    private $prenomAdherent;
+    private $mailAdressAdherent;
+    private $pwAdherent;
     static protected $object = 'adherents';
     protected static $primary='idAdherent';
 
@@ -29,9 +30,11 @@ class ModelAdherents extends Model
     }
 
     // un constructeur
-    public function __construct($idAdherent = NULL, $idPersonne = NULL, $nomPersonne = NULL, $prenomPersonne = NULL, $mailPersonne = NULL, $adressepostaleAdherent = NULL, $PW_Adherent = NULL) 
+    public function __construct($nomAdherent = NULL, $prenomAdherent = NULL, $mailAdressAdherent = NULL,
+     $pwAdherent = NULL) 
     {
-        if (!is_null($idAdherent) && !is_null($idPersonne) && !is_null($nomPersonne) && !is_null($prenomPersonne) && !is_null($mailPersonne) && !is_null($adressepostaleAdherent) && !is_null($PW_Adherent)) {
+        if (!is_null($nomAdherent) && !is_null($prenomAdherent) && !is_null($mailAdressAdherent) 
+            && !is_null($pwAdherent)) {
             $this->idAdherent = $idAdherent;
             $this->idPersonne = new ModelPersonne($idPersonne, $nomPersonne, $prenomPersonne, $mailPersonne);
             $this->adressepostaleAdherent = $adressepostaleAdherent;
@@ -39,7 +42,24 @@ class ModelAdherents extends Model
         }
     }
 
-    /*static public function getAdherentById($idAdherent) 
+    public function save() {    
+    $sql = "INSERT INTO adherent ( nomAdherent, prenomAdherent, mailAdressAdherent, pwAdherent) VALUES (:nom_tag1 ,:nom_tag2,:nom_tag3,:nom_tag4)";
+    
+    // Préparation de la requête
+    $req_prep = Model::$pdo->prepare($sql);
+    
+    $values = array(
+        "nom_tag1" => $this->nomAdherent,     
+        "nom_tag2" => $this->prenomAdherent,
+        "nom_tag3" => $this->mailAdressAdherent,
+        "nom_tag4" => $this->pwAdherent,
+        //nomdutag => valeur, ...
+    );
+    
+    // On donne les valeurs et on exécute la requête     
+    $req_prep->execute($values);
+}
+/*static public function getAdherentById($idAdherent) 
     {
     $sql = "SELECT * from Adherents WHERE idAdherent=:nom_tag";
     // Préparation de la requête
@@ -62,24 +82,6 @@ class ModelAdherents extends Model
         }
         return $tab_adh[0];
     }*/
-
-    public function save() {    
-    $sql = "INSERT INTO Adherents (idAdherent, idPersonne, adressepostaleAdherent, PW_Adherent) VALUES (:nom_tag1 ,:nom_tag2,:nom_tag3,:nom_tag4)";
-    
-    // Préparation de la requête
-    $req_prep = Model::$pdo->prepare($sql);
-    
-    $values = array(
-        "nom_tag1" => $this->idAdherent,     
-        "nom_tag2" => $this->idPersonne,
-        "nom_tag3" => $this->adressepostaleAdherent,
-        "nom_tag4" => $this->PW_Adherent,
-        //nomdutag => valeur, ...
-    );
-    
-    // On donne les valeurs et on exécute la requête     
-    $req_prep->execute($values);
-}
 
     /*static public function getAllAdherents() {
 
