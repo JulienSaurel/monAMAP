@@ -77,7 +77,7 @@ static public function selectAll() {
     {
         $table_name = static::$object;
         $class_name = 'Model' . ucfirst($table_name);        
-        $sql = 'SELECT COUNT('.static::$primary.') FROM '.ucfirst($table_name);
+        $sql = 'SELECT COUNT(*) FROM '.ucfirst($table_name);
         // var_dump($sql);
         $req_prep = Model::$pdo->prepare($sql);
 
@@ -89,9 +89,4 @@ static public function selectAll() {
     }
 }
 Model::Init();
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 ?>

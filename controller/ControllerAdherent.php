@@ -43,5 +43,31 @@ class ControllerAdherents
     self::readAll(); //on affiche la liste des personnes
     }
 
+    public static function connect()
+    {
+        $view = 'connect';
+        $pagetitle = 'Se connecter';
+        require File::build_path(array('view','view.php'));
+    }
+
+    public static function connected()
+    {
+        $pw = Security::chiffrer($_POST['pw']);
+         if(ModelUtilisateur::select($_POST['login'])->checkPassword($_POST['login'],$pw))
+         {
+            $_SESSION['login'] = $_POST['login'];
+            $u = ModelUtilisateur::select($_POST['login']);
+            $view = 'detail';
+            $pagetitle = 'Adhérent';
+            require File::build_path(array('view','view.php'));
+         }
+    }
+
+    public static function deconnect()
+    {
+        session_unset();
+
+        ControllerAccueil::homepage();
+    }
 }
 ?>

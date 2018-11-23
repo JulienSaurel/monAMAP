@@ -39,31 +39,8 @@ class ModelAdherents extends Model
         }
     }
 
-    /*static public function getAdherentById($idAdherent) 
+    public function save()
     {
-    $sql = "SELECT * from Adherents WHERE idAdherent=:nom_tag";
-    // Préparation de la requête
-    $req_prep = Model::$pdo->prepare($sql);
-
-    $values = array(
-        "nom_tag" => $idAdherent,
-        //nomdutag => valeur, ...
-    );
-    // On donne les valeurs et on exécute la requête     
-    $req_prep->execute($values);
-
-    // On récupère les résultats comme précédemment
-    $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelAdherents');
-    $tab_adh = $req_prep->fetchAll();
-    // S'il n'y a pas de résultats, on renvoie false
-        if (empty($tab_adh)) 
-        {
-            return false;
-        }
-        return $tab_adh[0];
-    }*/
-
-    public function save() {    
     $sql = "INSERT INTO Adherents (idAdherent, idPersonne, adressepostaleAdherent, PW_Adherent) VALUES (:nom_tag1 ,:nom_tag2,:nom_tag3,:nom_tag4)";
     
     // Préparation de la requête
@@ -79,28 +56,30 @@ class ModelAdherents extends Model
     
     // On donne les valeurs et on exécute la requête     
     $req_prep->execute($values);
-}
+    }
 
-    /*static public function getAllAdherents() {
-
-        $rep = Model::$pdo->query('SELECT * FROM Adherents');
-        $rep->setFetchMode(PDO::FETCH_CLASS, 'ModelAdherents');
-        $tab_adh = $rep->fetchAll();
-
-
-
-        return $tab_adh;
-    }*/
-
-    // une methode d'affichage.
-    // public function afficher() 
-    // {
-    //     echo "Adherent: {$this->idAdherent}: " . $this->idPersonne->toString() . "adresse postale :  {$this->adressepostaleAdherent}\n";
-    // }
-
-   /* public function toString() 
+    /**
+     * @return null
+     */
+    public function checkPW($adh)
     {
-    	return ("Adherent: {$this->idAdherent}: " . $this->idPersonne->toString() . "\n");
-    }*/
+
+        $sql = "SELECT * FROM Adherent WHERE login=:login";
+
+        // Préparation de la requête
+        $req_prep = Model::$pdo->prepare($sql);
+
+        $data = array(
+            "login" => $login,);
+        // On donne les valeurs et on exécute la requête
+        $req_prep->execute($data);
+
+        $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelUtilisateur');
+
+        $tab = $req_prep->fetchAll();
+
+        return $tab[0]->login==$login && Security::chiffrer($tab[0]->password)==$mot_de_passe_chiffre;
+
+    }
 }
 ?>
