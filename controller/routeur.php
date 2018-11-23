@@ -26,7 +26,7 @@ $controller_class = 'Controller' . ucfirst($controller);
 //--------------action---------------
 	if(!isset($_GET['action'])) //Si l'action n'a  pas été spécifiée
 	{
-		$action = 'display'; //On définit une action par defaut (readAll)
+		$action = 'homepage'; //On définit une action par defaut (readAll)
 	}
 
 	else 

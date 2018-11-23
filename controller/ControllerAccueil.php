@@ -3,7 +3,7 @@ class ControllerAccueil
 {
     protected static $object='accueil';
 
-	public static function display()
+	public static function homepage()
 	{
 		$controller ='accueil';
         $view = 'accueil';
