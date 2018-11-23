@@ -348,7 +348,7 @@ footer {
 
      /* The side navigation menu */
     .sidenav {
-      z-index: 8;
+      
         height: 100%; /* 100% Full-height */
         width: 0; /* 0 width - change this with JavaScript */
         position: fixed; /* Stay in place */
@@ -448,6 +448,7 @@ footer {
     footer {
       width: 100%;
       margin-left: 0px;
+      margin-right: 0px;
     }
 
     header {
@@ -462,7 +463,7 @@ footer {
 }
 
 .banniere {
-  /*position: absolute;
+/*  position: absolute;
   width: 100%;
   height: 200px;
   z-index: 5;*/
@@ -473,7 +474,7 @@ footer {
  }
 
  main {
-  z-index: 8;
+  
  }
 
 
