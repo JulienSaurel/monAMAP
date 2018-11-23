@@ -191,25 +191,29 @@ class ControllerNousSoutenir
     // pour ajouter une ligne de texte de dim 40 x 10. 
     // 0 = non encadré, 1 = encadré
     // 'L' = left, 'C' = center, 'R' = right
-    
+    $PDF->SetFont('Arial','B',18);
     // le titre
     $PDF->Cell(190,$hau,"monAMAP d'Occitanie ",0,0,'L');
     
     // retour à la ligne
     $PDF->Ln($esp);
 
-    // date  
+    // date
+    $PDF->SetFont('Arial','B',12);  
     $PDF->Cell(190,$hau,"le ".date("d M Y\, H:i:s"),0,0,'L');
     $PDF->Ln($esp);
-
+    $PDF->SetFont('Arial','B',20); 
+    $PDF->Cell(190,$hau,utf8_decode("Reçu de la donnation"),0,0,'C');
+    $PDF->SetFont('Arial','',14);
     // descriptif de l'adhérent
+    $PDF->Ln(16);
     $strAdh = $adh['prenom']." ".$adh['nom'].", ".$adh['email'];
     $PDF->Cell(190,$hau,utf8_decode("donnateur : ".$strAdh),0,0,'L');
-    $PDF->Ln($esp);
+    $PDF->Ln(20);
 
     // descriptif de la facture (identifiant de facure)
     $PDF->Cell(190,$hau,utf8_decode("don n°".$numFacture),0,0,'L');
-    $PDF->Ln($esp);
+    $PDF->Ln(20);
 
     // ligne d'entête du tableau
     $PDF->Cell(100,$hau,utf8_decode("Montant du don: "),1,0,'C',true);
