@@ -344,7 +344,7 @@ footer {
         padding: 40px;
         width: 60px;
         height: 60px;
-        z-index: 5;
+        z-index: 20;
       }
 
       #navMenu {
@@ -361,7 +361,7 @@ footer {
         height: 100%; /* 100% Full-height */
         width: 0; /* 0 width - change this with JavaScript */
         position: fixed; /* Stay in place */
-        z-index: 1; /* Stay on top */
+        z-index: 50; /* Stay on top */
         top: 0; /* Stay at the top */
         left: 0;
         background-color: #adbfab; /* Black*/
@@ -465,7 +465,7 @@ footer {
     }
 
     #openav {
-      z-index: 8;
+      z-index: 20;
     }
  
 
