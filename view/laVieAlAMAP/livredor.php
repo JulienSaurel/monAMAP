@@ -18,8 +18,9 @@
 
  <?php
  for($i=0; $i<$nombrepages; $i++)
- {
-  echo "<p> <a href=\"?action=liremessage&controller=LaVieAlAMAP&page={$i}\"> $i </a> </p>";
- }
+  {
+    echo "<p> <a href=\"?action=liremessage&controller=LaVieAlAMAP&page={$i}\"> $i </a> </p>";
+  }
 
-?>
+  echo '<p>' . $tab[0]->get('pseudo') . ' a écrit :<br />' . $tab[0]->get('message') . '</p>';
+    ?>

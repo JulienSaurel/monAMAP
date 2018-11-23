@@ -29,6 +29,8 @@ class ControllerLaVieAlAMAP
     public static function display3rd()
     {   
         $nombrepages = ModelLivreDor::getNbPages();
+        $page = 0;
+        $tab = ModelLivreDor::getAllBetween($page, $page + ModelLivreDor::getnbmsgpg());
         $view = 'livredor';
         $pagetitle = 'Livre d\'or';
         require File::build_path(array('view','view.php')); 
