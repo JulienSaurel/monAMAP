@@ -109,6 +109,15 @@ src: url("font/Philosopher-Regular.ttf");
       border-bottom:1px solid #adbfab;
       padding-top:8px;
       padding-bottom: 8px;
+      transition: color 500ms;
+    }
+
+    #menu > li > ul > li > a:hover{
+      border-bottom:1px solid #adbfab;
+      padding-top:8px;
+      padding-bottom: 8px;
+      color: #a9f49e;
+      transition: color 500ms;
     }
 }
 
