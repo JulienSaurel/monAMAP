@@ -4,7 +4,7 @@
 </div>
    <ul id="menu">
     <li class="accueil">
-      <a class="lienMenu" href="?action=display&controller=accueil">Accueil</a>
+      <a class="lienMenu" href="?action=homepage&controller=accueil">Accueil</a>
     </li>
     <li class="nousConnaitre">
       <a class="lienMenu" onclick"openLink()" href="?action=display1st&controller=nousConnaitre"> Nous connaitre</a>
@@ -48,6 +48,17 @@
     <li class="nousSoutenir">
       <a onclick="openLink()" class="lienMenu " href="?action=display&controller=nousSoutenir">Nous soutenir</a>
     </li>
+       <?php  if (!isset($_SESSION['login'])) {
+           echo '<li class="SeConnecter">
+          <a onclick="openLink()" class="lienMenu " href="?action=connect&controller=adherent">Se connecter</a>
+      </li>';
+       }
+       else
+       {
+           echo '<li class="SedeConnecter">
+          <a onclick="openLink()" class="lienMenu " href="?action=deconnect&controller=adherent">Se deconnecter</a>
+      </li>';
+       } ?>
   </ul>
 </div>
 
@@ -58,7 +69,7 @@
 <nav id="navMenu">
   <ul id="menu">
     <li class="accueil">
-      <a class="lienMenu" href="?action=display&controller=accueil">Accueil</a>
+      <a class="lienMenu" href="?action=homepage&controller=accueil">Accueil</a>
     </li>
     <li class="nousConnaitre">
       <a class="lienMenu" href="?action=display1st&controller=nousConnaitre">Nous connaitre</a>
@@ -102,5 +113,16 @@
     <li class="nousSoutenir">
       <a class="lienMenu" href="?action=display&controller=nousSoutenir">Nous soutenir</a>
     </li>
+    <?php  if (!isset($_SESSION['login'])) {
+      echo '<li class="SeConnecter">
+          <a onclick="openLink()" class="lienMenu " href="?action=connect&controller=adherent">Se connecter</a>
+      </li>';
+      }
+      else
+      {
+      echo '<li class="SedeConnecter">
+          <a onclick="openLink()" class="lienMenu " href="?action=deconnect&controller=adherent">Se deconnecter</a>
+      </li>';
+      } ?>
   </ul>
 </nav> 

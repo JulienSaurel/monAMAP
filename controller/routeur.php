@@ -9,6 +9,7 @@ require_once File::build_path(array('controller','ControllerNosContrats.php'));
 require_once File::build_path(array('controller','ControllerMonProfil.php'));
 require_once File::build_path(array('controller','ControllerLaVieAlAMAP.php'));
 
+
 //------------controller-------------
 if(!isset($_GET['controller'])) //Si le controller n'a  pas été spécifié
 	{

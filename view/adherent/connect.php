@@ -1,10 +1,10 @@
-<form method="post" action="?action=connected&controller=utilisateur">
+<form method="post" action="?action=connected&controller=adherent">
 
   <fieldset>
     <legend>Se connecter :</legend>
     <p>
       <label for="login_id">Login</label> :
-      <input type="text" placeholder="Ex : 2" name="login" id="login_id" required/>
+      <input type="text" placeholder="Ex : 2" name="idAdherent" id="login_id" required/>
     </p>
     <p>
       <label for="pw_id">Password</label> :
@@ -13,5 +13,6 @@
     <p>
       <input type="submit" value="Envoyer" />
     </p>
-  </fieldset> 
+  </fieldset>
+    <a href="?action=create&controller=adherent">S'inscrire</a>
 </form>

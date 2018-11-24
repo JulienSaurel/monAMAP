@@ -1,22 +1,24 @@
 <?php
 require_once File::build_path(array('model','ModelAdherent.php'));
 
-class ControllerAdherents
+class ControllerAdherent
 {   
-    protected static $object='adherents';
+    protected static $object='adherent';
 
     public static function readAll() 
     {
-        $tab_adh = ModelAdherents::selectAll();
+        $tab_adh = ModelAdherent::selectAll();
         //appel au modèle pour gerer la BD
-        require File::build_path(array('view','adherent','list.php'));  
+        $view='list';
+        $pagetitle = 'Liste des adhérents';
+        require File::build_path(array('view', 'view.php'));
         //"redirige" vers la vue list.php qui affiche la liste des adherents
     }
 
 	public static function read() 
     {
     	$a = $_GET['idAdherent'];
-        $a = ModelAdherents::select($a);
+        $a = ModelAdherent::select($a);
         //appel au modèle pour gerer la BD
         if($a) 
         {
@@ -32,15 +34,27 @@ class ControllerAdherents
 
     public static function create()
     {
-        require File::build_path(array('view','adherent','create.php')); 
-        //redirige vers la vue create.php (formulaire)
+
+        $view = 'create';
+        $pagetitle = 'S\'inscrire';
+        require File::build_path(array('view','view.php'));
     }
 
     public static function created() 
     {
-    $a = new ModelAdherents($_POST['idAdherent'],$_POST['idPersonne'],$_POST['adressepostaleAdherent'],$_POST['PW_Adherent']); //on recupere les infos du formulaires
-    $a->save();// on les sauve dans la base de donnees
-    self::readAll(); //on affiche la liste des personnes
+        if (isset($_POST['PW_Adherent'])&&isset($_POST['PW_Adherent2']))
+        {
+            if ($_POST['PW_Adherent'] == $_POST['PW_Adherent2']) {
+                if (isset($_POST['idAdherent']) && isset($_POST['idPersonne']) && isset($_POST['adressepostaleAdherent']) && isset($_POST['PW_Adherent'])) {
+                    $a = new ModelAdherent($_POST['idAdherent'], $_POST['idPersonne'], $_POST['adressepostaleAdherent'], Security::chiffrer($_POST['PW_Adherent'])); //on recupere les infos du formulaires
+                    $a->save();// on les sauve dans la base de donnees
+                    $tab_adh = ModelAdherent::selectAll();
+                    $view='list';
+                    $pagetitle = 'Liste des adhérents';
+                    require File::build_path(array('view', 'view.php'));
+                }
+            }
+        }
     }
 
     public static function connect()
@@ -52,15 +66,20 @@ class ControllerAdherents
 
     public static function connected()
     {
-        $pw = Security::chiffrer($_POST['pw']);
-         if(ModelUtilisateur::select($_POST['login'])->checkPassword($_POST['login'],$pw))
-         {
-            $_SESSION['login'] = $_POST['login'];
-            $u = ModelUtilisateur::select($_POST['login']);
-            $view = 'detail';
-            $pagetitle = 'Adhérent';
-            require File::build_path(array('view','view.php'));
-         }
+        if (isset($_POST['idAdherent'])&&isset($_POST['pw']))
+        {
+            $login = $_POST['idAdherent'];
+            $pw = Security::chiffrer($_POST['pw']);
+
+            if (ModelAdherent::select($login)->checkPW($login, $pw))
+            {
+                $_SESSION['login'] = $login;
+                $a = ModelAdherent::select($login);
+                $view = 'detail';
+                $pagetitle = 'Adhérent';
+                require File::build_path(array('view', 'view.php'));
+            }
+        }
     }
 
     public static function deconnect()
