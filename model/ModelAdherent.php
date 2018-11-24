@@ -2,15 +2,15 @@
 
 require_once File::build_path(array('model','ModelPersonne.php'));
 
-class ModelAdherents extends Model 
+class ModelAdherent extends Model
 {
 
     private $idAdherent;
-    private $nomAdherent;
-    private $prenomAdherent;
-    private $mailAdressAdherent;
-    private $pwAdherent;
-    static protected $object = 'adherents';
+
+    private $idPersonne;
+    private $adressepostaleAdherent;
+    private $PW_Adherent;
+    static protected $object = 'adherent';
     protected static $primary='idAdherent';
 
     // Getter générique
@@ -30,79 +30,59 @@ class ModelAdherents extends Model
     }
 
     // un constructeur
-    public function __construct($nomAdherent = NULL, $prenomAdherent = NULL, $mailAdressAdherent = NULL,
-     $pwAdherent = NULL) 
+
+    public function __construct($idAdherent = NULL, $idPersonne = NULL, $adressepostaleAdherent = NULL, $PW_Adherent = NULL)
     {
-        if (!is_null($nomAdherent) && !is_null($prenomAdherent) && !is_null($mailAdressAdherent) 
-            && !is_null($pwAdherent)) {
+        if (!is_null($idAdherent) && !is_null($idPersonne) && !is_null($adressepostaleAdherent) && !is_null($PW_Adherent)) {
+
             $this->idAdherent = $idAdherent;
-            $this->idPersonne = new ModelPersonne($idPersonne, $nomPersonne, $prenomPersonne, $mailPersonne);
+            $this->idPersonne = $idPersonne;
             $this->adressepostaleAdherent = $adressepostaleAdherent;
             $this->PW_Adherent = $PW_Adherent;
         }
     }
 
-    public function save() {    
-    $sql = "INSERT INTO adherent ( nomAdherent, prenomAdherent, mailAdressAdherent, pwAdherent) VALUES (:nom_tag1 ,:nom_tag2,:nom_tag3,:nom_tag4)";
-    
-    // Préparation de la requête
-    $req_prep = Model::$pdo->prepare($sql);
-    
-    $values = array(
-        "nom_tag1" => $this->nomAdherent,     
-        "nom_tag2" => $this->prenomAdherent,
-        "nom_tag3" => $this->mailAdressAdherent,
-        "nom_tag4" => $this->pwAdherent,
-        //nomdutag => valeur, ...
-    );
-    
-    // On donne les valeurs et on exécute la requête     
-    $req_prep->execute($values);
-}
-/*static public function getAdherentById($idAdherent) 
+
+    public function save()
     {
-    $sql = "SELECT * from Adherents WHERE idAdherent=:nom_tag";
-    // Préparation de la requête
-    $req_prep = Model::$pdo->prepare($sql);
+        $sql = "INSERT INTO adherent (idAdherent, idPersonne, adressepostaleAdherent, PW_Adherent) VALUES (:nom_tag1 ,:nom_tag2,:nom_tag3,:nom_tag4)";
 
-    $values = array(
-        "nom_tag" => $idAdherent,
-        //nomdutag => valeur, ...
-    );
-    // On donne les valeurs et on exécute la requête     
-    $req_prep->execute($values);
+        // Préparation de la requête
+        $req_prep = Model::$pdo->prepare($sql);
 
-    // On récupère les résultats comme précédemment
-    $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelAdherents');
-    $tab_adh = $req_prep->fetchAll();
-    // S'il n'y a pas de résultats, on renvoie false
-        if (empty($tab_adh)) 
-        {
-            return false;
-        }
-        return $tab_adh[0];
-    }*/
+        $values = array(
+            "nom_tag1" => $this->idAdherent,
+            "nom_tag2" => $this->idPersonne,
+            "nom_tag3" => $this->adressepostaleAdherent,
+            "nom_tag4" => $this->PW_Adherent,
+        );
+        // On donne les valeurs et on exécute la requête
+        $req_prep->execute($values);
+    }
 
-    /*static public function getAllAdherents() {
-
-        $rep = Model::$pdo->query('SELECT * FROM Adherents');
-        $rep->setFetchMode(PDO::FETCH_CLASS, 'ModelAdherents');
-        $tab_adh = $rep->fetchAll();
-
-
-
-        return $tab_adh;
-    }*/
-
-    // une methode d'affichage.
-    // public function afficher() 
-    // {
-    //     echo "Adherent: {$this->idAdherent}: " . $this->idPersonne->toString() . "adresse postale :  {$this->adressepostaleAdherent}\n";
-    // }
-
-   /* public function toString() 
+    /**
+     * @return null
+     */
+    public function checkPW($idAdherent, $mot_de_passe_chiffre)
     {
-    	return ("Adherent: {$this->idAdherent}: " . $this->idPersonne->toString() . "\n");
-    }*/
+
+        $sql = "SELECT * FROM adherent WHERE idAdherent=:idAdherent";
+
+        // Préparation de la requête
+        $req_prep = Model::$pdo->prepare($sql);
+
+        $data = array(
+            "idAdherent" => $idAdherent,);
+
+        $req_prep->execute($data);
+
+        $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelAdherent');
+
+        $tab = $req_prep->fetchAll();
+
+
+        return ($tab[0]->idAdherent==$idAdherent) && ($tab[0]->PW_Adherent==$mot_de_passe_chiffre);
+
+    }
 }
 ?>

@@ -2,15 +2,13 @@
 class ControllerNosContrats
 {
     protected static $object='nosContrats';
-
-	public static function display()
-	{
-		$controller ='nosContrats';
+    public static function display()
+    {
+        $controller ='nosContrats';
         $view = 'contrats';
         $pagetitle = 'Nos Contrats';
         require File::build_path(array('view','view.php')); 
-	}
-
+    }
     public static function display1st()
     {
         $controller ='nosContrats';
@@ -18,7 +16,6 @@ class ControllerNosContrats
         $pagetitle = 'Nos Contrats';
         require File::build_path(array('view','view.php')); 
     }
-
     public static function display2nd()
     {
         $controller ='nosContrats';
@@ -26,7 +23,6 @@ class ControllerNosContrats
         $pagetitle = 'Nos Contrats Viande';
         require File::build_path(array('view','view.php')); 
     }
-
     public static function display3rd()
     {
         $controller ='nosContrats';
@@ -34,7 +30,6 @@ class ControllerNosContrats
         $pagetitle = 'Nos Contrats Légumes';
         require File::build_path(array('view','view.php')); 
     }
-
     public static function display4th()
     {
         $controller ='nosContrats';
@@ -42,39 +37,31 @@ class ControllerNosContrats
         $pagetitle = 'Nos Contrats Mix';
         require File::build_path(array('view','view.php')); 
     }
-
-	 public static function error()
+     public static function error()
     {
     $controller ='nosContrats';
     $view = 'error';
     $pagetitle = 'Error 404';
     require File::build_path(array('view','view.php'));
     }
-
     public static function souscripted(){
         //on va chercher l'id de l'adhérent dans la base
         // on crée un contrat (instance de contrat)
         // on l'enregistre dans la base
         // on redirige vers une page type "merci !"
-
         // VÉRIFIER SI QLQUN EST CONNECTÉ ET SI OUI RECCUPÉRER SON IDAHERENT
         // ET SON PRENOM DANS DES VARIABLES idAdherent et prenomAdherent
         $type = $_GET['typeContrat'];
         $taille = $_GET['tailleContrat'];
         $frequence = $_GET['frequenceContrat'];
-
         $instanceContrat = new ModelContrat($idAdherent,$type,$taille,$frequence);
         $instanceContrat->save();
-
         $view = 'souscripted';
         $pagetitle = 'Merci !';
         require File::build_path(array('view','view.php'));
-
     }
-
     public static function generePDF(){
         include_once('libExternes/phpToPDF/phpToPDF.php');
-
     // quelques remarques :
     // 1. FPDF ne gère pas les accents => utilisation de utf8_decode()
     // 2. FPDF de gère pas le caractère € => chr(128)
@@ -109,7 +96,6 @@ class ControllerNosContrats
     // date  
     $PDF->Cell(190,$hau,"le ".date("d M Y\, H:i:s"),0,0,'L');
     $PDF->Ln(14);
-
     // descriptif de l'adhérent 
     /*
     $strAdh = $adh['prenom']." ".$adh['nom'].", ".$adh['adresse']." ".$adh['cp']." ".$adh['ville'];
@@ -119,24 +105,19 @@ class ControllerNosContrats
     $PDF->SetFont('Arial','B',19);
     $PDF->Cell(190,$hau,utf8_decode("Souscrire à un contrat"),0,0,'C');
     $PDF->SetFont('Arial','B',13);
-
     $PDF->Ln(14);
     $PDF->Cell(190,$hau,utf8_decode("Informations contrat: "),0,0,'L');
     $PDF->Ln(10);
-
     $PDF->SetFont('Arial','',13);
     $PDF->Cell(190,$hau,$tab."Type de contrat: ".$pointXS,0,0,'L');
     $PDF->Ln(10);
     $PDF->Cell(190,$hau,$tab.utf8_decode("Fréquence du contrat:").$pointXS,0,0,'L');
     $PDF->Ln(10);
     $PDF->Cell(190,$hau,$tab.utf8_decode("Taille des paniers : ").$pointXS,0,0,'L');
-
     $PDF->Ln(18);
-
     $PDF->SetFont('Arial','B',13);
     $PDF->Cell(190,$hau,utf8_decode("Informations adhérent: "),0,0,'L');
     $PDF->SetFont('Arial','',13);
-
     $PDF->Ln(10);
     $PDF->Cell(190,$hau,$tab."Nom : ".$pointL,0,0,'L');
     $PDF->Ln(10);
@@ -151,9 +132,7 @@ class ControllerNosContrats
     $PDF->Cell(190,$hau,$tab.utf8_decode("Ville : ".$pointL),0,0,'L');
     $PDF->Ln(10);
     $PDF->Cell(190,$hau,$tab.utf8_decode("Code postal : ".$pointXS),0,0,'L');
-
     $PDF->Ln(20);
-
     $PDF->Cell(190,$hau,utf8_decode("Je déclare avoir pris connaissance des Conditions Générales de Vente décrites "),0,0,'L');
     $PDF->Ln(7);
     $PDF->Cell(190,$hau,utf8_decode("et les accepte pleinement. "),0,0,'L');
@@ -170,14 +149,12 @@ class ControllerNosContrats
     // descriptif de la facture (identifiant de facure)
     $PDF->Cell(190,$hau,utf8_decode("facture n°".$numFacture),0,0,'L');
     $PDF->Ln($esp);
-
     // ligne d'entête du tableau
     $PDF->Cell(100,$hau,utf8_decode("article"),1,0,'C',true);
     $PDF->Cell(30,$hau,utf8_decode("quantité"),1,0,'C',true);
     $PDF->Cell(30,$hau,utf8_decode("prix unitaire"),1,0,'C',true);
     $PDF->Cell(30,$hau,utf8_decode("prix total"),1,0,'C',true);
     $PDF->Ln();
-
     // ligne par article, et calcul du prix total au fur et à mesure
     $prixTotal = 0;
     foreach ($A as $i => $article) {
@@ -192,7 +169,6 @@ class ControllerNosContrats
         $PDF->Cell(30,$hau,number_format($prT,2,',',' ').' '.chr(128),1,0,'R');
         $PDF->Ln();
     }
-
     // ligne du prix total
     $PDF->Cell(160,$hau,utf8_decode("total "),0,0,'R',false);
     $PDF->Cell(30,$hau,number_format($prixTotal,2,',',' ').' '.chr(128),1,0,'R');
@@ -200,7 +176,6 @@ class ControllerNosContrats
     // export du pdf avec sauvegarde selon le nom spécifié
     $namefile = "facture.pdf";
     $PDF->Output($namefile, "I");
-
     // affichage du pdf
     echo '<embed src="facture.pdf" width="100%" height="900px">';
     }

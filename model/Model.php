@@ -54,7 +54,8 @@ static public function selectAll() {
         $req_prep->setFetchMode(PDO::FETCH_CLASS, $class_name);
         $tab = $req_prep->fetchAll();
         // Attention, si il n'y a pas de résultats, on renvoie false
-        if (empty($tab)) 
+
+        if (empty($tab))
         {
             return false;
         }
