@@ -17,11 +17,11 @@
       </p>
       <p>
       <label for="pw1">Mot de passe</label> :
-      <input type="text" placeholder="8 caractères minimum" name="PW_Adherent" id="pw1"  required/>
+      <input type="password" placeholder="8 caractères minimum" name="PW_Adherent" id="pw1"  required/>
       </p>
       <p>
           <label for="pw2">Valider le mot de passe</label> :
-          <input type="text" name="PW_Adherent2" id="pw2" required/>
+          <input type="password" name="PW_Adherent2" id="pw2" required/>
       </p>
   <p>
       <input type="submit" value="Envoyer" />

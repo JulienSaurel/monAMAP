@@ -71,14 +71,16 @@ class ControllerAdherent
         {
             $login = $_POST['idAdherent'];
             $pw = Security::chiffrer($_POST['pw']);
-
-            if (ModelAdherent::select($login)->checkPW($login, $pw))
+            if (ModelAdherent::select($_POST['idAdherent']))
             {
-                $_SESSION['login'] = $login;
-                $a = ModelAdherent::select($login);
-                $view = 'detail';
-                $pagetitle = 'Adhérent';
-                require File::build_path(array('view', 'view.php'));
+                if (ModelAdherent::select($login)->checkPW($login, $pw))
+                {
+                    $_SESSION['login'] = $login;
+                    $a = ModelAdherent::select($login);
+                    $view = 'detail';
+                    $pagetitle = 'Adhérent';
+                    require File::build_path(array('view', 'view.php'));
+                }
             }
         }
 
