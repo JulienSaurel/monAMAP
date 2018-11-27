@@ -8,6 +8,7 @@ class ModelAdherent extends Model
     private $idAdherent;
     private $idPersonne;
     private $adressepostaleAdherent;
+    private $ville;
     private $PW_Adherent;
     private $estProducteur;
     private $estAdministrateur;
@@ -36,14 +37,15 @@ class ModelAdherent extends Model
 
     // un constructeur
 
-    public function __construct($idAdherent = NULL, $adressepostaleAdherent = NULL, $PW_Adherent = NULL, $idPersonne = NULL ,$estProducteur = NULL, $estAdministrateur = NULL, $dateinscription = NULL, $dateproducteur = NULL/*, $photo = NULL, $description = NULL*/)
+    public function __construct($idAdherent = NULL, $adressepostaleAdherent = NULL, $ville = NULL, $PW_Adherent = NULL, $idPersonne = NULL ,$estProducteur = NULL, $estAdministrateur = NULL, $dateinscription = NULL, $dateproducteur = NULL/*, $photo = NULL, $description = NULL*/)
     {
-        if (!is_null($idAdherent) && !is_null($adressepostaleAdherent) && !is_null($PW_Adherent) && !is_null($estProducteur) && !is_null($idPersonne) && !is_null($estAdministrateur) && !is_null($dateinscription)/* && !is_null($photo) && !is_null($description)*/) {
-	        if(strtoupper($estProducteur) == "TRUE")
+        if (!is_null($idAdherent) && !is_null($adressepostaleAdherent) && !is_null($ville) && !is_null($PW_Adherent) && !is_null($estProducteur) && !is_null($idPersonne) && !is_null($estAdministrateur) && !is_null($dateinscription)/* && !is_null($photo) && !is_null($description)*/) {
+
+            if(strtoupper($estProducteur) == "1")
 	        	$estProducteur = 1;
 	        else
 	        	$estProducteur = 0;
-	        if (strtoupper($estAdministrateur) == "TRUE")
+	        if (strtoupper($estAdministrateur) == "1")
 	        	$estAdministrateur = 1;
 	        else
 	        	$estAdministrateur = 0;
@@ -51,6 +53,7 @@ class ModelAdherent extends Model
 
             $this->idAdherent = $idAdherent;
             $this->adressepostaleAdherent = $adressepostaleAdherent;
+            $this->ville = $ville;
             $this->PW_Adherent = $PW_Adherent;
 	        $this->idPersonne = $idPersonne;
 	        $this->estProducteur = $estProducteur;
@@ -68,7 +71,7 @@ class ModelAdherent extends Model
 
     public function save()
     {
-        $sql = "INSERT INTO Adherent (idAdherent, adressepostaleAdherent, PW_Adherent, idPersonne, estProducteur, estAdministrateur, dateinscription, dateproducteur) VALUES (:idAdherent, :adressepostaleAdherent, :PW_Adherent, :idPersonne, :estProducteur, :estAdministrateur, :dateinscription, :dateproducteur)";
+        $sql = "INSERT INTO Adherent (idAdherent, adressepostaleAdherent, ville, PW_Adherent, idPersonne, estProducteur, estAdministrateur, dateinscription, dateproducteur) VALUES (:idAdherent, :adressepostaleAdherent, :ville, :PW_Adherent, :idPersonne, :estProducteur, :estAdministrateur, :dateinscription, :dateproducteur)";
 
         // Préparation de la requête
         $req_prep = Model::$pdo->prepare($sql);
@@ -78,6 +81,7 @@ class ModelAdherent extends Model
             "idAdherent" => $this->idAdherent,
             "idPersonne" => $this->idPersonne,
             "adressepostaleAdherent" => $this->adressepostaleAdherent,
+            "ville" => $this->ville,
             "PW_Adherent" => $this->PW_Adherent,
 	        "estProducteur" => $this->estProducteur,
 	        "estAdministrateur" => $this->estAdministrateur,
