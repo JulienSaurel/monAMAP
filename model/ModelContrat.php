@@ -5,11 +5,11 @@ require_once File::build_path(array('model','Model.php'));
 class ModelContrat extends Model 
 {
 
-    private idContrat;
-    private idAdherent;
-    private typeContrat;
-    private tailleContrat;
-    private frequenceContrat;
+    private $idContrat;
+    private $idAdherent;
+    private $typeContrat;
+    private $tailleContrat;
+    private $frequenceContrat;
     static protected $object = 'contrat';
     protected static $primary='idContrat';
 

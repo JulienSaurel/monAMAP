@@ -10,7 +10,7 @@
     </p>
     <p>
       <label for="pw_id">Password</label> :
-      <input type="text" placeholder="Ex : Alizan" name="pw" id="pw_id" required/>
+      <input type="password" placeholder="Ex : Alizan" name="pw" id="pw_id" required/>
     </p> 
     <p>
       <input type="submit" value="Envoyer" />
