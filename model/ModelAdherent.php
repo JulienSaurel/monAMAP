@@ -68,7 +68,7 @@ class ModelAdherent extends Model
 
     public function save()
     {
-        $sql = "INSERT INTO adherent (idAdherent, adressepostaleAdherent, PW_Adherent, idPersonne, estProducteur, estAdministrateur, dateinscription, dateproducteur) VALUES (:idAdherent, :adressepostaleAdherent, :PW_Adherent, :idPersonne, :estProducteur, :estAdministrateur, :dateinscription, :dateproducteur)";
+        $sql = "INSERT INTO Adherent (idAdherent, adressepostaleAdherent, PW_Adherent, idPersonne, estProducteur, estAdministrateur, dateinscription, dateproducteur) VALUES (:idAdherent, :adressepostaleAdherent, :PW_Adherent, :idPersonne, :estProducteur, :estAdministrateur, :dateinscription, :dateproducteur)";
 
         // Préparation de la requête
         $req_prep = Model::$pdo->prepare($sql);
@@ -94,7 +94,7 @@ class ModelAdherent extends Model
     public function checkPW($idAdherent, $mot_de_passe_chiffre)
     {
 
-        $sql = "SELECT * FROM adherent WHERE idAdherent=:idAdherent";
+        $sql = "SELECT * FROM Adherent WHERE idAdherent=:idAdherent";
 
         // Préparation de la requête
         $req_prep = Model::$pdo->prepare($sql);

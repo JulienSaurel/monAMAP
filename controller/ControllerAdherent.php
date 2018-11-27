@@ -64,7 +64,7 @@
 				$estprod = false;
 				if ($prod == 'prod') {
 				    $estprod = true;
-					$dateProducteur = date("d M Y\, H:i:s");
+					$dateProducteur = date("Y-m-d H:i:s");
 				}
 			}
 /*			var_dump($dateProducteur);

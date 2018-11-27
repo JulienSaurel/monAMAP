@@ -41,7 +41,7 @@ class ModelPersonne extends Model
 
     public static function generateId()
     {
-    	$sql = 'SELECT SUM(idPersonne) FROM personne';
+    	$sql = 'SELECT SUM(idPersonne) FROM Personne';
     	$req = Model::$pdo->query($sql);
     	$res = $req->fetchColumn();
     	if ($res)
