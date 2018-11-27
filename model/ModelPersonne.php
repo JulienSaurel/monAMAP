@@ -29,53 +29,66 @@ class ModelPersonne extends Model
     }
 
     // un constructeur
-    public function __construct($idPersonne = NULL, $nomPersonne = NULL, $prenomPersonne = NULL, $mailPersonne = NULL) 
+    public function __construct($nomPersonne = NULL, $prenomPersonne = NULL, $mailPersonne = NULL)
     {
-        if (!is_null($idPersonne) && !is_null($nomPersonne) && !is_null($prenomPersonne) && !is_null($mailPersonne)) {
-            $this->idPersonne = $idPersonne;
+        if (!is_null($nomPersonne) && !is_null($prenomPersonne) && !is_null($mailPersonne)) {
+        	$this->idPersonne = self::generateId();
             $this->nomPersonne = $nomPersonne;
             $this->prenomPersonne = $prenomPersonne;
             $this->mailPersonne = $mailPersonne;
         }
     }
 
-
-    /*static public function getPersonneById($idPersonne) 
+    public static function generateId()
     {
-    $sql = "SELECT * from Personne WHERE idPersonne=:nom_tag";
-    // Préparation de la requête
-    $req_prep = Model::$pdo->prepare($sql);
+    	$sql = 'SELECT SUM(idPersonne) FROM personne';
+    	$req = Model::$pdo->query($sql);
+    	$res = $req->fetchColumn();
+    	if ($res)
+	    {
+	    	if($res != 1)
+			    return $res;
+	    	return 2;
+	    }
+    	return 1;
+    }
 
-    $values = array(
-        "nom_tag" => $idPersonne,
-        //nomdutag => valeur, ...
-    );
-    // On donne les valeurs et on exécute la requête     
-    $req_prep->execute($values);
 
-    // On récupère les résultats comme précédemment
-    $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelPersonne');
-    $tab_pers = $req_prep->fetchAll();
-    // S'il n'y a pas de résultats, on renvoie false
-        if (empty($tab_pers)) 
-        {
-            return false;
-        }
-        return $tab_pers[0];
-    }*/
+	/*static public function getPersonneById($idPersonne)
+	{
+	$sql = "SELECT * from Personne WHERE idPersonne=:nom_tag";
+	// Préparation de la requête
+	$req_prep = Model::$pdo->prepare($sql);
+
+	$values = array(
+		"nom_tag" => $idPersonne,
+		//nomdutag => valeur, ...
+	);
+	// On donne les valeurs et on exécute la requête
+	$req_prep->execute($values);
+
+	// On récupère les résultats comme précédemment
+	$req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelPersonne');
+	$tab_pers = $req_prep->fetchAll();
+	// S'il n'y a pas de résultats, on renvoie false
+		if (empty($tab_pers))
+		{
+			return false;
+		}
+		return $tab_pers[0];
+	}*/
 
     public function save() {    
-    $sql = "INSERT INTO Personne (idPersonne, nomPersonne, prenomPersonne, mailPersonne) VALUES (:nom_tag1 ,:nom_tag2,:nom_tag3,:nom_tag4)";
+    $sql = "INSERT INTO Personne (idPersonne, nomPersonne, prenomPersonne, mailPersonne) VALUES (:idPersonne, :nomPersonne, :prenomPersonne, :mailPersonne)";
     
     // Préparation de la requête
     $req_prep = Model::$pdo->prepare($sql);
     
     $values = array(
-        "nom_tag1" => $this->idPersonne,     
-        "nom_tag2" => $this->nomPersonne,
-        "nom_tag3" => $this->prenomPersonne,
-        "nom_tag4" => $this->mailPersonne,
-        //nomdutag => valeur, ...
+    	"idPersonne" => $this->idPersonne,
+        "nomPersonne" => $this->nomPersonne,
+        "prenomPersonne" => $this->prenomPersonne,
+        "mailPersonne" => $this->mailPersonne,
     );
     
     // On donne les valeurs et on exécute la requête     

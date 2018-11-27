@@ -6,10 +6,15 @@ class ModelAdherent extends Model
 {
 
     private $idAdherent;
-
     private $idPersonne;
     private $adressepostaleAdherent;
     private $PW_Adherent;
+    private $estProducteur;
+    private $estAdministrateur;
+    private $dateinscription;
+    private $dateproducteur;
+    private $photo;
+    private $description;
     static protected $object = 'adherent';
     protected static $primary='idAdherent';
 
@@ -31,30 +36,53 @@ class ModelAdherent extends Model
 
     // un constructeur
 
-    public function __construct($idAdherent = NULL, $idPersonne = NULL, $adressepostaleAdherent = NULL, $PW_Adherent = NULL)
+    public function __construct($idAdherent = NULL, $adressepostaleAdherent = NULL, $PW_Adherent = NULL, $idPersonne = NULL ,$estProducteur = NULL, $estAdministrateur = NULL, $dateinscription = NULL, $dateproducteur = NULL/*, $photo = NULL, $description = NULL*/)
     {
-        if (!is_null($idAdherent) && !is_null($idPersonne) && !is_null($adressepostaleAdherent) && !is_null($PW_Adherent)) {
+        if (!is_null($idAdherent) && !is_null($adressepostaleAdherent) && !is_null($PW_Adherent) && !is_null($estProducteur) && !is_null($idPersonne) && !is_null($estAdministrateur) && !is_null($dateinscription)/* && !is_null($photo) && !is_null($description)*/) {
+	        if(strtoupper($estProducteur) == "TRUE")
+	        	$estProducteur = 1;
+	        else
+	        	$estProducteur = 0;
+	        if (strtoupper($estAdministrateur) == "TRUE")
+	        	$estAdministrateur = 1;
+	        else
+	        	$estAdministrateur = 0;
+
 
             $this->idAdherent = $idAdherent;
-            $this->idPersonne = $idPersonne;
             $this->adressepostaleAdherent = $adressepostaleAdherent;
             $this->PW_Adherent = $PW_Adherent;
+	        $this->idPersonne = $idPersonne;
+	        $this->estProducteur = $estProducteur;
+	        $this->estAdministrateur = $estAdministrateur;
+	        $this->dateinscription = $dateinscription;
+	        if ($dateproducteur)
+	        {
+		        $this->dateproducteur = $dateproducteur;
+	        }
+	        /*$this->photo = $photo;
+	        $this->description = $description;*/
         }
     }
 
 
     public function save()
     {
-        $sql = "INSERT INTO adherent (idAdherent, idPersonne, adressepostaleAdherent, PW_Adherent) VALUES (:nom_tag1 ,:nom_tag2,:nom_tag3,:nom_tag4)";
+        $sql = "INSERT INTO adherent (idAdherent, adressepostaleAdherent, PW_Adherent, idPersonne, estProducteur, estAdministrateur, dateinscription, dateproducteur) VALUES (:idAdherent, :adressepostaleAdherent, :PW_Adherent, :idPersonne, :estProducteur, :estAdministrateur, :dateinscription, :dateproducteur)";
 
         // Préparation de la requête
         $req_prep = Model::$pdo->prepare($sql);
 
+
         $values = array(
-            "nom_tag1" => $this->idAdherent,
-            "nom_tag2" => $this->idPersonne,
-            "nom_tag3" => $this->adressepostaleAdherent,
-            "nom_tag4" => $this->PW_Adherent,
+            "idAdherent" => $this->idAdherent,
+            "idPersonne" => $this->idPersonne,
+            "adressepostaleAdherent" => $this->adressepostaleAdherent,
+            "PW_Adherent" => $this->PW_Adherent,
+	        "estProducteur" => $this->estProducteur,
+	        "estAdministrateur" => $this->estAdministrateur,
+	        "dateinscription" => $this->dateinscription,
+	        "dateproducteur" => $this->dateproducteur,
         );
         // On donne les valeurs et on exécute la requête
         $req_prep->execute($values);
