@@ -9,6 +9,7 @@ class Conf {
         'hostname' => 'webinfo',
         // A l'IUT -> login
         // Chez vous -> vous le coisissez en creant la base
+
         'database' => 'robertl',
         // A l'IUT, c'est votre login
         // Sur votre machine, vous avez surement un compte 'root'

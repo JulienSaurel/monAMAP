@@ -64,7 +64,7 @@
 				$estprod = false;
 				if ($prod == 'prod') {
 				    $estprod = true;
-					$dateProducteur = date("d M Y\, H:i:s");
+					$dateProducteur = date("Y-m-d H:i:s");
 				}
 			}
 /*			var_dump($dateProducteur);
@@ -79,9 +79,11 @@
 			if (isset($_POST['PW_Adherent'])&&isset($_POST['PW_Adherent2']))
 			{
 				if ($_POST['PW_Adherent'] == $_POST['PW_Adherent2']) {
-					if (isset($_POST['idAdherent']) && isset($_POST['adressepostaleAdherent']) && isset($_POST['PW_Adherent'])) {
-						$a = new ModelAdherent($_POST['idAdherent'], $_POST['adressepostaleAdherent'], Security::chiffrer($_POST['PW_Adherent']), $idPersonne, $estprod, false, date("Y-m-d H:i:s"), $dateProducteur); //on recupere les infos du formulaires
-//						var_dump($a);
+					if (isset($_POST['idAdherent']) && isset($_POST['adressepostaleAdherent']) && isset($_POST['ville']) && isset($_POST['PW_Adherent'])) {
+						//var_dump($_POST['ville']);
+						$a = new ModelAdherent($_POST['idAdherent'], $_POST['adressepostaleAdherent'], $_POST['ville'], Security::chiffrer($_POST['PW_Adherent']), $idPersonne, $estprod, false, date("Y-m-d H:i:s"), $dateProducteur); //on recupere les infos du formulaires
+						//
+						//var_dump($a);
                         $a->save();// on les sauve dans la base de donnees
 						$tab_adh = ModelAdherent::selectAll();
 						$view='list';

@@ -38,27 +38,25 @@
         <li><a class="lienMenu" href="?action=display3rd&controller=laVieAlAMAP">Livre d'or</a></li>
       </ul>
     </li>
-    <li class="monProfil">
+    <li class="nousSoutenir">
+      <a onclick="openLink()" class="lienMenu " href="?action=display&controller=nousSoutenir">Nous soutenir</a>
+    </li>
+       <?php  if (!isset($_SESSION['login'])) { ?>
+        <li class="SeConnecter">
+          <a onclick="openLink()" class="lienMenu " href="?action=connect&controller=adherent">Se connecter</a>
+      </li>
+       <?php }
+       else
+       { ?>
+      <li class="monProfil">
       <a onclick="openLink()" class="lienMenu" href="?action=display1st&controller=monProfil">Mon profil</a>
       <ul>
         <li><a class="lienMenu" href="?action=display1st&controller=monProfil">Voir mon profil</a></li>
         <li><a class="lienMenu" href="?action=display2nd&controller=monProfil">Devenir producteur</a></li>
+        <li><a class="lienMenu"href="?action=deconnect&controller=adherent">Se deconnecter</a></li>
       </ul>
     </li>
-    <li class="nousSoutenir">
-      <a onclick="openLink()" class="lienMenu " href="?action=display&controller=nousSoutenir">Nous soutenir</a>
-    </li>
-       <?php  if (!isset($_SESSION['login'])) {
-           echo '<li class="SeConnecter">
-          <a onclick="openLink()" class="lienMenu " href="?action=connect&controller=adherent">Se connecter</a>
-      </li>';
-       }
-       else
-       {
-           echo '<li class="SedeConnecter">
-          <a onclick="openLink()" class="lienMenu " href="?action=deconnect&controller=adherent">Se deconnecter</a>
-      </li>';
-       } ?>
+      <?php } ?>
   </ul>
 </div>
 
@@ -106,26 +104,21 @@
     <li class="nousSoutenir">
       <a class="lienMenu" href="?action=display&controller=nousSoutenir">Nous soutenir</a>
     </li>
-    <li class="monProfil">
-      <a class="lienMenu" href="?action=display1st&controller=monProfil">Mon profil</a>
-    	<ul>
+<?php  if (!isset($_SESSION['login'])) { ?>
+        <li class="SeConnecter">
+          <a onclick="openLink()" class="lienMenu " href="?action=connect&controller=adherent">Se connecter</a>
+      </li>
+       <?php }
+       else
+       { ?>
+      <li class="monProfil">
+      <a onclick="openLink()" class="lienMenu" href="?action=display1st&controller=monProfil">Mon profil</a>
+      <ul>
         <li><a class="lienMenu" href="?action=display1st&controller=monProfil">Voir mon profil</a></li>
         <li><a class="lienMenu" href="?action=display2nd&controller=monProfil">Devenir producteur</a></li>
+        <li><a class="lienMenu"href="?action=deconnect&controller=adherent">Se deconnecter</a></li>
       </ul>
     </li>
-    <li class="nousSoutenir">
-      <a class="lienMenu" href="?action=display&controller=nousSoutenir">Nous soutenir</a>
-    </li>
-    <?php  if (!isset($_SESSION['login'])) {
-      echo '<li class="SeConnecter">
-          <a onclick="openLink()" class="lienMenu " href="?action=connect&controller=adherent">Se connecter</a>
-      </li>';
-      }
-      else
-      {
-      echo '<li class="SedeConnecter">
-          <a onclick="openLink()" class="lienMenu " href="?action=deconnect&controller=adherent">Se deconnecter</a>
-      </li>';
-      } ?>
+      <?php } ?>
   </ul>
 </nav> 

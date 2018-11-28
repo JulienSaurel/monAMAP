@@ -20,17 +20,21 @@
             <input type="email" placeholder="Ex : dsambuc@free.fr" name="mailPersonne" id="mail_id" required/>
         </p>
         <p>
-            <label for="addpost">adresse postale</label> :
+            <label for="addpost">Adresse postale :</label> 
             <input type="text" placeholder="Ex : 7, rue Marceau" name="adressepostaleAdherent" id="addpost" required/>
+        </p>
+        <p>
+            <label for="ville">Ville :</label> 
+            <input type="text" placeholder="Ex : Montpellier" name="ville" id="ville" required/>
         </p>
         <input type="radio" name="estProducteur" value="prod"> Je suis producteur
         <input type="radio" name="estProducteur" value="nonprod"> Je ne suis pas producteur
         <p>
-            <label for="pw1">Mot de passe</label> :
+            <label for="pw1">Mot de passe :</label>
             <input type="password" placeholder="8 caractères minimum" name="PW_Adherent" id="pw1"  required/>
         </p>
         <p>
-            <label for="pw2">Valider le mot de passe</label> :
+            <label for="pw2">Valider le mot de passe :</label>
             <input type="password" name="PW_Adherent2" id="pw2" required/>
         </p>
         <p>
