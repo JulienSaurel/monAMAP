@@ -17,9 +17,9 @@
         </header>
 
             <main onclick="closeNav()">
-   
 
 <?php
+
 
 $filepath = File::build_path(array("view", static::$object, "$view.php"));
 require $filepath;

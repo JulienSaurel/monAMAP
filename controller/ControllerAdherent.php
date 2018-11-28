@@ -120,15 +120,33 @@
 				if (ModelAdherent::select($_POST['idAdherent']))
 				{
 					if (ModelAdherent::select($login)->checkPW($login, $pw))
-					{
+					{	
+						
 						$_SESSION['login'] = $login;
 						$a = ModelAdherent::select($login);
 						$view = 'detail';
-						$pagetitle = 'Adhérent';
-						require File::build_path(array('view', 'view.php'));
+						$pagetitle = 'adhérent';
+						
+						require File::build_path(array('view','view.php'));
+					} else {
+						$view = 'connectErreur';
+						$pagetitle = 'Se connecter';
+						$errmsg = "Mot de passe incorrect";
+						require File::build_path(array('view','view.php'));
 					}
-				}
+				} else {
+					$view = 'connectErreur';
+					$pagetitle = 'Se connecter';
+					$errmsg = " Login incorrect ";
+					require File::build_path(array('view','view.php'));
+				}	
+			} else {
+				$view = 'connectErreur';
+				$pagetitle = 'Se connecter';
+				$errmsg = " Veuillez vous connecter ";
+				require File::build_path(array('view','view.php'));
 			}
+
 
 		}
 

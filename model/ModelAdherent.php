@@ -65,6 +65,26 @@ class ModelAdherent extends Model
         }
     }
 
+    public static function select($id){
+        error_reporting(E_ALL & ~E_NOTICE);
+        $sql = "SELECT * FROM adherent A JOIN Personne P ON P.idPersonne=A.idPersonne WHERE idAdherent=:id";
+
+        // Préparation de la requête
+        $req_prep = Model::$pdo->prepare($sql);
+
+
+        $values = array(
+            "id" => $id,
+                    );
+        // On donne les valeurs et on exécute la requête
+        $req_prep->execute($values);
+        $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelAdherent');
+
+        $tab = $req_prep->fetchAll();
+        return $tab[0];
+
+    }
+
 
     public function save()
     {
