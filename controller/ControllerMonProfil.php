@@ -1,4 +1,7 @@
 <?php 
+require_once File::build_path(array('model','ModelAdherent.php'));
+require_once File::build_path(array('model','ModelPersonne.php'));
+
 class ControllerMonProfil
 {
 
@@ -13,7 +16,11 @@ class ControllerMonProfil
 	}
 
     public static function display1st()
-    {
+    {   
+        if (isset($_SESSION['login'])) {
+            $a = ModelAdherent::select($_SESSION['login']);
+            $p = ModelPersonne::select($a->get('idPersonne'));       
+        }
         $controller ='monProfil';
         $view = 'voirmonprofil';
         $pagetitle = 'Mon Profil';
