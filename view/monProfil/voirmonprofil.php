@@ -1,4 +1,4 @@
-<?php $a = ModelAdherent::select($_SESSION['login']); // FAIRE IF ISSET !!!!!!!!!!!!!!!!?> 
+<?php $a = ModelAdherent::select($_SESSION['login']); ?>
 	<h1> Votre profil: </h1>
 	<div>
 
@@ -17,6 +17,8 @@
 				{ ?>
 					<li><strong> Administrateur de l'AMAP</strong></li>
 			<?php } ?>
+
+			<li>Au total vous avez donné : <?php echo $a->getMontantTotal(); ?> € à l'AMAP</li>
 
 		</ul>
 	</div>

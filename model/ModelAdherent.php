@@ -153,6 +153,22 @@ class ModelAdherent extends Model
         return $tabAdmin[0][0];
     } 
 
+    public function getMontantTotal(){
+        $sql = "SELECT D.montantTotal FROM Adherent A JOIN Personne P ON P.idPersonne=A.idPersonne JOIN donnateur D ON P.mailPersonne=D.mailAddressDonnateur WHERE P.idPersonne=:idPersonne";
+
+        // Préparation de la requête
+        $req_prep = Model::$pdo->prepare($sql);
+
+        $data = array(
+            "idPersonne" => $this->get('idPersonne'));
+
+        $req_prep->execute($data);
+
+        $tab = $req_prep->fetchAll();
+        //var_dump($tab[0][0]);
+        return $tab[0][0];
+    }
+
     /*
     public static function chaineMail($tab, $cpt){
         if(count($tab)==1){
