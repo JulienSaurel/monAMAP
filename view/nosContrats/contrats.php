@@ -10,18 +10,18 @@
 <h3> Les paniers proposés par l'AMAP : </h3>
 
 <h5> le panier de légumes de saison:</h5> <!-- Ce serait bien d'insérer des photos de paniers ici -->
-
+<!-- <img src="./images/panierLegumes.jpg" alt="panier de légumes"/> -->
 <a href="?action=display3rd&controller=nosContrats" > En savoir plus sur le panier végétal </a>
 
 
 <h5> le panier de produits laitiers:</h5> <!-- Ce serait bien d'insérer des photos de paniers ici -->
-
+<!-- <img src="./images/panierLaitier.jpg" alt="panier laitier"/> -->
 <a href="?action=display1st&controller=nosContrats" > En savoir plus sur le panier laitier </a>
 
 <h5> le panier de produits carnés:</h5> <!-- Ce serait bien d'insérer des photos de paniers ici -->
-
+<!-- <img src="./images/panierViande.jpg" alt="panier carne"/> -->
 <a href="?action=display2nd&controller=nosContrats" > En savoir plus sur le panier carné </a>
 
 <h5> le panier "mix de produits" :</h5> <!-- Ce serait bien d'insérer des photos de paniers ici -->
-
+<!-- <img src="./images/panierMix.jpg" alt="panier mix"/> -->
 <a href="?action=display4th&controller=nosContrats" > En savoir plus sur le panier mix </a>
