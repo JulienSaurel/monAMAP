@@ -11,22 +11,22 @@
 		  <fieldset>
 		    <legend>Formulaire de contact :</legend>
 		    <p>
-		      <input type='hidden' name='action' value='donnated'>
+		      <input type='hidden' name='action' value='contacted'>
 		    </p>
 			<p>
 		      <input type='hidden' name='controller' value='nousConnaitre'>
 		    </p>
 			<p>
 		      <label for="prenom_donnateur">Prénom :</label> 
-		      <input type="text" placeholder="Ex : Henri" name="Prenom_donnateur" id="prenom_donnateur" required/>
+		      <input type="text" placeholder="Ex : Henri" name="prenom" id="prenom_donnateur" required/>
 		    </p>
 		    <p>
 		      <label for="nom_donnateur">Nom :</label> 
-		      <input type="text" placeholder="Ex : Dupont" name="Nom_donnateur" id="nom_donnateur" required/>
+		      <input type="text" placeholder="Ex : Dupont" name="nom" id="nom_donnateur" required/>
 		    </p>
 			<p>
 		      <label for="mail_donnateur">Adresse mail :</label> 
-		      <input type="email" placeholder="Ex : henridupont@gmail.com" name="Mail_donnateur" id="mail_donnateur" required/>
+		      <input type="email" placeholder="Ex : henridupont@gmail.com" name="mail" id="mail" required/>
 		    </p>
 		    <p>
       			<label for="message">Message :</label> 
