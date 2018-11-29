@@ -72,8 +72,8 @@ class ControllerNosContrats
             //var_dump($_SESSION);
 
             $a = ModelAdherent::select($_SESSION['login']);
-
-            $idAdherent = $a->get('idAdherent');
+            //var_dump($a);
+            $idAdherent = $a->get('idPersonne');
             $prenomPersonne = $a->get('prenomPersonne');
 
             $instanceContrat = new ModelContrat($idAdherent,$type,$taille,$frequence);

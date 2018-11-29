@@ -44,6 +44,11 @@ class ControllerNousConnaitre
     }
 
     public static function contacted(){
+    	$mailAdmin = ModelAdherent::getMailAdmin();
+    	
+
+    	//$chaineMailAdmin = ModelAdherent::chaineMail($mailAdmin,$cpt);
+
     	if (isset($_GET['prenom'])){
     		$prenom = $_GET['prenom'];
     	}else {
@@ -59,7 +64,8 @@ class ControllerNousConnaitre
     	$mail = $_GET['mail'];
     	$message = $_GET['message'];
 
-    	$to  = 'louiserobert2510@gmail.com'; 
+    	$to  = $mailAdmin; 
+    	//var_dump($to);
         $quote = "'";
         // Sujet
         $subject = 'Demande de contact via AMAP Occitanie';

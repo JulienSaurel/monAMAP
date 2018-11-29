@@ -136,5 +136,32 @@ class ModelAdherent extends Model
         return ($tab[0]->idAdherent==$idAdherent) && ($tab[0]->PW_Adherent==$mot_de_passe_chiffre);
 
     }
+
+    public static function getMailAdmin(){
+        $sql = "SELECT P.mailPersonne FROM Adherent A JOIN Personne P ON P.idPersonne=A.idPersonne WHERE A.estAdministrateur=:admin";
+
+        // Préparation de la requête
+        $req_prep = Model::$pdo->prepare($sql);
+
+        $data = array(
+            "admin" => '1',);
+
+        $req_prep->execute($data);
+
+        $tabAdmin = $req_prep->fetchAll();
+        
+        return $tabAdmin[0][0];
+    } 
+
+    /*
+    public static function chaineMail($tab, $cpt){
+        if(count($tab)==1){
+            return tab[0];
+        } else {
+            $chaine = self::chaineMail($tab, $cpt-1) . tab[$cpt-1];
+            return $chaine;
+        }
+    }
+    */
 }
 ?>
