@@ -1,0 +1,1 @@
+<H2> Merci d'avoir souscrit a un contrat, <?php echo $prenomAdherent ?>, rendez vous dans notre rubrique "évenement" pour ne pas rater la prochaine distribution! </H2>
