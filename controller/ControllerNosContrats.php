@@ -37,6 +37,15 @@ class ControllerNosContrats
         $pagetitle = 'Nos Contrats Mix';
         require File::build_path(array('view','view.php')); 
     }
+
+    public static function display5th()
+    {
+        $controller ='nosContrats';
+        $view = 'souscrire';
+        $pagetitle = 'Souscrire à un de nos contrats';
+        require File::build_path(array('view','view.php')); 
+    }
+
      public static function error()
     {
     $controller ='nosContrats';
