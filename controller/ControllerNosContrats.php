@@ -92,6 +92,7 @@ class ControllerNosContrats
     // 2. FPDF de gère pas le caractère € => chr(128)
     
     // création de la page et définition d'éléments
+    ob_get_clean();
     $PDF=new phpToPDF();
     $PDF->SetFillColor( 197, 223, 179 );
     $PDF->AddPage();

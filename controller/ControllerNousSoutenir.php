@@ -175,6 +175,7 @@ class ControllerNousSoutenir
     //$url = '../images/logo.png';
     
     // création de la page et définition d'éléments
+    ob_get_clean();
     $PDF=new phpToPDF();
     $PDF->SetFillColor( 197, 223, 179 );
     $PDF->AddPage();
