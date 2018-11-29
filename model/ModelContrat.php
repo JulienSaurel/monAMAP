@@ -30,11 +30,10 @@ class ModelContrat extends Model
     }
 
     // un constructeur
-    public function __construct($idContrat = NULL, $idAdherent = NULL, $typeContrat = NULL, $tailleContrat = NULL, $frequenceContrat = NULL) 
+    public function __construct( $idAdherent = NULL, $typeContrat = NULL, $tailleContrat = NULL, $frequenceContrat = NULL) 
     {
-        if (!is_null($idContrat) && !is_null($idAdherent) && !is_null($typeContrat) && !is_null($tailleContrat) && !is_null($frequenceContrat)) {
+        if (!is_null($idAdherent) && !is_null($typeContrat) && !is_null($tailleContrat) && !is_null($frequenceContrat)) {
 
-            $this->idContrat = $idContrat;
             $this->idAdherent = $idAdherent;
             $this->typeContrat = $typeContrat;
             $this->tailleContrat = $tailleContrat;
@@ -42,20 +41,19 @@ class ModelContrat extends Model
         }
     }
 public function save() {    
-    $sql = "INSERT INTO contrat (idContrat, idAdherent, typeContrat, tailleContrat, frequenceContrat) VALUES (:nom_tag1 ,:nom_tag2,:nom_tag3,:nom_tag4,:nom_tag5)";
+    $sql = "INSERT INTO contrat (tailleContrat, typeContrat, frequenceContrat, idAdherent) VALUES (:taille, :type, :freq, :adh)";
     
     // Préparation de la requête
     $req_prep = Model::$pdo->prepare($sql);
     
-    $values = array(
-        "nom_tag1" => $this->idContrat,     
-        "nom_tag2" => $this->idAdherent,
-        "nom_tag3" => $this->typeContrat,
-        "nom_tag4" => $this->tailleContrat,
-        "nom_tag4" => $this->frequenceContrat
+    $values = array(    
+        "taille" => $this->tailleContrat,
+        "type" => $this->typeContrat,
+        "freq" => $this->frequenceContrat,
+        "adh" => $this->idAdherent
         //nomdutag => valeur, ...
     );
-    
+
     // On donne les valeurs et on exécute la requête     
     $req_prep->execute($values);
 }

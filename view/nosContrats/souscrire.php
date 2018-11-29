@@ -41,9 +41,15 @@
 		      	<option> annuel </option>
 		      </select>
 		    </p>
-		    <p>
-		      <input type="submit" value="Souscrire" />
-		    </p>
+		    
+		    <?php  if (isset($_SESSION['login'])) { ?>
+		    	<p>
+		     	 <input type="submit" value="Souscrire" />
+		    	</p>
+		    <?php }else{ ?>
+		    	<p><span class="erreurFormulaire"> Vous devez être inscrit et connecté pour souscrire à un contrat </span></p>
+		    <?php } ?>
+		  
 		  </fieldset> 
 </form>
 </div>

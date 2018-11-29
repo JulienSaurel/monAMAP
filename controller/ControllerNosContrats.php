@@ -1,4 +1,6 @@
 <?php 
+    require_once File::build_path(array('model','ModelContrat.php'));
+
 class ControllerNosContrats
 {
     protected static $object='nosContrats';
@@ -53,6 +55,7 @@ class ControllerNosContrats
     $pagetitle = 'Error 404';
     require File::build_path(array('view','view.php'));
     }
+    
     public static function souscripted(){
         //on va chercher l'id de l'adhérent dans la base
         // on crée un contrat (instance de contrat)
@@ -60,14 +63,27 @@ class ControllerNosContrats
         // on redirige vers une page type "merci !"
         // VÉRIFIER SI QLQUN EST CONNECTÉ ET SI OUI RECCUPÉRER SON IDAHERENT
         // ET SON PRENOM DANS DES VARIABLES idAdherent et prenomAdherent
-        $type = $_GET['typeContrat'];
-        $taille = $_GET['tailleContrat'];
-        $frequence = $_GET['frequenceContrat'];
-        $instanceContrat = new ModelContrat($idAdherent,$type,$taille,$frequence);
-        $instanceContrat->save();
-        $view = 'souscripted';
-        $pagetitle = 'Merci !';
-        require File::build_path(array('view','view.php'));
+        if (isset($_SESSION['login'])){
+
+            $type = $_GET['typeContrat'];
+            $taille = $_GET['tailleContrat'];
+            $frequence = $_GET['frequenceContrat'];
+
+            //var_dump($_SESSION);
+
+            $a = ModelAdherent::select($_SESSION['login']);
+
+            $idAdherent = $a->get('idAdherent');
+            $prenomPersonne = $a->get('prenomPersonne');
+
+            $instanceContrat = new ModelContrat($idAdherent,$type,$taille,$frequence);
+            $instanceContrat->save();
+            $view = 'souscripted';
+            $pagetitle = 'Merci !';
+            require File::build_path(array('view','view.php'));
+        } else {
+
+        }
     }
     public static function generePDF(){
         include_once('libExternes/phpToPDF/phpToPDF.php');
