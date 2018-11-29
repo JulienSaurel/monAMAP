@@ -120,7 +120,7 @@ class ControllerNosContrats
     $PDF->Ln($esp);
     $PDF->SetFont('Arial','B',13);
     // date  
-    $PDF->Cell(190,$hau,"le ".date("d M Y\, H:i:s"),0,0,'L');
+    //$PDF->Cell(190,$hau,"le ".date("d M Y\, H:i:s"),0,0,'L');
     $PDF->Ln(14);
     // descriptif de l'adhérent 
     /*
