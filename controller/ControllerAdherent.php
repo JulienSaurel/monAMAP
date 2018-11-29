@@ -119,8 +119,6 @@
 			{
 				$login = $_POST['idAdherent'];
 				$pw = Security::chiffrer($_POST['pw']);
-				var_dump($_POST);
-				var_dump($_SESSION);
 				if (ModelAdherent::select($_POST['idAdherent']))
 				{
 					if (ModelAdherent::select($login)->checkPW($login, $pw))
