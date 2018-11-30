@@ -1,5 +1,18 @@
 <h1>Souscrire à un contrat : </h1>
-<a href="?action=generePDF&controller=nosContrats" target="_blank"> télécharger le contrat </a>
+
+<h2> Il y a deux façons possibles de souscrire à un contrat : </h2>
+
+<h3> Première possibilité: sourscrire en direct </h3>
+<p> Il vous suffit de: </p>
+<lu>
+	<li><a href="?action=generePDF&controller=nosContrats" target="_blank"> Télécharger ce contrat </a> </li>
+	<li> Le remplir de vos informations </li>
+	<li> Le rapporter aux organisateurs lors d'une de nos distributions </li>
+</lu>
+
+<p> consultez le calendrier des distributions <a href="?action=display2nd&controller=laVieAlAMAP"> ici </a> </p>
+
+<h3> Seconde possibilité: sourscrire en ligne </h3>
 
 <div> <p> Vous souhaitez souscrire en ligne : </p>
 
