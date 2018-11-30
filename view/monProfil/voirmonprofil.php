@@ -15,7 +15,7 @@
 				<?php } 
 			 if($a->get('estAdministrateur')==1)
 				{ ?>
-					<li><strong> Administrateur de l'AMAP</strong></li>
+					<li><span class="bold"> Administrateur de l'AMAP</span></li>
 			<?php } ?>
 
 		</ul>
