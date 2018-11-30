@@ -47,7 +47,8 @@ class ControllerNousConnaitre
     	$mailAdmin = ModelAdherent::getMailAdmin();
     	
 
-    	//$chaineMailAdmin = ModelAdherent::chaineMail($mailAdmin,$cpt);
+    	$chaineMailAdmin = ModelAdherent::chaineMail($mailAdmin);
+        //var_dump($chaineMailAdmin);
 
     	if (isset($_GET['prenom'])){
     		$prenom = $_GET['prenom'];
@@ -64,7 +65,7 @@ class ControllerNousConnaitre
     	$mail = $_GET['mail'];
     	$message = $_GET['message'];
 
-    	$to  = $mailAdmin; 
+    	$to  = $chaineMailAdmin; 
     	//var_dump($to);
         $quote = "'";
         // Sujet

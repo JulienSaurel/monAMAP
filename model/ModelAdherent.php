@@ -149,8 +149,8 @@ class ModelAdherent extends Model
         $req_prep->execute($data);
 
         $tabAdmin = $req_prep->fetchAll();
-        
-        return $tabAdmin[0][0];
+        //var_dump($tabAdmin[0][0]);
+        return $tabAdmin;
     } 
 
     public function getMontantTotal(){
@@ -169,15 +169,17 @@ class ModelAdherent extends Model
         return $tab[0][0];
     }
 
-    /*
-    public static function chaineMail($tab, $cpt){
-        if(count($tab)==1){
-            return tab[0];
-        } else {
-            $chaine = self::chaineMail($tab, $cpt-1) . tab[$cpt-1];
-            return $chaine;
+    
+    public static function chaineMail($tabAdmin){
+        $i=0;
+
+        $chaine='';
+        while($i<count($tabAdmin)){
+            $chaine = $tabAdmin[$i][0] . ', ' . $chaine  ;
+            $i = $i + 1;
         }
+        return $chaine;
     }
-    */
+    
 }
 ?>
