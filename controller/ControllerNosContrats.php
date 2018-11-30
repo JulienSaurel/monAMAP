@@ -1,4 +1,6 @@
 <?php 
+    require_once File::build_path(array('model','ModelContrat.php'));
+
 class ControllerNosContrats
 {
     protected static $object='nosContrats';
@@ -37,6 +39,15 @@ class ControllerNosContrats
         $pagetitle = 'Nos Contrats Mix';
         require File::build_path(array('view','view.php')); 
     }
+
+    public static function display5th()
+    {
+        $controller ='nosContrats';
+        $view = 'souscrire';
+        $pagetitle = 'Souscrire à un de nos contrats';
+        require File::build_path(array('view','view.php')); 
+    }
+
      public static function error()
     {
     $controller ='nosContrats';
@@ -44,6 +55,7 @@ class ControllerNosContrats
     $pagetitle = 'Error 404';
     require File::build_path(array('view','view.php'));
     }
+    
     public static function souscripted(){
         //on va chercher l'id de l'adhérent dans la base
         // on crée un contrat (instance de contrat)
@@ -51,14 +63,27 @@ class ControllerNosContrats
         // on redirige vers une page type "merci !"
         // VÉRIFIER SI QLQUN EST CONNECTÉ ET SI OUI RECCUPÉRER SON IDAHERENT
         // ET SON PRENOM DANS DES VARIABLES idAdherent et prenomAdherent
-        $type = $_GET['typeContrat'];
-        $taille = $_GET['tailleContrat'];
-        $frequence = $_GET['frequenceContrat'];
-        $instanceContrat = new ModelContrat($idAdherent,$type,$taille,$frequence);
-        $instanceContrat->save();
-        $view = 'souscripted';
-        $pagetitle = 'Merci !';
-        require File::build_path(array('view','view.php'));
+        if (isset($_SESSION['login'])){
+
+            $type = $_GET['typeContrat'];
+            $taille = $_GET['tailleContrat'];
+            $frequence = $_GET['frequenceContrat'];
+
+            //var_dump($_SESSION);
+
+            $a = ModelAdherent::select($_SESSION['login']);
+            //var_dump($a);
+            $idAdherent = $a->get('idPersonne');
+            $prenomPersonne = $a->get('prenomPersonne');
+
+            $instanceContrat = new ModelContrat($idAdherent,$type,$taille,$frequence);
+            $instanceContrat->save();
+            $view = 'souscripted';
+            $pagetitle = 'Merci !';
+            require File::build_path(array('view','view.php'));
+        } else {
+
+        }
     }
     public static function generePDF(){
         include_once('libExternes/phpToPDF/phpToPDF.php');
@@ -67,6 +92,7 @@ class ControllerNosContrats
     // 2. FPDF de gère pas le caractère € => chr(128)
     
     // création de la page et définition d'éléments
+    ob_get_clean();
     $PDF=new phpToPDF();
     $PDF->SetFillColor( 197, 223, 179 );
     $PDF->AddPage();
@@ -94,7 +120,7 @@ class ControllerNosContrats
     $PDF->Ln($esp);
     $PDF->SetFont('Arial','B',13);
     // date  
-    $PDF->Cell(190,$hau,"le ".date("d M Y\, H:i:s"),0,0,'L');
+    //$PDF->Cell(190,$hau,"le ".date("d M Y\, H:i:s"),0,0,'L');
     $PDF->Ln(14);
     // descriptif de l'adhérent 
     /*
