@@ -1,6 +1,7 @@
 <?php
 	require_once File::build_path(array('model','ModelAdherent.php'));
 	require_once File::build_path(array('model','ModelPersonne.php'));
+	require_once File::build_path(array('controller','ControllerMonProfil.php'));
 
 
 	class ControllerAdherent
@@ -126,10 +127,7 @@
 						
 						$_SESSION['login'] = $login;
 						$a = ModelAdherent::select($login);
-						$view = 'detail';
-						$pagetitle = 'adhérent';
-						
-						require File::build_path(array('view','view.php'));
+						ControllerMonProfil::profile();
 					} else {
 						$view = 'connectErreur';
 						$pagetitle = 'Se connecter';
