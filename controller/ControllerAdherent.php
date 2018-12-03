@@ -125,9 +125,7 @@
 					{
 						$_SESSION['login'] = $login;
 						$a = ModelAdherent::select($login);
-						$view = 'detail';
-						$pagetitle = 'Adhérent';
-						require File::build_path(array('view', 'view.php'));
+						ControllerMonProfil::display1st();
 					}
 				}
 			}
