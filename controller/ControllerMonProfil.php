@@ -7,15 +7,7 @@ class ControllerMonProfil
 
     protected static $object='monProfil';
 
-	public static function display()
-	{
-		$controller ='monProfil';
-        $view = 'profil';
-        $pagetitle = 'Mon Profil';
-        require File::build_path(array('view','view.php')); 
-	}
-
-    public static function display1st()
+    public static function profile()
     {   
         if (isset($_SESSION['login'])) {
             $a = ModelAdherent::select($_SESSION['login']);

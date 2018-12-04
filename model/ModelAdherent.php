@@ -136,5 +136,61 @@ class ModelAdherent extends Model
         return ($tab[0]->idAdherent==$idAdherent) && ($tab[0]->PW_Adherent==$mot_de_passe_chiffre);
 
     }
+
+    public static function getMailAdmin(){
+        $sql = "SELECT P.mailPersonne FROM Adherent A JOIN Personne P ON P.idPersonne=A.idPersonne WHERE A.estAdministrateur=:admin";
+
+        // Préparation de la requête
+        $req_prep = Model::$pdo->prepare($sql);
+
+        $data = array(
+            "admin" => '1',);
+
+        $req_prep->execute($data);
+
+        $tabAdmin = $req_prep->fetchAll();
+        //var_dump($tabAdmin[0][0]);
+        return $tabAdmin;
+    } 
+
+    public function getMontantTotal(){
+        $sql = "SELECT D.montantTotal FROM Adherent A JOIN Personne P ON P.idPersonne=A.idPersonne JOIN donnateur D ON P.mailPersonne=D.mailAddressDonnateur WHERE P.idPersonne=:idPersonne";
+
+        // Préparation de la requête
+        $req_prep = Model::$pdo->prepare($sql);
+
+        $data = array(
+            "idPersonne" => $this->get('idPersonne'));
+
+        $req_prep->execute($data);
+
+        $tab = $req_prep->fetchAll();
+        //var_dump($tab[0][0]);
+        return $tab[0][0];
+    }
+
+    
+    public static function chaineMail($tabAdmin){
+        $i=0;
+
+        $chaine='';
+        while($i<count($tabAdmin)){
+            $chaine = $tabAdmin[$i][0] . ', ' . $chaine  ;
+            $i = $i + 1;
+        }
+        return $chaine;
+    }
+
+    /*public static function readAllProd(){
+        $sql = "SELECT * FROM Adherent A WHERE A.estProducteur=:prod";
+        $req_prep = Model::$pdo->prepare($sql);
+        $values = array(
+            "prod" => '1');
+        $req_prep->execute($values);
+        return $req_prep->fetchAll();
+        
+    }*/
+
+    
 }
 ?>
