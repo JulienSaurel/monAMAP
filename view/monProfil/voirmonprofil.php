@@ -1,4 +1,3 @@
-<?php $a = ModelAdherent::select($_SESSION['login']); ?>
 	<h1> Votre profil: </h1>
 	<div>
 
