@@ -181,15 +181,17 @@ class ModelAdherent extends Model
         return $chaine;
     }
 
-    /*public static function readAllProd(){
+    public static function readAllProd(){
         $sql = "SELECT * FROM Adherent A WHERE A.estProducteur=:prod";
         $req_prep = Model::$pdo->prepare($sql);
         $values = array(
             "prod" => '1');
         $req_prep->execute($values);
+        $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelAdherent');
+        
         return $req_prep->fetchAll();
         
-    }*/
+    }
 
     
 }
