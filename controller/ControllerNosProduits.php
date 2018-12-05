@@ -6,9 +6,10 @@ class ControllerNosProduits
 
 public static function readAll(){
        $tab_prod=ModelAdherent::readAllProd();
-       $view = 'nosproducteurs';
+       return $tab_prod;
+/*      $view = 'nosproducteurs';
         $pagetitle = 'Nos Producteurs';
-        require File::build_path(array('view','view.php')); 
+        require File::build_path(array('view','view.php')); */
     }
 
     public static function display()
