@@ -14,7 +14,7 @@
 				<?php } 
 			 if($a->get('estAdministrateur')==1)
 				{ ?>
-					<li><strong> Administrateur de l'AMAP</strong></li>
+					<li><span class="bold"> Administrateur de l'AMAP</span></li>
 			<?php } ?>
 			<?php if ($a->getMontantTotal() > 0){ echo "<li>Au total vous avez donné : ".$a->getMontantTotal() ." € à l'AMAP</li>";}
 			else { 

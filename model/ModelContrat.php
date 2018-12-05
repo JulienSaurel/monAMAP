@@ -40,6 +40,7 @@ class ModelContrat extends Model
             $this->frequenceContrat = $frequenceContrat;
         }
     }
+    
 public function save() {    
     $sql = "INSERT INTO contrat (tailleContrat, typeContrat, frequenceContrat, idAdherent) VALUES (:taille, :type, :freq, :adh)";
     
