@@ -16,8 +16,10 @@
 				{ ?>
 					<li><strong> Administrateur de l'AMAP</strong></li>
 			<?php } ?>
-
-			<li>Au total vous avez donné : <?php echo $a->getMontantTotal(); ?> € à l'AMAP</li>
+			<?php if ($a->getMontantTotal() > 0){ echo "<li>Au total vous avez donné : ".$a->getMontantTotal() ." € à l'AMAP</li>";}
+			else { 
+				echo "<li>Au total vous avez donné : 0 € à l'AMAP</li>";}
+			?>
 
 		</ul>
 	</div>
