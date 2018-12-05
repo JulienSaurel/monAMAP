@@ -188,7 +188,6 @@ class ModelAdherent extends Model
             "prod" => '1');
         $req_prep->execute($values);
         $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelAdherent');
-        
         return $req_prep->fetchAll();
         
     }
