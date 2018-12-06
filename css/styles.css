@@ -547,6 +547,8 @@ footer {
 
  .imgprofil, .fruits img, .legumes img, .saison img{
     width: 250px;
+    padding: 10px;
+    border: 2px solid #adbfab;
  }
 
 
