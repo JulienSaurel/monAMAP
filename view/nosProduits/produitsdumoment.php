@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="css/styleproduits.css" />
 <h1> Produits du moment: </h1>
 
 <ul>
@@ -7,29 +6,26 @@
   <li><a href="#saison">Produits de saison </a></li>
 </ul>
 
-<div class="legumes">
-	<div>
+
+	<div class="legumes">
 		 <h2 id="legumes">Légumes</h2>
          <img src="images/carotte.jpg"/>
-         <img src="images/courgette.jpeg"  />
+         <img src="images/courgette.jpeg"/>
     </div>
 
-    <div>   
+    <div class="fruits">   
          <h2 id="fruits">Fruits</h2>
          <img src="images/fraise.jpg" />
          <img src="images/cerise.jpg" />
          <img src="images/framboise.jpg" />
     </div>
 
-    <div>
+    <div class="saison">
     	<h2 id="saison">Produits de saison</h2>
     	<img src="images/marron.jpg" />
 
-</div>
+    </div>
 
-<!--*img {
-    width: 300px;
-    height: 300px;
-}-->
+
 
 

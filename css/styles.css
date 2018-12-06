@@ -545,6 +545,8 @@ footer {
   
  }
 
- .imgprofil {
+ .imgprofil, .fruits img, .legumes img, .saison img{
     width: 250px;
  }
+
+
