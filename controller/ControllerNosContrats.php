@@ -57,24 +57,51 @@ class ControllerNosContrats
     }
     
     public static function souscripted(){
-        //on va chercher l'id de l'adhérent dans la base
-        // on crée un contrat (instance de contrat)
-        // on l'enregistre dans la base
-        // on redirige vers une page type "merci !"
-        // VÉRIFIER SI QLQUN EST CONNECTÉ ET SI OUI RECCUPÉRER SON IDAHERENT
-        // ET SON PRENOM DANS DES VARIABLES idAdherent et prenomAdherent
+        
         if (isset($_SESSION['login'])){
 
             $type = $_GET['typeContrat'];
             $taille = $_GET['tailleContrat'];
             $frequence = $_GET['frequenceContrat'];
 
-            //var_dump($_SESSION);
+            var_dump($_SESSION);
 
             $a = ModelAdherent::select($_SESSION['login']);
             //var_dump($a);
             $idAdherent = $a->get('idPersonne');
             $prenomPersonne = $a->get('prenomPersonne');
+            $mailPersonne = $a->get('mailPersonne');
+
+        ////////////////// ENVOI DE MAIL ////////////////////////////////////////             
+        $to  = $mailPersonne; 
+        $quote = "'";
+        // Sujet
+        $subject = 'Remerciements de AMAP Occitanie';
+
+        // message
+        $message = '
+        <html>
+            <head>
+              <title>Remerciements de AMAP Occitanie</title>
+            </head>
+            <body>
+                <p> L'.$quote.'équipe de AMAP Occitanie vous confirme que vous avez bien sourscrit à un contrat '.$type.' de taille '.$taille.' à une fréquence '.$frequence.'. </p>
+            </body>
+            <footer> <p> le site de l'.$quote.'AMAP : http://webinfo.iutmontp.univ-montp2.fr/~robertl/AMAP/monAMAP/</p>
+            </footer>
+        </html>
+        ';
+
+        // Pour envoyer un mail HTML, l'en-tête Content-type doit être défini
+        $headers[] = 'MIME-Version: 1.0';
+        $headers[] = 'Content-type: text/html; charset=iso-8859-1';
+
+        // En-têtes additionnels
+        $headers[] = 'From: AMAP Occitanie <AMAP-Occitanie@no-reply.com>';
+        // Envoi
+        mail($to, $subject, $message, implode("\r\n", $headers));     
+
+        //////////////FIN D'ENVOI DE MAIL ///////////////////////////////////
 
             $instanceContrat = new ModelContrat($idAdherent,$type,$taille,$frequence);
             $instanceContrat->save();
