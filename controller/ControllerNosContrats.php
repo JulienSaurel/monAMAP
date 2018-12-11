@@ -64,7 +64,7 @@ class ControllerNosContrats
             $taille = $_GET['tailleContrat'];
             $frequence = $_GET['frequenceContrat'];
 
-            var_dump($_SESSION);
+           
 
             $a = ModelAdherent::select($_SESSION['login']);
             //var_dump($a);

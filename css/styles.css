@@ -19,6 +19,7 @@ src: url("font/Philosopher-Regular.ttf");
 
       #navMenu {
       text-align: center;
+      z-index: 50;
     }
 
     #menu, #menu ul {
@@ -27,6 +28,8 @@ src: url("font/Philosopher-Regular.ttf");
       list-style-type: none;
       position: absolute;
       top: 0;
+      z-index: 50;
+
 
 
      }
@@ -237,7 +240,7 @@ input:not([type='submit']) {
     background-color: #cce3ce;
   }
 
-input:not([type='submit']):not([type='number']) {
+input:not([type='submit']):not([type='number']):not([type='radio']) {
   height: 25px;
   width:200px;
   transition: width 500ms;
@@ -245,7 +248,7 @@ input:not([type='submit']):not([type='number']) {
 
 }
 
-input:not([type='submit']):not([type='number']):focus {
+input:not([type='submit']):not([type='number']):not([type='radio']):focus {
     width:250px;
   transition: width 500ms;
 
@@ -326,10 +329,7 @@ transition: background-color 500ms;
 footer {
   margin-left: 10%;
   margin-right: 10%;
-   flex-shrink: 0 !important;
-}
-
-#logos {
+  flex-shrink: 0 !important;
   display: inline-block;
   height: 15%;
   width: 100%;
@@ -345,8 +345,72 @@ footer {
   text-decoration: none;
 }
 
+.article img, .article p {
+  vertical-align: top;
+  width: 45%;
+  position: relative;
+  display: inline-block;
+  margin-left: 15px;
+
+
+}
+.article {
+
+  position: relative;
+  width: 85%;
+  display: block;
+  margin: 25px;
+  padding: 25px;
+  border: 2px solid #adbfab;
+  vertical-align: top;
+
+}
+
 
 @media screen and (max-width: 1315px) {
+
+
+  section.usercontent {
+    width: 100%;
+    display: block;
+  }
+
+  .usercontent article{ 
+    display: block;
+    width: 100%;
+    
+
+  }
+    .usercontent aside{ 
+          display: block;
+    width: 100%;
+
+    
+    
+  }
+
+  .usercontent > aside > img{ 
+    width: inherit;
+    width: 100px;
+    height: 500px;
+    width: 100%;
+    float: left;
+  }
+
+
+
+    #logoFB , #logoTT , #logoGP, #logoBurger {
+    padding-left: 1%;
+    height: 15%;
+    width: 15%;
+    text-decoration: none;
+  }
+    .article img, .article p {
+    vertical-align: top;
+    width: 90%;
+    position: relative;
+    display: block;
+    }
 
       div form{
         width: 95%;
