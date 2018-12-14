@@ -133,6 +133,34 @@ src: url("font/Philosopher-Regular.ttf");
       color: #a9f49e;
       transition: color 500ms;
     }
+    .liensfooter ul{
+  width: 100%;
+    list-style: none;
+    padding: 0;
+    list-style-type: none;
+    padding-left: 15px;
+  padding-right: 15px; 
+  border-left: 1px solid #adbfab;
+ }
+  .liensfooter ul li{
+    width: 100%;
+    padding-top: 10px;
+    border-bottom: 2px solid #adbfab;
+    opacity: 0.7;
+    transition: background-color 0.5s;
+ }
+ .liensfooter ul li:hover{
+    background-color: #727272;
+    color: white;
+    opacity: 0.7;
+    transition: background-color 0.5s;
+ }
+ .liensfooter ul li:hover a{
+
+    color: white;
+    transition: background-color 0.5s;
+ }
+
 }   
     
   .bold {
@@ -199,11 +227,6 @@ main {
   margin-right: 10%;
     padding-top: 10%;
     flex: 1 0 auto !important;
-}
-
-header {
-
-
 }
 
 label {
@@ -327,13 +350,14 @@ transition: background-color 500ms;
 
 /* Reglage footer */
 footer {
+  position: relative;
   margin-left: 10%;
   margin-right: 10%;
   flex-shrink: 0 !important;
   display: inline-block;
   height: 15%;
   width: 100%;
-  display: inline-block;
+ 
   margin-top: 10%;
   border-top: 1px solid #adbfab;
 }
@@ -412,6 +436,10 @@ footer {
     display: block;
     }
 
+    .article img {
+      width: 200px;
+    }
+
       div form{
         width: 95%;
         margin: 5%;
@@ -487,7 +515,7 @@ footer {
         z-index: 50; /* Stay on top */
         top: 0; /* Stay at the top */
         left: 0;
-        background-color: #adbfab; /* Black*/
+        background-color: #adbfab; 
         overflow-x: hidden; /* Disable horizontal scroll */
         padding-top: 60px; /* Place content 60px from the top */
         transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
@@ -590,6 +618,10 @@ footer {
     #openav {
       z-index: 20;
     }
+
+    .liensfooter {
+      display: none;
+    }
  
 
 }
@@ -601,9 +633,7 @@ footer {
   z-index: 5;*/
   display: none;
 }
- body {
-  z-index: 2;
- }
+
 
  main {
   
@@ -614,5 +644,22 @@ footer {
     padding: 10px;
     border: 2px solid #adbfab;
  }
+ footer {
+  width: 80%;
+ }
+
+ footer div {
+  display: inline-block;
+  position: relative;
+  height: 100%;
+  vertical-align: top;
+  padding-left: 15px;
+  padding-right: 15px; 
+  
+  
+ }
+
+ 
+
 
 
