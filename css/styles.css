@@ -6,6 +6,12 @@ src: url("font/Philosopher-Regular.ttf");
 
 @media screen and (min-width: 1315px) {
 
+      iframe {
+        float: left;
+        width: 100%;
+        height: 400px;
+      }
+
       .sidenav, #openav {
         display: none;
       }
@@ -13,6 +19,7 @@ src: url("font/Philosopher-Regular.ttf");
 
       #navMenu {
       text-align: center;
+      z-index: 50;
     }
 
     #menu, #menu ul {
@@ -21,6 +28,8 @@ src: url("font/Philosopher-Regular.ttf");
       list-style-type: none;
       position: absolute;
       top: 0;
+      z-index: 50;
+
 
 
      }
@@ -43,8 +52,10 @@ src: url("font/Philosopher-Regular.ttf");
     }
 
     #menu > li {
+      font-size: 15px;
+      height: 50px;
       display: inline-block;
-      width: 170px;
+      width: 120px;
       background-color: #adbfab;
       border: 1px solid #cbdcc9;
       padding-left: 5px;
@@ -78,6 +89,8 @@ src: url("font/Philosopher-Regular.ttf");
         
     }
 
+    
+
 
 
     #menu > li > ul {
@@ -87,15 +100,16 @@ src: url("font/Philosopher-Regular.ttf");
       border: 2px solid #adbfab;
       border-radius: 8px;
       transition: top .6s;
-      width: 168px;
+      width: 120px;
       z-index: -50;
       /*opacity: 0.0;*/
 
     }
 
     #menu > li:hover > ul {
-      top: 65px;
+      top: 60px;
       transition: top 0.2s;
+
       /*opacity: 1.0;
       transition: opacity 0.9s;*/
 
@@ -109,11 +123,85 @@ src: url("font/Philosopher-Regular.ttf");
       border-bottom:1px solid #adbfab;
       padding-top:8px;
       padding-bottom: 8px;
+      transition: color 500ms;
     }
-}
+
+    #menu > li > ul > li > a:hover{
+      border-bottom:1px solid #adbfab;
+      padding-top:8px;
+      padding-bottom: 8px;
+      color: #a9f49e;
+      transition: color 500ms;
+    }
+    .liensfooter ul{
+  width: 100%;
+    list-style: none;
+    padding: 0;
+    list-style-type: none;
+    padding-left: 15px;
+  padding-right: 15px; 
+  border-left: 1px solid #adbfab;
+ }
+  .liensfooter ul li{
+    width: 100%;
+    padding-top: 10px;
+    border-bottom: 2px solid #adbfab;
+    opacity: 0.7;
+    transition: background-color 0.5s;
+ }
+ .liensfooter ul li:hover{
+    background-color: #727272;
+    color: white;
+    opacity: 0.7;
+    transition: background-color 0.5s;
+ }
+ .liensfooter ul li:hover a{
+
+    color: white;
+    transition: background-color 0.5s;
+ }
+
+}   
+    
+  .bold {
+    font-weight: bold;
+  }
+
+  #donne {
+    background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+  background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
+  color:transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  }
+
+  section.usercontent {
+    width: 100%;
+    display: inline-block;
+  }
+
+  .usercontent article{ 
+    display: block;
+    width: 60%;
+    float: left;
+
+  }
+    .usercontent aside{ 
+    width: 40%;
+    float: right;
+  }
+
+  .usercontent > aside > img{ 
+    width: inherit;
+    width: 100px;
+    height: 500px;
+    width: 100%;
+    float: left;
+  }
 
 
-section img, form {
+
+article img, form {
         width: 100%;
         margin-left: 5px;
         margin-right: 5px;
@@ -139,11 +227,6 @@ main {
   margin-right: 10%;
     padding-top: 10%;
     flex: 1 0 auto !important;
-}
-
-header {
-
-
 }
 
 label {
@@ -180,7 +263,7 @@ input:not([type='submit']) {
     background-color: #cce3ce;
   }
 
-input:not([type='submit']):not([type='number']) {
+input:not([type='submit']):not([type='number']):not([type='radio']) {
   height: 25px;
   width:200px;
   transition: width 500ms;
@@ -188,7 +271,7 @@ input:not([type='submit']):not([type='number']) {
 
 }
 
-input:not([type='submit']):not([type='number']):focus {
+input:not([type='submit']):not([type='number']):not([type='radio']):focus {
     width:250px;
   transition: width 500ms;
 
@@ -267,16 +350,14 @@ transition: background-color 500ms;
 
 /* Reglage footer */
 footer {
+  position: relative;
   margin-left: 10%;
   margin-right: 10%;
-   flex-shrink: 0 !important;
-}
-
-#logos {
+  flex-shrink: 0 !important;
   display: inline-block;
   height: 15%;
   width: 100%;
-  display: inline-block;
+ 
   margin-top: 10%;
   border-top: 1px solid #adbfab;
 }
@@ -288,8 +369,76 @@ footer {
   text-decoration: none;
 }
 
+.article img, .article p {
+  vertical-align: top;
+  width: 45%;
+  position: relative;
+  display: inline-block;
+  margin-left: 15px;
+
+
+}
+.article {
+
+  position: relative;
+  width: 85%;
+  display: block;
+  margin: 25px;
+  padding: 25px;
+  border: 2px solid #adbfab;
+  vertical-align: top;
+
+}
+
 
 @media screen and (max-width: 1315px) {
+
+
+  section.usercontent {
+    width: 100%;
+    display: block;
+  }
+
+  .usercontent article{ 
+    display: block;
+    width: 100%;
+    
+
+  }
+    .usercontent aside{ 
+          display: block;
+    width: 100%;
+
+    
+    
+  }
+
+  .usercontent > aside > img{ 
+    width: inherit;
+    width: 100px;
+    height: 500px;
+    width: 100%;
+    float: left;
+  }
+
+
+
+    #logoFB , #logoTT , #logoGP, #logoBurger {
+    padding-left: 1%;
+    height: 15%;
+    width: 15%;
+    text-decoration: none;
+  }
+    .article img, .article p {
+    vertical-align: top;
+    width: 90%;
+    position: relative;
+    display: block;
+    }
+
+    .article img {
+      width: 200px;
+    }
 
       div form{
         width: 95%;
@@ -307,8 +456,19 @@ footer {
         width: 50%;
         height: 400px;
       }
+       aside iframe {
+        width: inherit;
+        width: 100%;
+        height: 400px;
+      }
+      aside {
+        padding-left: 2%;
+      }
+      .usercontent > aside {
+        float: left;
+      }
 
-      section img, form {
+      article img, form {
         width: 100%;
         margin-left: 5px;
         margin-right: 5px;
@@ -335,7 +495,7 @@ footer {
         padding: 40px;
         width: 60px;
         height: 60px;
-        z-index: 5;
+        z-index: 20;
       }
 
       #navMenu {
@@ -348,14 +508,14 @@ footer {
 
      /* The side navigation menu */
     .sidenav {
-      z-index: 8;
+      
         height: 100%; /* 100% Full-height */
         width: 0; /* 0 width - change this with JavaScript */
         position: fixed; /* Stay in place */
-        z-index: 1; /* Stay on top */
+        z-index: 50; /* Stay on top */
         top: 0; /* Stay at the top */
         left: 0;
-        background-color: #adbfab; /* Black*/
+        background-color: #adbfab; 
         overflow-x: hidden; /* Disable horizontal scroll */
         padding-top: 60px; /* Place content 60px from the top */
         transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
@@ -448,6 +608,7 @@ footer {
     footer {
       width: 100%;
       margin-left: 0px;
+      margin-right: 0px;
     }
 
     header {
@@ -455,25 +616,50 @@ footer {
     }
 
     #openav {
-      z-index: 8;
+      z-index: 20;
+    }
+
+    .liensfooter {
+      display: none;
     }
  
 
 }
 
 .banniere {
-  /*position: absolute;
+/*  position: absolute;
   width: 100%;
   height: 200px;
   z-index: 5;*/
   display: none;
 }
- body {
-  z-index: 2;
- }
+
 
  main {
-  z-index: 8;
+  
  }
+
+ .imgprofil, .fruits img, .legumes img, .saison img{
+    width: 250px;
+    padding: 10px;
+    border: 2px solid #adbfab;
+ }
+ footer {
+  width: 80%;
+ }
+
+ footer div {
+  display: inline-block;
+  position: relative;
+  height: 100%;
+  vertical-align: top;
+  padding-left: 15px;
+  padding-right: 15px; 
+  
+  
+ }
+
+ 
+
 
 

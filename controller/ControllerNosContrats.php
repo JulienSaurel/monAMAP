@@ -1,24 +1,23 @@
 <?php 
+    require_once File::build_path(array('model','ModelContrat.php'));
+
 class ControllerNosContrats
 {
     protected static $object='nosContrats';
-
-	public static function display()
-	{
-		$controller ='nosContrats';
+    public static function display()
+    {
+        $controller ='nosContrats';
         $view = 'contrats';
         $pagetitle = 'Nos Contrats';
         require File::build_path(array('view','view.php')); 
-	}
-
+    }
     public static function display1st()
     {
         $controller ='nosContrats';
         $view = 'laitier';
-        $pagetitle = 'Nos Contrats Laitiers';
+        $pagetitle = 'Nos Contrats';
         require File::build_path(array('view','view.php')); 
     }
-
     public static function display2nd()
     {
         $controller ='nosContrats';
@@ -26,7 +25,6 @@ class ControllerNosContrats
         $pagetitle = 'Nos Contrats Viande';
         require File::build_path(array('view','view.php')); 
     }
-
     public static function display3rd()
     {
         $controller ='nosContrats';
@@ -34,7 +32,6 @@ class ControllerNosContrats
         $pagetitle = 'Nos Contrats Légumes';
         require File::build_path(array('view','view.php')); 
     }
-
     public static function display4th()
     {
         $controller ='nosContrats';
@@ -43,69 +40,86 @@ class ControllerNosContrats
         require File::build_path(array('view','view.php')); 
     }
 
-	 public static function error()
+    public static function display5th()
+    {
+        $controller ='nosContrats';
+        $view = 'souscrire';
+        $pagetitle = 'Souscrire à un de nos contrats';
+        require File::build_path(array('view','view.php')); 
+    }
+
+     public static function error()
     {
     $controller ='nosContrats';
     $view = 'error';
     $pagetitle = 'Error 404';
     require File::build_path(array('view','view.php'));
     }
+    
+    public static function souscripted(){
+        
+        if (isset($_SESSION['login'])){
 
+            $type = $_GET['typeContrat'];
+            $taille = $_GET['tailleContrat'];
+            $frequence = $_GET['frequenceContrat'];
+
+           
+
+            $a = ModelAdherent::select($_SESSION['login']);
+            //var_dump($a);
+            $idAdherent = $a->get('idPersonne');
+            $prenomPersonne = $a->get('prenomPersonne');
+            $mailPersonne = $a->get('mailPersonne');
+
+        ////////////////// ENVOI DE MAIL ////////////////////////////////////////             
+        $to  = $mailPersonne; 
+        $quote = "'";
+        // Sujet
+        $subject = 'Remerciements de AMAP Occitanie';
+
+        // message
+        $message = '
+        <html>
+            <head>
+              <title>Remerciements de AMAP Occitanie</title>
+            </head>
+            <body>
+                <p> L'.$quote.'équipe de AMAP Occitanie vous confirme que vous avez bien sourscrit à un contrat '.$type.' de taille '.$taille.' à une fréquence '.$frequence.'. </p>
+            </body>
+            <footer> <p> le site de l'.$quote.'AMAP : http://webinfo.iutmontp.univ-montp2.fr/~robertl/AMAP/monAMAP/</p>
+            </footer>
+        </html>
+        ';
+
+        // Pour envoyer un mail HTML, l'en-tête Content-type doit être défini
+        $headers[] = 'MIME-Version: 1.0';
+        $headers[] = 'Content-type: text/html; charset=iso-8859-1';
+
+        // En-têtes additionnels
+        $headers[] = 'From: AMAP Occitanie <AMAP-Occitanie@no-reply.com>';
+        // Envoi
+        mail($to, $subject, $message, implode("\r\n", $headers));     
+
+        //////////////FIN D'ENVOI DE MAIL ///////////////////////////////////
+
+            $instanceContrat = new ModelContrat($idAdherent,$type,$taille,$frequence);
+            $instanceContrat->save();
+            $view = 'souscripted';
+            $pagetitle = 'Merci !';
+            require File::build_path(array('view','view.php'));
+        } else {
+
+        }
+    }
     public static function generePDF(){
         include_once('libExternes/phpToPDF/phpToPDF.php');
-
     // quelques remarques :
     // 1. FPDF ne gère pas les accents => utilisation de utf8_decode()
     // 2. FPDF de gère pas le caractère € => chr(128)
     
-
-    // l'adhérent à qui s'adresse la facture
-        /*
-    $adh = array(
-        'idAdherent' => 137,
-        'nom' => 'Haddock',
-        'prenom' => 'Archibald',
-        'adresse' => 'château de Moulinsart',
-        'cp' => '34000',
-        'ville' => 'Moulinsart',
-        'email' => 'archibald@yopmail.com',
-        'tel' => '06.05.04.03.02'
-    );
-
-    // la facture
-    $numFacture = "137-17";
-    
-    // les articles de la facture
-    $A = array();
-    $article1 = array(
-        'libelleArticle' => 'panier de légumes',
-        'quantite' => 2,
-        'prixUnitaire' => 10
-    );
-    $article2 = array(
-        'libelleArticle' => 'confiture de fraises',
-        'quantite' => 3,
-        'prixUnitaire' => 4.5
-    );
-    $article3 = array(
-        'libelleArticle' => 'pain d\'épices',
-        'quantite' => 1,
-        'prixUnitaire' => 4
-    );
-    $article4 = array(
-        'libelleArticle' => 'poulet',
-        'quantite' => 2,
-        'prixUnitaire' => 10.5
-    );
-    $A[] = $article1;
-    $A[] = $article2;
-    $A[] = $article3;
-    $A[] = $article4;
-    
-    // un logo
-    //$url = 'logo.jpg'; */
-    
     // création de la page et définition d'éléments
+    ob_get_clean();
     $PDF=new phpToPDF();
     $PDF->SetFillColor( 197, 223, 179 );
     $PDF->AddPage();
@@ -133,9 +147,8 @@ class ControllerNosContrats
     $PDF->Ln($esp);
     $PDF->SetFont('Arial','B',13);
     // date  
-    $PDF->Cell(190,$hau,"le ".date("d M Y\, H:i:s"),0,0,'L');
+    //$PDF->Cell(190,$hau,"le ".date("d M Y\, H:i:s"),0,0,'L');
     $PDF->Ln(14);
-
     // descriptif de l'adhérent 
     /*
     $strAdh = $adh['prenom']." ".$adh['nom'].", ".$adh['adresse']." ".$adh['cp']." ".$adh['ville'];
@@ -145,24 +158,19 @@ class ControllerNosContrats
     $PDF->SetFont('Arial','B',19);
     $PDF->Cell(190,$hau,utf8_decode("Souscrire à un contrat"),0,0,'C');
     $PDF->SetFont('Arial','B',13);
-
     $PDF->Ln(14);
     $PDF->Cell(190,$hau,utf8_decode("Informations contrat: "),0,0,'L');
     $PDF->Ln(10);
-
     $PDF->SetFont('Arial','',13);
     $PDF->Cell(190,$hau,$tab."Type de contrat: ".$pointXS,0,0,'L');
     $PDF->Ln(10);
     $PDF->Cell(190,$hau,$tab.utf8_decode("Fréquence du contrat:").$pointXS,0,0,'L');
     $PDF->Ln(10);
     $PDF->Cell(190,$hau,$tab.utf8_decode("Taille des paniers : ").$pointXS,0,0,'L');
-
     $PDF->Ln(18);
-
     $PDF->SetFont('Arial','B',13);
     $PDF->Cell(190,$hau,utf8_decode("Informations adhérent: "),0,0,'L');
     $PDF->SetFont('Arial','',13);
-
     $PDF->Ln(10);
     $PDF->Cell(190,$hau,$tab."Nom : ".$pointL,0,0,'L');
     $PDF->Ln(10);
@@ -177,9 +185,7 @@ class ControllerNosContrats
     $PDF->Cell(190,$hau,$tab.utf8_decode("Ville : ".$pointL),0,0,'L');
     $PDF->Ln(10);
     $PDF->Cell(190,$hau,$tab.utf8_decode("Code postal : ".$pointXS),0,0,'L');
-
     $PDF->Ln(20);
-
     $PDF->Cell(190,$hau,utf8_decode("Je déclare avoir pris connaissance des Conditions Générales de Vente décrites "),0,0,'L');
     $PDF->Ln(7);
     $PDF->Cell(190,$hau,utf8_decode("et les accepte pleinement. "),0,0,'L');
@@ -196,14 +202,12 @@ class ControllerNosContrats
     // descriptif de la facture (identifiant de facure)
     $PDF->Cell(190,$hau,utf8_decode("facture n°".$numFacture),0,0,'L');
     $PDF->Ln($esp);
-
     // ligne d'entête du tableau
     $PDF->Cell(100,$hau,utf8_decode("article"),1,0,'C',true);
     $PDF->Cell(30,$hau,utf8_decode("quantité"),1,0,'C',true);
     $PDF->Cell(30,$hau,utf8_decode("prix unitaire"),1,0,'C',true);
     $PDF->Cell(30,$hau,utf8_decode("prix total"),1,0,'C',true);
     $PDF->Ln();
-
     // ligne par article, et calcul du prix total au fur et à mesure
     $prixTotal = 0;
     foreach ($A as $i => $article) {
@@ -218,7 +222,6 @@ class ControllerNosContrats
         $PDF->Cell(30,$hau,number_format($prT,2,',',' ').' '.chr(128),1,0,'R');
         $PDF->Ln();
     }
-
     // ligne du prix total
     $PDF->Cell(160,$hau,utf8_decode("total "),0,0,'R',false);
     $PDF->Cell(30,$hau,number_format($prixTotal,2,',',' ').' '.chr(128),1,0,'R');
@@ -226,7 +229,6 @@ class ControllerNosContrats
     // export du pdf avec sauvegarde selon le nom spécifié
     $namefile = "facture.pdf";
     $PDF->Output($namefile, "I");
-
     // affichage du pdf
     echo '<embed src="facture.pdf" width="100%" height="900px">';
     }

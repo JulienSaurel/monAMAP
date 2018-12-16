@@ -1,5 +1,7 @@
 <?php 
 require_once File::build_path(array('model','ModelLivreDor.php')); // chargement du modèle
+require_once File::build_path(array('model','ModelArticles.php')); // chargement du modèle
+require_once File::build_path(array('model','ModelAdherent.php')); // chargement du modèle
 
 class ControllerLaVieAlAMAP
 {
@@ -14,6 +16,9 @@ class ControllerLaVieAlAMAP
 
     public static function display1st()
     {
+        $tabArticles = ModelArticles::selectAll();
+        
+
         $view = 'articles';
         $pagetitle = 'Articles';
         require File::build_path(array('view','view.php')); 
@@ -29,6 +34,8 @@ class ControllerLaVieAlAMAP
     public static function display3rd()
     {   
         $nombrepages = ModelLivreDor::getNbPages();
+        $page = 0;
+        $tab = ModelLivreDor::getAllBetween($page, $page + ModelLivreDor::getnbmsgpg());
         $view = 'livredor';
         $pagetitle = 'Livre d\'or';
         require File::build_path(array('view','view.php')); 
@@ -64,6 +71,12 @@ class ControllerLaVieAlAMAP
     $pagetitle = 'Error 404';
     require File::build_path(array('view','view.php'));
     }
+
+    public static function allArticles(){
+        return ModelArticles::selectAll();
+    }
+
+
 
 
 } ?>

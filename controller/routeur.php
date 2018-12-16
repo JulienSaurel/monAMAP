@@ -9,6 +9,7 @@ require_once File::build_path(array('controller','ControllerNosContrats.php'));
 require_once File::build_path(array('controller','ControllerMonProfil.php'));
 require_once File::build_path(array('controller','ControllerLaVieAlAMAP.php'));
 
+
 //------------controller-------------
 if(!isset($_GET['controller'])) //Si le controller n'a  pas été spécifié
 	{
@@ -26,7 +27,7 @@ $controller_class = 'Controller' . ucfirst($controller);
 //--------------action---------------
 	if(!isset($_GET['action'])) //Si l'action n'a  pas été spécifiée
 	{
-		$action = 'display'; //On définit une action par defaut (readAll)
+		$action = 'homepage'; //On définit une action par defaut (readAll)
 	}
 
 	else 
@@ -43,5 +44,7 @@ $controller_class = 'Controller' . ucfirst($controller);
 	}
 $controller_class::$action(); 
 // Appel de la méthode statique $action de ControllerPersonne
+//if action == display1st then controllerNoProduuits::readProd()
+
 ?>
 

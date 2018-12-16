@@ -1,3 +1,5 @@
-<h1>Nos contrats laitiers </h1>
+<h1>Nos contrats Laitiers</h1>
 
-<a href="?action=generePDF&controller=nosContrats" target="_blank"> télécharger le contrat </a>
+<p> Cette semaine le panier laitier se compose de blablabla... </p>
+
+<p> Vous souhaitez souscire à ce contrat ? </p> <a href="?action=display5th&controller=nosContrats" > cliquez ici </a>

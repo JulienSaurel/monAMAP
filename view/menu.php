@@ -4,7 +4,7 @@
 </div>
    <ul id="menu">
     <li class="accueil">
-      <a class="lienMenu" href="?action=display&controller=accueil">Accueil</a>
+      <a class="lienMenu" href="?action=homepage&controller=accueil">Accueil</a>
     </li>
     <li class="nousConnaitre">
       <a class="lienMenu" onclick"openLink()" href="?action=display1st&controller=nousConnaitre"> Nous connaitre</a>
@@ -38,16 +38,25 @@
         <li><a class="lienMenu" href="?action=display3rd&controller=laVieAlAMAP">Livre d'or</a></li>
       </ul>
     </li>
-    <li class="monProfil">
-      <a onclick="openLink()" class="lienMenu" href="?action=display1st&controller=monProfil">Mon profil</a>
-      <ul>
-        <li><a class="lienMenu" href="?action=display1st&controller=monProfil">Voir mon profil</a></li>
-        <li><a class="lienMenu" href="?action=display2nd&controller=monProfil">Devenir producteur</a></li>
-      </ul>
-    </li>
     <li class="nousSoutenir">
       <a onclick="openLink()" class="lienMenu " href="?action=display&controller=nousSoutenir">Nous soutenir</a>
     </li>
+       <?php  if (!isset($_SESSION['login'])) { ?>
+        <li class="SeConnecter">
+          <a onclick="openLink()" class="lienMenu " href="?action=connect&controller=adherent">Se connecter</a>
+      </li>
+       <?php }
+       else
+       { ?>
+      <li class="monProfil">
+      <a onclick="openLink()" class="lienMenu" href="?action=profile&controller=monProfil">Mon profil</a>
+      <ul>
+        <li><a class="lienMenu" href="?action=profile&controller=monProfil">Voir mon profil</a></li>
+        <li><a class="lienMenu" href="?action=display2nd&controller=monProfil">Devenir producteur</a></li>
+        <li><a class="lienMenu"href="?action=deconnect&controller=adherent">Se deconnecter</a></li>
+      </ul>
+    </li>
+      <?php } ?>
   </ul>
 </div>
 
@@ -58,7 +67,7 @@
 <nav id="navMenu">
   <ul id="menu">
     <li class="accueil">
-      <a class="lienMenu" href="?action=display&controller=accueil">Accueil</a>
+      <a class="lienMenu" href="?action=homepage&controller=accueil">Accueil</a>
     </li>
     <li class="nousConnaitre">
       <a class="lienMenu" href="?action=display1st&controller=nousConnaitre">Nous connaitre</a>
@@ -92,15 +101,24 @@
     	  <li><a class="lienMenu" href="?action=display3rd&controller=laVieAlAMAP">Livre d'or</a></li>
       </ul>
     </li>
-    <li class="monProfil">
-      <a class="lienMenu" href="?action=display1st&controller=monProfil">Mon profil</a>
-    	<ul>
-        <li><a class="lienMenu" href="?action=display1st&controller=monProfil">Voir mon profil</a></li>
-        <li><a class="lienMenu" href="?action=display2nd&controller=monProfil">Devenir producteur</a></li>
-      </ul>
-    </li>
     <li class="nousSoutenir">
       <a class="lienMenu" href="?action=display&controller=nousSoutenir">Nous soutenir</a>
     </li>
+<?php  if (!isset($_SESSION['login'])) { ?>
+        <li class="SeConnecter">
+          <a onclick="openLink()" class="lienMenu " href="?action=connect&controller=adherent">Se connecter</a>
+      </li>
+       <?php }
+       else
+       { ?>
+      <li class="monProfil">
+      <a onclick="openLink()" class="lienMenu" href="?action=profile&controller=monProfil">Mon profil</a>
+      <ul>
+        <li><a class="lienMenu" href="?action=profile&controller=monProfil">Voir mon profil</a></li>
+        <li><a class="lienMenu" href="?action=display2nd&controller=monProfil">Devenir producteur</a></li>
+        <li><a class="lienMenu"href="?action=deconnect&controller=adherent">Se deconnecter</a></li>
+      </ul>
+    </li>
+      <?php } ?>
   </ul>
 </nav> 

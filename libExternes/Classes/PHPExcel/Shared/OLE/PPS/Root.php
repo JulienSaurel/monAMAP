@@ -78,6 +78,7 @@ class PHPExcel_Shared_OLE_PPS_Root extends PHPExcel_Shared_OLE_PPS
 
 		if (is_resource($filename)) {
 		    $this->_FILEH_ = $filename;
+
 		} else if ($filename == '-' || $filename == '') {
 			if ($this->_tmp_dir === NULL)
 				$this->_tmp_dir = PHPExcel_Shared_File::sys_get_temp_dir();
@@ -94,6 +95,7 @@ class PHPExcel_Shared_OLE_PPS_Root extends PHPExcel_Shared_OLE_PPS
 		}
 		// Make an array of PPS's (for Save)
 		$aList = array();
+
 		PHPExcel_Shared_OLE_PPS::_savePpsSetPnt($aList, array($this));
 		// calculate values for header
 		list($iSBDcnt, $iBBcnt, $iPPScnt) = $this->_calcSize($aList); //, $rhInfo);

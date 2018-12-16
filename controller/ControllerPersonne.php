@@ -49,14 +49,14 @@ class ControllerPersonne
 
     public static function created() 
     {
-    $p = new ModelPersonne($_POST['idPersonne'],$_POST['nomPersonne'],$_POST['prenomPersonne'],$_POST['mailPersonne']); //on recupere les infos du formulaires
+    $p = new ModelPersonne($_POST['nomPersonne'],$_POST['prenomPersonne'],$_POST['mailPersonne']); //on recupere les infos du formulaires
     $p->save(); // on les sauve dans la base de donnees
     $controller ='personne';
     $view = 'created';
     $pagetitle = 'Liste des personnes';
-    require File::build_path(array('view','view.php')); 
-        //redirige vers la vue created.php 
-    self::readAll(); //on affiche la liste des personnes
+    require File::build_path(array('view','view.php'));
+        //redirige vers la vue created.php
+
     }
 
     public static function error()

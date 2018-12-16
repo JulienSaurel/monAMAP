@@ -1,29 +1,41 @@
 
-		<link rel="stylesheet" href="nousContacterCSS.css">
-		<title> Contacter l'AMAP </title>
+		
+		
 	
-		<h2>Nous contacter</h2>
-		<div id="formulaire">è-(ez)
-			<form action="..." method="post">
-			    <div>
-			        <label for="Nom">Nom :</label>
-			        <input type="text" id="name" name="user_name">
-			    </div>
-			    <div>
-			        <label for="Prenom">Prénom :</label>
-			        <input type="text" id="prenom" name="user_fristname">
-			    </div>
-			    <div>
-			        <label for="mal">E-mail :</label>
-			        <input type="email" id="mail" name="user_mail">
-			    </div>
-			    <div>
-			        <label for="msg">Message :</label>
-			        <textarea id="msg" name="user_message"></textarea>
-			    </div>
-			    <div class="button">
-			        <button type="submit">Envoyer le message</button>
-			    </div>
-			</form>
-			</div>
+		<div> <p> Nous contacter : </p>
+
+
+    	<form method="get" action="index.php">
+
+
+		  <fieldset>
+		    <legend>Formulaire de contact :</legend>
+		    <p>
+		      <input type='hidden' name='action' value='contacted'>
+		    </p>
+			<p>
+		      <input type='hidden' name='controller' value='nousConnaitre'>
+		    </p>
+			<p>
+		      <label for="prenom_donnateur">Prénom :</label> 
+		      <input type="text" placeholder="Ex : Henri" name="prenom" id="prenom_donnateur" required/>
+		    </p>
+		    <p>
+		      <label for="nom_donnateur">Nom :</label> 
+		      <input type="text" placeholder="Ex : Dupont" name="nom" id="nom_donnateur" required/>
+		    </p>
+			<p>
+		      <label for="mail_donnateur">Adresse mail :</label> 
+		      <input type="email" placeholder="Ex : henridupont@gmail.com" name="mail" id="mail" required/>
+		    </p>
+		    <p>
+      			<label for="message">Message :</label> 
+      			<textarea name="message" placeholder="288 caracteres maximum" rows="8" cols="35"></textarea><br />
+    		</p> 
+		    <p>
+		      <input type="submit" value="Envoyer" />
+		    </p>
+		  </fieldset> 
+</form>
+</div>
 

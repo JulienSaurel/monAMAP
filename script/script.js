@@ -18,3 +18,4 @@ function closeLink(){
 	document.getElementByClassName("linkmenu").children.style.display = "none";
 }
 
+
