@@ -11,7 +11,7 @@ class ControllerMonProfil
     {   
         if (isset($_SESSION['login'])) {
             $a = ModelAdherent::select($_SESSION['login']);
-            $p = ModelPersonne::select($a->get('idPersonne'));       
+            $p = ModelPersonne::select($a->get('mailPersonne'));
         }
         $controller ='monProfil';
         $view = 'voirmonprofil';
