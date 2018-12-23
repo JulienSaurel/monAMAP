@@ -69,15 +69,12 @@ class ControllerAdherent
 			$nomPersonne = $_POST['nomPersonne'];
 			$prenomPersonne = $_POST['prenomPersonne'];
 			$mailPersonne = $_POST['mailPersonne'];
-			$idPersonne = ModelPersonne::generateId();
-
 
 			//on en fait un tableau
 			$arrayPersonne = [
 				'nomPersonne' => $nomPersonne,
 				'prenomPersonne' => $prenomPersonne,
 				'mailPersonne' => $mailPersonne,
-				'idPersonne' => $idPersonne,
 			];
 
 			//on l'enregistre dans la bdd
@@ -123,7 +120,7 @@ class ControllerAdherent
 			'adressepostaleAdherent' => $adressepostaleAdherent,
 			'ville' => $_POST['ville'],
 			'PW_Adherent' => $PW_Adherent,
-			'idPersonne' => $idPersonne,
+			'mailPersonne' => $mailPersonne,
 			'estProducteur' => $estprod,
 			'estAdministrateur' => false,
 			'dateinscription' => $date,

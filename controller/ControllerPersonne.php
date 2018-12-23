@@ -52,6 +52,7 @@ class ControllerPersonne
         //on verifie qu'on a toutes les infos
         if (!isset($_POST['nomPersonne']) || !isset($_POST['prenomPersonne']) || !isset($_POST['mailPersonne']))
             return self::error();
+
         //on recupere les infos dans des variables
         $nomPersonne = $_POST['nomPersonne'];
         $prenomPersonne = $_POST['prenomPersonne'];
