@@ -11,5 +11,6 @@ class ModelPersonne extends Model
     static protected $object = 'personne';
     protected static $primary='mailPersonne';
 
+
 }
 ?>

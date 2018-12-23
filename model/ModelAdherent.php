@@ -2,7 +2,7 @@
 
 require_once File::build_path(array('model','ModelPersonne.php'));
 
-class ModelAdherent extends Model
+class ModelAdherent extends ModelPersonne
 {
 
     protected $idAdherent;
