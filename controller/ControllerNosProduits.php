@@ -4,13 +4,13 @@ class ControllerNosProduits
 {
     protected static $object='nosProduits';
 
-public static function readAll(){
-       $tab_prod = ModelAdherent::readAllProd();
-       return $tab_prod;
-/*      $view = 'nosproducteurs';
-        $pagetitle = 'Nos Producteurs';
-        require File::build_path(array('view','view.php')); */
-    }
+// public static function readAll(){
+//        $tab_prod = ModelAdherent::readAllProd();
+//        return $tab_prod;
+//       $view = 'nosproducteurs';
+//         $pagetitle = 'Nos Producteurs';
+//         require File::build_path(array('view','view.php')); 
+//     }
 
     public static function display()
     {
@@ -21,7 +21,7 @@ public static function readAll(){
 
     public static function display1st()
     {
-        $tab_prod = self::readAll();
+        $tab_prod = ModelAdherent::readAllProd();
         $view = 'nosproducteurs';
         $pagetitle = 'Nos Producteurs';
         require File::build_path(array('view','view.php'));    
