@@ -399,13 +399,13 @@ footer {
     display: block;
   }
 
-  .usercontent article{ 
+  .usercontent article{
     display: block;
     width: 100%;
     
 
   }
-    .usercontent aside{ 
+    .usercontent aside{
           display: block;
     width: 100%;
 
@@ -413,7 +413,7 @@ footer {
     
   }
 
-  .usercontent > aside > img{ 
+  .usercontent > aside > img{
     width: inherit;
     width: 100px;
     height: 500px;

@@ -5,7 +5,7 @@ class ControllerNosProduits
     protected static $object='nosProduits';
 
 public static function readAll(){
-       $tab_prod=ModelAdherent::readAllProd();
+       $tab_prod = ModelAdherent::readAllProd();
        return $tab_prod;
 /*      $view = 'nosproducteurs';
         $pagetitle = 'Nos Producteurs';

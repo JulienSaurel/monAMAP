@@ -44,7 +44,7 @@ $controller_class = 'Controller' . ucfirst($controller);
 	}
 $controller_class::$action(); 
 // Appel de la méthode statique $action de ControllerPersonne
-//if action == display1st then controllerNoProduuits::readProd()
+//if action == display1st then controllerNosProduits::readProd()
 
 ?>
 

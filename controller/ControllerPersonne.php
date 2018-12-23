@@ -49,14 +49,24 @@ class ControllerPersonne
 
     public static function created() 
     {
-    $p = new ModelPersonne($_POST['nomPersonne'],$_POST['prenomPersonne'],$_POST['mailPersonne']); //on recupere les infos du formulaires
-    $p->save(); // on les sauve dans la base de donnees
-    $controller ='personne';
-    $view = 'created';
-    $pagetitle = 'Liste des personnes';
-    require File::build_path(array('view','view.php'));
-        //redirige vers la vue created.php
+        //on verifie qu'on a toutes les infos
+        if (!isset($_POST['nomPersonne']) || !isset($_POST['prenomPersonne']) || !isset($_POST['mailPersonne']))
+            return self::error();
+        //on recupere les infos dans des variables
+        $nomPersonne = $_POST['nomPersonne'];
+        $prenomPersonne = $_POST['prenomPersonne'];
+        $mailPersonne = $_POST['mailPersonne'];
 
+        //on renregistre les infos dans la bdd
+        $arrayPersonne = [
+            'nomPersonne' => $nomPersonne,
+            'prenomPersonne' => $prenomPersonne,
+            'mailPersonne' => $mailPersonne,
+        ];
+        ModelPersonne::save($arrayPersonne);
+
+        //on redirige vers l'accueil
+        ControllerAccueil::homepage();
     }
 
     public static function error()

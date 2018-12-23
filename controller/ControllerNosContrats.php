@@ -102,9 +102,14 @@ class ControllerNosContrats
         mail($to, $subject, $message, implode("\r\n", $headers));     
 
         //////////////FIN D'ENVOI DE MAIL ///////////////////////////////////
+            $arraycontrat = [
+            'idAdherent' => $idAdherent,
+            'typeContrat' => $type,
+            'tailleContrat' => $taille,
+            'frequenceContrat' => $frequence,
+            ];
 
-            $instanceContrat = new ModelContrat($idAdherent,$type,$taille,$frequence);
-            $instanceContrat->save();
+            ModelContrat::save($arraycontrat);
             $view = 'souscripted';
             $pagetitle = 'Merci !';
             require File::build_path(array('view','view.php'));

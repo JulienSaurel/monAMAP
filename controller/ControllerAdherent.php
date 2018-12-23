@@ -1,160 +1,199 @@
 <?php
-	require_once File::build_path(array('model','ModelAdherent.php'));
-	require_once File::build_path(array('model','ModelPersonne.php'));
-	require_once File::build_path(array('controller','ControllerMonProfil.php'));
+require_once File::build_path(array('model','ModelAdherent.php'));
+require_once File::build_path(array('model','ModelPersonne.php'));
+require_once File::build_path(array('controller','ControllerMonProfil.php'));
 
 
-	class ControllerAdherent
+class ControllerAdherent
+{
+	protected static $object='adherent';
+
+	public static function readAll()
 	{
-		protected static $object='adherent';
+		$tab_adh = ModelAdherent::selectAll();
+		//appel au modèle pour gerer la BD
+		$view='list';
+		$pagetitle = 'Liste des adhérents';
+		require File::build_path(array('view', 'view.php'));
+		//"redirige" vers la vue list.php qui affiche la liste des adherents
+	}
 
-		public static function readAll()
-		{
-			$tab_adh = ModelAdherent::selectAll();
-			//appel au modèle pour gerer la BD
-			$view='list';
-			$pagetitle = 'Liste des adhérents';
-			require File::build_path(array('view', 'view.php'));
-			//"redirige" vers la vue list.php qui affiche la liste des adherents
+	public static function read()
+	{
+		$a = $_GET['idAdherent'];
+		$a = ModelAdherent::select($a);
+		//appel au modèle pour gerer la BD
+		if(!$a)
+			return self::error();
+		$view = 'detail';
+		$pagetitle = 'Personne';
+		require File::build_path(array('view','view.php'));
+		//"redirige" vers la vue qui affiche les details d'un adherent
+	}
+
+	public static function create()
+	{
+
+		$view = 'create';
+		$pagetitle = 'S\'inscrire';
+		require File::build_path(array('view','view.php'));
+	}
+
+	public static function created()
+	{
+
+		//si un des deux mots de passes n'est pas renseigné on ramene a la page d'erreur
+		if (!isset($_POST['PW_Adherent'])||!isset($_POST['PW_Adherent2'])) {
+			return self::error();
 		}
 
-		public static function read()
-		{
-			$a = $_GET['idAdherent'];
-			$a = ModelAdherent::select($a);
-			//appel au modèle pour gerer la BD
-			if($a)
-			{
-				$view = 'detail';
-				$pagetitle = 'Personne';
-				require File::build_path(array('view','view.php'));
-				//"redirige" vers la vue qui affiche les details d'un adherent
-			}
-			else
-			{
-				$view = 'error';
-				$pagetitle = 'Error 404 Not Found';
-				require File::build_path(array('view','view.php'));
-				//"redirige" vers la vue erreur.php qui affiche un msg d'erreur
-			}
-		}
+		//s'ils ne sont pas identiques on ramene a la page d'erreur
+		if ($_POST['PW_Adherent'] !== $_POST['PW_Adherent2'])
+			return self::error();
 
-		public static function create()
-		{
+		//si il manque des données on ramene a la page d'erreur
+		if (!isset($_POST['idAdherent']) || !isset($_POST['adressepostaleAdherent']) || !isset($_POST['ville']) || !isset($_POST['PW_Adherent']))
+			return self::error();
 
-			$view = 'create';
-			$pagetitle = 'S\'inscrire';
-			require File::build_path(array('view','view.php'));
-		}
+		//si on a pas toutes les infos sur la personne on ramene sur la page d'erreur
+		if (!isset($_POST['nomPersonne'])|| !isset($_POST['prenomPersonne']) || !isset($_POST['mailPersonne']))
+			return self::error();
 
-		public static function created()
-		{
-			if (isset($_POST['nomPersonne'])&& isset($_POST['prenomPersonne']) && isset($_POST['mailPersonne'])) {
-				$p = new ModelPersonne($_POST['nomPersonne'], $_POST['prenomPersonne'], $_POST['mailPersonne']); //on recupere les infos du formulaire
-                $p->save(); // on les sauve dans la base de donnees
-				$idPersonne = $p->get('idPersonne');
-			}
-			else
-			{
-				$idPersonne = null;
-				self::error();
-			}
-			$dateProducteur = null;
-			if (isset($_POST['estProducteur'])) {
-			    $prod = $_POST['estProducteur'];
-				$estprod = false;
-				if ($prod == 'prod') {
-				    $estprod = true;
-					$dateProducteur = date("Y-m-d H:i:s");
-				}
-			}
-/*			var_dump($dateProducteur);
-			var_dump($_POST['idAdherent']);
-			var_dump($idPersonne);
-			var_dump($_POST['PW_Adherent']);
-			var_dump($_POST['adressepostaleAdherent']);
-			var_dump($_POST['estProducteur']);
-			var_dump($dateProducteur);
-			var_dump(date("d M Y\, H:i:s"));*/
 
-			if (isset($_POST['PW_Adherent'])&&isset($_POST['PW_Adherent2']))
-			{
-				if ($_POST['PW_Adherent'] == $_POST['PW_Adherent2']) {
-					if (isset($_POST['idAdherent']) && isset($_POST['adressepostaleAdherent']) && isset($_POST['ville']) && isset($_POST['PW_Adherent'])) {
-						//var_dump($_POST['ville']);
-						$a = new ModelAdherent($_POST['idAdherent'], $_POST['adressepostaleAdherent'], $_POST['ville'], Security::chiffrer($_POST['PW_Adherent']), $idPersonne, $estprod, false, date("Y-m-d H:i:s"), $dateProducteur); //on recupere les infos du formulaires
-						//
-						//var_dump($a);
-                        $a->save();// on les sauve dans la base de donnees
-						$tab_adh = ModelAdherent::selectAll();
-						$view='list';
-						$pagetitle = 'Liste des adhérents';
-						require File::build_path(array('view', 'view.php'));
-					}
-				}
-			}
-			else
-			{
-				self::error();
+
+		//////////////////////////////
+		//Traitement de la personne//
+		////////////////////////////
+
+			//on les récupere dans des variables
+			$nomPersonne = $_POST['nomPersonne'];
+			$prenomPersonne = $_POST['prenomPersonne'];
+			$mailPersonne = $_POST['mailPersonne'];
+			$idPersonne = ModelPersonne::generateId();
+
+
+			//on en fait un tableau
+			$arrayPersonne = [
+				'nomPersonne' => $nomPersonne,
+				'prenomPersonne' => $prenomPersonne,
+				'mailPersonne' => $mailPersonne,
+				'idPersonne' => $idPersonne,
+			];
+
+			//on l'enregistre dans la bdd
+			ModelPersonne::save($arrayPersonne);
+
+
+		///////////////////////////////
+		//Traitement des producteurs//
+		/////////////////////////////
+		$dateProducteur = null;
+		if (isset($_POST['estProducteur']))
+		{// si on a la donnée a traité
+
+			//on traite l'info
+			$prod = $_POST['estProducteur'];
+			$estprod = false;
+			if ($prod == 'prod') {
+				$estprod = true;
+				$dateProducteur = date("Y-m-d H:i:s");
 			}
 		}
+		/*			var_dump($dateProducteur);
+                    var_dump($_POST['idAdherent']);
+                    var_dump($idPersonne);
+                    var_dump($_POST['PW_Adherent']);
+                    var_dump($_POST['adressepostaleAdherent']);
+                    var_dump($_POST['estProducteur']);
+                    var_dump($dateProducteur);
+                    var_dump(date("d M Y\, H:i:s"));*/
+		//////////////////////////////
+		//Traitement de l'adherent///
+		////////////////////////////
 
-		public static function error()
+		//on recupere les données dans des variables
+		$idAdherent = $_POST['idAdherent'];
+		$adressepostaleAdherent = $_POST['adressepostaleAdherent'];
+		$PW_Adherent = Security::chiffrer($_POST['PW_Adherent']);
+		$date = date("Y-m-d H:i:s");
+
+		//on met toutes les données dans un tableau
+		$arrayadh = [
+			'idAdherent' => $idAdherent,
+			'adressepostaleAdherent' => $adressepostaleAdherent,
+			'ville' => $_POST['ville'],
+			'PW_Adherent' => $PW_Adherent,
+			'idPersonne' => $idPersonne,
+			'estProducteur' => $estprod,
+			'estAdministrateur' => false,
+			'dateinscription' => $date,
+			'dateproducteur' => $dateProducteur,
+		];
+
+		//on enregistre dans la bdd
+		ModelAdherent::save($arrayadh);
+
+		//on redirige vers l'accueil
+		return ControllerAccueil::homepage();
+
+	}
+
+	public static function error()
+	{
+		$view = 'error';
+		$pagetitle = 'Error 404';
+		require File::build_path(array('view','view.php'));
+	}
+
+
+	public static function connect()
+	{
+		$view = 'connect';
+		$pagetitle = 'Se connecter';
+		require File::build_path(array('view','view.php'));
+	}
+
+	public static function connected()
+	{
+		if (isset($_POST['idAdherent'])&&isset($_POST['pw']))
 		{
-			$view = 'error';
-			$pagetitle = 'Error 404';
-			require File::build_path(array('view','view.php'));
-		}
-
-
-		public static function connect()
-		{
-			$view = 'connect';
-			$pagetitle = 'Se connecter';
-			require File::build_path(array('view','view.php'));
-		}
-
-		public static function connected()
-		{
-			if (isset($_POST['idAdherent'])&&isset($_POST['pw']))
+			$login = $_POST['idAdherent'];
+			$pw = Security::chiffrer($_POST['pw']);
+			if (ModelAdherent::select($_POST['idAdherent']))
 			{
-				$login = $_POST['idAdherent'];
-				$pw = Security::chiffrer($_POST['pw']);
-				if (ModelAdherent::select($_POST['idAdherent']))
+				if (ModelAdherent::select($login)->checkPW($login, $pw))
 				{
-					if (ModelAdherent::select($login)->checkPW($login, $pw))
-					{	
-						
-						$_SESSION['login'] = $login;
-						$a = ModelAdherent::select($login);
-						ControllerMonProfil::profile();
-					} else {
-						$view = 'connectErreur';
-						$pagetitle = 'Se connecter';
-						$errmsg = "Mot de passe incorrect";
-						require File::build_path(array('view','view.php'));
-					}
+
+					$_SESSION['login'] = $login;
+					$a = ModelAdherent::select($login);
+					ControllerMonProfil::profile();
 				} else {
 					$view = 'connectErreur';
 					$pagetitle = 'Se connecter';
-					$errmsg = " Login incorrect ";
+					$errmsg = "Mot de passe incorrect";
 					require File::build_path(array('view','view.php'));
-				}	
+				}
 			} else {
 				$view = 'connectErreur';
 				$pagetitle = 'Se connecter';
-				$errmsg = " Veuillez vous connecter ";
+				$errmsg = " Login incorrect ";
 				require File::build_path(array('view','view.php'));
 			}
-
-
+		} else {
+			$view = 'connectErreur';
+			$pagetitle = 'Se connecter';
+			$errmsg = " Veuillez vous connecter ";
+			require File::build_path(array('view','view.php'));
 		}
 
-		public static function deconnect()
-		{
-			session_unset();
 
-			ControllerAccueil::homepage();
-		}
 	}
+
+	public static function deconnect()
+	{
+		session_unset();
+
+		ControllerAccueil::homepage();
+	}
+}
 ?>

@@ -52,14 +52,21 @@ class ControllerLaVieAlAMAP
 
     public static function created()
     {
-        if (isset($_POST['pseudo']) AND isset($_POST['message']))
+        if (isset($_POST['pseudo']) && isset($_POST['message']))
         {
             $pseudo = htmlspecialchars($_POST['pseudo']); // On utilise mysql_real_escape_string et htmlspecialchars par mesure de sécurité
             $message = nl2br(htmlspecialchars($_POST['message'])); // pour le msg on gere aussi les retours charriots
+
+            $arraymsg = [
+              'message' => $message,
+              'pseudo' => $pseudo,
+            ];
         }
-        $m = new ModelLivreDor($pseudo, $message);
-        $m->save();
+
+        ModelLivreDor::save($arraymsg);
+
         $nombrepages = ModelLivreDor::getNbPages();
+
         $view = 'created';
         $pagetitle = 'Livre d\'or';
         require File::build_path(array('view','view.php'));

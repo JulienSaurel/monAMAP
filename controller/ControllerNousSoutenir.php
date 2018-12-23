@@ -20,6 +20,7 @@ class ControllerNousSoutenir
     }
 	
 	public static function donnated(){
+	    //TODO : Mettre tout le sql dans le model et tester le get
 		$nom = $_GET['Nom_donnateur']; //on récupère les données passées dans le formulaire
         $prenom = $_GET['Prenom_donnateur'];
         $mail = $_GET['Mail_donnateur'];
@@ -28,7 +29,7 @@ class ControllerNousSoutenir
 		if($montant > 0){ // si le montant n'est pas correct
 
         // création donnateur ou update
-		$sql="SELECT COUNT(*) FROM donnateur WHERE mailAddressDonnateur=:tag";
+		$sql="SELECT COUNT(*) FROM Donnateur WHERE mailAddressDonnateur=:tag";
 
     	$req_prep = Model::$pdo->prepare($sql);
 
@@ -40,10 +41,15 @@ class ControllerNousSoutenir
     	$nbDonnateur = $resultat[0];
 		
 		if($nbDonnateur == 0){ // si le donnateur n'existe pas on le crée
-			$instanceDonnateur = new ModelDonnateur($mail, $nom, $prenom,$montant);
-			$instanceDonnateur->save();
+			$arraydonnateur = [
+                'mailAddressDonnateur' => $mail,
+                'nomDonnateur' => $nom,
+                'prenomDonnateur' => $prenom,
+                'montantTotal' => $montant,
+            ];
+			ModelDonnateur::save($arraydonnateur);
 		} else { // sinon on l'update 
-			$sql="UPDATE donnateur SET montantTotal = montantTotal + :montant WHERE mailAddressDonnateur= :mail;";
+			$sql="UPDATE Donnateur SET montantTotal = montantTotal + :montant WHERE mailAddressDonnateur= :mail;";
 
 			$req_prep = Model::$pdo->prepare($sql);
 
@@ -54,9 +60,12 @@ class ControllerNousSoutenir
 			$req_prep->execute($valeurs);
 		}
 
-        $instanceDon = new ModelDon($montant,$mail); // on crée un don
-        $instanceDon->save(); // et on l'enregistre dans la BD
-		
+		$arraydon = [
+            'mailAddressDonnateur' => $mail,
+            'montantDon' => $montant,
+        ];
+        ModelDon::save($arraydon);
+
         //envoi de mail
 		
         $to  = $mail; 
@@ -91,12 +100,11 @@ class ControllerNousSoutenir
         // génération de la page de remerciments 
 
 
-		$sql="SELECT * FROM donnateur WHERE mailAddressDonnateur=:tag";
+		$sql="SELECT * FROM Donnateur WHERE mailAddressDonnateur=:tag";
 
     	$req_prep = Model::$pdo->prepare($sql);
 
-    	$valeurs = array(
-    		"tag" => $mail);
+    	$valeurs = array("tag" => $mail);
 
     	$req_prep->execute($valeurs);
     	$req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelDonnateur');
@@ -120,7 +128,7 @@ class ControllerNousSoutenir
         $mail = $_GET['mail'];
 
 
-        $sql="SELECT * FROM donnateur WHERE mailAddressDonnateur=:tag";
+        $sql="SELECT * FROM Donnateur WHERE mailAddressDonnateur=:tag";
 
         $req_prep = Model::$pdo->prepare($sql);
 
@@ -133,7 +141,7 @@ class ControllerNousSoutenir
         $donnateur = $tab_donn[0];
 
 
-        $sql="SELECT * FROM don WHERE mailAddressDonnateur=:tag AND idDon = (SELECT MAX(idDon) FROM don WHERE mailAddressDonnateur=:tag )";
+        $sql="SELECT * FROM Don WHERE mailAddressDonnateur=:tag AND idDon = (SELECT MAX(idDon) FROM Don WHERE mailAddressDonnateur=:tag )";
 
         $req_prep = Model::$pdo->prepare($sql);
 
