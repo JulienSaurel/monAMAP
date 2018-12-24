@@ -6,6 +6,7 @@
 <?php 
 
 foreach ($tab as $key) {
+	$idp = $key->get('idAdherent');
 	if ($key->get('estProducteur') == 0 && $key->get('estAdministrateur') == 0){
 	echo '<div><ul>';
 	if ($key->get('photo') == NULL){
@@ -23,8 +24,10 @@ foreach ($tab as $key) {
 				echo '<li> Description : ' . $key->get('description') . '</li>';
 	 
 			}
-	echo '<li> mailPersonne : ' . $key->get('mailPersonne') . '</li>';
-	echo '</ul></div>';
+	echo '<li> mail Personne : ' . $key->get('mailPersonne') . '</li>';
+		echo '</ul>';
+	echo '<a href=?action=deleteAdh&controller=admin&idAdherent=' . $idp . '> Supprimer</a>';
+	echo '</div>';
 }
 
 }

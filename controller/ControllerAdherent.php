@@ -2,6 +2,7 @@
 require_once File::build_path(array('model','ModelAdherent.php'));
 require_once File::build_path(array('model','ModelPersonne.php'));
 require_once File::build_path(array('controller','ControllerMonProfil.php'));
+require_once File::build_path(array('controller','ControllerAdmin.php'));
 
 
 class ControllerAdherent
@@ -199,6 +200,7 @@ class ControllerAdherent
 			self::error();
 		}
 	}
+
 
 	public static function deconnect()
 	{

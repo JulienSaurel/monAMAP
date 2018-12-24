@@ -54,6 +54,19 @@ class ControllerAdmin
         require File::build_path(array('view','view.php'));
     }
 
+    public static function deleteAdh(){
+        $value = $_GET['idAdherent'];
+        ModelAdherent::delete($value);
+        self::gestadh();
+
+    }
+
+    public static function deleteCom(){
+        $value = $_GET['id_message'];
+        ModelLivreDor::delete($value);
+        self::gestcom();
+
+    }
 
 	public static function error()
     {

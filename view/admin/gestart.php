@@ -13,7 +13,7 @@ foreach ($tab as $key) {
 	// echo'</br>';
 	// echo'</br>';
 	// echo'</br>';
-
+	$idp = $key->get('idArticle');
 	echo '<div><ul>';
 	if ($key->get('photo') == NULL){
 				echo 'L\'article ne comporte pas de photo';
@@ -24,7 +24,9 @@ foreach ($tab as $key) {
 	echo '<li> Date : ' . $key->get('date') . '</li>';
 	echo '<li> description : ' . $key->get('description') . '</li>';
 	echo '<li> Mail de l\'auteur : ' . $key->get('idPersonne') . '</li>';
-	echo '</ul></div>';
+	echo '</ul>';
+	echo '  <a href=?action=updateArt&controller=LaVieAlAMAP&idArticle=' . $idp . '> Modifier</a>  | <a href=?action=deleteArt&controller=LaVieAlAMAP&idArticle=' . $idp . '> Supprimer</a>';
+	echo '</div>';
 
 }
 //var_dump($tab);
