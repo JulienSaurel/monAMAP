@@ -6,7 +6,7 @@ class ModelAdherent extends Model
 {
 
     protected $idAdherent;
-    protected $idPersonne;
+    protected $mailPersonne;
     protected $adressepostaleAdherent;
     protected $ville;
     protected $PW_Adherent;
@@ -21,7 +21,7 @@ class ModelAdherent extends Model
 
     /*public static function select($id){
         error_reporting(E_ALL & ~E_NOTICE);
-        $sql = "SELECT * FROM Adherent A JOIN Personne P ON P.idPersonne=A.idPersonne WHERE idAdherent=:id";
+        $sql = "SELECT * FROM Adherent A JOIN Personne P ON P.mailPersonne=A.mailPersonne WHERE idAdherent=:id";
 
         // Préparation de la requête
         $req_prep = Model::$pdo->prepare($sql);

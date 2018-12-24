@@ -65,20 +65,20 @@ class ControllerAdherent
 		//Traitement de la personne//
 		////////////////////////////
 
-			//on les récupere dans des variables
-			$nomPersonne = $_POST['nomPersonne'];
-			$prenomPersonne = $_POST['prenomPersonne'];
-			$mailPersonne = $_POST['mailPersonne'];
+		//on les récupere dans des variables
+		$nomPersonne = $_POST['nomPersonne'];
+		$prenomPersonne = $_POST['prenomPersonne'];
+		$mailPersonne = $_POST['mailPersonne'];
 
-			//on en fait un tableau
-			$arrayPersonne = [
-				'nomPersonne' => $nomPersonne,
-				'prenomPersonne' => $prenomPersonne,
-				'mailPersonne' => $mailPersonne,
-			];
+		//on en fait un tableau
+		$arrayPersonne = [
+			'nomPersonne' => $nomPersonne,
+			'prenomPersonne' => $prenomPersonne,
+			'mailPersonne' => $mailPersonne,
+		];
 
-			//on l'enregistre dans la bdd
-			ModelPersonne::save($arrayPersonne);
+		//on l'enregistre dans la bdd
+		ModelPersonne::save($arrayPersonne);
 
 
 		///////////////////////////////
@@ -130,9 +130,66 @@ class ControllerAdherent
 		//on enregistre dans la bdd
 		ModelAdherent::save($arrayadh);
 
-		//on redirige vers l'accueil
-		return ControllerAccueil::homepage();
+		//on redirige vers l'accueil ou vers le formulaire pour les producteurs s'il a coché est producteur
+		if(!$estprod)
+			return ControllerAccueil::homepage();
+		return self::becomeprod($idAdherent);
+	}
 
+	public static function becomeprod($idAdherent = null)
+	{
+		if (is_null($idAdherent) && isset($_SESSION['login']))
+			$id = $_SESSION['login'];
+		else
+			$id = $idAdherent;
+		$view = 'formprod';
+		$pagetitle = 'Finalisation de l\'inscription';
+		require File::build_path(array('view','view.php'));
+	}
+
+	public static function newprod()
+	{
+
+		//on vérifie qu'on a recu les données
+		if (!isset($_POST['description']) || !isset($_POST['id']))
+			return self::error();
+
+		//on vérifie que l'image est uploadée
+		if (empty($_FILES['nom-image']) || !is_uploaded_file($_FILES['nom-image']['tmp_name']))
+			return self::error();
+
+		//on recupere le nom du fichier
+		$name = $_FILES['nom-image']['name'];
+		$pic_path = __DIR__ . '/' . ".." . "/images/$name";
+		$allowed_ext = array("jpg", "jpeg", "png");
+
+		$realextarray = explode('.', $_FILES['nom-image']['name']);
+
+		//on test l'extension du fichier upload
+		if (!in_array(end($realextarray), $allowed_ext))
+			return self::error();
+
+		//on essaie de le déplacer et on retourne une erreur si ca plante
+		if (!move_uploaded_file($_FILES['nom-image']['tmp_name'], $pic_path))
+			return self::error();
+
+		$path = File::build_path(array('images', $name));
+
+		if (!file_exists($path))
+			return self::error();
+
+		$description = $_POST['description'];
+
+			$arrayupd = [
+				'idAdherent' => $_POST['id'],
+				'description' => $description,
+				'photo' => $name,
+				];
+
+			ModelAdherent::update($arrayupd);
+
+			var_dump(ModelAdherent::select($_POST['id']));
+		return ControllerAccueil::homepage();
 	}
 
 	public static function error()

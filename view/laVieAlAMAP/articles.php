@@ -2,7 +2,8 @@
 
 <?php 
 foreach ($tabArticles as $art) {
-	$tabec = ModelPersonne::select($art["idPersonne"]);
+    //var_dump($art);
+	$tabec = ModelPersonne::select($art["mailPersonne"]);
 	//var_dump($tabec->get('prenomPersonne'));
 	echo "<div class=\"article\">";
 	echo "<h2> ".$art['titreArticle']."</h2>";
