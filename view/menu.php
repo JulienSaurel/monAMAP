@@ -125,5 +125,10 @@
       </ul>
     </li>
       <?php } ?>
+<?php if(isset($_SESSION['administrateur'])){ ?>
+<li class="accueil">
+      <a class="lienMenu" href="?action=display&controller=admin">Administration</a>
+    </li>
+<?php } ?>
   </ul>
 </nav> 
