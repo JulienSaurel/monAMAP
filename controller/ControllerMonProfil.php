@@ -21,6 +21,42 @@ class ControllerMonProfil
         }
     }
 
+    public static function updateAdrM(){
+      if (isset($_SESSION['login'])) {
+
+      $view = 'updateAdrM';
+      $pagetitle = 'Modifier l\'adresse mail';
+      require File::build_path(array('view','view.php'));
+    }
+    else {
+      self::error();
+    }
+    }
+
+    public static function updatedAdrM(){
+        if (isset($_SESSION['login'])) {
+           //update dans la table Personne
+            $a=$_POST['newadrM'];
+            $primaryP='mailPersonne';
+            $table_nameP='Personne';
+            $b=ModelAdherent::select($_SESSION['login']);
+            $primary_valueP=$b->get('mailPersonne');
+            Model::update($primaryP, $primary_valueP, $table_nameP, array("mailPersonne"=>$a));
+
+           //update dans la table Adherent
+            $primaryA='idAdherent';
+            $table_nameA='Adherent';
+            $primary_valueA=$_SESSION['login'];
+            Model::update($primaryA, $primary_valueA, $table_nameA, array("mailPersonne"=>$a));
+
+
+            //redirection
+            self::profile();
+        } else {
+            self::error();
+        }
+    }
+
     public static function display2nd()
     {
         $controller ='monProfil';
