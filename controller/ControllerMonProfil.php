@@ -12,11 +12,13 @@ class ControllerMonProfil
         if (isset($_SESSION['login'])) {
             $a = ModelAdherent::select($_SESSION['login']);
             $p = ModelPersonne::select($a->get('mailPersonne'));
-        }
         $controller ='monProfil';
         $view = 'voirmonprofil';
         $pagetitle = 'Mon Profil';
-        require File::build_path(array('view','view.php')); 
+        require File::build_path(array('view','view.php'));
+        } else {
+            self::error();
+        }
     }
 
     public static function display2nd()
