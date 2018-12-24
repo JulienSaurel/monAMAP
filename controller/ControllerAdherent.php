@@ -152,38 +152,52 @@ class ControllerAdherent
 
 	public static function connected()
 	{
-		if (isset($_POST['idAdherent'])&&isset($_POST['pw']))
-		{
-			$login = $_POST['idAdherent'];
-			$pw = Security::chiffrer($_POST['pw']);
-			if (ModelAdherent::select($_POST['idAdherent']))
+		if (!isset($_SESSION['login'])){
+			if (isset($_POST['idAdherent'])&&isset($_POST['pw']))
 			{
-				if (ModelAdherent::select($login)->checkPW($login, $pw))
+				$informations=ModelAdherent::select($_POST['idAdherent']);
+				//var_dump($informations->get('estProducteur'));
+				$login = $_POST['idAdherent'];
+				$pw = Security::chiffrer($_POST['pw']);
+				if (ModelAdherent::select($_POST['idAdherent']))
 				{
+					if (ModelAdherent::select($login)->checkPW($login, $pw))
+					{
 
-					$_SESSION['login'] = $login;
-					$a = ModelAdherent::select($login);
-					ControllerMonProfil::profile();
+						//si il est admin
+						if($informations->get('estAdministrateur') == '1'){
+							$_SESSION['administrateur'] = 1;
+						}
+						//si il est prod
+						if($informations->get('estProducteur') == '1'){
+							$_SESSION['producteur'] = 1;
+						}
+
+						$_SESSION['login'] = $login;
+						$a = ModelAdherent::select($login);
+						ControllerMonProfil::profile();
+
+					} else {
+						$view = 'connectErreur';
+						$pagetitle = 'Se connecter';
+						$errmsg = "Mot de passe incorrect";
+						require File::build_path(array('view','view.php'));
+					}
 				} else {
 					$view = 'connectErreur';
 					$pagetitle = 'Se connecter';
-					$errmsg = "Mot de passe incorrect";
+					$errmsg = " Login incorrect ";
 					require File::build_path(array('view','view.php'));
 				}
 			} else {
 				$view = 'connectErreur';
 				$pagetitle = 'Se connecter';
-				$errmsg = " Login incorrect ";
+				$errmsg = " Veuillez vous connecter ";
 				require File::build_path(array('view','view.php'));
 			}
 		} else {
-			$view = 'connectErreur';
-			$pagetitle = 'Se connecter';
-			$errmsg = " Veuillez vous connecter ";
-			require File::build_path(array('view','view.php'));
+			self::error();
 		}
-
-
 	}
 
 	public static function deconnect()

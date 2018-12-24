@@ -10,11 +10,11 @@
 			<li>Password : ******** <a href="?action=updatePW&controller=monProfil">Modifier votre mot de passe.</a>
 			</li>
 			<li>Membre depuis le <?php echo $a->get('dateinscription'); ?> </li>
-			<?php if($a->get('estProducteur')==1)
+			<?php if(isset($_SESSION['producteur']))
 				{ ?>
 					<li>Producteur depuis le <?php echo $a->get('dateproducteur'); ?> </li>
 				<?php } 
-			 if($a->get('estAdministrateur')==1)
+			 if(isset($_SESSION['administrateur']))
 				{ ?>
 					<li><span class="bold"> Administrateur de l'AMAP</span></li>
 			<?php } ?>
