@@ -140,7 +140,49 @@ class ControllerMonProfil
         }
   }
 
+//Modifications description
 
+  public static function updateDes(){
+    $view = 'updateDes';
+    $pagetitle = 'Description';
+    require File::build_path(array('view','view.php')); 
+  }
+
+  public static function updatedDes(){
+    if (isset($_SESSION['login'])) {
+      $a=$_POST['newdesc'];
+      $primary='idAdherent';
+      $table_name='Adherent';
+      $primary_value=$_SESSION['login'];
+      Model::update($primary, $primary_value, $table_name, array("description"=>$a));
+      self::profile();
+    }
+    else {
+      self::error();
+    }
+  }
+
+  //Modifications photos
+
+public static function updatePhoto(){
+    $view = 'updatePhoto';
+    $pagetitle = 'Photo';
+    require File::build_path(array('view','view.php')); 
+}
+
+public static function updatedPhoto(){
+    if (isset($_SESSION['login'])) {
+      $a=$_POST['photo'];
+      $primary='idAdherent';
+      $table_name='Adherent';
+      $primary_value=$_SESSION['login'];
+      Model::update($primary, $primary_value, $table_name, array("photo"=>$a));
+      self::profile();
+    }
+    else {
+      self::error();
+    }
+}
 
     public static function display2nd()
     {
