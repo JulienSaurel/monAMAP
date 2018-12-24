@@ -9,11 +9,12 @@
 <?php 
 //var_dump($tabArticles);
 foreach ($tabArticles as $art) {
-	$a = ModelPersonne::select($art['idPersonne']);
+	$a = ModelPersonne::select($art->get('idPersonne'));
+	//var_dump($a);
 	$prenom = $a->get('prenomPersonne');
 	$nom = $a->get('nomPersonne');
-	$date = $art['date'];
-	echo '<div class="article"><h2>' . $art['titreArticle'] . '</h2><img src="' . $art['photo'] . '" alt="' . $art['idArticle'] . '"/><p>' . $art['description'] . '</p><p>Ecrit par : ' . $prenom . ' ' . $nom . ', Le :' . $date . ' </p></div>'; 
+	$date = $art->get('date');
+	echo '<div class="article"><h2>' . $art->get('titreArticle') . '</h2><img src="' . $art->get('photo') . '" alt="' . $art->get('idArticle') . '"/><p>' . $art->get('description') . '</p><p>Ecrit par : ' . $prenom . ' ' . $nom . ', Le :' . $date . ' </p></div>'; 
 
 	//$tabec = ModelPersonne::select($art["idPersonne"]);
 	//var_dump($tabec->get('prenomPersonne'));

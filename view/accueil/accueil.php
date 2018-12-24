@@ -25,14 +25,14 @@
   </div>
 
    <div>
-    <h4>Derniers articles</h4>
+    <h4><a href="?action=display1st&controller=laVieAlAMAP">Derniers articles</a></h4>
 
 
 
    <?php
       foreach($values as $key){ 
         //var_dump($key);
-        echo '<img src="' . $key->get('photo') . '" alt="' . $key->get('idArticle') . '" width="135" height="135"/><h4>' . $key->get('titreArticle') . '</h4>';
+        echo '<img src="' . $key->get('photo') . '" alt="' . $key->get('idArticle') . '" width="135" height="135"/><h4><a href="?action=display1st&controller=laVieAlAMAP">' . $key->get('titreArticle') . '</a></h4>';
         }
 
      ?>

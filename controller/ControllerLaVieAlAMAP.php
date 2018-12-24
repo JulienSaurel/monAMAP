@@ -17,7 +17,7 @@ class ControllerLaVieAlAMAP
 
     public static function display1st()
     {
-        $tabArticles = ModelArticles::selectAll();
+        $tabArticles = ModelArticles::selectAllTri();
         $view = 'articles';
         $pagetitle = 'Articles';
         require File::build_path(array('view','view.php')); 
