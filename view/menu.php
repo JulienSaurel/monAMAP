@@ -58,6 +58,11 @@
       </ul>
     </li>
       <?php } ?>
+      <?php if(isset($_SESSION['administrateur'])){ ?>
+<li class="accueil">
+      <a class="lienMenu" href="?action=display&controller=admin">Administration</a>
+    </li>
+<?php } ?>
   </ul>
 </div>
 
@@ -83,7 +88,9 @@
     <li class="nosProduits">
       <a class="lienMenu" href="?action=display&controller=nosProduits">Nos produits</a>
     	<ul>
-        <li><a class="lienMenu" href="?action=display1st&controller=nosProduits">Nos producteurs</a></li>
+      <?php if(!isset($_SESSION['producteur'])){ ?>
+      <li><a class="lienMenu" href="?action=display2nd&controller=monProfil">Devenir producteur</a></li>
+      <?php } ?>
         <li><a class="lienMenu" href="?action=display2nd&controller=nosProduits">Produits du moment</a></li>
       </ul>
     </li>
