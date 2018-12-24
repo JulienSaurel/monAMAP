@@ -1,6 +1,8 @@
 <?php 
 require_once File::build_path(array('model','ModelAdherent.php'));
 require_once File::build_path(array('model','ModelPersonne.php'));
+require_once File::build_path(array('lib','Security.php'));
+require_once File::build_path(array('lib','Session.php'));
 
 class ControllerMonProfil
 {
@@ -86,6 +88,57 @@ class ControllerMonProfil
       self::error();
     }
     }
+
+//Modifications PW
+    public static function updatePW(){
+        if (isset($_SESSION['login'])) {
+            $view = 'updatePW';
+            $pagetitle = 'Modifier le mot de passe';
+            require File::build_path(array('view','view.php'));
+        } else {
+          self::error();
+        }
+    }
+
+    public static function updatedPW(){
+        if (isset($_SESSION['login'])) {
+            $a=$_POST['oldpw'];
+            $achiffre=Security::chiffrer($a);
+            $b=$_POST['newpw'];
+            $bchiffre=Security::chiffrer($b);
+            $c=$_POST['newpw_c'];
+            $mail=$_SESSION['login'];
+            $mdp=ModelAdherent::select($_SESSION['login']);
+            $mdpv = $mdp->get('PW_Adherent');
+            //var_dump(ModelUtilisateur::getPwByMail($_SESSION['login']));
+            //var_dump($mdpv);
+
+            if ($achiffre== $mdpv){
+                if($b==$c){
+                  $primary='idAdherent';
+                  $table_name='Adherent';
+                  $primary_value=$_SESSION['login'];
+                  Model::update($primary, $primary_value, $table_name, array("PW_Adherent"=>$bchiffre));
+                  self::profile();
+                } 
+                else {
+                  echo 'les deux nouveaux mots ne correspondent pas !';
+                  $view = 'updatePW';
+                  $pagetitle = 'Erreur correspondance';
+                  require File::build_path(array('view','view.php'));
+                }
+            }
+            else {
+                echo 'L\'ancien mot de passe est faux';
+                $view = 'updatePW';
+                $pagetitle = 'Erreur dans l\'ancien mot de passe';
+                require File::build_path(array('view','view.php'));
+            }
+        } 
+        else {
+            self::error();
+        }
+  }
 
 
 
