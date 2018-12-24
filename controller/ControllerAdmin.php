@@ -40,6 +40,20 @@ class ControllerAdmin
         require File::build_path(array('view','view.php'));
     }
 
+    public static function gestart(){
+        $tab = ModelArticles::selectAllTri();
+        $view = 'gestart';
+        $pagetitle = 'Gestion des articles';
+        require File::build_path(array('view','view.php'));
+    }
+
+    public static function gestcom(){
+        $tab = ModelLivreDor::selectAll();
+        $view = 'gestcom';
+        $pagetitle = 'Gestion des commentaires';
+        require File::build_path(array('view','view.php'));
+    }
+
 
 	public static function error()
     {
