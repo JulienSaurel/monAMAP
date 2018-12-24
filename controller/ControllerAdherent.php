@@ -90,9 +90,9 @@ class ControllerAdherent
 
 			//on traite l'info
 			$prod = $_POST['estProducteur'];
-			$estprod = false;
+			$estprod = 0;
 			if ($prod == 'prod') {
-				$estprod = true;
+				$estprod = 1;
 				$dateProducteur = date("Y-m-d H:i:s");
 			}
 		}
@@ -122,7 +122,7 @@ class ControllerAdherent
 			'PW_Adherent' => $PW_Adherent,
 			'mailPersonne' => $mailPersonne,
 			'estProducteur' => $estprod,
-			'estAdministrateur' => false,
+			'estAdministrateur' => 0,
 			'dateinscription' => $date,
 			'dateproducteur' => $dateProducteur,
 		];
