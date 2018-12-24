@@ -44,7 +44,7 @@ class ControllerLaVieAlAMAP
     public static function liremessage() {
         $nombrepages = ModelLivreDor::getNbPages(); 
         $page = $_GET['page'];
-        $tab = ModelLivreDor::getAllBetween($page, $page + ModelLivreDor::getnbmsgpg());
+        $tab = ModelLivreDor::getAllBetween($page*5, ModelLivreDor::getnbmsgpg());
         $view = 'livre';
         $pagetitle = 'Livre d\'or page ' . $_GET['page'];
         require File::build_path(array('view','view.php'));

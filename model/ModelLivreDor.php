@@ -29,9 +29,9 @@ class ModelLivreDor extends Model
         return $nombreDePages;
     }
 
-    public static function getAllBetween($deb, $fin)
+    public static function getAllBetween($offset, $nbmsg)
     {     
-        $sql = 'SELECT * FROM LivreDor ORDER BY id_message DESC LIMIT ' . $deb . ', ' . ($fin-$deb);
+        $sql = 'SELECT * FROM LivreDor ORDER BY id_message DESC LIMIT ' . $nbmsg . ' OFFSET ' . $offset  ;
         
 
         $req_prep = Model::$pdo->prepare($sql);
