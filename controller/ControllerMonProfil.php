@@ -21,6 +21,8 @@ class ControllerMonProfil
         }
     }
 
+
+//Modifications adresses Mail
     public static function updateAdrM(){
       if (isset($_SESSION['login'])) {
 
@@ -56,6 +58,36 @@ class ControllerMonProfil
             self::error();
         }
     }
+
+//Modifications Adresse Postale
+    public static function updateAdrP(){
+      if (isset($_SESSION['login'])) {
+        $view = 'updateAdrP';
+        $pagetitle = 'Modifier l\'adresse postale';
+        require File::build_path(array('view','view.php'));
+      }
+      else {
+        self::error();
+      }
+    }
+
+    public static function updatedAdrP(){
+      if (isset($_SESSION['login'])) {
+
+      $a=$_POST['newadrL'];
+      $b=$_POST['newVille'];
+      $primary='idAdherent';
+      $table_name='Adherent';
+      $primary_value=$_SESSION['login'];
+      Model::update($primary, $primary_value, $table_name, array("adressePostaleAdherent"=>$a, "ville"=>$b));
+      self::profile();
+    }
+    else {
+      self::error();
+    }
+    }
+
+
 
     public static function display2nd()
     {
