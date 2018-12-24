@@ -177,6 +177,7 @@ class Model {
     //sauvegarde un objet dans la base de données à partir d'un tableau contenant tous ses attributs
     public static function save($data)
     {
+        error_reporting(E_ALL & ~E_NOTICE);
         try
         {
             $table_name = static::$object;

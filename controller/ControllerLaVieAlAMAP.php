@@ -2,6 +2,7 @@
 require_once File::build_path(array('model','ModelLivreDor.php')); // chargement du modèle
 require_once File::build_path(array('model','ModelArticles.php')); // chargement du modèle
 require_once File::build_path(array('model','ModelAdherent.php')); // chargement du modèle
+require_once File::build_path(array('model','Model.php')); // chargement du modèle
 
 class ControllerLaVieAlAMAP
 {
@@ -17,8 +18,6 @@ class ControllerLaVieAlAMAP
     public static function display1st()
     {
         $tabArticles = ModelArticles::selectAll();
-        
-
         $view = 'articles';
         $pagetitle = 'Articles';
         require File::build_path(array('view','view.php')); 
@@ -72,15 +71,69 @@ class ControllerLaVieAlAMAP
         require File::build_path(array('view','view.php'));
     }
 
-	 public static function error()
+    // public static function allArticles(){
+    //     return ModelArticles::selectAll();
+    // }
+
+//Création d'article
+    public static function createArt(){
+        if (isset($_SESSION['login'])){
+            $view = 'createArt';
+            $pagetitle = 'Nouvel article';
+            require File::build_path(array('view','view.php'));
+        } 
+        else {
+            self::error();
+        }
+    }
+
+    public static function createdArt(){
+        if (isset($_SESSION['login']))
+        {
+
+
+        $date = date("Y-m-d H:i:s");
+
+        //on met toutes les données dans un tableau
+        $a = ModelAdherent::select($_SESSION['login']);
+        $mailPersonne = $a->get('mailPersonne');
+        $data = [
+            'titreArticle' => $_POST['titre'],
+            'photo' => $_POST['photo'],
+            'date' => $date,
+            'description' => $_POST['corps'],
+            'idPersonne' => $mailPersonne,
+        ];
+
+        ModelArticles::save($data);
+        
+
+            // var_dump($p);
+            // // $data = array (
+            // //     'titreArticle' => $_POST['titre'],
+            // //     'photo' => $_POST['photo'],
+            // //     'date' => $date,
+            // //     'description' => $_POST['corps'],
+            // //     'idPersonne' => $p,
+            // // );
+            // $article = new ModelArticles($_POST['titre'],$_POST['photo'], $_POST['corps'],
+            // $p);
+            // $article->saveArt();
+            // //$controller ='laVieAlAMAP';
+            $view = 'articles';
+            $pagetitle = 'Article ajouté';
+            require File::build_path(array('view','view.php'));
+        }
+        else {
+            self::error();
+        }
+    }
+
+    public static function error()
     {
     $view = 'error';
     $pagetitle = 'Error 404';
     require File::build_path(array('view','view.php'));
-    }
-
-    public static function allArticles(){
-        return ModelArticles::selectAll();
     }
 
 
