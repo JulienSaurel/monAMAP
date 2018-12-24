@@ -25,43 +25,43 @@ class ControllerMonProfil
 
 
 //Modifications adresses Mail
-    public static function updateAdrM(){
-      if (isset($_SESSION['login'])) {
+    // public static function updateAdrM(){
+    //   if (isset($_SESSION['login'])) {
 
-      $view = 'updateAdrM';
-      $pagetitle = 'Modifier l\'adresse mail';
-      require File::build_path(array('view','view.php'));
-    }
-    else {
-      self::error();
-    }
-    }
+    //   $view = 'updateAdrM';
+    //   $pagetitle = 'Modifier l\'adresse mail';
+    //   require File::build_path(array('view','view.php'));
+    // }
+    // else {
+    //   self::error();
+    // }
+    // }
 
-    public static function updatedAdrM(){
-        if (isset($_SESSION['login'])) {
-           //update dans la table Personne
-            $a=$_POST['newadrM'];
-            $primaryP='mailPersonne';
-            $table_nameP='Personne';
-            $b=ModelAdherent::select($_SESSION['login']);
-            $primary_valueP=$b->get('mailPersonne');
-            Model::update($primaryP, $primary_valueP, $table_nameP, array("mailPersonne"=>$a));
+    // public static function updatedAdrM(){
+    //     if (isset($_SESSION['login'])) {
+    //        //update dans la table Personne
+    //         $a=$_POST['newadrM'];
+    //         $primaryP='mailPersonne';
+    //         $table_nameP='Personne';
+    //         $b=ModelAdherent::select($_SESSION['login']);
+    //         $primary_valueP=$b->get('mailPersonne');
+    //         Model::update($primaryP, $primary_valueP, $table_nameP, array("mailPersonne"=>$a));
 
-           //update dans la table Adherent
-            $primaryA='idAdherent';
-            $table_nameA='Adherent';
-            $primary_valueA=$_SESSION['login'];
-            Model::update($primaryA, $primary_valueA, $table_nameA, array("mailPersonne"=>$a));
+    //        //update dans la table Adherent
+    //         $primaryA='idAdherent';
+    //         $table_nameA='Adherent';
+    //         $primary_valueA=$_SESSION['login'];
+    //         Model::update($primaryA, $primary_valueA, $table_nameA, array("mailPersonne"=>$a));
 
 
-            //redirection
-            self::profile();
-        } else {
-            self::error();
-        }
-    }
+    //         //redirection
+    //         self::profile();
+    //     } else {
+    //         self::error();
+    //     }
+    // }
 
-//Modifications Adresse Postale
+//Modifications Adresse Postale OK
     public static function updateAdrP(){
       if (isset($_SESSION['login'])) {
         $view = 'updateAdrP';
@@ -78,10 +78,7 @@ class ControllerMonProfil
 
       $a=$_POST['newadrL'];
       $b=$_POST['newVille'];
-      $primary='idAdherent';
-      $table_name='Adherent';
-      $primary_value=$_SESSION['login'];
-      Model::update($primary, $primary_value, $table_name, array("adressePostaleAdherent"=>$a, "ville"=>$b));
+      ModelAdherent::update(array("adressePostaleAdherent"=>$a, "ville"=>$b, "idAdherent"=>$_SESSION['login']));
       self::profile();
     }
     else {
@@ -89,7 +86,7 @@ class ControllerMonProfil
     }
     }
 
-//Modifications PW
+//Modifications PW ok
     public static function updatePW(){
         if (isset($_SESSION['login'])) {
             $view = 'updatePW';
@@ -115,10 +112,7 @@ class ControllerMonProfil
 
             if ($achiffre== $mdpv){
                 if($b==$c){
-                  $primary='idAdherent';
-                  $table_name='Adherent';
-                  $primary_value=$_SESSION['login'];
-                  Model::update($primary, $primary_value, $table_name, array("PW_Adherent"=>$bchiffre));
+                  ModelAdherent::update(array("PW_Adherent"=>$bchiffre, "idAdherent"=>$_SESSION['login']));
                   self::profile();
                 } 
                 else {
@@ -140,7 +134,7 @@ class ControllerMonProfil
         }
   }
 
-//Modifications description
+//Modifications description ok
 
   public static function updateDes(){
     $view = 'updateDes';
@@ -151,10 +145,7 @@ class ControllerMonProfil
   public static function updatedDes(){
     if (isset($_SESSION['login'])) {
       $a=$_POST['newdesc'];
-      $primary='idAdherent';
-      $table_name='Adherent';
-      $primary_value=$_SESSION['login'];
-      Model::update($primary, $primary_value, $table_name, array("description"=>$a));
+      ModelAdherent::update(array("description"=>$a, "idAdherent"=>$_SESSION['login']));
       self::profile();
     }
     else {
@@ -162,7 +153,7 @@ class ControllerMonProfil
     }
   }
 
-  //Modifications photos
+  //Modifications photos ok
 
 public static function updatePhoto(){
     $view = 'updatePhoto';
@@ -173,10 +164,7 @@ public static function updatePhoto(){
 public static function updatedPhoto(){
     if (isset($_SESSION['login'])) {
       $a=$_POST['photo'];
-      $primary='idAdherent';
-      $table_name='Adherent';
-      $primary_value=$_SESSION['login'];
-      Model::update($primary, $primary_value, $table_name, array("photo"=>$a));
+      ModelAdherent::update(array("photo"=>$a, "idAdherent"=>$_SESSION['login']));
       self::profile();
     }
     else {
