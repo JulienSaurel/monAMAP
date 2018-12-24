@@ -39,5 +39,19 @@ class ModelArticles extends Model
           // On donne les valeurs et on exécute la requête
           $req_prep->execute($values);
     }
+
+    public static function selectAllTri(){
+      $SQL_request = " SELECT * FROM Article ORDER BY date DESC";
+        $rep = Model::$pdo->query($SQL_request);
+        $rep->setFetchMode(PDO::FETCH_CLASS, 'ModelArticles');
+        $tab_a = $rep->fetchAll();
+        // $p = $tab_a[0];
+        // $d = $tab_a[1];
+        // $values = array(
+        //   "$values[0]" => $p,
+        //   "values[1]" => $d,
+        // )
+        return $tab_a;
+    }
 }
  ?>

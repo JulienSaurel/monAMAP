@@ -1,5 +1,6 @@
 <h1> Bienvenue sur le site de l'AMAP de la région Occitanie </h1>
 
+
 <!-- aside sur le coté gauche -->
 
 
@@ -25,10 +26,22 @@
 
    <div>
     <h4>Derniers articles</h4>
-    <img src="./images/Article1.jpg" alt="Article 1" width="135" height="135"/>
-    <h4>Nouveau producteur à Grabels.</h4> <!-- redirigera vers l'article1 qu'on créera plus tard-->
-    <img src="./images/Article2.jpg" alt="Article 2" width="135" height="135"/>
-    <h4>Cuisinez votre butternut.</h4><!-- redirigera vers l'article2 qu'on créera plus tard-->
+
+
+
+   <?php
+      foreach($values as $key){ 
+        //var_dump($key);
+        echo '<img src="' . $key->get('photo') . '" alt="' . $key->get('idArticle') . '" width="135" height="135"/><h4>' . $key->get('titreArticle') . '</h4>';
+        }
+
+     ?>
+
+
+   <!-- <img src="./images/Article1.jpg" alt="Article 1" width="135" height="135"/>
+    <h4>Nouveau producteur à Grabels.</h4> // redirigera vers l'article1 qu'on créera plus tard-->
+    <!--<img src="./images/Article2.jpg" alt="Article 2" width="135" height="135"/>
+    <h4>Cuisinez votre butternut.</h4> // redirigera vers l'article2 qu'on créera plus tard-->
   </div>
   
   <div>
