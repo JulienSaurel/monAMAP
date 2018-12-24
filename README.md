@@ -1,7 +1,7 @@
-# monAMAP
-je m'appelle leila
+N'oubliez pas d'exporter la base de donnée les copains !
 
-hihi trop coooool
+Connexion administrateur :
+login : mabrouk
+mdp : azeqsdwxc
 
-
-test julien 2
+BISOUS
