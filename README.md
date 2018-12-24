@@ -1,4 +1,4 @@
-N'oubliez pas d'exporter la base de donnée les copains !
+N'oubliez pas d'importer ma base de donnée dans le dossier config les copains !
 
 Connexion administrateur :
 login : mabrouk
