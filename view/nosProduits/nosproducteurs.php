@@ -10,7 +10,10 @@ if (!$tab_prod){
 }else{
 	//var_dump($tab_prod);
 	foreach ($tab_prod as $prod){
-		echo '<div><img class="imgprofil" src= "'.$prod->get('photo') . '" alt="' . $prod->get('idAdherent'). '"/><h2>'. $prod->get('idPersonne') . '</h2><h5>' . $prod->get('ville') . '</h5><p>' . $prod->get('description') . '</p></div>';
+		$a = ModelPersonne::select($prod->get('mailPersonne'));
+		$prenom = $a->get('prenomPersonne');
+		$nom = $a->get('nomPersonne');
+		echo '<div><img class="imgprofil" src= "'.$prod->get('photo') . '" alt="' . $prod->get('idAdherent'). '"/><h2>'. $prenom . ' ' . $nom . ' - ' . $prod->get('ville') . '</h2><p>' . $prod->get('description') . '</p></div>';
 		//var_dump($prod->get('idPersonne'));
 		//$p = ModelPersonne::getPersonneById($prod->get('idPersonne'));
 		//var_dump($p);
