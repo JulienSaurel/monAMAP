@@ -117,37 +117,67 @@ class Model {
     }
 
     //remplace les champs d'un objet par ceux contenus par $data
-    public static function update($data)
-    {
-        try
-        {
-            $table_name = static::$object;
-            $primary_key = static::$primary;
+    // public static function update($data)
+    // {
+    //     try
+    //     {
+    //         $table_name = static::$object;
+    //         $primary_key = static::$primary;
 
-            $sql = "UPDATE " . ucfirst($table_name) . " SET ";
-            foreach ($data as $key => $value)
+    //         $sql = "UPDATE " . ucfirst($table_name) . " SET ";
+    //         foreach ($data as $key => $value)
+    //         {
+    //             $sql .= $key . " = :" . $key . ', ';
+    //         }
+    //         $sql = rtrim($sql, ', ') . " WHERE " . $primary_key . " = :" . $primary_key;
+    //         $req_prep = Model::$pdo->prepare($sql);
+    //         $req_prep->execute($data);
+    //     } catch(PDOException $e) {
+    //         if (Conf::getDebug())
+    //         {
+    //             echo $e->getMessage(); // affiche un message d'erreur
+    //         }
+    //         else
+    //         {
+    //             echo 'Une erreur est survenue <a href=""> retour a la page d\'accueil </a>';
+    //         }
+    //         die();
+    //     }
+    // }
+
+
+        public static function update($primary_key, $primary_value, $table_name, $data)
+        {
+            try
             {
-                $sql .= $key . " = :" . $key . ', ';
+                //var_dump($data);
+                $sql = "UPDATE " . $table_name . " SET ";
+                foreach ($data as $valeur => $key)
+                {
+                    $sql = $sql . $valeur . " = '" . $key . "', ";
+
+                }
+                $sql = rtrim($sql, ', ') . " WHERE " . $primary_key . " = '" . $primary_value ."'";
+                //var_dump($sql);
+                $req_prep = Model::$pdo->prepare($sql);
+                $req_prep->execute($data);
+            } catch(PDOException $e) {
+                if (Conf::getDebug()) 
+                {
+                    echo $e->getMessage(); // affiche un message d'erreur
+                } 
+                else
+                {
+                    echo 'Une erreur est survenue <a href=""> retour a la page d\'accueil </a>';
+                }
+                die();
             }
-            $sql = rtrim($sql, ', ') . " WHERE " . $primary_key . " = :" . $primary_key;
-            $req_prep = Model::$pdo->prepare($sql);
-            $req_prep->execute($data);
-        } catch(PDOException $e) {
-            if (Conf::getDebug())
-            {
-                echo $e->getMessage(); // affiche un message d'erreur
-            }
-            else
-            {
-                echo 'Une erreur est survenue <a href=""> retour a la page d\'accueil </a>';
-            }
-            die();
         }
-    }
 
     //sauvegarde un objet dans la base de données à partir d'un tableau contenant tous ses attributs
     public static function save($data)
     {
+        error_reporting(E_ALL & ~E_NOTICE);
         try
         {
             $table_name = static::$object;

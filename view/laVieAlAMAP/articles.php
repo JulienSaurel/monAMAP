@@ -1,9 +1,21 @@
 <h1> Nos articles </h1>
 
-<?php 
+<?php  if (isset($_SESSION['login'])) { ?>
+        <li>
+          <a href="?action=createArt&controller=LaVieAlAMAP">Ecrivez un nouvel article</a>
+      </li>
+<?php }
+?>
+<?php
 foreach ($tabArticles as $art) {
     //var_dump($art);
-	$tabec = ModelPersonne::select($art["mailPersonne"]);
+	$a = ModelPersonne::select($art["mailPersonne"]);
+	$prenom = $a->get('prenomPersonne');
+	$nom = $a->get('nomPersonne');
+	$date = $art['date'];
+	echo '<div class="article"><h2>' . $art['titreArticle'] . '</h2><img src="' . $art['photo'] . '" alt="' . $art['idArticle'] . '"/><p>' . $art['description'] . '</p><p>Ecrit par : ' . $prenom . ' ' . $nom . ', Le :' . $date . ' </p></div>';
+
+	//$tabec = ModelPersonne::select($art["idPersonne"]);
 	//var_dump($tabec->get('prenomPersonne'));
 	echo "<div class=\"article\">";
 	echo "<h2> ".$art['titreArticle']."</h2>";

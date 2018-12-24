@@ -1,6 +1,8 @@
 <?php 
 require_once File::build_path(array('model','ModelAdherent.php'));
 require_once File::build_path(array('model','ModelPersonne.php'));
+require_once File::build_path(array('lib','Security.php'));
+require_once File::build_path(array('lib','Session.php'));
 
 class ControllerMonProfil
 {
@@ -12,12 +14,133 @@ class ControllerMonProfil
         if (isset($_SESSION['login'])) {
             $a = ModelAdherent::select($_SESSION['login']);
             $p = ModelPersonne::select($a->get('mailPersonne'));
-        }
         $controller ='monProfil';
         $view = 'voirmonprofil';
         $pagetitle = 'Mon Profil';
-        require File::build_path(array('view','view.php')); 
+        require File::build_path(array('view','view.php'));
+        } else {
+            self::error();
+        }
     }
+
+
+//Modifications adresses Mail
+    public static function updateAdrM(){
+      if (isset($_SESSION['login'])) {
+
+      $view = 'updateAdrM';
+      $pagetitle = 'Modifier l\'adresse mail';
+      require File::build_path(array('view','view.php'));
+    }
+    else {
+      self::error();
+    }
+    }
+
+    public static function updatedAdrM(){
+        if (isset($_SESSION['login'])) {
+           //update dans la table Personne
+            $a=$_POST['newadrM'];
+            $primaryP='mailPersonne';
+            $table_nameP='Personne';
+            $b=ModelAdherent::select($_SESSION['login']);
+            $primary_valueP=$b->get('mailPersonne');
+            Model::update($primaryP, $primary_valueP, $table_nameP, array("mailPersonne"=>$a));
+
+           //update dans la table Adherent
+            $primaryA='idAdherent';
+            $table_nameA='Adherent';
+            $primary_valueA=$_SESSION['login'];
+            Model::update($primaryA, $primary_valueA, $table_nameA, array("mailPersonne"=>$a));
+
+
+            //redirection
+            self::profile();
+        } else {
+            self::error();
+        }
+    }
+
+//Modifications Adresse Postale
+    public static function updateAdrP(){
+      if (isset($_SESSION['login'])) {
+        $view = 'updateAdrP';
+        $pagetitle = 'Modifier l\'adresse postale';
+        require File::build_path(array('view','view.php'));
+      }
+      else {
+        self::error();
+      }
+    }
+
+    public static function updatedAdrP(){
+      if (isset($_SESSION['login'])) {
+
+      $a=$_POST['newadrL'];
+      $b=$_POST['newVille'];
+      $primary='idAdherent';
+      $table_name='Adherent';
+      $primary_value=$_SESSION['login'];
+      Model::update($primary, $primary_value, $table_name, array("adressePostaleAdherent"=>$a, "ville"=>$b));
+      self::profile();
+    }
+    else {
+      self::error();
+    }
+    }
+
+//Modifications PW
+    public static function updatePW(){
+        if (isset($_SESSION['login'])) {
+            $view = 'updatePW';
+            $pagetitle = 'Modifier le mot de passe';
+            require File::build_path(array('view','view.php'));
+        } else {
+          self::error();
+        }
+    }
+
+    public static function updatedPW(){
+        if (isset($_SESSION['login'])) {
+            $a=$_POST['oldpw'];
+            $achiffre=Security::chiffrer($a);
+            $b=$_POST['newpw'];
+            $bchiffre=Security::chiffrer($b);
+            $c=$_POST['newpw_c'];
+            $mail=$_SESSION['login'];
+            $mdp=ModelAdherent::select($_SESSION['login']);
+            $mdpv = $mdp->get('PW_Adherent');
+            //var_dump(ModelUtilisateur::getPwByMail($_SESSION['login']));
+            //var_dump($mdpv);
+
+            if ($achiffre== $mdpv){
+                if($b==$c){
+                  $primary='idAdherent';
+                  $table_name='Adherent';
+                  $primary_value=$_SESSION['login'];
+                  Model::update($primary, $primary_value, $table_name, array("PW_Adherent"=>$bchiffre));
+                  self::profile();
+                } 
+                else {
+                  echo 'les deux nouveaux mots ne correspondent pas !';
+                  $view = 'updatePW';
+                  $pagetitle = 'Erreur correspondance';
+                  require File::build_path(array('view','view.php'));
+                }
+            }
+            else {
+                echo 'L\'ancien mot de passe est faux';
+                $view = 'updatePW';
+                $pagetitle = 'Erreur dans l\'ancien mot de passe';
+                require File::build_path(array('view','view.php'));
+            }
+        } 
+        else {
+            self::error();
+        }
+  }
+
+
 
     public static function display2nd()
     {
