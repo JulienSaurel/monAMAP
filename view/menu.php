@@ -53,7 +53,9 @@
       <a onclick="openLink()" class="lienMenu" href="?action=profile&controller=monProfil">Mon profil</a>
       <ul>
         <li><a class="lienMenu" href="?action=profile&controller=monProfil">Voir mon profil</a></li>
+        <?php if(!isset($_SESSION['producteur'])){ ?>
         <li><a class="lienMenu" href="?action=display2nd&controller=monProfil">Devenir producteur</a></li>
+        <?php } ?>
         <li><a class="lienMenu"href="?action=deconnect&controller=adherent">Se deconnecter</a></li>
       </ul>
     </li>
@@ -88,9 +90,7 @@
     <li class="nosProduits">
       <a class="lienMenu" href="?action=display&controller=nosProduits">Nos produits</a>
     	<ul>
-      <?php if(!isset($_SESSION['producteur'])){ ?>
-      <li><a class="lienMenu" href="?action=display2nd&controller=monProfil">Devenir producteur</a></li>
-      <?php } ?>
+        <li><a class="lienMenu" href="?action=display1st&controller=nosProduits">Nos producteurs</a></li>
         <li><a class="lienMenu" href="?action=display2nd&controller=nosProduits">Produits du moment</a></li>
       </ul>
     </li>
