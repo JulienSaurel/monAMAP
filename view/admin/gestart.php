@@ -1,6 +1,6 @@
 <?php  if (isset($_SESSION['administrateur'])) { ?>
 
-<h1>Gestion des Administrateurs</h1>
+<h1>Gestion des Articles</h1>
 
 
 <?php 
