@@ -68,6 +68,13 @@ class ControllerAdmin
 
     }
 
+    public static function deleteArt(){
+        $value = $_GET['idArticle'];
+        ModelArticles::delete($value);
+        self::gestart();
+
+    }
+
     public static function deleteCom(){
         $value = $_GET['id_message'];
         ModelLivreDor::delete($value);
