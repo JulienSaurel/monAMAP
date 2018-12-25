@@ -21,9 +21,9 @@ foreach ($tab as $key) {
 				echo '<img class="imgprofil" src= "'. $key->get('photo') . '" alt="' . $key->get('idArticle'). '"/>'; 
 			}
 	echo '<li> Titre : ' . $key->get('titreArticle') . '</li>';
-	echo '<li> Date : ' . $key->get('date') . '</li>';
 	echo '<li> description : ' . $key->get('description') . '</li>';
 	echo '<li> Mail de l\'auteur : ' . $key->get('idPersonne') . '</li>';
+	echo '<li> Date : ' . $key->get('date') . '</li>';
 	echo '</ul>';
 	echo '  <a href=?action=updateArt&controller=admin&idArticle=' . $idp . '> Modifier</a>  | <a href=?action=deleteArt&controller=admin&idArticle=' . $idp . '> Supprimer</a>';
 	echo '</div>';
