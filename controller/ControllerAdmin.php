@@ -79,7 +79,32 @@ class ControllerAdmin
         $value = $_GET['id_message'];
         ModelLivreDor::delete($value);
         self::gestcom();
+    }
 
+    public static function updateArt(){
+        if (isset($_SESSION['administrateur'])) {
+        $idp = ModelArticles::select($_GET['idArticle']);
+        $view = 'updateArt';
+        $pagetitle = 'Modifier l\'article';
+        require File::build_path(array('view','view.php'));
+      }
+      else {
+        self::error();
+      }
+    }
+
+    public static function updatedArt(){
+        if (isset($_SESSION['administrateur'])) {
+            $a=$_POST['newtitle'];
+            $b=$_POST['newdesc'];
+            $c=$_POST['newpic'];
+            $primaryvalue=$_GET['idArticle'];
+            ModelArticles::update(array("idArticle"=>$primaryvalue, "titreArticle"=>$a, "description"=>$b, "photo"=>$c, ));
+            self::gestart();
+        }
+        else {
+          self::error();
+        }
     }
 
 	public static function error()
