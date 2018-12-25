@@ -8,17 +8,21 @@ class ControllerAccueil
 
 	public static function homepage()
 	{
-        $tab = ModelArticles::selectAllTri();
+        //on prend tous les articles triés DESC, de manière à avoir les plus récents en premiers 
+        $tab = ModelArticles::selectAllTri(); 
+        //on sélectionne les deux articles les plus récents
         $values = array(
             "key1" => $tab[0],
             "key2" => $tab[1],
         );
-		$controller ='accueil';
+		//redirection vers la page d'accueil
+        $controller ='accueil';
         $view = 'accueil';
         $pagetitle = 'Accueil';
         require File::build_path(array('view','view.php')); 
 	}
 
+    //page d'erreur
 	 public static function error()
     {
     $controller ='accueil';
@@ -28,3 +32,5 @@ class ControllerAccueil
     }
 }
 ?>
+
+

@@ -1,8 +1,8 @@
 <?php
-require_once File::build_path(array('model','ModelAdherent.php'));
-require_once File::build_path(array('model','ModelPersonne.php'));
-require_once File::build_path(array('controller','ControllerMonProfil.php'));
-require_once File::build_path(array('controller','ControllerAdmin.php'));
+require_once File::build_path(array('model','ModelAdherent.php'));// chargement du modèle
+require_once File::build_path(array('model','ModelPersonne.php'));// chargement du modèle
+require_once File::build_path(array('controller','ControllerMonProfil.php'));// chargement du modèle
+require_once File::build_path(array('controller','ControllerAdmin.php'));// chargement du modèle
 
 
 class ControllerAdherent
@@ -32,14 +32,16 @@ class ControllerAdherent
 		//"redirige" vers la vue qui affiche les details d'un adherent
 	}
 
+	//page d'inscription
 	public static function create()
 	{
-
+		//redirection vers le formulaire d'inscription
 		$view = 'create';
 		$pagetitle = 'S\'inscrire';
 		require File::build_path(array('view','view.php'));
 	}
 
+	//action d'inscription
 	public static function created()
 	{
 
@@ -136,16 +138,10 @@ class ControllerAdherent
 
 	}
 
-	public static function error()
-	{
-		$view = 'error';
-		$pagetitle = 'Error 404';
-		require File::build_path(array('view','view.php'));
-	}
-
-
+	//page de connexion
 	public static function connect()
 	{
+		//redirection vers le formulaire de connexion
 		$view = 'connect';
 		$pagetitle = 'Se connecter';
 		require File::build_path(array('view','view.php'));
@@ -153,15 +149,25 @@ class ControllerAdherent
 
 	public static function connected()
 	{
+		//(1) si l'utilisateur n'est pas connecté, alors il peut se connection.
 		if (!isset($_SESSION['login'])){
+
+			//(2) si l'utilisateur rempli les champs "login" et "mot de passe"
 			if (isset($_POST['idAdherent'])&&isset($_POST['pw']))
 			{
+				//on récupère les données de celui qui veut se connecter, grâce à son login (=idAdherent)
 				$informations=ModelAdherent::select($_POST['idAdherent']);
 				//var_dump($informations->get('estProducteur'));
 				$login = $_POST['idAdherent'];
+
+				//on chiffre le mot de passe saisi pour le comparer à celui dans la base de donnée
 				$pw = Security::chiffrer($_POST['pw']);
+				
+				//(3)si l'idAdherent existe dans la base de donnée
 				if (ModelAdherent::select($_POST['idAdherent']))
 				{
+
+					//(4) si les deux mots de passes correspondent
 					if (ModelAdherent::select($login)->checkPW($login, $pw))
 					{
 
@@ -178,35 +184,53 @@ class ControllerAdherent
 						$a = ModelAdherent::select($login);
 						ControllerMonProfil::profile();
 
-					} else {
+					} 
+
+					//(4) sinon il ne peut pas se connecter
+					else {
 						$view = 'connectErreur';
 						$pagetitle = 'Se connecter';
 						$errmsg = "Mot de passe incorrect";
 						require File::build_path(array('view','view.php'));
 					}
-				} else {
+				} 
+
+				//(3) sinon il ne peut pas se connecter
+				else {
 					$view = 'connectErreur';
 					$pagetitle = 'Se connecter';
 					$errmsg = " Login incorrect ";
 					require File::build_path(array('view','view.php'));
 				}
-			} else {
+			} 
+			//(2) sinon il ne peut pas de connecter
+			else {
 				$view = 'connectErreur';
 				$pagetitle = 'Se connecter';
 				$errmsg = " Veuillez vous connecter ";
 				require File::build_path(array('view','view.php'));
 			}
-		} else {
+		}
+		//(1) sinon, comme il est déjà connecté, il ne peut pas se connecter 
+		else {
 			self::error();
 		}
 	}
 
-
+	//déconnexion
 	public static function deconnect()
 	{
 		session_unset();
-
 		ControllerAccueil::homepage();
+	}
+
+
+	//page d'erreur
+	public static function error()
+	{
+		$view = 'error';
+		$pagetitle = 'Error 404';
+		require File::build_path(array('view','view.php'));
 	}
 }
 ?>
