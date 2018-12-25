@@ -61,6 +61,13 @@ class ControllerAdmin
 
     }
 
+    public static function deletePro(){
+        $value = $_GET['idAdherent'];
+        ModelAdherent::delete($value);
+        self::gestpro();
+
+    }
+
     public static function deleteCom(){
         $value = $_GET['id_message'];
         ModelLivreDor::delete($value);

@@ -27,7 +27,7 @@ foreach ($tab as $key) {
 			}
 	echo '<li> mailPersonne : ' . $key->get('mailPersonne') . '</li>';
 	echo '</ul>';
-	echo ' <a href=?action=deletePro&controller=adherent&idAdherent=' . $idp . '> Supprimer</a>';
+	echo ' <a href=?action=deletePro&controller=admin&idAdherent=' . $idp . '> Supprimer</a>';
 	echo '</div>';
 }
 
