@@ -29,35 +29,34 @@ class ControllerNousSoutenir
 		if($montant > 0){ // si le montant n'est pas correct
 
         // création donnateur ou update
-		$sql="SELECT COUNT(*) FROM Donnateur WHERE mailAddressDonnateur=:tag";
 
-    	$req_prep = Model::$pdo->prepare($sql);
+    	$nbDonnateur = ModelDonnateur::count($mail);
+    	//passe
 
-    	$valeurs = array(
-    		"tag" => $mail);
-
-    	$req_prep->execute($valeurs);
-    	$resultat = $req_prep->fetch();
-    	$nbDonnateur = $resultat[0];
-		
 		if($nbDonnateur == 0){ // si le donnateur n'existe pas on le crée
+		    $arraypersonne = [
+                'mailPersonne' => $mail,
+                'nomPersonne' => $nom,
+                'prenomPersonne' => $prenom,
+            ];
+
+		    ModelPersonne::save($arraypersonne);
+
 			$arraydonnateur = [
                 'mailAddressDonnateur' => $mail,
-                'nomDonnateur' => $nom,
-                'prenomDonnateur' => $prenom,
                 'montantTotal' => $montant,
             ];
 			ModelDonnateur::save($arraydonnateur);
-		} else { // sinon on l'update 
-			$sql="UPDATE Donnateur SET montantTotal = montantTotal + :montant WHERE mailAddressDonnateur= :mail;";
 
-			$req_prep = Model::$pdo->prepare($sql);
+		} else { // sinon on l'update
+            $d = ModelDonnateur::select($mail);
 
-			$valeurs = array(
-				"mail" => $mail,
-				"montant" => $montant);
+            $valeurs = array(
+                "mailAddressDonnateur" => $mail,
+                "montantTotal" => $montant + $d->get('montantTotal'),
+            );
 
-			$req_prep->execute($valeurs);
+            ModelDonnateur::update($valeurs);
 		}
 
 		$arraydon = [
@@ -100,18 +99,10 @@ class ControllerNousSoutenir
         // génération de la page de remerciments 
 
 
-		$sql="SELECT * FROM Donnateur WHERE mailAddressDonnateur=:tag";
 
-    	$req_prep = Model::$pdo->prepare($sql);
+		$donnateur = ModelDonnateur::select($mail);
 
-    	$valeurs = array("tag" => $mail);
 
-    	$req_prep->execute($valeurs);
-    	$req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelDonnateur');
-		$tab_donn = $req_prep->fetchAll();
-		$donnateur = $tab_donn[0];
-
-		
         $view = 'donnated';
         $pagetitle = 'Merci !';
         require File::build_path(array('view','view.php'));

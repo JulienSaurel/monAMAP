@@ -12,5 +12,20 @@ class ModelDonnateur extends Model
     static protected $object = 'donnateur';
     protected static $primary='mailAddressDonnateur';
 
+    public static function count($mail)
+    {
+        $sql="SELECT COUNT(*) FROM Donnateur WHERE mailAddressDonnateur=:tag";
+
+        $req_prep = Model::$pdo->prepare($sql);
+
+        $valeurs = array(
+            "tag" => $mail);
+
+        $req_prep->execute($valeurs);
+        $resultat = $req_prep->fetch();
+
+        return $resultat[0];
+    }
+
 }
 ?>

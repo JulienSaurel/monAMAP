@@ -130,6 +130,7 @@ class Model {
                 $sql .= $key . " = :" . $key . ', ';
             }
             $sql = rtrim($sql, ', ') . " WHERE " . $primary_key . " =:" . $primary_key;
+            var_dump($sql);
             $req_prep = Model::$pdo->prepare($sql);
             $req_prep->execute($data);
         } catch(PDOException $e) {

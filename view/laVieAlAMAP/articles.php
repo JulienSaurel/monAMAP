@@ -9,7 +9,7 @@
 <?php
 foreach ($tabArticles as $art) {
     //var_dump($art);
-	$a = ModelPersonne::select($art["mailPersonne"]);
+	$a = ModelPersonne::select($art->get("mailPersonne"));
 	$prenom = $a->get('prenomPersonne');
 	$nom = $a->get('nomPersonne');
 	$date = $art->get('date');
