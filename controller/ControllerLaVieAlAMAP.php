@@ -114,7 +114,7 @@ class ControllerLaVieAlAMAP
             'photo' => $_POST['photo'],
             'date' => $date,
             'description' => $_POST['corps'],
-            'idPersonne' => $mailPersonne,
+            'mailPersonne' => $mailPersonne,
         ];
 
         //on enregistre les données dans la bd

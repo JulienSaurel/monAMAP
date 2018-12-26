@@ -15,7 +15,7 @@ foreach ($tabArticles as $art) {
 	$date = $art->get('date');
 	echo '<div class="article"><h2>' . $art->get('titreArticle') . '</h2><img src="' . $art->get('photo') . '" alt="' . $art->get('idArticle') . '"/><p>' . $art->get('description') . '</p><p>Ecrit par : ' . $prenom . ' ' . $nom . ', Le :' . $date . ' </p></div>';
 
-	//$tabec = ModelPersonne::select($art["idPersonne"]);
+	//$tabec = ModelPersonne::select($art["mailPersonne"]);
 	//var_dump($tabec->get('prenomPersonne'));
 	// echo "<div class=\"article\">";
 	// echo "<h2> ".$art['titreArticle']."</h2>";

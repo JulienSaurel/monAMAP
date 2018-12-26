@@ -101,7 +101,7 @@ class ControllerAdherent
 		}
 		/*			var_dump($dateProducteur);
                     var_dump($_POST['idAdherent']);
-                    var_dump($idPersonne);
+                    var_dump($mailPersonne);
                     var_dump($_POST['PW_Adherent']);
                     var_dump($_POST['adressepostaleAdherent']);
                     var_dump($_POST['estProducteur']);

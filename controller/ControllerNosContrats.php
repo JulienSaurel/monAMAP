@@ -68,7 +68,7 @@ class ControllerNosContrats
 
             $a = ModelAdherent::select($_SESSION['login']);
             //var_dump($a);
-            $idAdherent = $a->get('idPersonne');
+            $idAdherent = $a->get('mailPersonne');
             $prenomPersonne = $a->get('prenomPersonne');
             $mailPersonne = $a->get('mailPersonne');
 

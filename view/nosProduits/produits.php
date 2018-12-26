@@ -13,7 +13,7 @@ if (isset($_SESSION['producteur'])){  ?>
  <?php 
 
 foreach ($tab as $pro) {
-	//$a = ModelPersonne::select($pro->get('idPersonne'));
+	//$a = ModelPersonne::select($pro->get('mailPersonne'));
 	//var_dump($pro);
 	//$prenom = $a->get('prenomPersonne');
 	//$nom = $a->get('nomPersonne');

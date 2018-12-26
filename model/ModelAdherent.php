@@ -65,7 +65,7 @@ class ModelAdherent extends Model
     }
 
     public static function getMailAdmin(){
-        $sql = "SELECT P.mailPersonne FROM Adherent A JOIN Personne P ON P.idPersonne=A.idPersonne WHERE A.estAdministrateur=:admin";
+        $sql = "SELECT P.mailPersonne FROM Adherent A JOIN Personne P ON P.mailPersonne=A.mailPersonne WHERE A.estAdministrateur=:admin";
 
         // Préparation de la requête
         $req_prep = Model::$pdo->prepare($sql);

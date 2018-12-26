@@ -10,7 +10,7 @@ class ModelArticles extends Model
     protected $photo;
     protected $date;
     protected $description;
-    protected $idPersonne;
+    protected $mailPersonne;
    
     static protected $object = 'article';
     protected static $primary='idArticle';
@@ -21,12 +21,12 @@ class ModelArticles extends Model
     //         $this->photo = $p;
     //         $this->date = date("Y-m-d H:i:s");
     //         $this->description = $des;
-    //         $this->idPersonne = $idAdh;
+    //         $this->mailPersonne = $idAdh;
     //     }
     // }
 
     public function saveArt(){
-          $sql = "INSERT INTO Article(titreArticle, photo, description, idPersonne) VALUES (:t, :p, :des, :idAdh)";
+          $sql = "INSERT INTO Article(titreArticle, photo, description, mailPersonne) VALUES (:t, :p, :des, :idAdh)";
         // Préparation de la requête
           $req_prep = Model::$pdo->prepare($sql);
 
@@ -34,7 +34,7 @@ class ModelArticles extends Model
               "t" => $this->titreArticle,
               "p" => $this->photo,
               "des" => $this->description,
-              "idAdh" => $this->idPersonne,
+              "idAdh" => $this->mailPersonne,
           );
           // On donne les valeurs et on exécute la requête
           $req_prep->execute($values);

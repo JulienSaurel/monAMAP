@@ -81,10 +81,6 @@ class ControllerNosProduits
         }   
     }
 
-////////////**********Affichage de tous les produits**********////////////
-
-
-
 } 
 ?>
 

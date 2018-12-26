@@ -17,7 +17,7 @@ class ControllerPersonne
 
 	public static function read() 
     {
-    	$p = $_GET['idPersonne'];
+    	$p = $_GET['mailPersonne'];
 
         $p = ModelPersonne::select($p);
         //appel au modèle pour gerer la BD
