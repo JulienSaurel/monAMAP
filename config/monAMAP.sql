@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le :  lun. 24 déc. 2018 à 20:59
+-- Généré le :  mer. 26 déc. 2018 à 19:42
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.8
 
@@ -39,6 +39,7 @@ CREATE TABLE `Adherent` (
 --
 
 INSERT INTO `Adherent` (`idAdherent`, `mailPersonne`, `adressepostaleAdherent`, `PW_Adherent`, `estProducteur`, `estAdministrateur`, `dateinscription`, `dateproducteur`, `photo`, `description`, `ville`) VALUES
+('lightnaruto', 'mabroua@icloud.com', '71 chemin des plantier', '84ada0e4bf93886610c494fd36acc11bfc43790b62445c46f4a0396d4e7d5a41', 0, 0, '2018-12-26 12:01:41', NULL, 'https://figuya.com/uploads/product/profile_picture/10582/profile_light-yagami-kira-und-ryuuk-ryuk-diorama20171214-28947-1gms6ny', NULL, 'cavaillon'),
 ('mabroukl', 'mabroukl@icloud.com', '75 chemin des plantiers', '64fb57e333a3ab729ebc1f4c8f31354db5b150fafd2fe3d08722f00bf9a2a575', 1, 1, '2018-12-24 09:40:18', '2018-12-24 09:40:18', 'https://images.ecosia.org/RC1B-XW9-56MMnJlDUTk8BBFaWg=/0x390/smart/https%3A%2F%2Fwww.fc-photos.com%2Fwp-content%2Fuploads%2F2016%2F09%2Ffc-photos-Weynacht-0001.jpg', 'Je suis productrice de pommes depuis près de 50 ans. J\'aime les chats.', 'Lagnes'),
 ('pandav', 'dsambuc@free.fr', '11, rue des étangs', '9327cfdac7c820149a65789a387dc9dda64694e9c7c3850536f0302302bf7f13', 1, 0, '2018-12-23 18:07:08', '2018-12-23 18:07:08', NULL, NULL, 'Montpellier'),
 ('Popola', 'ANDRE@yahoo.fr', '56 Rue des paniers MIX', '64fb57e333a3ab729ebc1f4c8f31354db5b150fafd2fe3d08722f00bf9a2a575', 0, 0, '2018-12-24 16:42:21', NULL, 'https://images.ecosia.org/Oh5dAT4YGWmW3WHQoZVpc54NG-c=/0x390/smart/https%3A%2F%2Fblog.fotolia.com%2Ffr%2Ffiles%2F2015%2F09%2FScreenshot2-575x600.png', NULL, 'Lagnes');
@@ -55,19 +56,18 @@ CREATE TABLE `Article` (
   `photo` varchar(500) DEFAULT NULL,
   `date` datetime NOT NULL,
   `description` varchar(1000) NOT NULL,
-  `idPersonne` varchar(32) NOT NULL
+  `mailPersonne` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `Article`
 --
 
-INSERT INTO `Article` (`idArticle`, `titreArticle`, `photo`, `date`, `description`, `idPersonne`) VALUES
+INSERT INTO `Article` (`idArticle`, `titreArticle`, `photo`, `date`, `description`, `mailPersonne`) VALUES
 (1, 'La viande de veau', './images/Article1.jpg', '2018-11-26 00:00:00', 'Les Français gardent un attachement particulier pour la viande de veau qui continue de figurer parmi leurs viandes préférées, de l’escalope de veau à la blanquette de veau.\r\n\r\nMais d’abord, il faut s’assurer que sa couleur est légèrement rosée avec un gras clair et nacré. C’est le gage d’une viande tendre.\r\n\r\nIl est à noter que la viande de veau, pour conserver la finesse de son grain doit être consommée à peine rosée ou cuite à point mais jamais saignante et encore moins trop cuite.', 'mabroukl@icloud.com'),
-(2, 'Cuisinez le butternut au four', './images/Article2.jpg', '2018-11-27 13:29:31', 'Les français ne veulent pas manger des petits bébés vaches, on en a marre !', 'mabroukl@icloud.com'),
-(3, 'Article de test', 'images/croix.png', '2018-12-11 00:00:00', '\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eu malesuada lorem. Cras at ultricies erat. Aenean tincidunt nisi justo. Iœnteger non leo sit amet est luctus lobortis in in enim. Mauris sed lacinia tortor. Quisque tempus massa et dui vulputate porta. Suspendisse neque nisi, condimentum lobortis arcu sit amet, tempus gravida urna.\n\nMorbi eu odio tortor. In in massa a enim mollis malesuada. Duis consequat rhoncus imperdiet. Ut eget justo vitae felis accumsan commodo. Quisque nec vulputate nisi, id scelerisque justo. Duis viverra turpis non commodo dapibus. Morbi eu sem sapien. Cras ultrices lorem quis ex commodo, id pretium nisi pharetra. Vestibulum vel iaculis augue, nec hendrerit nisl.\n\nPellentesque commodo auctor elit nec tincidunt. Donec tincidunt lobortis sapien non tristique. Quisque et lorem augue. Integer nec ipsum sed augue dignissim aliquam ut id turpis. Vestibulum dictum nec ante vitae egestas. Sed posuere eros nec augue luctus, in semper ante posuere. ', 'dsambuc@free.fr'),
-(4, 'Recette', 'https://images.ecosia.org/_666ebrNLPj6GZwFScgpmnEhtsc=/0x390/smart/https%3A%2F%2Fstatic3.hervecuisine.com%2Fwp-content%2Fuploads%2F2010%2F11%2Frecette-crepes-chandeleur-2018.jpg%3Fx89858', '2018-12-24 15:22:31', 'bonjour', 'mabroukl@icloud.com'),
-(5, 'Recette 2', 'https://images.ecosia.org/Qh6P0TQkLqwTBSPMaRjFY_mWeAU=/0x390/smart/http%3A%2F%2Fcdn-elle.ladmedia.fr%2Fvar%2Fplain_site%2Fstorage%2Fimages%2Felle-a-table%2Frecettes-de-cuisine%2Fcreme-brulee-facile-2894406%2F52734072-1-fre-FR%2FCreme-brulee-facile.jpeg', '2018-12-24 15:25:04', 'Creme brulée', 'mabroukl@icloud.com');
+(2, 'Cuisinez le butternut au four', './images/Article2.jpg', '2018-11-27 13:29:31', 'C\'est tout simple !', 'mabroukl@icloud.com'),
+(4, 'Chandeleur avec l\'AMAP', 'https://images.ecosia.org/_666ebrNLPj6GZwFScgpmnEhtsc=/0x390/smart/https%3A%2F%2Fstatic3.hervecuisine.com%2Fwp-content%2Fuploads%2F2010%2F11%2Frecette-crepes-chandeleur-2018.jpg%3Fx89858', '2018-12-24 15:22:31', 'Les crêpes de l\'AMAP', 'mabroukl@icloud.com'),
+(5, 'Crème brulée aux marrons', 'https://images.ecosia.org/Qh6P0TQkLqwTBSPMaRjFY_mWeAU=/0x390/smart/http%3A%2F%2Fcdn-elle.ladmedia.fr%2Fvar%2Fplain_site%2Fstorage%2Fimages%2Felle-a-table%2Frecettes-de-cuisine%2Fcreme-brulee-facile-2894406%2F52734072-1-fre-FR%2FCreme-brulee-facile.jpeg', '2018-12-24 15:25:04', 'Creme brulée avec les marrons de mon panier !', 'mabroukl@icloud.com');
 
 -- --------------------------------------------------------
 
@@ -261,10 +261,7 @@ INSERT INTO `LivreDor` (`id_message`, `pseudo`, `message`) VALUES
 (11, 'a11', 'eazr'),
 (12, 'robertl', 'niquel j\'adore cette AMAP !!'),
 (13, 'julien', 'Ouah super l\'AMAP elle est géniale'),
-(14, 'JUJU', 'excellent !'),
-(15, 'Bethou', 'je kiffe l\'AMAP wAllah'),
-(16, 'DTC', 'Dans ton cul'),
-(17, 'DTC', 'Dans ton cul');
+(14, 'JUJU', 'excellent !');
 
 --
 -- Déclencheurs `LivreDor`
@@ -292,8 +289,14 @@ CREATE TABLE `Personne` (
 
 INSERT INTO `Personne` (`nomPersonne`, `prenomPersonne`, `mailPersonne`) VALUES
 ('ANDRE', 'Andrea', 'ANDRE@yahoo.fr'),
+('sdfgsf', 'sfdbgwsf', 'dfb@dfb.fr'),
 ('Sambuc', 'David', 'dsambuc@free.fr'),
-('Mabrouk', 'Leila', 'mabroukl@icloud.com');
+('muhlihu', 'ihmhm', 'liuhlihb@luh.fr'),
+('mabrouk', 'anas', 'mabroua@icloud.com'),
+('mabrouk', 'anas', 'mabrouka@icloud.com'),
+('Mabrouk', 'Leila', 'mabroukl@icloud.com'),
+('eheqthesqwbeq', 'thqehqegbdq', 'qebqegfb@lbmoub.fr'),
+('eszutrd', 'trst', 'rts@ytdjyt.fr');
 
 -- --------------------------------------------------------
 
@@ -303,9 +306,16 @@ INSERT INTO `Personne` (`nomPersonne`, `prenomPersonne`, `mailPersonne`) VALUES
 
 CREATE TABLE `Produit` (
   `nomProduit` varchar(20) NOT NULL,
-  `image` varchar(50) NOT NULL,
+  `image` varchar(300) NOT NULL,
   `description` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `Produit`
+--
+
+INSERT INTO `Produit` (`nomProduit`, `image`, `description`) VALUES
+('Courgettes', 'https://tse4.mm.bing.net/th?id=OIP.iLKY88RipxGb68SLOHz5hwHaHa&pid=Api', 'courgettes bio de Lagnes');
 
 --
 -- Index pour les tables déchargées
@@ -323,7 +333,7 @@ ALTER TABLE `Adherent`
 --
 ALTER TABLE `Article`
   ADD PRIMARY KEY (`idArticle`),
-  ADD KEY `idAdherent` (`idPersonne`);
+  ADD KEY `idAdherent` (`mailPersonne`);
 
 --
 -- Index pour la table `contrat`
@@ -390,7 +400,7 @@ ALTER TABLE `Don`
 -- AUTO_INCREMENT pour la table `LivreDor`
 --
 ALTER TABLE `LivreDor`
-  MODIFY `id_message` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_message` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Contraintes pour les tables déchargées
