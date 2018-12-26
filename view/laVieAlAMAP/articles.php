@@ -12,19 +12,20 @@ foreach ($tabArticles as $art) {
 	$a = ModelPersonne::select($art["mailPersonne"]);
 	$prenom = $a->get('prenomPersonne');
 	$nom = $a->get('nomPersonne');
-	$date = $art['date'];
-	echo '<div class="article"><h2>' . $art['titreArticle'] . '</h2><img src="' . $art['photo'] . '" alt="' . $art['idArticle'] . '"/><p>' . $art['description'] . '</p><p>Ecrit par : ' . $prenom . ' ' . $nom . ', Le :' . $date . ' </p></div>';
+	$date = $art->get('date');
+	echo '<div class="article"><h2>' . $art->get('titreArticle') . '</h2><img src="' . $art->get('photo') . '" alt="' . $art->get('idArticle') . '"/><p>' . $art->get('description') . '</p><p>Ecrit par : ' . $prenom . ' ' . $nom . ', Le :' . $date . ' </p></div>';
 
 	//$tabec = ModelPersonne::select($art["idPersonne"]);
 	//var_dump($tabec->get('prenomPersonne'));
-	echo "<div class=\"article\">";
-	echo "<h2> ".$art['titreArticle']."</h2>";
-	$image = "<img src=". $art['photo']." alt=\" article \" >"; 
-	echo $image;
+	// echo "<div class=\"article\">";
+	// echo "<h2> ".$art['titreArticle']."</h2>";
+	// $image = "<img src=". $art['photo']." alt=\" article \" >"; 
+	// echo $image;
 
-	echo "<p> ".$art['description']."</p><br>";
-	echo "<p> Ecrit par : ".$tabec->get('prenomPersonne')." ".$tabec->get('nomPersonne')."</p>";
-	echo "<p> Le : ". $art['date']."</p>";
-	echo "</div>";
+	// echo "<p> ".$art['description']."</p><br>";
+	// echo "<p> Ecrit par : ".$tabec->get('prenomPersonne')." ".$tabec->get('nomPersonne')."</p>";
+	// echo "<p> Le : ". $art['date']."</p>";
+	// echo "</div>";
 }
 ?>
+

@@ -53,11 +53,18 @@
       <a onclick="openLink()" class="lienMenu" href="?action=profile&controller=monProfil">Mon profil</a>
       <ul>
         <li><a class="lienMenu" href="?action=profile&controller=monProfil">Voir mon profil</a></li>
+        <?php if(!isset($_SESSION['producteur'])){ ?>
         <li><a class="lienMenu" href="?action=display2nd&controller=monProfil">Devenir producteur</a></li>
+        <?php } ?>
         <li><a class="lienMenu"href="?action=deconnect&controller=adherent">Se deconnecter</a></li>
       </ul>
     </li>
       <?php } ?>
+      <?php if(isset($_SESSION['administrateur'])){ ?>
+<li class="accueil">
+      <a class="lienMenu" href="?action=display&controller=admin">Administration</a>
+    </li>
+<?php } ?>
   </ul>
 </div>
 
@@ -118,10 +125,17 @@
       <a onclick="openLink()" class="lienMenu" href="?action=profile&controller=monProfil">Mon profil</a>
       <ul>
         <li><a class="lienMenu" href="?action=profile&controller=monProfil">Voir mon profil</a></li>
+<?php if(!isset($_SESSION['producteur'])){ ?>
         <li><a class="lienMenu" href="?action=display2nd&controller=monProfil">Devenir producteur</a></li>
+<?php } ?>
         <li><a class="lienMenu"href="?action=deconnect&controller=adherent">Se deconnecter</a></li>
       </ul>
     </li>
       <?php } ?>
+<?php if(isset($_SESSION['administrateur'])){ ?>
+<li class="accueil">
+      <a class="lienMenu" href="?action=display&controller=admin">Administration</a>
+    </li>
+<?php } ?>
   </ul>
 </nav> 

@@ -8,6 +8,7 @@ class ControllerLaVieAlAMAP
 {
     protected static $object='laVieAlAMAP';
 
+    //redirige vers la page "La vie à l'AMAP"
 	public static function display()
 	{
         $view = 'lvala';
@@ -15,14 +16,16 @@ class ControllerLaVieAlAMAP
         require File::build_path(array('view','view.php')); 
 	}
 
+    //redirige vers la page "Articles"
     public static function display1st()
     {
-        $tabArticles = ModelArticles::selectAll();
+        $tabArticles = ModelArticles::selectAllTri();
         $view = 'articles';
         $pagetitle = 'Articles';
         require File::build_path(array('view','view.php')); 
     }
 
+    //redirige vers la page "Evenements"
     public static function display2nd()
     {
         $view = 'evenements';
@@ -30,6 +33,7 @@ class ControllerLaVieAlAMAP
         require File::build_path(array('view','view.php')); 
     }
 
+    //redirige vers la page "Evenements"
     public static function display3rd()
     {   
         $nombrepages = ModelLivreDor::getNbPages();
@@ -75,22 +79,30 @@ class ControllerLaVieAlAMAP
     //     return ModelArticles::selectAll();
     // }
 
-//Création d'article
+
+///////////************Création d'article************///////////
+
+    //Redirige vers le formulaire de création d'article
     public static function createArt(){
+
+        //si l'utilisateur est connecté
         if (isset($_SESSION['login'])){
             $view = 'createArt';
             $pagetitle = 'Nouvel article';
             require File::build_path(array('view','view.php'));
-        } 
+        }
+
+        //sinon erreur 
         else {
             self::error();
         }
     }
 
+    //action de création d'article
     public static function createdArt(){
+        //si l'utilisateur est connecté
         if (isset($_SESSION['login']))
         {
-
 
         $date = date("Y-m-d H:i:s");
 
@@ -105,30 +117,19 @@ class ControllerLaVieAlAMAP
             'idPersonne' => $mailPersonne,
         ];
 
+        //on enregistre les données dans la bd
         ModelArticles::save($data);
         
-
-            // var_dump($p);
-            // // $data = array (
-            // //     'titreArticle' => $_POST['titre'],
-            // //     'photo' => $_POST['photo'],
-            // //     'date' => $date,
-            // //     'description' => $_POST['corps'],
-            // //     'idPersonne' => $p,
-            // // );
-            // $article = new ModelArticles($_POST['titre'],$_POST['photo'], $_POST['corps'],
-            // $p);
-            // $article->saveArt();
-            // //$controller ='laVieAlAMAP';
-            $view = 'articles';
-            $pagetitle = 'Article ajouté';
-            require File::build_path(array('view','view.php'));
+        //redirection vers les articles
+        self::display1st();
         }
+        //sinon erreur
         else {
             self::error();
         }
     }
 
+    //page d'erreur
     public static function error()
     {
     $view = 'error';

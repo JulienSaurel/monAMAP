@@ -1,7 +1,7 @@
-# monAMAP
-je m'appelle leila
+N'oubliez pas d'importer ma base de donnée dans le dossier config les copains !
 
-hihi trop coooool
+Connexion administrateur :
+login : mabrouk
+mdp : azeqsdwxc
 
-
-test julien 2
+BISOUS
