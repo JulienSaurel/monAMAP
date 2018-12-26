@@ -149,7 +149,6 @@ class ControllerAdherent
 
 	public static function newprod()
 	{
-
 		//on vérifie qu'on a recu les données
 		if (!isset($_POST['description']) || !isset($_POST['id']))
 			return self::error();
@@ -175,20 +174,22 @@ class ControllerAdherent
 
 		$path = File::build_path(array('images', $name));
 
+		//on test que ke fichier upload existe au bon endroit
 		if (!file_exists($path))
 			return self::error();
 
+		//on recupere les infos du form
 		$description = $_POST['description'];
+		$id = $_POST['id'];
 
-			$arrayupd = [
-				'idAdherent' => $_POST['id'],
+		$arrayupd = [
+				'idAdherent' => trim($id),
 				'description' => $description,
 				'photo' => $name,
 				];
 
+		//on update la personne
 			ModelAdherent::update($arrayupd);
-
-			var_dump(ModelAdherent::select($_POST['id']));
 		return ControllerAccueil::homepage();
 	}
 

@@ -1,6 +1,5 @@
 <form method="post" action="?action=newprod&controller=adherent" enctype="multipart/form-data">
     <!-- On recupere les infos avec la methode post et on redirige vers la sauvegarde dans la base de donnees -->
-
     <fieldset>
         <legend>Finalisation d'inscription :</legend>
             <label for="desc">Description :</label>
