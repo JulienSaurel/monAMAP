@@ -118,37 +118,13 @@ class ControllerNousSoutenir
     public static function generePDF(){
         $mail = $_GET['mail'];
 
+        $donnateur = ModelDonnateur::select($mail);
 
-        $sql="SELECT * FROM Donnateur WHERE mailAddressDonnateur=:tag";
-
-        $req_prep = Model::$pdo->prepare($sql);
-
-        $valeurs = array(
-            "tag" => $mail);
-
-        $req_prep->execute($valeurs);
-        $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelDonnateur');
-        $tab_donn = $req_prep->fetchAll();
-        $donnateur = $tab_donn[0];
-
-
-        $sql="SELECT * FROM Don WHERE mailAddressDonnateur=:tag AND idDon = (SELECT MAX(idDon) FROM Don WHERE mailAddressDonnateur=:tag )";
-
-        $req_prep = Model::$pdo->prepare($sql);
-
-        $valeur = array(
-            "tag" => $mail);
-
-        $req_prep->execute($valeur);
-        $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelDon');
-        $tab_don = $req_prep->fetchAll();
-        $don = $tab_don[0];
+        $don = ModelDon::getLastDonFrom($mail);
 
         include_once('libExternes/phpToPDF/phpToPDF.php');
 
-    // quelques remarques :
-    // 1. FPDF ne gère pas les accents => utilisation de utf8_decode()
-    // 2. FPDF de gère pas le caractère € => chr(128)
+
     
 
     // l'adhérent à qui s'adresse la facture
