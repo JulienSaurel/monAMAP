@@ -53,7 +53,11 @@ class ControllerAdherent
 	//action d'inscription
 	public static function created()
 	{
-
+		//si l'adresse mail existe déjà on ramene a la page d'erreur
+		if (ModelPersonne::checkMail($_POST['mailPersonne']) == false ){
+			return self::error();
+		}
+		
 		//si un des deux mots de passes n'est pas renseigné on ramene a la page d'erreur
 		if (!isset($_POST['PW_Adherent'])||!isset($_POST['PW_Adherent2'])) {
 			return self::error();

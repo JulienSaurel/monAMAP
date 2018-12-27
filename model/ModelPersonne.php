@@ -11,6 +11,26 @@ class ModelPersonne extends Model
     static protected $object = 'personne';
     protected static $primary='mailPersonne';
 
+	public static function checkMail($mail){
+		$sql = "SELECT COUNT(*) FROM Personne WHERE mailPersonne=:mail";
+
+ 		// Préparation de la requête
+         $req_prep = Model::$pdo->prepare($sql);
+
+ 	    $values = array(
+             "mail" => $mail,
+         );
+ 	    // On donne les valeurs et on exécute la requête
+ 	    $req_prep->execute($values);
+		$res = $req_prep->fetch();
+        //var_dump($res[0]);
+		
+		if($res[0] == 0){
+			return true;
+		} else {
+			return false;
+		}
+	}
 
 // public function __construct($u = NULL, $d = NULL, $p = NULL) {
 //       if (!is_null($u) && !is_null($d) && !is_null($p)){
