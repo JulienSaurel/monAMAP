@@ -87,15 +87,14 @@ class ControllerAdherent
 		///////////////////////////////
 		//Traitement des producteurs//
 		/////////////////////////////
-		$dateProducteur = null;
 		if (isset($_POST['estProducteur']))
 		{// si on a la donnée a traité
 
 			//on traite l'info
 			$prod = $_POST['estProducteur'];
-			$estprod = 0;
+			$estprod = false;
 			if ($prod == 'prod') {
-				$estprod = 1;
+				$estprod = true;
 				$dateProducteur = date("Y-m-d H:i:s");
 			}
 		}
@@ -107,6 +106,8 @@ class ControllerAdherent
                     var_dump($_POST['estProducteur']);
                     var_dump($dateProducteur);
                     var_dump(date("d M Y\, H:i:s"));*/
+
+
 		//////////////////////////////
 		//Traitement de l'adherent///
 		////////////////////////////
@@ -124,10 +125,10 @@ class ControllerAdherent
 			'ville' => $_POST['ville'],
 			'PW_Adherent' => $PW_Adherent,
 			'mailPersonne' => $mailPersonne,
-			'estProducteur' => $estprod,
-			'estAdministrateur' => 0,
+			'estProducteur' => false,
+			'estAdministrateur' => false,
 			'dateinscription' => $date,
-			'dateproducteur' => $dateProducteur,
+			'dateproducteur' => null,
 		];
 
 		//on enregistre dans la bdd
@@ -184,11 +185,14 @@ class ControllerAdherent
 		//on recupere les infos du form
 		$description = $_POST['description'];
 		$id = $_POST['id'];
+		$dateprod = date("Y-m-d H:i:s");
 
 		$arrayupd = [
 				'idAdherent' => trim($id),
 				'description' => $description,
 				'photo' => $name,
+				'estProducteur' => true,
+				'dateProducteur' => $dateprod,
 				];
 
 		//on update la personne
