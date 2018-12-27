@@ -1,7 +1,9 @@
 <?php 
+
+require_once File::build_path(array('model','ModelProduit.php'));
+require_once File::build_path(array('model','Model.php'));
 require_once File::build_path(array('model','ModelAdherent.php')); // chargement du modèle
-require_once File::build_path(array('model','ModelProduit.php')); // chargement du modèle
-require_once File::build_path(array('model','Model.php')); // chargement du modèle
+
 class ControllerNosProduits
 {
     protected static $object='nosProduits';
@@ -15,13 +17,26 @@ class ControllerNosProduits
 //     }
 
 
-    public static function display()
+     public static function display()
     {
-        $tab = ModelProduit::readAllProduits();
+
+        $tab = ModelProduit::getAllProduit();
+        $view = 'produits';
+        $pagetitle = 'nos produits';
+        require File::build_path(array('view','view.php'));
+    }
+
+
+
+    /*public static function display()
+    {   
         $view = 'produits';
         $pagetitle = 'Nos Produits';
         require File::build_path(array('view','view.php')); 
+         $tab_produit = ModelProduit::getAllProduit();
+       return $tab_produit;
     }
+*/
 
     public static function display1st()
     {

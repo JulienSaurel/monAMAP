@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="94c3ccb3-3951-4670-8efd-8102a2c7e176" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/ControllerNousSoutenir.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControllerNousSoutenir.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/ModelDon.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/ModelDon.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/ControllerAdherent.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControllerAdherent.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,7 +17,7 @@
         <entry file="file://$PROJECT_DIR$/model/Model.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
-              <caret line="23" column="43" lean-forward="true" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
+              <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
               <folding>
                 <element signature="n#Init#0;n#Model#0;n#!!top" />
                 <element signature="n#get#0;n#Model#0;n#!!top" />
@@ -34,6 +32,24 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/controller/ControllerAdherent.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="199">
+              <caret line="187" column="40" selection-start-line="187" selection-start-column="40" selection-end-line="187" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/monAMAP.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4200">
+              <caret line="280" column="33" selection-start-line="280" selection-start-column="33" selection-end-line="280" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model/ModelDonnateur.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -43,11 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controller/ControllerNousSoutenir.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-776">
-              <caret line="121" column="8" selection-start-line="121" selection-start-column="8" selection-end-line="121" selection-end-column="8" />
+            <state relative-caret-position="1650">
+              <caret line="120" column="51" selection-start-line="120" selection-start-column="51" selection-end-line="120" selection-end-column="51" />
               <folding>
                 <element signature="n#display#0;n#ControllerNousSoutenir#0;n#!!top" />
                 <element signature="n#error#0;n#ControllerNousSoutenir#0;n#!!top" />
@@ -117,7 +133,6 @@
         <option value="$PROJECT_DIR$/view/laVieAlAMAP/livre.php" />
         <option value="$PROJECT_DIR$/model/ModelAdherent.php" />
         <option value="$PROJECT_DIR$/view/menu.php" />
-        <option value="$PROJECT_DIR$/controller/ControllerAdherent.php" />
         <option value="$PROJECT_DIR$/view/adherent/formprod.php" />
         <option value="$PROJECT_DIR$/view/accueil/accueil.php" />
         <option value="$PROJECT_DIR$/view/laVieAlAMAP/articles.php" />
@@ -126,6 +141,7 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/model/ModelDon.php" />
         <option value="$PROJECT_DIR$/controller/ControllerNousSoutenir.php" />
+        <option value="$PROJECT_DIR$/controller/ControllerAdherent.php" />
       </list>
     </option>
   </component>
@@ -148,6 +164,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -174,13 +191,12 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Universell" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -247,7 +263,8 @@
       <workItem from="1545605484903" duration="4079000" />
       <workItem from="1545638098590" duration="9952000" />
       <workItem from="1545655754885" duration="11425000" />
-      <workItem from="1545818956592" duration="7937000" />
+      <workItem from="1545818956592" duration="11444000" />
+      <workItem from="1545908779998" duration="234000" />
     </task>
     <task id="LOCAL-00001" summary="Model generique et petits fix">
       <created>1545583549669</created>
@@ -312,11 +329,18 @@
       <option name="project" value="LOCAL" />
       <updated>1545824486269</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="fin déplacement sql controller-&gt;model(dons)">
+      <created>1545848939812</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1545848939812</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91853000" />
+    <option name="totallyTimeSpent" value="95594000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -331,7 +355,7 @@
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49947312" visible="true" weight="0.13004981" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49947312" visible="true" weight="0.13115661" />
       <window_info id="Structure" order="1" sideWeight="0.50052685" side_tool="true" weight="0.124123044" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -343,7 +367,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32974428" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4975097" weight="0.32937366" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4975097" weight="0.3286638" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49973017" weight="0.30777538" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50249034" side_tool="true" weight="0.32937366" />
       <window_info anchor="bottom" id="Inspection Results" order="12" weight="0.32974428" />
@@ -439,7 +463,8 @@
     <MESSAGE value="Update fichiers producteur" />
     <MESSAGE value="Modif nous soutenir, création de personne et deplacement du sql" />
     <MESSAGE value="suppr var dump" />
-    <option name="LAST_COMMIT_MESSAGE" value="suppr var dump" />
+    <MESSAGE value="fin déplacement sql controller-&gt;model(dons)" />
+    <option name="LAST_COMMIT_MESSAGE" value="fin déplacement sql controller-&gt;model(dons)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
@@ -451,9 +476,6 @@
     <select />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/view/view.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/personne/detail.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -697,13 +719,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/ControllerAdherent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="105" column="63" lean-forward="true" selection-start-line="105" selection-start-column="63" selection-end-line="105" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/laVieAlAMAP/created.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -737,10 +752,20 @@
     <entry file="file://$PROJECT_DIR$/view/laVieAlAMAP/createArt.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="150">
+            <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/model/Model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="23" column="43" lean-forward="true" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
+          <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
           <folding>
             <element signature="n#Init#0;n#Model#0;n#!!top" />
             <element signature="n#get#0;n#Model#0;n#!!top" />
@@ -754,13 +779,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="150">
-            <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
-          </first_editor>
-          <second_editor />
+    <entry file="file://$PROJECT_DIR$/config/monAMAP.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4200">
+          <caret line="280" column="33" selection-start-line="280" selection-start-column="33" selection-end-line="280" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -771,6 +793,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/controller/ControllerNousSoutenir.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1650">
+          <caret line="120" column="51" selection-start-line="120" selection-start-column="51" selection-end-line="120" selection-end-column="51" />
+          <folding>
+            <element signature="n#display#0;n#ControllerNousSoutenir#0;n#!!top" />
+            <element signature="n#error#0;n#ControllerNousSoutenir#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/model/ModelDon.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -778,14 +811,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/ControllerNousSoutenir.php">
+    <entry file="file://$PROJECT_DIR$/controller/ControllerAdherent.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-776">
-          <caret line="121" column="8" selection-start-line="121" selection-start-column="8" selection-end-line="121" selection-end-column="8" />
-          <folding>
-            <element signature="n#display#0;n#ControllerNousSoutenir#0;n#!!top" />
-            <element signature="n#error#0;n#ControllerNousSoutenir#0;n#!!top" />
-          </folding>
+        <state relative-caret-position="199">
+          <caret line="187" column="40" selection-start-line="187" selection-start-column="40" selection-end-line="187" selection-end-column="40" />
         </state>
       </provider>
     </entry>
