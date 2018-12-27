@@ -1,5 +1,8 @@
 <?php 
 
+require_once File::build_path(array('model','ModelProduit.php'));
+require_once File::build_path(array('model','Model.php'));
+
 class ControllerNosProduits
 {
     protected static $object='nosProduits';
@@ -12,12 +15,25 @@ public static function readAll(){
         require File::build_path(array('view','view.php')); */
     }
 
-    public static function display()
+     public static function display()
     {
+        $tab = ModelProduit::getAllProduit();
+        $view = 'produits';
+        $pagetitle = 'nos produits';
+        require File::build_path(array('view','view.php'));
+    }
+
+
+
+    /*public static function display()
+    {   
         $view = 'produits';
         $pagetitle = 'Nos Produits';
         require File::build_path(array('view','view.php')); 
+         $tab_produit = ModelProduit::getAllProduit();
+       return $tab_produit;
     }
+*/
 
     public static function display1st()
     {
