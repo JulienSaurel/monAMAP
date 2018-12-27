@@ -18,7 +18,7 @@
 
  <?php
  for($i=0; $i<$nombrepages; $i++)
-  {
+  { 
     echo " <a href=\"?action=liremessage&controller=LaVieAlAMAP&page={$i}\"> $i </a>";
   }
 
