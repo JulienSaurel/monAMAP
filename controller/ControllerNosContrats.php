@@ -69,9 +69,13 @@ class ControllerNosContrats
             $a = ModelAdherent::select($_SESSION['login']);
             //var_dump($a);
             $idAdherent = $a->get('mailPersonne');
-            $prenomPersonne = $a->get('prenomPersonne');
-            $mailPersonne = $a->get('mailPersonne');
-
+			$mailPersonne = $a->get('mailPersonne');
+			
+			// on récupère la Personne correspondante pour avoir son nom et prénom
+			$p = ModelAdherent::getPersonneByIdAdh($idAdherent);
+            $prenomPersonne = $p->get('prenomPersonne');
+            
+		
         ////////////////// ENVOI DE MAIL ////////////////////////////////////////             
         $to  = $mailPersonne; 
         $quote = "'";
@@ -102,6 +106,7 @@ class ControllerNosContrats
         mail($to, $subject, $message, implode("\r\n", $headers));     
 
         //////////////FIN D'ENVOI DE MAIL ///////////////////////////////////
+		
             $arraycontrat = [
             'idAdherent' => $idAdherent,
             'typeContrat' => $type,

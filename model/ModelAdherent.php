@@ -19,25 +19,30 @@ class ModelAdherent extends Model
     static protected $object = 'adherent';
     protected static $primary='idAdherent';
 
-    /*public static function select($id){
-        error_reporting(E_ALL & ~E_NOTICE);
-        $sql = "SELECT * FROM Adherent A JOIN Personne P ON P.mailPersonne=A.mailPersonne WHERE idAdherent=:id";
+	/**
+	 * récupère la ModelPersonne correspondant à l'idAdherent
+	 * @param l'idAdherent de la personne 
+     * @return modelPersonne
+     */
+    public static function getPersonneByIdAdh($adh){
+        $sql = "SELECT * FROM Personne WHERE mailPersonne = :id";
 
         // Préparation de la requête
         $req_prep = Model::$pdo->prepare($sql);
 
 
         $values = array(
-            "id" => $id,
+            "id" => $adh,
         );
         // On donne les valeurs et on exécute la requête
         $req_prep->execute($values);
-        $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelAdherent');
+        $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelPersonne');
 
         $tab = $req_prep->fetchAll();
+		//var_dump($tab[0]);
         return $tab[0];
 
-    }*/ //???????????
+    }
 
     /**
      * @return null
