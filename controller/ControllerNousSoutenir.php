@@ -5,6 +5,9 @@ class ControllerNousSoutenir
 {
 	protected static $object='nousSoutenir';
 
+	/* 
+		Redirige vers la vue de donnation
+	*/
 	public static function display()
 	{
         $view = 'soutenir';
@@ -12,6 +15,9 @@ class ControllerNousSoutenir
         require File::build_path(array('view','view.php')); 
 	}
 
+	/* 
+		redirige vers la page d'erreur
+	*/
 	 public static function error()
     {
     $view = 'error';
@@ -19,6 +25,9 @@ class ControllerNousSoutenir
     require File::build_path(array('view','view.php'));
     }
 	
+	/* 
+		Crée ou update le donnateur, lui envoie un mail de remerciements et redirige vers la page de remerciements
+	*/
 	public static function donnated(){
 	    //TODO : Mettre tout le sql dans le model et tester le get
 		$nom = $_GET['Nom_donnateur']; //on récupère les données passées dans le formulaire
@@ -114,8 +123,10 @@ class ControllerNousSoutenir
     }
 }
 
-    
-    public static function generePDF(){
+    /* 
+		Génère le recu de la donnation dans un nouvel onglet
+	*/
+	public static function generePDF(){
         $mail = $_GET['mail'];
 
         $donnateur = ModelDonnateur::select($mail);
@@ -199,21 +210,8 @@ class ControllerNousSoutenir
     // ligne par article, et calcul du prix total au fur et à mesure
     $prixTotal = 0;
     foreach ($A as $i => $article) {
-        //$lib = utf8_decode($article['libelleArticle']);
-        //$qte = $article['quantite'];
-        //$prU = $article['prixUnitaire'];
-        //$prT = $qte * $prU;
-        //$prixTotal += $prT;
-        //$PDF->Cell(100,$hau,$lib,1,0,'L');
-        //$PDF->Cell(30,$hau,$qte,1,0,'C');
-        //$PDF->Cell(30,$hau,number_format($prU,2,',',' ').' '.chr(128),1,0,'R');
-        //$PDF->Cell(30,$hau,number_format($prT,2,',',' ').' '.chr(128),1,0,'R');
         $PDF->Ln();
     }
-
-    // ligne du prix total
-    //$PDF->Cell(160,$hau,utf8_decode("total "),0,0,'R',false);
-    //$PDF->Cell(30,$hau,number_format($prixTotal,2,',',' ').' '.chr(128),1,0,'R');
 
     // export du pdf avec sauvegarde selon le nom spécifié
     //$namefile = "../files/facturedonnation/facture_$numFacture.pdf";

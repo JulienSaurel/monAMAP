@@ -111,7 +111,7 @@ class ControllerAdherent
 				$dateProducteur = date("Y-m-d H:i:s");
 			}
 		}
-		/*			var_dump($dateProducteur);
+			/*		var_dump($dateProducteur);
                     var_dump($_POST['idAdherent']);
                     var_dump($mailPersonne);
                     var_dump($_POST['PW_Adherent']);
@@ -119,7 +119,7 @@ class ControllerAdherent
                     var_dump($_POST['estProducteur']);
                     var_dump($dateProducteur);
                     var_dump(date("d M Y\, H:i:s"));*/
-
+		
 
 		//////////////////////////////
 		//Traitement de l'adherent///
@@ -138,21 +138,28 @@ class ControllerAdherent
 			'ville' => $_POST['ville'],
 			'PW_Adherent' => $PW_Adherent,
 			'mailPersonne' => $mailPersonne,
-			'estProducteur' => false,
-			'estAdministrateur' => false,
+			'estProducteur' => 0,
+			'estAdministrateur' => 0,
 			'dateinscription' => $date,
 			'dateproducteur' => null,
 		];
 
 		//on enregistre dans la bdd
+		
 		ModelAdherent::save($arrayadh);
-
+		
 		//on redirige vers l'accueil ou vers le formulaire pour les producteurs s'il a coché est producteur
 		if(!$estprod)
 			return ControllerAccueil::homepage();
 		return self::becomeprod($idAdherent);
 	}
 
+	/* 
+		Fait passer un adhérent à producteur
+		
+		@param l'idAdherent $idAdherent qui peut etre null
+		
+	*/
 	public static function becomeprod($idAdherent = null)
 	{
 		if (is_null($idAdherent) && isset($_SESSION['login']))

@@ -12,6 +12,13 @@ class ModelDonnateur extends Model
     static protected $object = 'donnateur';
     protected static $primary='mailAddressDonnateur';
 
+	
+	/* 
+		vérifie si $mail est déjà présente dans la base de données
+		
+		@param l'adresse mail $mail à vérifier
+		@return le nombre d'occurences de $mail dans la table Donnateur
+	*/
     public static function count($mail)
     {
         $sql="SELECT COUNT(*) FROM Donnateur WHERE mailAddressDonnateur=:tag";

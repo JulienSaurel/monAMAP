@@ -11,7 +11,16 @@ class ModelPersonne extends Model
     static protected $object = 'personne';
     protected static $primary='mailPersonne';
 
-	public static function checkMail($mail){
+	
+	
+	/* 
+		vérifie si $mail est déjà présente dans la base de données
+		
+		@param l'adresse mail $mail à vérifier
+		@return booléen, true si l'adresse mail n'existe pas déja, false sinon
+	*/
+	
+	public static function checkMail($mail){ 
 		$sql = "SELECT COUNT(*) FROM Personne WHERE mailPersonne=:mail";
 
  		// Préparation de la requête
@@ -25,40 +34,12 @@ class ModelPersonne extends Model
 		$res = $req_prep->fetch();
         //var_dump($res[0]);
 		
-		if($res[0] == 0){
+		if($res[0] == 0){ 
 			return true;
 		} else {
 			return false;
 		}
 	}
-
-// public function __construct($u = NULL, $d = NULL, $p = NULL) {
-//       if (!is_null($u) && !is_null($d) && !is_null($p)){
-//         $this->nomPersonne = $u;
-//         $this->prenomPersonne = $d;
-//         $this->mailPersonne = $p;
-
-//       }
-// }
-
-// public static function getPersonneByMail($email){
-// 	 error_reporting(E_ALL & ~E_NOTICE);
-// 	   $sql = "SELECT * FROM Personne WHERE mailPersonne=:mailPersonne";
-
-// 		// Préparation de la requête
-//         $req_prep = Model::$pdo->prepare($sql);
-
-// 	    $values = array(
-//             "mailPersonne" => $mailPersonne,
-//         );
-// 	    // On donne les valeurs et on exécute la requête
-// 	    $req_prep->execute($values);
-// 	    $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelPersonne');
-
-//         $tab = $req_prep->fetchAll();
-//         return $tab[0];
-
-// }
 
 }
 ?>
