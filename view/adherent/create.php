@@ -5,7 +5,7 @@
         <legend>Formulaire d'inscription :</legend>
         <p>
             <label for="id_id">Pseudo :</label>
-            <input type="text" placeholder="Ex : 2" name="idAdherent" id="id_id" required/>
+            <input type="text" placeholder="Ex : jojo" name="idAdherent" id="id_id" required/>
         </p>
         <p>
             <label for="nom_id">Nom :</label>
