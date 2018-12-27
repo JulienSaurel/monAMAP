@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le :  mer. 26 déc. 2018 à 19:42
+-- Généré le :  mer. 26 déc. 2018 à 19:50
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.8
 
@@ -67,7 +67,8 @@ INSERT INTO `Article` (`idArticle`, `titreArticle`, `photo`, `date`, `descriptio
 (1, 'La viande de veau', './images/Article1.jpg', '2018-11-26 00:00:00', 'Les Français gardent un attachement particulier pour la viande de veau qui continue de figurer parmi leurs viandes préférées, de l’escalope de veau à la blanquette de veau.\r\n\r\nMais d’abord, il faut s’assurer que sa couleur est légèrement rosée avec un gras clair et nacré. C’est le gage d’une viande tendre.\r\n\r\nIl est à noter que la viande de veau, pour conserver la finesse de son grain doit être consommée à peine rosée ou cuite à point mais jamais saignante et encore moins trop cuite.', 'mabroukl@icloud.com'),
 (2, 'Cuisinez le butternut au four', './images/Article2.jpg', '2018-11-27 13:29:31', 'C\'est tout simple !', 'mabroukl@icloud.com'),
 (4, 'Chandeleur avec l\'AMAP', 'https://images.ecosia.org/_666ebrNLPj6GZwFScgpmnEhtsc=/0x390/smart/https%3A%2F%2Fstatic3.hervecuisine.com%2Fwp-content%2Fuploads%2F2010%2F11%2Frecette-crepes-chandeleur-2018.jpg%3Fx89858', '2018-12-24 15:22:31', 'Les crêpes de l\'AMAP', 'mabroukl@icloud.com'),
-(5, 'Crème brulée aux marrons', 'https://images.ecosia.org/Qh6P0TQkLqwTBSPMaRjFY_mWeAU=/0x390/smart/http%3A%2F%2Fcdn-elle.ladmedia.fr%2Fvar%2Fplain_site%2Fstorage%2Fimages%2Felle-a-table%2Frecettes-de-cuisine%2Fcreme-brulee-facile-2894406%2F52734072-1-fre-FR%2FCreme-brulee-facile.jpeg', '2018-12-24 15:25:04', 'Creme brulée avec les marrons de mon panier !', 'mabroukl@icloud.com');
+(5, 'Crème brulée aux marrons', 'https://images.ecosia.org/Qh6P0TQkLqwTBSPMaRjFY_mWeAU=/0x390/smart/http%3A%2F%2Fcdn-elle.ladmedia.fr%2Fvar%2Fplain_site%2Fstorage%2Fimages%2Felle-a-table%2Frecettes-de-cuisine%2Fcreme-brulee-facile-2894406%2F52734072-1-fre-FR%2FCreme-brulee-facile.jpeg', '2018-12-24 15:25:04', 'Creme brulée avec les marrons de mon panier !', 'mabroukl@icloud.com'),
+(6, 'Galette des rois aux pommes', 'https://2.bp.blogspot.com/-huQ7BfjHTPA/WGwUXGhN-dI/AAAAAAAAV5w/Y_CMLzYRl70nb-w4TebubGBzeQ0yuzehwCLcB/s1600/galette-des-rois-pommes.jpg', '2018-12-26 19:46:03', 'Recette délicieuse à tester', 'mabroua@icloud.com');
 
 -- --------------------------------------------------------
 
@@ -382,7 +383,7 @@ ALTER TABLE `Produit`
 -- AUTO_INCREMENT pour la table `Article`
 --
 ALTER TABLE `Article`
-  MODIFY `idArticle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idArticle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `contrat`

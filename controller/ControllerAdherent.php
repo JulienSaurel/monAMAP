@@ -41,6 +41,15 @@ class ControllerAdherent
 		require File::build_path(array('view','view.php'));
 	}
 
+	//affichage de la page de paiement de la cotisation
+	// public static function payment(){
+	// 	$view = 'payment';
+	// 	$pagetitle = 'payez la cotisation';
+	// 	require File::build_path(array('view','view.php'));
+	// }
+
+
+
 	//action d'inscription
 	public static function created()
 	{
