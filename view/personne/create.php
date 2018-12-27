@@ -1,11 +1,7 @@
 <form method="post" action="./?action=created&controller=personne"> 
  <!-- On recupere les infos avec la methode post et on redirige vers la sauvegarde dans la base de donnees -->
   <fieldset>
-    <legend>Mon formulaire :</legend>
-    <p>
-      <label for="id_id">Id</label> :
-      <input type="text" placeholder="Ex : 2" name="idPersonne" id="id_id" required/>
-    </p>
+    <legend>Inscrire une personne :</legend>
     <p>
       <label for="nom_id">Nom</label> :
       <input type="text" placeholder="Ex : Sambuc" name="nomPersonne" id="nom_id" required/>

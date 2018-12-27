@@ -8,14 +8,18 @@
 if (!$tab_prod){
 	echo 'Pas de producteurs pour le moment';
 }else{
+	//var_dump($tab_prod);
 	foreach ($tab_prod as $prod){
-		//$p = ModelPersonne::select($prod->get('idPersonne'));
-		echo '<div><img class="imgprofil" src= "'.$prod->get('photo') . '" alt="' . $prod->get('idAdherent'). '"/><h2>'. $prod->get('idPersonne') . '</h2><h5>' . $prod->get('ville') . '</h5><p>' . $prod->get('description') . '</p></div>';
-		//echo '<div><img class="imgprofil" src= "'.$prod->get('photo') . '" alt="' . $prod->get('idAdherent'). '"/><h2>'. $p->get('nomPersonne') . '</h2><h5>' . $prod->get('ville') . '</h5><p>' . $prod->get('description') . '</p></div>';
-
+		$a = ModelPersonne::select($prod->get('mailPersonne'));
+		$prenom = $a->get('prenomPersonne');
+		$nom = $a->get('nomPersonne');
+		echo '<div><img class="imgprofil" src= "'.$prod->get('photo') . '" alt="' . $prod->get('idAdherent'). '"/><h2>'. $prenom . ' ' . $nom . ' - ' . $prod->get('ville') . '</h2><p>' . $prod->get('description') . '</p></div>';
+		//var_dump($prod->get('mailPersonne'));
+		//$p = ModelPersonne::getPersonneById($prod->get('mailPersonne'));
+		//var_dump($p);
 	}
 }
 
 ?>
 
-</article>
+</article> 

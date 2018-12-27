@@ -8,6 +8,7 @@ require_once File::build_path(array('controller','ControllerNosProduits.php'));
 require_once File::build_path(array('controller','ControllerNosContrats.php'));
 require_once File::build_path(array('controller','ControllerMonProfil.php'));
 require_once File::build_path(array('controller','ControllerLaVieAlAMAP.php'));
+require_once File::build_path(array('controller','ControllerAdmin.php'));
 
 
 //------------controller-------------
@@ -44,7 +45,7 @@ $controller_class = 'Controller' . ucfirst($controller);
 	}
 $controller_class::$action(); 
 // Appel de la méthode statique $action de ControllerPersonne
-//if action == display1st then controllerNoProduuits::readProd()
+//if action == display1st then controllerNosProduits::readProd()
 
 ?>
 

@@ -1,5 +1,6 @@
 <h1> Bienvenue sur le site de l'AMAP de la région Occitanie </h1>
 
+
 <!-- aside sur le coté gauche -->
 
 
@@ -24,11 +25,23 @@
   </div>
 
    <div>
-    <h4>Derniers articles</h4>
-    <img src="./images/Article1.jpg" alt="Article 1" width="135" height="135"/>
-    <h4>Nouveau producteur à Grabels.</h4> <!-- redirigera vers l'article1 qu'on créera plus tard-->
-    <img src="./images/Article2.jpg" alt="Article 2" width="135" height="135"/>
-    <h4>Cuisinez votre butternut.</h4><!-- redirigera vers l'article2 qu'on créera plus tard-->
+    <h4><a href="?action=display1st&controller=laVieAlAMAP">Derniers articles</a></h4>
+
+
+
+   <?php
+      foreach($values as $key){ 
+        //var_dump($key);
+        echo '<img src="' . $key->get('photo') . '" alt="' . $key->get('idArticle') . '" width="135" height="135"/><h4><a href="?action=display1st&controller=laVieAlAMAP">' . $key->get('titreArticle') . '</a></h4>';
+        }
+
+     ?>
+
+
+   <!-- <img src="./images/Article1.jpg" alt="Article 1" width="135" height="135"/>
+    <h4>Nouveau producteur à Grabels.</h4> // redirigera vers l'article1 qu'on créera plus tard-->
+    <!--<img src="./images/Article2.jpg" alt="Article 2" width="135" height="135"/>
+    <h4>Cuisinez votre butternut.</h4> // redirigera vers l'article2 qu'on créera plus tard-->
   </div>
   
   <div>

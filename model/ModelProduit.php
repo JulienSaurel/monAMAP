@@ -5,6 +5,7 @@ require_once File::build_path(array('model','Model.php'));
 class ModelProduit extends Model 
 {
 
+
     private $idProduit;
     private $photo;
     private $description;
@@ -39,5 +40,7 @@ class ModelProduit extends Model
     }
 
 }
+
+
 
 ?>
