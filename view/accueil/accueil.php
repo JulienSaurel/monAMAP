@@ -1,3 +1,4 @@
+
 <h1> Bienvenue sur le site de l'AMAP de la région Occitanie </h1>
 
 
@@ -11,7 +12,15 @@
  <section class="usercontent">
   <article>
     <h2>Présentation de l'AMAP.</h2>
-    <img src="./images/section1-accueil.jpg" alt="AMAP partage"/> <!--width="925" height="335"-->
+    <div align="center">
+      <div class="contener_slideshow">
+        <div class="contener_slide">
+          <div class="slid_1"><img src="images/pasteque.jpg" alt="tomates cerises"></div>
+          <div class="slid_2"><img src="images/fruit.jpg" alt="artichaud"></div>
+          <div class="slid_3"><img src="images/leg.jpg" alt="variété"></div>
+        </div>
+      </div>
+    </div>
     <p>
     L'AMAP d'O regroupe plusieurs maraîchers et éveleurs de la région Occitanie, qui vous proposent leurs produits BIO. Mauris ante tellus, egestas nec arcu eget, hendrerit laoreet velit. Pellentesque id urna in massa scelerisque fermentum ac vel leo. Curabitur sem sapien, feugiat vel varius sed, condimentum vitae erat. Vestibulum non velit augue. Maecenas pretium in ex sed luctus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis vel sodales lacus. Phasellus diam massa, tincidunt a dui a, porttitor posuere nisi. Maecenas arcu risus, volutpat sit amet cursus sed, facilisis in nisi.
     </p>
