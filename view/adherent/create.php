@@ -2,6 +2,7 @@
     <!-- On recupere les infos avec la methode post et on redirige vers la sauvegarde dans la base de donnees -->
 
     <fieldset>
+        
         <legend>Formulaire d'inscription :</legend>
         <p>
             <label for="id_id">Pseudo :</label>
