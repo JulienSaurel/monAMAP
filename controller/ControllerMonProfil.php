@@ -1,6 +1,7 @@
 <?php 
 require_once File::build_path(array('model','ModelAdherent.php'));
 require_once File::build_path(array('model','ModelPersonne.php'));
+require_once File::build_path(array('model','ModelContrat.php'));
 require_once File::build_path(array('lib','Security.php'));
 require_once File::build_path(array('lib','Session.php'));
 
@@ -18,6 +19,8 @@ class ControllerMonProfil
             $a = ModelAdherent::select($_SESSION['login']);
             //on récupère les informations dans la table "Personne" lié l'adhérent
             $p = ModelPersonne::select($a->get('mailPersonne'));
+			//on récupère les contrats liés à l'adhérent
+			$tabC = ModelContrat::getContrats($a->get('mailPersonne'));
         $controller ='monProfil';
         $view = 'voirmonprofil';
         $pagetitle = 'Mon Profil';

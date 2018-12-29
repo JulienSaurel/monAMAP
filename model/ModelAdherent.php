@@ -102,7 +102,11 @@ class ModelAdherent extends Model
         //TODO reregarder plus tard s'il ny a plus de pb
     }
 
-    
+    /**
+	 * Crée un String contenant les adresses mail des administrateurs
+	 * @param tableau des adresses mail des administrateurs 
+     * @return la String des adresses mail des administrateurs
+     */
     public static function chaineMail($tabAdmin){
         $i=0;
 
@@ -124,7 +128,6 @@ class ModelAdherent extends Model
         return $req_prep->fetchAll();
         
     }
-
     
 }
 ?>

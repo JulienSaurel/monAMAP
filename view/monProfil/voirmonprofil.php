@@ -42,6 +42,13 @@
 			else { 
 				echo "<li>Au total vous avez donné : 0 € à l'AMAP</li>";}
 			?> <a href="?action=display&controller=nousSoutenir">soutenez-nous !</a>
+			<li>Au total, vous avez souscrit à <?php echo count($tabC);?> Contrats. </li>
+			<li>Vos contrats :<a></a> <?php foreach($tabC as $contrat){
+				echo "<p>Contrat ".ucfirst($contrat->get('typeContrat'))."</p>";
+				echo "<p>taille : ".$contrat->get('tailleContrat')."</p>";
+				echo "<p>fréquence : ".$contrat->get('frequenceContrat')."</p>";
+				echo "<a></a>";
+			} ?> </li>
 
 		</ul>
 	</div>
