@@ -1,5 +1,6 @@
 <?php 
     require_once File::build_path(array('model','ModelContrat.php'));
+	require_once File::build_path(array('controller','ControllerMonProfil.php'));
 
 class ControllerNosContrats
 {
@@ -122,6 +123,17 @@ class ControllerNosContrats
 
         }
     }
+	
+	/**
+	 * Résilie un contrat et renvoie vers la vue MonProfil
+	 * 
+     */
+	public static function resilier(){
+		$idContr = $_GET['idC'];
+		ModelContrat::resilier($idContr);
+		ControllerMonProfil::profile();
+	}
+	
     public static function generePDF(){
         include_once('libExternes/phpToPDF/phpToPDF.php');
     // quelques remarques :
@@ -208,34 +220,6 @@ class ControllerNosContrats
     $PDF->SetFont('Arial','',8);
     $PDF->Cell(190,$hau,utf8_decode("(précédé de la mention \" lu et approuvé \" ainsi que de la date du jour)"),0,0,'R');
     
-    /*
-    // descriptif de la facture (identifiant de facure)
-    $PDF->Cell(190,$hau,utf8_decode("facture n°".$numFacture),0,0,'L');
-    $PDF->Ln($esp);
-    // ligne d'entête du tableau
-    $PDF->Cell(100,$hau,utf8_decode("article"),1,0,'C',true);
-    $PDF->Cell(30,$hau,utf8_decode("quantité"),1,0,'C',true);
-    $PDF->Cell(30,$hau,utf8_decode("prix unitaire"),1,0,'C',true);
-    $PDF->Cell(30,$hau,utf8_decode("prix total"),1,0,'C',true);
-    $PDF->Ln();
-    // ligne par article, et calcul du prix total au fur et à mesure
-    $prixTotal = 0;
-    foreach ($A as $i => $article) {
-        $lib = utf8_decode($article['libelleArticle']);
-        $qte = $article['quantite'];
-        $prU = $article['prixUnitaire'];
-        $prT = $qte * $prU;
-        $prixTotal += $prT;
-        $PDF->Cell(100,$hau,$lib,1,0,'L');
-        $PDF->Cell(30,$hau,$qte,1,0,'C');
-        $PDF->Cell(30,$hau,number_format($prU,2,',',' ').' '.chr(128),1,0,'R');
-        $PDF->Cell(30,$hau,number_format($prT,2,',',' ').' '.chr(128),1,0,'R');
-        $PDF->Ln();
-    }
-    // ligne du prix total
-    $PDF->Cell(160,$hau,utf8_decode("total "),0,0,'R',false);
-    $PDF->Cell(30,$hau,number_format($prixTotal,2,',',' ').' '.chr(128),1,0,'R');
-    */
     // export du pdf avec sauvegarde selon le nom spécifié
     $namefile = "facture.pdf";
     $PDF->Output($namefile, "I");

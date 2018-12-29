@@ -47,7 +47,8 @@
 				echo "<p>Contrat ".ucfirst($contrat->get('typeContrat'))."</p>";
 				echo "<p>taille : ".$contrat->get('tailleContrat')."</p>";
 				echo "<p>fréquence : ".$contrat->get('frequenceContrat')."</p>";
-				echo "<a></a>";
+				$idContrat =$contrat->get('idContrat');
+				echo "<a href=\"?action=resilier&idC=".$idContrat."&controller=nosContrats\">Résiliser ce contrat</a>";
 			} ?> </li>
 
 		</ul>
