@@ -19,8 +19,10 @@ class ControllerMonProfil
             $a = ModelAdherent::select($_SESSION['login']);
             //on récupère les informations dans la table "Personne" lié l'adhérent
             $p = ModelPersonne::select($a->get('mailPersonne'));
-			//on récupère les contrats liés à l'adhérent
+			//on récupère les contrats en cours liés à l'adhérent
 			$tabC = ModelContrat::getContrats($a->get('mailPersonne'));
+			// on récupère tous les contrats de l'adhérent 
+			$tabTotalC = ModelContrat::getTotalContrats($a->get('mailPersonne'));
         $controller ='monProfil';
         $view = 'voirmonprofil';
         $pagetitle = 'Mon Profil';

@@ -14,7 +14,24 @@ class ModelContrat extends Model
     protected static $primary='idContrat';
 	
 	/**
-	 * renvoie tous les contrats relatids à un adhérent
+	 * renvoie tous les contrats relatifs à un adhérent
+	 * @param adresse mail de l'adhérent
+     * @return un tableau de ModelContrat 
+     */
+	public static function getTotalContrats($mailAdh){
+		$sql = "SELECT * FROM Contrat WHERE idAdherent=:adh ";
+        $req_prep = Model::$pdo->prepare($sql);
+        $values = array(
+            "adh" => $mailAdh);
+        $req_prep->execute($values);
+        $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelContrat');
+        $tabContrat = $req_prep->fetchAll();
+		//var_dump($tabContrat);
+		return $tabContrat;
+	}
+	
+	/**
+	 * renvoie tous les contrats en cours relatifs à un adhérent
 	 * @param adresse mail de l'adhérent
      * @return un tableau de ModelContrat 
      */
