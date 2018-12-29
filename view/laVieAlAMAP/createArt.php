@@ -17,8 +17,8 @@
         </p>
         <p>
             <label for="corps" class="bal">Corps de l'article :</label>
-            <input type="text" placeholder="Ex : Cuisinez les marrons..." name="corps" id="corps" required/>
-        </p>
+      		<textarea name="corps" placeholder="cuisinez les marrons..." rows="8" id="corps" cols="35"></textarea><br />
+    	</p>
         <p>
             <input type="submit" value="Ajouter" />
         </p>
