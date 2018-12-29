@@ -43,13 +43,16 @@
 				echo "<li>Au total vous avez donné : 0 € à l'AMAP</li>";}
 			?> <a href="?action=display&controller=nousSoutenir">soutenez-nous !</a>
 			<li>Au total, vous avez souscrit à <?php echo count($tabC);?> Contrats. </li>
+			<?php if (count($tabC)!=0){ ?>
 			<li>Vos contrats :<a></a> <?php foreach($tabC as $contrat){
 				echo "<p>Contrat ".ucfirst($contrat->get('typeContrat'))."</p>";
 				echo "<p>taille : ".$contrat->get('tailleContrat')."</p>";
 				echo "<p>fréquence : ".$contrat->get('frequenceContrat')."</p>";
 				$idContrat =$contrat->get('idContrat');
 				echo "<a href=\"?action=resilier&idC=".$idContrat."&controller=nosContrats\">Résiliser ce contrat</a>";
-			} ?> </li>
+			} ?> </li> <?php } else { ?>
+			<a href ="?action=display&controller=nosContrats" > Consultez nos contrats ! </a>
+			<?php } ?>
 
 		</ul>
 	</div>
