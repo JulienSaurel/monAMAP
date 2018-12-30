@@ -50,7 +50,10 @@ class ControllerAdherent
 
 
 
-	//action d'inscription
+
+	/**
+	 * action d'inscription
+	 */
 	public static function created()
 	{
 		//si l'adresse mail existe déjà on ramene a la page d'erreur
@@ -154,11 +157,11 @@ class ControllerAdherent
 		return self::becomeprod($idAdherent);
 	}
 
-	/* 
-		Fait passer un adhérent à producteur
-		
-		@param l'idAdherent $idAdherent qui peut etre null
-		
+	/**
+	*	Fait passer un adhérent à producteur
+	*
+	*	@param l'idAdherent $idAdherent qui peut etre null
+	*
 	*/
 	public static function becomeprod($idAdherent = null)
 	{
@@ -183,7 +186,7 @@ class ControllerAdherent
 
 		//on recupere le nom du fichier
 		$name = $_FILES['nom-image']['name'];
-		$pic_path = __DIR__ . '/' . ".." . "/images/$name";
+		$pic_path = File::build_path(array('images', $name));
 		$allowed_ext = array("jpg", "jpeg", "png");
 
 		$realextarray = explode('.', $_FILES['nom-image']['name']);
@@ -198,7 +201,7 @@ class ControllerAdherent
 
 		$path = File::build_path(array('images', $name));
 
-		//on test que ke fichier upload existe au bon endroit
+		//on test que le fichier upload existe au bon endroit
 		if (!file_exists($path))
 			return self::error();
 

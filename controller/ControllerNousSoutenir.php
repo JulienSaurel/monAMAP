@@ -29,7 +29,6 @@ class ControllerNousSoutenir
 		Crée ou update le donnateur, lui envoie un mail de remerciements et redirige vers la page de remerciements
 	*/
 	public static function donnated(){
-	    //TODO : Mettre tout le sql dans le model et tester le get
 		$nom = $_GET['Nom_donnateur']; //on récupère les données passées dans le formulaire
         $prenom = $_GET['Prenom_donnateur'];
         $mail = $_GET['Mail_donnateur'];
