@@ -135,7 +135,7 @@ class ControllerNosContrats
 	}
 	
     public static function generePDF(){
-        include_once('libExternes/phpToPDF/phpToPDF.php');
+        include_once('libExternes/phpToPDF/phpToPDF1.php');
     // quelques remarques :
     // 1. FPDF ne gère pas les accents => utilisation de utf8_decode()
     // 2. FPDF de gère pas le caractère € => chr(128)

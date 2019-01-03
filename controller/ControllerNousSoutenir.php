@@ -1,6 +1,7 @@
 <?php 
 require_once File::build_path(array('model','ModelDonnateur.php')); // chargement du modèle
 require_once File::build_path(array('model','ModelDon.php')); // chargement du modèle
+require_once File::build_path(array('model','ModelAdherent.php')); // chargement du modèle
 class ControllerNousSoutenir
 {
 	protected static $object='nousSoutenir';
@@ -34,7 +35,7 @@ class ControllerNousSoutenir
         $mail = $_GET['Mail_donnateur'];
 		$montant = $_GET['Montant_don'];
 		
-		if($montant > 0){ // si le montant n'est pas correct
+		if($montant > 0){ // si le montant est correct
 
         // création donnateur ou update
 
@@ -129,18 +130,17 @@ class ControllerNousSoutenir
         $mail = $_GET['mail'];
 
         $donnateur = ModelDonnateur::select($mail);
-
+        $personne = ModelAdherent::getPersonneByIdAdh($mail);
         $don = ModelDon::getLastDonFrom($mail);
 
-        include_once('libExternes/phpToPDF/phpToPDF.php');
 
+    include_once('libExternes/phpToPDF/phpToPDF1.php');
 
     
-
     // l'adhérent à qui s'adresse la facture
     $adh = array(
-        'nom' => $donnateur->get('nomDonnateur'),
-        'prenom' => $donnateur->get('prenomDonnateur'),
+        'nom' => $personne->get('nomPersonne'),
+        'prenom' => $personne->get('prenomPersonne'),
         'email' => $donnateur->get('mailAddressDonnateur')
     );
 
@@ -161,6 +161,7 @@ class ControllerNousSoutenir
     
     // création de la page et définition d'éléments
     ob_get_clean();
+            
     $PDF=new phpToPDF();
     $PDF->SetFillColor( 197, 223, 179 );
     $PDF->AddPage();
