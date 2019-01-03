@@ -1,6 +1,6 @@
 <?php  if (isset($_SESSION['login'])) { ?>
 
-<form method="post" action="?action=createdArt&controller=LaVieAlAMAP">
+<form method="post" action="?action=createdArt&controller=LaVieAlAMAP" enctype="multipart/form-data">
 	<fieldset>
     <legend>Créez un nouvel article</legend>
     
@@ -12,8 +12,12 @@
             <input type="text" placeholder="Recette" name="titre" id="titre" required/>
         </p>
         <p>
-            <label for="photo">URL (photo pour l'article) :</label>
-            <input type="photo" placeholder="Ex : http://image.noelshack.com/..... " name="photo" id="photo" required/>
+            <label for="file">Changer la photo(upload):</label>
+            <input type="file" name="nom-image" id="file"/>
+        </p>
+        <p>
+            <label for="link">Changer la photo(lien):</label>
+            <input type="text" placeholder="./images/nom de l'image" name="photo" id="link"/>
         </p>
         <p>
             <label for="corps" class="bal">Corps de l'article :</label>
