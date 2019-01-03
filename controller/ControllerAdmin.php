@@ -222,10 +222,40 @@ class ControllerAdmin
             //on crée un tableau des données en fonction du type
             if ($type == 'adherent') {
 
+                ///////////////////////////////////////
+                // Traitement de l'upload et verifs //
+                /////////////////////////////////////
+                if (!empty($_FILES['nom-image']) && is_uploaded_file($_FILES['nom-image']['tmp_name']))
+                {
+                    //on recupere le nom du fichier
+                    $name = $_FILES['nom-image']['name'];
+                    $pic_path = File::build_path(array('images', $name));
+                    $allowed_ext = array("jpg", "jpeg", "png");
+
+                    $realextarray = explode('.', $_FILES['nom-image']['name']);
+
+                    //on test l'extension du fichier upload
+                    if (!in_array(end($realextarray), $allowed_ext))
+                        return self::error();
+
+                    //on essaie de le déplacer et on retourne une erreur si ca plante
+                    if (!move_uploaded_file($_FILES['nom-image']['tmp_name'], $pic_path))
+                        return self::error();
+
+                    $path = File::build_path(array('images', $name));
+
+                    //on test que le fichier upload existe au bon endroit
+                    if (!file_exists($path))
+                        return self::error();
+
+                    $name = "./images/" . $name;
+                }
+
+                //on recupere toutes les données du form
                 $idAdherent = $id;
                 $adressepostaleAdherent = $_POST['adressepostaleAdherent'] ?? $o->get('adressepostaleAdherent');
                 $ville = $_POST['ville'] ?? $o->get('ville');
-                $photo = $_POST['photo'] ?? $o->get('photo');
+                $photo = $name ?? ($_POST['photo'] ?? $o->get('photo'));
                 $description = $_POST['description'] ?? $o->get('description');
                 $estAdministrateur = $_POST['estAdministrateur'] ?? $o->get('estAdministrateur');
                 $estProducteur = $_POST['estProducteur'] ?? $o->get('estProducteur');
@@ -234,6 +264,7 @@ class ControllerAdmin
                 $nomPersonne = $_POST['nomPersonne'] ?? $p->get('nomPersonne');
                 $prenomPersonne = $_POST['prenomPersonne'] ?? $p->get('prenomPersonne');
 
+                //on en fait des tableaux
                 $array = [
                     'idAdherent' => $idAdherent,
                     'adressepostaleAdherent' => $adressepostaleAdherent,
@@ -255,11 +286,40 @@ class ControllerAdmin
 
             } elseif ($type == 'article') {
 
+                ///////////////////////////////////////
+                // Traitement de l'upload et verifs //
+                /////////////////////////////////////
+                if (!empty($_FILES['nom-image']) && is_uploaded_file($_FILES['nom-image']['tmp_name']))
+                {
+                    //on recupere le nom du fichier
+                    $name = $_FILES['nom-image']['name'];
+                    $pic_path = File::build_path(array('images', $name));
+                    $allowed_ext = array("jpg", "jpeg", "png");
+
+                    $realextarray = explode('.', $_FILES['nom-image']['name']);
+
+                    //on test l'extension du fichier upload
+                    if (!in_array(end($realextarray), $allowed_ext))
+                        return self::error();
+
+                    //on essaie de le déplacer et on retourne une erreur si ca plante
+                    if (!move_uploaded_file($_FILES['nom-image']['tmp_name'], $pic_path))
+                        return self::error();
+
+                    $path = File::build_path(array('images', $name));
+
+                    //on test que le fichier upload existe au bon endroit
+                    if (!file_exists($path))
+                        return self::error();
+
+                    $name = "./images/" . $name;
+                }
+
                 $idArticle = $id;
                 $titreArticle = $_POST['titreArticle'] ?? $o->get('titreArticle');
                 $mailPersonne = $_POST['mailPersonne'] ?? $o->get('mailPersonne');
                 $description = $_POST['description'] ?? $o->get('description');
-                $photo = $_POST['photo'] ?? $o->get('photo');
+                $photo = $name ?? ($_POST['photo'] ?? $o->get('photo'));
 
                 $array = [
                     'idArticle' => $idArticle,
@@ -281,9 +341,39 @@ class ControllerAdmin
                 ];
 
             } elseif ($type == 'produit') {
+
+                ///////////////////////////////////////
+                // Traitement de l'upload et verifs //
+                /////////////////////////////////////
+                if (!empty($_FILES['nom-image']) && is_uploaded_file($_FILES['nom-image']['tmp_name']))
+                {
+                    //on recupere le nom du fichier
+                    $name = $_FILES['nom-image']['name'];
+                    $pic_path = File::build_path(array('images', $name));
+                    $allowed_ext = array("jpg", "jpeg", "png");
+
+                    $realextarray = explode('.', $_FILES['nom-image']['name']);
+
+                    //on test l'extension du fichier upload
+                    if (!in_array(end($realextarray), $allowed_ext))
+                        return self::error();
+
+                    //on essaie de le déplacer et on retourne une erreur si ca plante
+                    if (!move_uploaded_file($_FILES['nom-image']['tmp_name'], $pic_path))
+                        return self::error();
+
+                    $path = File::build_path(array('images', $name));
+
+                    //on test que le fichier upload existe au bon endroit
+                    if (!file_exists($path))
+                        return self::error();
+
+                    $name = "./images/" . $name;
+                }
+
                 $nomProduit = $id;
                 $description = $_POST['description'] ?? $o->get('description');
-                $image = $_POST['image'] ?? $o->get('image');
+                $image = $name ?? ($_POST['image'] ?? $o->get('image'));
 
                 $array = [
                     'nomProduit' => $nomProduit,

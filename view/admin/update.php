@@ -46,8 +46,12 @@ if ($type == 'adherent') {
                 <img src="<?php echo $o->get('photo'); ?>"/>
             </p>
             <p>
-                <label for="file">Changer la photo:</label>
+                <label for="file">Changer la photo(upload):</label>
                 <input type="file" name="nom-image" id="file"/>
+            </p>
+            <p>
+                <label for="link">Changer la photo(lien):</label>
+                <input type="text" value="<?php echo htmlspecialchars($o->get('photo')); ?>" name="photo" id="link"/>
             </p>
             <p>
                 <label for="dateinsc">Date d'inscription:</label>
@@ -89,8 +93,12 @@ if ($type == 'adherent') {
                 <img src="<?php echo htmlspecialchars($o->get('photo')); ?>"/>
             </p>
             <p>
-                <label for="file">Changer la photo:</label>
+                <label for="file">Changer la photo(upload):</label>
                 <input type="file" name="nom-image" id="file"/>
+            </p>
+            <p>
+                <label for="link">Changer la photo(lien):</label>
+                <input type="text" value="<?php echo htmlspecialchars($o->get('photo')); ?>" name="photo" id="link"/>
             </p>
             <p>
                 <label for="date">Date de parution:</label>
@@ -124,7 +132,7 @@ if ($type == 'adherent') {
     </fieldset>
 </form>
 <?php } elseif ($type == 'produit') {?>
-<form method="post" action="?action=update&controller=admin&type=produit&id=<?php echo urlencode($id)?>">
+<form method="post" action="?action=update&controller=admin&type=produit&id=<?php echo urlencode($id)?>" enctype="multipart/form-data">
     <fieldset>
         <legend> Modifier un produit:</legend>
         <p>
@@ -140,8 +148,12 @@ if ($type == 'adherent') {
             <img src="<?php echo htmlspecialchars($o->get('image')); ?>"/>
         </p>
         <p>
-            <label for="file">Changer la photo:</label>
+            <label for="file">Changer la photo(upload):</label>
             <input type="file" name="nom-image" id="file"/>
+        </p>
+        <p>
+            <label for="link">Changer la photo(lien):</label>
+            <input type="text" value="<?php echo htmlspecialchars($o->get('image')); ?>" name="image" id="link"/>
         </p>
         <p>
             <input type="submit" value="Envoyer"/>
