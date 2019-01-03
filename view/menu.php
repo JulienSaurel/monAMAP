@@ -63,7 +63,7 @@
         <?php } ?>
         <?php if(isset($_SESSION['administrateur'])){ ?>
             <li class="accueil">
-                <a class="lienMenu" href="?action=display&controller=admin">Administration</a>
+                <a class="lienMenu" href="?action=adminhomepage&controller=admin">Administration</a>
             </li>
         <?php } ?>
     </ul>
@@ -136,7 +136,7 @@
         <?php } ?>
         <?php if(isset($_SESSION['administrateur'])){ ?>
             <li class="accueil">
-                <a class="lienMenu" href="?action=display&controller=admin">Administration</a>
+                <a class="lienMenu" href="?action=adminhomepage&controller=admin">Administration</a>
             </li>
         <?php } ?>
     </ul>

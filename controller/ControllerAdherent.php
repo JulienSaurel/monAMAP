@@ -32,7 +32,9 @@ class ControllerAdherent
 		//"redirige" vers la vue qui affiche les details d'un adherent
 	}
 
-	//page d'inscription
+	/**
+	 *  Redirige vers une page d'inscription
+	 */
 	public static function create()
 	{
 		//redirection vers le formulaire d'inscription
@@ -41,12 +43,15 @@ class ControllerAdherent
 		require File::build_path(array('view','view.php'));
 	}
 
-	//affichage de la page de paiement de la cotisation
-	// public static function payment(){
+	/**affichage de la page de paiement de la cotisation
+	 *
+	 */
+	/* public static function payment(){
 	// 	$view = 'payment';
 	// 	$pagetitle = 'payez la cotisation';
 	// 	require File::build_path(array('view','view.php'));
 	// }
+	*/
 
 
 
@@ -60,7 +65,7 @@ class ControllerAdherent
 		if (ModelPersonne::checkMail($_POST['mailPersonne']) == false ){
 			return self::error();
 		}
-		
+
 		//si un des deux mots de passes n'est pas renseigné on ramene a la page d'erreur
 		if (!isset($_POST['PW_Adherent'])||!isset($_POST['PW_Adherent2'])) {
 			return self::error();
@@ -114,15 +119,15 @@ class ControllerAdherent
 				$dateProducteur = date("Y-m-d H:i:s");
 			}
 		}
-			/*		var_dump($dateProducteur);
-                    var_dump($_POST['idAdherent']);
-                    var_dump($mailPersonne);
-                    var_dump($_POST['PW_Adherent']);
-                    var_dump($_POST['adressepostaleAdherent']);
-                    var_dump($_POST['estProducteur']);
-                    var_dump($dateProducteur);
-                    var_dump(date("d M Y\, H:i:s"));*/
-		
+		/*		var_dump($dateProducteur);
+                var_dump($_POST['idAdherent']);
+                var_dump($mailPersonne);
+                var_dump($_POST['PW_Adherent']);
+                var_dump($_POST['adressepostaleAdherent']);
+                var_dump($_POST['estProducteur']);
+                var_dump($dateProducteur);
+                var_dump(date("d M Y\, H:i:s"));*/
+
 
 		//////////////////////////////
 		//Traitement de l'adherent///
@@ -148,9 +153,9 @@ class ControllerAdherent
 		];
 
 		//on enregistre dans la bdd
-		
+
 		ModelAdherent::save($arrayadh);
-		
+
 		//on redirige vers l'accueil ou vers le formulaire pour les producteurs s'il a coché est producteur
 		if(!$estprod)
 			return ControllerAccueil::homepage();
@@ -158,11 +163,11 @@ class ControllerAdherent
 	}
 
 	/**
-	*	Fait passer un adhérent à producteur
-	*
-	*	@param l'idAdherent $idAdherent qui peut etre null
-	*
-	*/
+	 *	Fait passer un adhérent à producteur
+	 *
+	 *	@param l'idAdherent $idAdherent qui peut etre null
+	 *
+	 */
 	public static function becomeprod($idAdherent = null)
 	{
 		if (is_null($idAdherent) && isset($_SESSION['login']))
@@ -211,19 +216,21 @@ class ControllerAdherent
 		$dateprod = date("Y-m-d H:i:s");
 
 		$arrayupd = [
-				'idAdherent' => trim($id),
-				'description' => $description,
-				'photo' => $name,
-				'estProducteur' => true,
-				'dateProducteur' => $dateprod,
-				];
+			'idAdherent' => trim($id),
+			'description' => $description,
+			'photo' => $name,
+			'estProducteur' => true,
+			'dateProducteur' => $dateprod,
+		];
 
 		//on update la personne
-			ModelAdherent::update($arrayupd);
+		ModelAdherent::update($arrayupd);
 		return ControllerAccueil::homepage();
 	}
 
-	//page de connexion
+	/**
+	 * Redirige vers la page de connection
+	 */
 	public static function connect()
 	{
 		//redirection vers le formulaire de connexion
@@ -232,6 +239,10 @@ class ControllerAdherent
 		require File::build_path(array('view','view.php'));
 	}
 
+	/**
+	 * Connecte la personne si elle a tapé les bons identifiants
+	 * Initialise les variables de session
+	 */
 	public static function connected()
 	{
 		//(1) si l'utilisateur n'est pas connecté, alors il peut se connection.
@@ -247,7 +258,7 @@ class ControllerAdherent
 
 				//on chiffre le mot de passe saisi pour le comparer à celui dans la base de donnée
 				$pw = Security::chiffrer($_POST['pw']);
-				
+
 				//(3)si l'idAdherent existe dans la base de donnée
 				if (ModelAdherent::select($_POST['idAdherent']))
 				{
@@ -269,7 +280,7 @@ class ControllerAdherent
 						$a = ModelAdherent::select($login);
 						ControllerMonProfil::profile();
 
-					} 
+					}
 
 					//(4) sinon il ne peut pas se connecter
 					else {
@@ -278,7 +289,7 @@ class ControllerAdherent
 						$errmsg = "Mot de passe incorrect";
 						require File::build_path(array('view','view.php'));
 					}
-				} 
+				}
 
 				//(3) sinon il ne peut pas se connecter
 				else {
@@ -287,7 +298,7 @@ class ControllerAdherent
 					$errmsg = " Login incorrect ";
 					require File::build_path(array('view','view.php'));
 				}
-			} 
+			}
 			//(2) sinon il ne peut pas de connecter
 			else {
 				$view = 'connectErreur';
@@ -302,7 +313,9 @@ class ControllerAdherent
 		}
 	}
 
-	//déconnexion
+	/**
+	 * Deconnecte la personne si elle été connectée redirige vers une erreur sinon
+	 */
 	public static function deconnect()
 	{
 		session_unset();
@@ -310,7 +323,9 @@ class ControllerAdherent
 	}
 
 
-	//page d'erreur
+	/**
+	 * Redirige vers une page d'erreur
+	 */
 	public static function error()
 	{
 		$view = 'error';

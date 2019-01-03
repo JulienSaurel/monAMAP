@@ -180,18 +180,18 @@ src: url("font/Philosopher-Regular.ttf");
     display: inline-block;
   }
 
-  .usercontent article{ 
+  .usercontent article{
     display: block;
     width: 60%;
     float: left;
 
   }
-    .usercontent aside{ 
+    .usercontent aside{
     width: 40%;
     float: right;
   }
 
-  .usercontent > aside > img{ 
+  .usercontent > aside > img{
     width: inherit;
     width: 100px;
     height: 500px;

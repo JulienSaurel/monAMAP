@@ -50,25 +50,35 @@ class Model {
 
 
     static public function selectAll() {
-
-        $table_name = static::$object;
-        $class_name = 'Model' . ucfirst($table_name);
-        $sql = 'SELECT * FROM '.ucfirst($table_name);
-
-
-        $req_prep = Model::$pdo->prepare($sql);
-
-        $req_prep->execute();
-
-        $req_prep->setFetchMode(PDO::FETCH_CLASS, $class_name);
+        try{
+            //on recupere les noms de tables/classes a partir des attributs statics declares dans chaque classe
+            $table_name = static::$object;
+            $class_name = 'Model' . ucfirst($table_name);
+            $sql = 'SELECT * FROM '.ucfirst($table_name);
 
 
-        $tab = $req_prep->fetchAll();
-        return $tab;
+            $req_prep = Model::$pdo->prepare($sql);
+
+            $req_prep->execute();
+
+            $req_prep->setFetchMode(PDO::FETCH_CLASS, $class_name);
+
+
+            $tab = $req_prep->fetchAll();
+        } catch(PDOException $e) { //on gere les exceptions
+            if (Conf::getDebug()) {
+                echo $e->getMessage(); // affiche un message d'erreur
+            } else {
+                echo 'Une erreur est survenue <a href=""> retour a la page d\'accueil </a>';
+            }
+            die();
+        }
+            return $tab;
     }
 
     static public function select($primary_value)
     {
+        try {
         $table_name = static::$object;
         $class_name = 'Model' . ucfirst($table_name);
         $primary_key = static::$primary;
@@ -82,7 +92,14 @@ class Model {
         $req_prep->setFetchMode(PDO::FETCH_CLASS, $class_name);
         $tab = $req_prep->fetchAll();
         // Attention, si il n'y a pas de résultats, on renvoie false
-
+        } catch(PDOException $e) { //on gere les exceptions
+            if (Conf::getDebug()) {
+                echo $e->getMessage(); // affiche un message d'erreur
+            } else {
+                echo 'Une erreur est survenue <a href=""> retour a la page d\'accueil </a>';
+            }
+            die();
+        }
         if (empty($tab))
         {
             return false;
@@ -91,19 +108,37 @@ class Model {
     }
 
     static public function delete($primary_value) {
+        try{
+            $table_name = static::$object;
+            $class_name = 'Model' . ucfirst($table_name);
+            $primary_key = static::$primary;
+            $sql = "DELETE from " . ucfirst($table_name) .  " WHERE " . $primary_key . " = '" . $primary_value. "'";
+            // Préparation de la requête
+            $req_prep = Model::$pdo->prepare($sql);
 
-        $table_name = static::$object;
-        $class_name = 'Model' . ucfirst($table_name);
-        $primary_key = static::$primary;
-        $sql = "DELETE from " . ucfirst($table_name) .  " WHERE " . $primary_key . " = '" . $primary_value. "'";
-        // Préparation de la requête
-        $req_prep = Model::$pdo->prepare($sql);
-
-        $req_prep->execute();
+            $req_prep->execute();
+            $count = $req_prep->rowCount();
+        } catch(PDOException $e) {
+            if (Conf::getDebug())
+            {
+                echo $e->getMessage(); // affiche un message d'erreur
+            }
+            else
+            {
+                echo 'Une erreur est survenue <a href=""> retour a la page d\'accueil </a>';
+            }
+            die();
+        }
+        if($count<1 || $count>1) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     static public function countAll()
     {
+        try {
         $table_name = static::$object;
         $class_name = 'Model' . ucfirst($table_name);
         $sql = 'SELECT COUNT(*) FROM '.ucfirst($table_name);
@@ -113,6 +148,17 @@ class Model {
         $req_prep->execute();
 
         $tab = $req_prep->fetchColumn();
+        } catch(PDOException $e) {
+            if (Conf::getDebug())
+            {
+                echo $e->getMessage(); // affiche un message d'erreur
+            }
+            else
+            {
+                echo 'Une erreur est survenue <a href=""> retour a la page d\'accueil </a>';
+            }
+            die();
+        }
         return (int)$tab;
     }
 

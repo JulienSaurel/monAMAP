@@ -7,7 +7,7 @@
 			if ($a->get('photo') == NULL){
 				echo 'vous n\'avez pas de photo';
 			} else {
-				echo '<img class="imgprofil" src= "'. $a->get('photo') . '" alt="' . $a->get('idAdherent'). '"/>'; 
+				echo '<img class="imgprofil" src= "images\/'. $a->get('photo') . '" alt="' . $a->get('idAdherent'). '"/>';
 			}
 			?>
 			<a href="?action=updatePhoto&controller=monProfil">Ajoutez ou modifiez votre photo.</a>

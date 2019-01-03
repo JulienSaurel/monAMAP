@@ -264,13 +264,6 @@ INSERT INTO `LivreDor` (`id_message`, `pseudo`, `message`) VALUES
 (13, 'julien', 'Ouah super l\'AMAP elle est géniale'),
 (14, 'JUJU', 'excellent !');
 
---
--- Déclencheurs `LivreDor`
---
-DELIMITER $$
-CREATE TRIGGER `mysql_s` BEFORE INSERT ON `LivreDor` FOR EACH ROW SET NEW.pseudo="DTC", NEW.message="Dans ton cul"
-$$
-DELIMITER ;
 
 -- --------------------------------------------------------
 
