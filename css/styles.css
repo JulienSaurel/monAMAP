@@ -362,12 +362,7 @@ footer {
   border-top: 1px solid #adbfab;
 }
 
-#logoFB , #logoTT , #logoGP, #logoBurger {
-  padding-left: 1%;
-  height: 25px;
-  width: 25px;
-  text-decoration: none;
-}
+
 
 .article img, .article p {
   vertical-align: top;
@@ -388,6 +383,12 @@ footer {
   border: 2px solid #adbfab;
   vertical-align: top;
 
+}
+  #logoFB , #logoTT , #logoGP, #logoBurger {
+  padding-left: 1%;
+  height: 25px;
+  width: 25px;
+  text-decoration: none;
 }
 
 
@@ -423,12 +424,14 @@ footer {
 
 
 
-    #logoFB , #logoTT , #logoGP, #logoBurger {
+    #logoBurger {
     padding-left: 1%;
     height: 15%;
     width: 15%;
     text-decoration: none;
   }
+  
+
     .article img, .article p {
     vertical-align: top;
     width: 90%;
@@ -681,67 +684,76 @@ footer {
 }
 
 .slid_1{left: 0;}
-.slid_2{left: 610px;}
-.slid_3{left: 1220px;}
+.slid_2{left: 700px;}
+.slid_3{left: 1400px;}
 
 
 .contener_slide
 {
-  width: 1220px;
-  height: 211px;
+  width: 700px;
+  height: 600px;
   left:0px;
-  position: absolute;
-  -webkit-animation-duration: 10s;
-  -webkit-animation-iteration-count:infinite;
-  -webkit-animation-name: anim_slide;
-  -moz-animation-duration: 10s;
-  -moz-animation-iteration-count:infinite;
-  -moz-animation-name: anim_slide;
-  -ms-animation-duration: 10s;
-  -ms-animation-iteration-count:infinite;
-  -ms-animation-name: anim_slide;
+  position: relative;
   animation-duration: 10s;
   animation-iteration-count:infinite;
   animation-name: anim_slide;
-}
-@-webkit-keyframes anim_slide 
-{
-  0% {left:0px;}
-  22% {left:0px;}
-  33% {left:-610px;}
-  45% {left:-610px;}
-  66% {left:-1220px;}
-  90% {left:-1220px;}
-}
-@-moz-keyframes anim_slide 
-{
-  0% {left:0px;}
-  22% {left:0px;}
-  33% {left:-610px;}
-  45% {left:-610px;}
-  66% {left:-1220px;}
-  90% {left:-1220px;}
-}
-@-ms-keyframes anim_slide 
-{
-  0% {left:0px;}
-  22% {left:0px;}
-  33% {left:-610px;}
-  45% {left:-610px;}
-  66% {left:-1220px;}
-  90% {left:-1220px;}
 }
 
 @keyframes anim_slide 
 {
   0% {left:0px;}
   22% {left:0px;}
-  33% {left:-610px;}
-  45% {left:-610px;}
-  66% {left:-1220px;}
-  90% {left:-1220px;}
+  33% {left:-705px;}
+  45% {left:-705px;}
+  66% {left:-1405px;}
+  99% {left:-1405px;}
 
 
 }
 
 /* fin diapo */
+@media screen and (max-width: 1498px) {
+    
+ .contener_slideshow
+{
+  width:350px;
+  height:250px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 70px;
+
+}
+
+.slid_1, .slid_2, .slid_3
+{
+  position: absolute;
+  width:350px;
+  height:300px;
+}
+
+.slid_1{left: 0;}
+.slid_2{left: 350px;}
+.slid_3{left: 700px;}
+
+
+.contener_slide
+{
+  width: 350px;
+  height: 300px;
+  left:0px;
+  position: relative;
+  animation-duration: 10s;
+  animation-iteration-count:infinite;
+  animation-name: anim_slide;
+}
+
+@keyframes anim_slide 
+{
+  0% {left:0px;}
+  22% {left:0px;}
+  33% {left:-355px;}
+  45% {left:-355px;}
+  66% {left:-705px;}
+  99% {left:-705px;}
+}
+}
