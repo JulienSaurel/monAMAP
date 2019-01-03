@@ -45,7 +45,7 @@
             <a class="mdl-navigation__link" href="?action=readAll&controller=admin&type=messages"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">forum</i>Messages</a>
             <a class="mdl-navigation__link" href="?action=readAll&controller=admin&type=adherents"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Adhérents</a>
             <a class="mdl-navigation__link" href="?action=readAll&controller=admin&type=articles"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">art_track</i>Articles</a>
-            <a class="mdl-navigation__link" href="?action=readAll&controller=admin&type=produits"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Produits</a>
+            <a class="mdl-navigation__link" href="?action=readAll&controller=admin&type=produits"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">local_florist</i>Produits</a>
             <div class="mdl-layout-spacer"></div>
             <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
         </nav>

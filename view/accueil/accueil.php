@@ -1,4 +1,4 @@
-
+<?php echo $phrase; ?>
 <h1> Bienvenue sur le site de l'AMAP de la région Occitanie </h1>
 
 

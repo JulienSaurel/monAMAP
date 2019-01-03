@@ -20,7 +20,7 @@ class ControllerNosProduits
      public static function display()
     {
 
-        $tab = ModelProduit::getAllProduit();
+        $tab = ModelProduit::selectAll();
         $view = 'produits';
         $pagetitle = 'nos produits';
         require File::build_path(array('view','view.php'));

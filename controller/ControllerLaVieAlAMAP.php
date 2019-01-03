@@ -1,6 +1,6 @@
 <?php 
 require_once File::build_path(array('model','ModelLivreDor.php')); // chargement du modèle
-require_once File::build_path(array('model','ModelArticles.php')); // chargement du modèle
+require_once File::build_path(array('model','ModelArticle.php')); // chargement du modèle
 require_once File::build_path(array('model','ModelAdherent.php')); // chargement du modèle
 require_once File::build_path(array('model','Model.php')); // chargement du modèle
 
@@ -19,7 +19,7 @@ class ControllerLaVieAlAMAP
     //redirige vers la page "Articles"
     public static function display1st()
     {
-        $tabArticles = ModelArticles::selectAllTri();
+        $tabArticles = ModelArticle::selectAllTri();
         $view = 'articles';
         $pagetitle = 'Articles';
         require File::build_path(array('view','view.php')); 
@@ -76,7 +76,7 @@ class ControllerLaVieAlAMAP
     }
 
     // public static function allArticles(){
-    //     return ModelArticles::selectAll();
+    //     return ModelArticle::selectAll();
     // }
 
 
@@ -118,7 +118,7 @@ class ControllerLaVieAlAMAP
         ];
 
         //on enregistre les données dans la bd
-        ModelArticles::save($data);
+        ModelArticle::save($data);
         
         //redirection vers les articles
         self::display1st();

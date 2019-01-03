@@ -2,7 +2,7 @@
 
 require_once File::build_path(array('model','Model.php'));
 
-class ModelArticles extends Model 
+class ModelArticle extends Model
 {
 
     protected $idArticle;
@@ -43,7 +43,7 @@ class ModelArticles extends Model
     public static function selectAllTri(){
       $SQL_request = " SELECT * FROM Article ORDER BY date DESC";
         $rep = Model::$pdo->query($SQL_request);
-        $rep->setFetchMode(PDO::FETCH_CLASS, 'ModelArticles');
+        $rep->setFetchMode(PDO::FETCH_CLASS, 'ModelArticle');
         $tab_a = $rep->fetchAll();
         // $p = $tab_a[0];
         // $d = $tab_a[1];
