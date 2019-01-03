@@ -228,11 +228,12 @@ _:-ms-input-placeholder, :root .demo-graph {
      width: 512px;
  }
 .demo-card-wide > .mdl-card__title {
-    color: #fff;
-    height: 176px;
+    color: #0311c3;
+    height: 276px;
+    background-size: cover;
 }
 .demo-card-wide > .mdl-card__menu {
-    color: #fff;
+    color: #0311c3;
 }
 
  .demo-list-icon {
@@ -246,4 +247,9 @@ _:-ms-input-placeholder, :root .demo-graph {
 
 a > i {
     color: black;
+}
+
+.mdl-layout-title {
+    color: #878787;
+    text-decoration: none;
 }

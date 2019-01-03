@@ -66,19 +66,29 @@ class ControllerAdmin
         $type = $_GET['type'];
 
         //on recupere le tableau a traiter
-        if ($type == 'adherents')
+        if ($type == 'adherent')
             $tab = ModelAdherent::selectAll();
-        elseif ($type == 'articles')
+        elseif ($type == 'article')
             $tab = ModelArticle::selectAllTri();
-        elseif ($type == 'messages')
+        elseif ($type == 'livreDor')
             $tab = ModelLivreDor::selectAll();
-        elseif ($type == 'produits')
+        elseif ($type == 'produit')
             $tab = ModelProduit::selectAll();
         else
             return self::error();
+
         if (empty($tab)) {
-            $tab = array();
-            $phrase = "Il n'y a pas de/d\' " . $type .".";
+            $tab = [];
+            if ($type == 'adherent') {
+                $lenom = 'adhérents';
+            } elseif ($type == 'article') {
+                $lenom = 'articles';
+            } elseif ($type == 'livreDor') {
+                $lenom = 'messages';
+            } elseif ($type == 'produit') {
+                $lenom = 'produit';
+            }
+            $phrase = "Il n'y a pas de/d\' " . $lenom .".";
         }
 
         //on l'affiche
@@ -128,13 +138,13 @@ class ControllerAdmin
             return self::adminhomepage();
         }
 
-        if ($type == 'adherents') {
+        if ($type == 'adherent') {
             $lenom = 'L\'adhérent ';
-        } elseif ($type == 'articles') {
+        } elseif ($type == 'article') {
             $lenom = 'L\'article ';
-        } elseif ($type = 'messages') {
+        } elseif ($type == 'livreDor') {
             $lenom = 'Le message ';
-        } elseif ($type = 'produits') {
+        } elseif ($type == 'produit') {
             $lenom = 'Le produit';
         }
         $_POST['phrase'] = $lenom . $id . ' a bien été supprimé';
@@ -384,13 +394,13 @@ class ControllerAdmin
             }
             $o = $Modelgen::update($array);
 
-            if ($type == 'adherents') {
+            if ($type == 'adherent') {
                 $lenom = 'L\'adhérent ';
-            } elseif ($type == 'articles') {
+            } elseif ($type == 'article') {
                 $lenom = 'L\'article ';
-            } elseif ($type = 'messages') {
+            } elseif ($type = 'livreDor') {
                 $lenom = 'Le message ';
-            } elseif ($type = 'produits') {
+            } elseif ($type = 'produit') {
                 $lenom = 'Le produit';
             }
             $phrase = $lenom . $id . ' a bien été mise à jour';
@@ -399,177 +409,6 @@ class ControllerAdmin
     }
 
 
-
-
-    /* //redirige vers la page d'administration des adhérents
-     public static function gestadh(){
-         //s'il est administrateur
-         if (isset($_SESSION['administrateur'])) {
-             //on sélectionne tous les adhérents dans un tableau
-             $tab = ModelAdherent::selectAll();
-             $view = 'gestadh';
-             $pagetitle = 'Gestion des adhérents';
-             require File::build_path(array('view','adminpanel.php'));
-         }
-         //sinon erreur
-         else {
-             self::error();
-         }
-     }
-
-     //redirige vers la page d'administration des producteurs
-     public static function gestpro(){
-         //s'il est administrateur
-         if (isset($_SESSION['administrateur'])) {
-             //on sélectionne tous les adhérents dans un tableau
-             $tab = ModelAdherent::selectAll();
-             $view = 'gestpro';
-             $pagetitle = 'Gestion des adhérents';
-             require File::build_path(array('view','adminpanel.php'));
-         }
-         //sinon erreur
-         else {
-             self::error();
-         }
-     }
-
-     //redirige vers la page d'affichage de tous les administrateurs
-     public static function gestadm(){
-         //s'il est administrateur
-         if (isset($_SESSION['administrateur'])) {
-             //on sélectionne tous les adhérents dans un tableau
-             $tab = ModelAdherent::selectAll();
-             $view = 'gestadm';
-             $pagetitle = 'Gestion des adhérents';
-             require File::build_path(array('view','adminpanel.php'));
-         }
-         //sinon erreur
-         else {
-             self::error();
-         }
-     }
-
-     //redirige vers la page d'administration des articles
-     public static function gestart(){
-         //s'il est administrateur
-         if (isset($_SESSION['administrateur'])) {
-             //on sélectionne tous les articles dans un tableau
-             $tab = ModelArticle::selectAllTri();
-             $view = 'gestart';
-             $pagetitle = 'Gestion des articles';
-             require File::build_path(array('view','adminpanel.php'));
-         }
-         //sinon erreur
-         else {
-             self::error();
-         }
-     }
-
-     //redirige vers la page d'administration des commentaires
-     public static function gestcom(){
-         //s'il est administrateur
-         if (isset($_SESSION['administrateur'])) {
-             //on sélectionne tous les commentaires dans un tableau
-             $tab = ModelLivreDor::selectAll();
-             $view = 'gestcom';
-             $pagetitle = 'Gestion des commentaires';
-             require File::build_path(array('view','adminpanel.php'));
-         }
-         //sinon erreur
-         else {
-             self::error();
-         }
-     }
-
-     //action de suppression d'un adhérent
-     public static function deleteAdh(){
-         //s'il est administrateur
-         if (isset($_SESSION['administrateur'])) {
-             $value = $_GET['idAdherent'];
-             ModelAdherent::delete($value);
-             self::gestadh();
-         }
-         //sinon erreur
-         else {
-             self::error();
-         }
-     }
-
-     //action de suppression d'un producteur
-     public static function deletePro(){
-         //s'il est administrateur
-         if (isset($_SESSION['administrateur'])) {
-             $value = $_GET['idAdherent'];
-             ModelAdherent::delete($value);
-             self::gestpro();
-         }
-         //sinon erreur
-         else {
-             self::error();
-         }
-
-     }
-
-     //action de suppression d'un commentaire
-     public static function deleteCom(){
-         //s'il est administrateur
-         if (isset($_SESSION['administrateur'])) {
-             $value = $_GET['id_message'];
-             ModelLivreDor::delete($value);
-             self::gestcom();
-         }
-         //sinon erreur
-         else {
-             self::error();
-         }
-     }
-
-     //action de suppression d'un article
-     public static function deleteArt(){
-         //s'il est administrateur
-         if (isset($_SESSION['administrateur'])) {
-             $value = $_GET['idArticle'];
-             ModelArticle::delete($value);
-             self::gestart();
-         }
-         //sinon erreur
-         else {
-             self::error();
-         }
-     }
-
-
-     //redirige vers le formulaire de modification d'un article
-     public static function updateArt(){
-         //s'il est administrateur
-         if (isset($_SESSION['administrateur'])) {
-         $idp = ModelArticle::select($_GET['idArticle']);
-         $view = 'updateArt';
-         $pagetitle = 'Modifier l\'article';
-         require File::build_path(array('view','adminpanel.php'));
-       }
-       //sinon erreur
-       else {
-         self::error();
-       }
-     }
-
-     //action de modification d'un article
-     public static function updatedArt(){
-         //s'il est administrateur
-         if (isset($_SESSION['administrateur'])) {
-             $a=$_POST['newtitle'];
-             $b=$_POST['newdesc'];
-             $c=$_POST['newpic'];
-             $primaryvalue=$_GET['idArticle'];
-             ModelArticle::update(array("idArticle"=>$primaryvalue, "titreArticle"=>$a, "description"=>$b, "photo"=>$c, ));
-             self::gestart();
-         }
-         //sinon erreur
-         else {
-           self::error();
-         }
-     }*/
 
 //page d'erreur
     public static function error()
