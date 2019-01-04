@@ -2,17 +2,13 @@
 <h1> Bienvenue sur le site de l'AMAP de la région Occitanie </h1>
 
 
-<!-- aside sur le coté gauche -->
 
 
 
-<!-- article pour l'essentiel de la page -->
-
- 
  <section class="usercontent">
   <article>
     <h2>Présentation de l'AMAP.</h2>
-    <div align="center">
+    <div>
       <div class="contener_slideshow">
         <div class="contener_slide">
           <div class="slid_1"><img src="images/pasteque.jpg" alt="tomates cerises"></div>
