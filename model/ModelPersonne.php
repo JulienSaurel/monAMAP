@@ -13,7 +13,7 @@ class ModelPersonne extends Model
 
 	
 	
-	/* 
+	/**
 		vérifie si $mail est déjà présente dans la base de données
 		
 		@param l'adresse mail $mail à vérifier

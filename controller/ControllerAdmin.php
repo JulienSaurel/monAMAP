@@ -152,7 +152,7 @@ class ControllerAdmin
     }
 
     /**
-     * Redirige vers le formulaire de modification
+     * Redirige vers le formulaire de modification si on  a l'id en get ou de création sinon
      */
     public static function gotoupdate()
     {
@@ -180,7 +180,12 @@ class ControllerAdmin
         $Modelgen = 'Model' . ucfirst($type);
         $o = isset($_GET['id']) ? $Modelgen::select($id) : new $Modelgen();
         $restriction = $id ? 'readonly':'required';
+        $idurl = $id ? urlencode($id) : null;
+        $action = $id? "?action=update&controller=admin&type=$type&id=$idurl" : "?action=update&controller=admin&type=$type";
 
+        ///////////////////////////////////////////////////////////
+        // Définitions de variables pour le formulaire adhérent //
+        /////////////////////////////////////////////////////////
         if ($type == 'adherent') {
             $p = ModelPersonne::select($o->get('mailPersonne'));
             $idAdherent = $id ? htmlspecialchars($id): '';
@@ -200,15 +205,15 @@ class ControllerAdmin
             $inputoldphoto = $id ? "<p><label>Photo actuelle:</label><img src=\"$photo\"/></p>" : '';
             $labelupload = $id ? "Changer la photo(upload):":"Upload une photo";
             $labellinkimg = $id ? "Changer la photo(lien):":"Mettre un lien vers l'image";
-            $dates = $id ? "<p>
-                <label for=\"dateinsc\">Date d'inscription:</label>
-                <input type=\"text\" value=\"$dateinscription\" name=\"dateinscription\" id=\"dateinsc\" readonly/>
-            </p>
-            <p>
-                <label for=\"dateprod\">Date de producteur:</label>
-                <input type=\"text\" value=\"$dateproducteur\" name=\"dateproducteur\" id=\"dateprod\" readonly/>
-            </p>" : "";
-        } elseif ($type == 'article') {
+            $dates = $id ? "<p><label for=\"dateinsc\">Date d'inscription:</label><input type=\"text\" value=\"$dateinscription\" name=\"dateinscription\" id=\"dateinsc\" readonly/></p>
+            <p><label for=\"dateprod\">Date de producteur:</label><input type=\"text\" value=\"$dateproducteur\" name=\"dateproducteur\" id=\"dateprod\" readonly/></p>" : "";
+            $inputpwd = $id ? '' : "<p><label for=\"pw1\">Mot de passe :</label><input type=\"password\" placeholder=\"8 caractères minimum\" name=\"PW_Adherent\" id=\"pw1\"  required/></p><p>
+            <label for=\"pw2\">Valider le mot de passe :</label><input type=\"password\" name=\"PW_Adherent2\" id=\"pw2\" required/></p>";
+        }
+        ///////////////////////////////////////////////////////////
+        // Définitions de variables pour le formulaire articles //
+        /////////////////////////////////////////////////////////
+        elseif ($type == 'article') {
             $idArticle = $id ? htmlspecialchars($id):'';
             $titreArticle = $id ? htmlspecialchars($o->get('titreArticle')):'';
             $mailPersonne = $id ? htmlspecialchars($o->get('mailPersonne')):'';
@@ -220,37 +225,33 @@ class ControllerAdmin
             $inputoldphoto = $id ? "<p><label>Photo actuelle:</label><img src=\"$photo\"/></p>" : '';
             $labelupload = $id ? "Changer la photo(upload):":"Upload une photo";
             $labellinkimg = $id ? "Changer la photo(lien):":"Mettre un lien vers l'image";
-            $inputdate = $id ? "<p>
-                <label for=\"date\">Date de parution:</label>
-                <input type=\"text\" value=\"$date\" name=\"date\" id=\"date\" readonly/>
-            </p>":"";
-            $inputid = $id ?"<p>
-                <label for=\"id\">Id</label> :
-                <input type=\"text\" name=\"idArticle\" id=\"id\" value=\"$idArticle\" $restriction/>
-            </p>" :'';
+            $inputdate = $id ? "<p><label for=\"date\">Date de parution:</label><input type=\"text\" value=\"$date\" name=\"date\" id=\"date\" readonly/></p>":"";
+            $inputid = $id ?"<p><label for=\"id\">Id</label> : <input type=\"text\" name=\"idArticle\" id=\"id\" value=\"$idArticle\" $restriction/></p>" :'';
 
-        } elseif ($type == 'livreDor') {
+        }
+        ////////////////////////////////////////////////////////////////
+        // Définitions de variables pour le formulaire du livre d'or //
+        //////////////////////////////////////////////////////////////
+        elseif ($type == 'livreDor') {
             $id_message = $id ? htmlspecialchars($id):'';
             $pseudo = $id ? htmlspecialchars($o->get('pseudo')) : '';
             $message = $id ? htmlspecialchars($o->get('message')):'';
             $formtitle = $id ? "Modification du message $id_message":"Création d'un nouveau message";
             $submit = $id ? "Enregistrer les modifications":"Créer le nouveau message";
-            $inputid = $id ? "<p>
-            <label for=\"id\">Id du message:</label>
-            <input type=\"text\" value=\"$id_message\" name=\"id_message\" id=\"id\" $restriction>
-        </p>":"";
+            $inputid = $id ? "<p><label for=\"id\">Id du message:</label><input type=\"text\" value=\"$id_message\" name=\"id_message\" id=\"id\" $restriction></p>":"";
 
 
-        } elseif ($type == 'produit') {
+        }
+        ///////////////////////////////////////////////////////////
+        // Définitions de variables pour le formulaire produit  //
+        /////////////////////////////////////////////////////////
+        elseif ($type == 'produit') {
             $nomProduit = $id ? htmlspecialchars($id) : '';
             $description = $id ? htmlspecialchars($o->get('description')):'';
             $image = $id ? htmlspecialchars($o->get('image')):'';
             $formtitle = $id ? "Modification du produit $nomProduit":"Création d'un nouveau produit";
             $submit = $id ? "Enregistrer les modifications":"Créer le nouveau produit";
-            $inputoldphoto = $id ? "        <p>
-            <label>Photo actuelle:</label>
-            <img src=\"$image\"/>
-        </p>":"";
+            $inputoldphoto = $id ? "<p><label>Photo actuelle:</label><img src=\"$image\"/></p>":"";
             $labelupload = $id ? "Changer la photo(upload):":"Upload une photo";
             $labellinkimg = $id ? "Changer la photo(lien):":"Mettre un lien vers l'image";
 
@@ -477,6 +478,63 @@ class ControllerAdmin
             }
             $phrase = $lenom . $id . ' a bien été mise à jour';
             self::adminhomepage();
+        } else { //Création
+            if ($type == 'adherent') {
+                if (!isset($_POST['PW_Adherent'])||!isset($_POST['PW_Adherent2']))
+                {
+                    $_POST['phrase'] = File::warning("Veuillez saisir un mot de passe");
+                    return self::adminhomepage();
+                }
+                if ($_POST['PW_Adherent'] != $_POST['PW_Adherent2'])
+                {
+                    $_POST['phrase'] = File::warning("Veuillez saisir deux mots de passe identiques");
+                    return self::adminhomepage();
+                }
+                if (!isset($_POST['idAdherent'])||!isset($_POST['nomPersonne'])||!isset($_POST['prenomPersonne'])||!isset($_POST['adressepostaleAdherent'])||!isset($_POST['ville'])||!isset($_POST['mailPersonne'])||!isset($_POST['estProducteur'])||!isset($_POST['estAdministrateur'])){
+                    $_POST['phrase'] = File::warning("Il manque des données");
+                    self::adminhomepage();
+                }
+                if (!ModelAdherent::checklogin($_POST['idAdherent']))
+                {
+                    $_POST['phrase'] = File::warning("Ce pseudo n'est pas disponible");
+                    self::adminhomepage();
+                }
+                if (!ModelAdherent::checkbindedmail($_POST['mailPersonne']))
+                {
+                    $_POST['phrase'] = File::warning("Cette adresse mail est déjà utilisée");
+                    self::adminhomepage();
+                }
+
+                $idAdherent = $_POST['idAdherent'];
+                $mailPersonne = $_POST['mailPersonne'];
+                $nomPersonne = $_POST['nomPersonne'];
+                $prenomPersonne = $_POST['prenomPersonne'];
+                $adressepostaleAdherent = $_POST['adressepostaleAdherent'];
+                $ville = $_POST['ville'];
+                $estAdministrateur = $_POST['estAdministrateur'];
+                $estProducteur = $_POST['estProducteur'];
+                $PW_Adherent = Security::chiffrer($_POST['PW_Adherent']);
+
+                $arrayAdherent = [
+                    'idAdherent' => $idAdherent,
+                    'mailPersonne' => $mailPersonne,
+                    'nomPersonne' => $nomPersonne,
+                    'prenomPersonne' => $prenomPersonne,
+                    'adressepostaleAdherent' => $adressepostaleAdherent,
+                    'ville' => $ville,
+                    'estAdministrateur' => $estAdministrateur,
+                    'estProducteur' => $estProducteur,
+                    'PW_Adherent' => $PW_Adherent,
+                ];
+
+
+            } elseif ($type == 'article') {
+
+            } elseif ($type == 'livreDor') {
+
+            } elseif ($type == 'produit') {
+
+            }
         }
     }
 

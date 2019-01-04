@@ -4,6 +4,8 @@
     <list default="true" id="94c3ccb3-3951-4670-8efd-8102a2c7e176" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/ControllerAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControllerAdmin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/ModelAdherent.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/ModelAdherent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/ModelPersonne.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/ModelPersonne.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/admin/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/admin/update.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,14 +19,88 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controller/ControllerAdmin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="261" column="12" lean-forward="true" selection-start-line="261" selection-start-column="12" selection-end-line="261" selection-end-column="12" />
+            <state relative-caret-position="815">
+              <caret line="529" column="16" selection-start-line="529" selection-start-column="16" selection-end-line="529" selection-end-column="16" />
               <folding>
                 <element signature="n#adminhomepage#0;n#ControllerAdmin#0;n#!!top" />
                 <element signature="n#readAll#0;n#ControllerAdmin#0;n#!!top" />
                 <element signature="n#delete#0;n#ControllerAdmin#0;n#!!top" />
-                <element signature="n#update#0;n#ControllerAdmin#0;n#!!top" />
+                <element signature="n#gotoupdate#0;n#ControllerAdmin#0;n#!!top" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controller/ControllerAdherent.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="64" column="34" selection-start-line="64" selection-start-column="34" selection-end-line="64" selection-end-column="34" />
+              <folding>
+                <element signature="n#readAll#0;n#ControllerAdherent#0;n#!!top" />
+                <element signature="n#read#0;n#ControllerAdherent#0;n#!!top" />
+                <element signature="e#1090#1140#0#PHP" />
+                <element signature="n#create#0;n#ControllerAdherent#0;n#!!top" />
+                <element signature="n#becomeprod#0;n#ControllerAdherent#0;n#!!top" />
+                <element signature="n#connect#0;n#ControllerAdherent#0;n#!!top" />
+                <element signature="n#connected#0;n#ControllerAdherent#0;n#!!top" />
+                <element signature="n#deconnect#0;n#ControllerAdherent#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/ModelAdherent.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="709">
+              <caret line="205" column="20" lean-forward="true" selection-start-line="205" selection-start-column="20" selection-end-line="205" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/Model.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="439">
+              <caret line="101" column="9" lean-forward="true" selection-start-line="94" selection-start-column="10" selection-end-line="101" selection-end-column="9" />
+              <folding>
+                <element signature="n#Init#0;n#Model#0;n#!!top" />
+                <element signature="n#get#0;n#Model#0;n#!!top" />
+                <element signature="n#set#0;n#Model#0;n#!!top" />
+                <element signature="n#__construct#0;n#Model#0;n#!!top" />
+                <element signature="n#delete#0;n#Model#0;n#!!top" />
+                <element signature="n#update#0;n#Model#0;n#!!top" />
+                <element signature="n#save#0;n#Model#0;n#!!top" />
+                <element signature="n#generateId#0;n#Model#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/ModelPersonne.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret lean-forward="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/adherent/create.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="585">
+              <caret line="39" column="12" lean-forward="true" selection-start-line="32" selection-start-column="8" selection-end-line="39" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/admin/update.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -78,12 +154,10 @@
         <option value="$PROJECT_DIR$/model/ModelContrat.php" />
         <option value="$PROJECT_DIR$/controller/ControllerNosContrats.php" />
         <option value="$PROJECT_DIR$/controller/ControllerPersonne.php" />
-        <option value="$PROJECT_DIR$/model/ModelPersonne.php" />
         <option value="$PROJECT_DIR$/view/personne/create.php" />
         <option value="$PROJECT_DIR$/view/laVieAlAMAP/livredor.php" />
         <option value="$PROJECT_DIR$/model/ModelLivreDor.php" />
         <option value="$PROJECT_DIR$/view/laVieAlAMAP/livre.php" />
-        <option value="$PROJECT_DIR$/model/ModelAdherent.php" />
         <option value="$PROJECT_DIR$/view/adherent/formprod.php" />
         <option value="$PROJECT_DIR$/view/laVieAlAMAP/articles.php" />
         <option value="$PROJECT_DIR$/model/ModelDonnateur.php" />
@@ -120,6 +194,8 @@
         <option value="$PROJECT_DIR$/view/adminmenu.php" />
         <option value="$PROJECT_DIR$/css/adminstyles.css" />
         <option value="$PROJECT_DIR$/view/admin/update.php" />
+        <option value="$PROJECT_DIR$/model/ModelPersonne.php" />
+        <option value="$PROJECT_DIR$/model/ModelAdherent.php" />
         <option value="$PROJECT_DIR$/controller/ControllerAdmin.php" />
       </list>
     </option>
@@ -146,7 +222,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -183,12 +258,19 @@
               <item name="monAMAP" type="b2602c69:ProjectViewProjectNode" />
               <item name="monAMAP" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="adherent" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="monAMAP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="monAMAP" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -268,7 +350,8 @@
       <workItem from="1546168789491" duration="7379000" />
       <workItem from="1546193558008" duration="1177000" />
       <workItem from="1546439167920" duration="23850000" />
-      <workItem from="1546511799933" duration="30237000" />
+      <workItem from="1546511799933" duration="30852000" />
+      <workItem from="1546593811744" duration="5258000" />
     </task>
     <task id="LOCAL-00001" summary="Model generique et petits fix">
       <created>1545583549669</created>
@@ -382,11 +465,18 @@
       <option name="project" value="LOCAL" />
       <updated>1546541691951</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="update/create en cours, il manque juste le traitement de la création des objets">
+      <created>1546562216027</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1546562216027</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="163341000" />
+    <option name="totallyTimeSpent" value="169214000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -401,7 +491,7 @@
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49947312" visible="true" weight="0.13779746" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49947312" visible="true" weight="0.13945766" />
       <window_info id="Structure" order="1" sideWeight="0.50052685" side_tool="true" weight="0.124123044" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -517,7 +607,8 @@
     <MESSAGE value="Fin update" />
     <MESSAGE value="Fin upload fichier produit et article" />
     <MESSAGE value="améloration de l'affichage du back office" />
-    <option name="LAST_COMMIT_MESSAGE" value="améloration de l'affichage du back office" />
+    <MESSAGE value="update/create en cours, il manque juste le traitement de la création des objets" />
+    <option name="LAST_COMMIT_MESSAGE" value="update/create en cours, il manque juste le traitement de la création des objets" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
@@ -529,26 +620,10 @@
     <select />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/controller/Dispatcher.php" />
-    <entry file="file://$PROJECT_DIR$/controller/Request.php" />
-    <entry file="file://$PROJECT_DIR$/controller/ControllerNousSoutenir.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2505">
-          <caret line="167" lean-forward="true" selection-start-line="167" selection-end-line="167" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controller/routeur.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="44" column="2" selection-start-line="44" selection-start-column="2" selection-end-line="44" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/ModelPersonne.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
@@ -692,51 +767,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/Model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="101" column="9" lean-forward="true" selection-start-line="101" selection-start-column="9" selection-end-line="101" selection-end-column="9" />
-          <folding>
-            <element signature="n#Init#0;n#Model#0;n#!!top" />
-            <element signature="n#get#0;n#Model#0;n#!!top" />
-            <element signature="n#set#0;n#Model#0;n#!!top" />
-            <element signature="n#__construct#0;n#Model#0;n#!!top" />
-            <element signature="n#delete#0;n#Model#0;n#!!top" />
-            <element signature="n#update#0;n#Model#0;n#!!top" />
-            <element signature="n#save#0;n#Model#0;n#!!top" />
-            <element signature="n#generateId#0;n#Model#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/ControllerAdherent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="50" column="43" lean-forward="true" selection-start-line="50" selection-start-column="43" selection-end-line="50" selection-end-column="43" />
-          <folding>
-            <element signature="n#readAll#0;n#ControllerAdherent#0;n#!!top" />
-            <element signature="n#read#0;n#ControllerAdherent#0;n#!!top" />
-            <element signature="e#1090#1140#0#PHP" />
-            <element signature="n#create#0;n#ControllerAdherent#0;n#!!top" />
-            <element signature="n#becomeprod#0;n#ControllerAdherent#0;n#!!top" />
-            <element signature="n#connect#0;n#ControllerAdherent#0;n#!!top" />
-            <element signature="n#connected#0;n#ControllerAdherent#0;n#!!top" />
-            <element signature="n#deconnect#0;n#ControllerAdherent#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/model/ModelProduit.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/ModelAdherent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="40" column="19" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -764,13 +798,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="739">
           <caret line="244" column="9" selection-start-line="218" selection-start-column="8" selection-end-line="244" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/accueil/accueil.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="19" selection-start-column="19" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -847,22 +874,90 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/view/accueil/accueil.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1365">
+          <caret line="91" lean-forward="true" selection-start-line="91" selection-end-line="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nbproject/project.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nbproject/project.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/adherent/create.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="585">
+          <caret line="39" column="12" lean-forward="true" selection-start-line="32" selection-start-column="8" selection-end-line="39" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/ModelPersonne.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/ControllerAdherent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="64" column="34" selection-start-line="64" selection-start-column="34" selection-end-line="64" selection-end-column="34" />
+          <folding>
+            <element signature="n#readAll#0;n#ControllerAdherent#0;n#!!top" />
+            <element signature="n#read#0;n#ControllerAdherent#0;n#!!top" />
+            <element signature="e#1090#1140#0#PHP" />
+            <element signature="n#create#0;n#ControllerAdherent#0;n#!!top" />
+            <element signature="n#becomeprod#0;n#ControllerAdherent#0;n#!!top" />
+            <element signature="n#connect#0;n#ControllerAdherent#0;n#!!top" />
+            <element signature="n#connected#0;n#ControllerAdherent#0;n#!!top" />
+            <element signature="n#deconnect#0;n#ControllerAdherent#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/Model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="101" column="9" lean-forward="true" selection-start-line="94" selection-start-column="10" selection-end-line="101" selection-end-column="9" />
+          <folding>
+            <element signature="n#Init#0;n#Model#0;n#!!top" />
+            <element signature="n#get#0;n#Model#0;n#!!top" />
+            <element signature="n#set#0;n#Model#0;n#!!top" />
+            <element signature="n#__construct#0;n#Model#0;n#!!top" />
+            <element signature="n#delete#0;n#Model#0;n#!!top" />
+            <element signature="n#update#0;n#Model#0;n#!!top" />
+            <element signature="n#save#0;n#Model#0;n#!!top" />
+            <element signature="n#generateId#0;n#Model#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/ModelAdherent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="709">
+          <caret line="205" column="20" lean-forward="true" selection-start-line="205" selection-start-column="20" selection-end-line="205" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/view/admin/update.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1875">
-          <caret line="125" column="54" selection-start-line="125" selection-start-column="54" selection-end-line="125" selection-end-column="54" />
+        <state relative-caret-position="165">
+          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/ControllerAdmin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="261" column="12" lean-forward="true" selection-start-line="261" selection-start-column="12" selection-end-line="261" selection-end-column="12" />
+        <state relative-caret-position="815">
+          <caret line="529" column="16" selection-start-line="529" selection-start-column="16" selection-end-line="529" selection-end-column="16" />
           <folding>
             <element signature="n#adminhomepage#0;n#ControllerAdmin#0;n#!!top" />
             <element signature="n#readAll#0;n#ControllerAdmin#0;n#!!top" />
             <element signature="n#delete#0;n#ControllerAdmin#0;n#!!top" />
-            <element signature="n#update#0;n#ControllerAdmin#0;n#!!top" />
+            <element signature="n#gotoupdate#0;n#ControllerAdmin#0;n#!!top" />
           </folding>
         </state>
       </provider>

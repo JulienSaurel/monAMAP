@@ -2,13 +2,14 @@
 if ($type == 'adherent') {
     $p = ModelPersonne::select($o->get('mailPersonne'));?>
 
-    <form method="post" action="?action=update&controller=admin&type=adherent&id=<?php echo urlencode($id) ?>" enctype="multipart/form-data">
+    <form method="post" action="<?php echo $action; ?>" enctype="multipart/form-data">
         <fieldset>
             <legend><?php echo $formtitle ?> </legend>
             <p>
                 <label for="id_id">Pseudo :</label>
                 <input type="text" value="<?php echo $idAdherent; ?>" name="idAdherent" id="id_id" <?php echo $restriction;?>/>
             </p>
+            <?php echo $inputpwd; ?>
             <p>
                 <label for="nom_id">Nom :</label>
                 <input type="text" value="<?php echo $nomPersonne; ?>" name="nomPersonne" id="nom_id" required/>
@@ -58,7 +59,7 @@ if ($type == 'adherent') {
     </form>
     <?php
 } elseif ($type == 'article') { ?>
-    <form method="post" action="?action=update&controller=admin&type=article&id=<?php echo urlencode($id) ?>" enctype="multipart/form-data" >
+    <form method="post" action="<?php echo $action; ?>" enctype="multipart/form-data" >
 
         <fieldset>
             <legend><?php echo $formtitle;?> :</legend>
@@ -92,7 +93,7 @@ if ($type == 'adherent') {
     </form>
 
 <?php } elseif ($type == 'livreDor') {?>
-<form method="post" action="?action=update&controller=admin&type=livreDor&id=<?php echo urlencode($id)?>">
+<form method="post" action="<?php echo $action; ?>">
     <fieldset>
         <legend> <?php echo $formtitle; ?></legend>
         <?php echo $inputid;?>
@@ -110,7 +111,7 @@ if ($type == 'adherent') {
     </fieldset>
 </form>
 <?php } elseif ($type == 'produit') {?>
-<form method="post" action="?action=update&controller=admin&type=produit&id=<?php echo urlencode($id)?>" enctype="multipart/form-data">
+<form method="post" action="<?php echo $action; ?>" enctype="multipart/form-data">
     <fieldset>
         <legend> <?php echo $formtitle;?></legend>
         <p>
