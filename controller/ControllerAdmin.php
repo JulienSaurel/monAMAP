@@ -169,25 +169,97 @@ class ControllerAdmin
         }
 
         //Si on a pas toutes les données necessaires on declare une erreur
-        if (!isset($_GET['type'])||!isset($_GET['id'])) {
+        if (!isset($_GET['type'])) {
             $_POST['phrase'] = File::warning('Erreur : données insuffiasantes, veuillez réessayer');
             return self::adminhomepage();
         }
 
         //On recupere puis on traite
         $type = $_GET['type'];
-        $id =  $_GET['id'];
+        $id =  $_GET['id'] ?? null;
         $Modelgen = 'Model' . ucfirst($type);
-        $o = $Modelgen::select($id);
+        $o = isset($_GET['id']) ? $Modelgen::select($id) : new $Modelgen();
+        $restriction = $id ? 'readonly':'required';
 
-        if (!$o) {
-            $_POST['phrase'] = File::warning('Erreur : données invalides, veuillez réessayer');
-            self::adminhomepage();
+        if ($type == 'adherent') {
+            $p = ModelPersonne::select($o->get('mailPersonne'));
+            $idAdherent = $id ? htmlspecialchars($id): '';
+            $nomPersonne = $id ? htmlspecialchars($p->get('nomPersonne')): '';
+            $prenomPersonne = $id ? htmlspecialchars($p->get('prenomPersonne')) : '';
+            $mailPersonne = $id ? htmlspecialchars($p->get('mailPersonne')) : '';
+            $adressepostaleAdherent = $id ? htmlspecialchars($o->get('adressepostaleAdherent')) : '';
+            $ville = $id ? htmlspecialchars($o->get('ville')) : '';
+            $estAdministrateur = $id ? $o->get('estAdministrateur') : '';
+            $estProducteur = $id ? $o->get('estProducteur') : '';
+            $description = $id ? $o->get('description') : '';
+            $photo = $id ? $o->get('photo') : '';
+            $dateinscription = $id ? $o->get('dateinscription') : '';
+            $dateproducteur = $id ? $o->get('dateproducteur') :'';
+            $formtitle = $id ? "Modification de $prenomPersonne $nomPersonne:" : 'Inscription d\'un nouvel adhérent:';
+            $submit = $id ? 'Enregistrer les modifications':'Finaliser l\'inscription';
+            $inputoldphoto = $id ? "<p><label>Photo actuelle:</label><img src=\"$photo\"/></p>" : '';
+            $labelupload = $id ? "Changer la photo(upload):":"Upload une photo";
+            $labellinkimg = $id ? "Changer la photo(lien):":"Mettre un lien vers l'image";
+            $dates = $id ? "<p>
+                <label for=\"dateinsc\">Date d'inscription:</label>
+                <input type=\"text\" value=\"$dateinscription\" name=\"dateinscription\" id=\"dateinsc\" readonly/>
+            </p>
+            <p>
+                <label for=\"dateprod\">Date de producteur:</label>
+                <input type=\"text\" value=\"$dateproducteur\" name=\"dateproducteur\" id=\"dateprod\" readonly/>
+            </p>" : "";
+        } elseif ($type == 'article') {
+            $idArticle = $id ? htmlspecialchars($id):'';
+            $titreArticle = $id ? htmlspecialchars($o->get('titreArticle')):'';
+            $mailPersonne = $id ? htmlspecialchars($o->get('mailPersonne')):'';
+            $description = $id ? htmlspecialchars($o->get('description')):'';
+            $photo = $id ? htmlspecialchars($o->get('photo')):'';
+            $date = $id ? htmlspecialchars($o->get('date')):'';
+            $formtitle = $id ? "Modification de l'article $titreArticle:":"Création d'un nouvel article:";
+            $submit = $id ? 'Enregistrer les modifications':'Créer le nouvel article';
+            $inputoldphoto = $id ? "<p><label>Photo actuelle:</label><img src=\"$photo\"/></p>" : '';
+            $labelupload = $id ? "Changer la photo(upload):":"Upload une photo";
+            $labellinkimg = $id ? "Changer la photo(lien):":"Mettre un lien vers l'image";
+            $inputdate = $id ? "<p>
+                <label for=\"date\">Date de parution:</label>
+                <input type=\"text\" value=\"$date\" name=\"date\" id=\"date\" readonly/>
+            </p>":"";
+            $inputid = $id ?"<p>
+                <label for=\"id\">Id</label> :
+                <input type=\"text\" name=\"idArticle\" id=\"id\" value=\"$idArticle\" $restriction/>
+            </p>" :'';
+
+        } elseif ($type == 'livreDor') {
+            $id_message = $id ? htmlspecialchars($id):'';
+            $pseudo = $id ? htmlspecialchars($o->get('pseudo')) : '';
+            $message = $id ? htmlspecialchars($o->get('message')):'';
+            $formtitle = $id ? "Modification du message $id_message":"Création d'un nouveau message";
+            $submit = $id ? "Enregistrer les modifications":"Créer le nouveau message";
+            $inputid = $id ? "<p>
+            <label for=\"id\">Id du message:</label>
+            <input type=\"text\" value=\"$id_message\" name=\"id_message\" id=\"id\" $restriction>
+        </p>":"";
+
+
+        } elseif ($type == 'produit') {
+            $nomProduit = $id ? htmlspecialchars($id) : '';
+            $description = $id ? htmlspecialchars($o->get('description')):'';
+            $image = $id ? htmlspecialchars($o->get('image')):'';
+            $formtitle = $id ? "Modification du produit $nomProduit":"Création d'un nouveau produit";
+            $submit = $id ? "Enregistrer les modifications":"Créer le nouveau produit";
+            $inputoldphoto = $id ? "        <p>
+            <label>Photo actuelle:</label>
+            <img src=\"$image\"/>
+        </p>":"";
+            $labelupload = $id ? "Changer la photo(upload):":"Upload une photo";
+            $labellinkimg = $id ? "Changer la photo(lien):":"Mettre un lien vers l'image";
+
         }
+
         //On redirige vers l'action
         $phrase = "";
         $view = 'update';
-        $pagetitle = 'Mis à jour ' . $type;
+        $pagetitle = $id ? 'Mis à jour ' . $type : "Création de $type";
         require File::build_path(array('view', 'adminpanel.php'));
     }
 

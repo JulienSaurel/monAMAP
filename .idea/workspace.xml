@@ -4,10 +4,7 @@
     <list default="true" id="94c3ccb3-3951-4670-8efd-8102a2c7e176" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/ControllerAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControllerAdmin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/adminstyles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/adminstyles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/admin/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/admin/home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/admin/list.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/admin/list.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/adminmenu.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/adminmenu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/admin/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/admin/update.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,23 +17,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controller/ControllerAdmin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="73" column="46" lean-forward="true" selection-start-line="73" selection-start-column="46" selection-end-line="73" selection-end-column="46" />
+            <state relative-caret-position="469">
+              <caret line="261" column="12" lean-forward="true" selection-start-line="261" selection-start-column="12" selection-end-line="261" selection-end-column="12" />
               <folding>
                 <element signature="n#adminhomepage#0;n#ControllerAdmin#0;n#!!top" />
+                <element signature="n#readAll#0;n#ControllerAdmin#0;n#!!top" />
                 <element signature="n#delete#0;n#ControllerAdmin#0;n#!!top" />
-                <element signature="n#gotoupdate#0;n#ControllerAdmin#0;n#!!top" />
                 <element signature="n#update#0;n#ControllerAdmin#0;n#!!top" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/admin/update.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="434">
-              <caret line="95" column="67" lean-forward="true" selection-start-line="95" selection-start-column="67" selection-end-line="95" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -122,17 +110,17 @@
         <option value="$PROJECT_DIR$/model/ModelProduit.php" />
         <option value="$PROJECT_DIR$/controller/ControllerAccueil.php" />
         <option value="$PROJECT_DIR$/view/accueil/accueil.php" />
-        <option value="$PROJECT_DIR$/view/admin/update.php" />
         <option value="$PROJECT_DIR$/controller/ControllerNosProduits.php" />
         <option value="$PROJECT_DIR$/view/nosProduits/createProd.php" />
         <option value="$PROJECT_DIR$/view/laVieAlAMAP/createArt.php" />
         <option value="$PROJECT_DIR$/controller/ControllerLaVieAlAMAP.php" />
-        <option value="$PROJECT_DIR$/controller/ControllerAdmin.php" />
         <option value="$PROJECT_DIR$/view/admin/list.php" />
         <option value="$PROJECT_DIR$/view/admin/home.php" />
         <option value="$PROJECT_DIR$/view/adminpanel.php" />
         <option value="$PROJECT_DIR$/view/adminmenu.php" />
         <option value="$PROJECT_DIR$/css/adminstyles.css" />
+        <option value="$PROJECT_DIR$/view/admin/update.php" />
+        <option value="$PROJECT_DIR$/controller/ControllerAdmin.php" />
       </list>
     </option>
   </component>
@@ -280,7 +268,7 @@
       <workItem from="1546168789491" duration="7379000" />
       <workItem from="1546193558008" duration="1177000" />
       <workItem from="1546439167920" duration="23850000" />
-      <workItem from="1546511799933" duration="24378000" />
+      <workItem from="1546511799933" duration="30237000" />
     </task>
     <task id="LOCAL-00001" summary="Model generique et petits fix">
       <created>1545583549669</created>
@@ -387,11 +375,18 @@
       <option name="project" value="LOCAL" />
       <updated>1546535684163</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="améloration de l'affichage du back office">
+      <created>1546541691951</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1546541691951</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="157482000" />
+    <option name="totallyTimeSpent" value="163341000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -406,7 +401,7 @@
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49947312" visible="true" weight="0.13779746" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49947312" visible="true" weight="0.13779746" />
       <window_info id="Structure" order="1" sideWeight="0.50052685" side_tool="true" weight="0.124123044" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -521,7 +516,8 @@
     <MESSAGE value="Update presque fini (il ne manque que l'upload de fichier)&#10;+ refactor de ModelArticles en ModelArticle" />
     <MESSAGE value="Fin update" />
     <MESSAGE value="Fin upload fichier produit et article" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fin upload fichier produit et article" />
+    <MESSAGE value="améloration de l'affichage du back office" />
+    <option name="LAST_COMMIT_MESSAGE" value="améloration de l'affichage du back office" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
@@ -853,19 +849,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/view/admin/update.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="95" column="67" lean-forward="true" selection-start-line="95" selection-start-column="67" selection-end-line="95" selection-end-column="67" />
+        <state relative-caret-position="1875">
+          <caret line="125" column="54" selection-start-line="125" selection-start-column="54" selection-end-line="125" selection-end-column="54" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/ControllerAdmin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="73" column="46" lean-forward="true" selection-start-line="73" selection-start-column="46" selection-end-line="73" selection-end-column="46" />
+        <state relative-caret-position="469">
+          <caret line="261" column="12" lean-forward="true" selection-start-line="261" selection-start-column="12" selection-end-line="261" selection-end-column="12" />
           <folding>
             <element signature="n#adminhomepage#0;n#ControllerAdmin#0;n#!!top" />
+            <element signature="n#readAll#0;n#ControllerAdmin#0;n#!!top" />
             <element signature="n#delete#0;n#ControllerAdmin#0;n#!!top" />
-            <element signature="n#gotoupdate#0;n#ControllerAdmin#0;n#!!top" />
             <element signature="n#update#0;n#ControllerAdmin#0;n#!!top" />
           </folding>
         </state>
