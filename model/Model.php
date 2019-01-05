@@ -317,6 +317,7 @@ class Model {
 
     }
 
+    //renvoie le nombre d'objets a valider dans le model appelé
     public static function countToValid()
     {
         try{
@@ -342,6 +343,7 @@ class Model {
         return $res;
     }
 
+    //renvoie le nombre total d'objets a valider
     public static function countTotalToValid()
     {
         return ModelLivreDor::countToValid() + ModelArticle::countToValid() + ModelAdherent::countToValid();

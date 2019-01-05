@@ -734,7 +734,7 @@ class ControllerAdmin
     /**
      * valide un objet caractérisé par id et type
      */
-    public static function validatedOne()
+    public static function validatedOne($type = null, $id = null)
     {
         //Si la personne n'est pas connectée on declare une erreur
         if (!isset($_SESSION['login'])) {
@@ -749,15 +749,16 @@ class ControllerAdmin
         }
 
         //Si on a pas toutes les données necessaires a la supression on declare une erreur
-        if (!isset($_GET['type'])||!isset($_GET['id'])) {
-            $_POST['phrase'] = File::warning('Erreur : données insuffiasantes, veuillez réessayer');
-            return self::adminhomepage();
-
+        if (isset($_GET['type'])&&isset($_GET['id'])) {
+            //on recupere tout et on traite puis on redirige vers l'accueil
+            $type = $_GET['type'];
+            $id = $_GET['id'];
         }
 
-        //on recupere tout et on traite puis on redirige vers l'accueil
-        $type = $_GET['type'];
-        $id = $_GET['id'];
+        if (!isset($id)||!isset($type)) {
+            $_POST['phrase'] = File::warning('Erreur : données insuffiasantes, veuillez réessayer');
+            return self::adminhomepage();
+        }
 
         //en fonction du type on prepare un tableau pour l'update
         if ($type == 'adherent') {
@@ -786,7 +787,8 @@ class ControllerAdmin
 
         //on update
         $Modelgen = 'Model' . ucfirst($type);
-        if(!$Modelgen::update($array)) {
+        $Modelgen::update($array);
+        if(!$Modelgen::select($id)) {
             $_POST['phrase'] = File::warning('Erreur : données invalides, veuillez réessayer');
             return self::adminhomepage();
         }
@@ -836,12 +838,8 @@ class ControllerAdmin
         foreach ($Modelgen::selectAllToValid() as $o)
         {
             $id = $o->get("$nameid");
-            var_dump($_POST);
-            var_dump($_POST["$id"]);
             if (isset($_POST["$id"])) {
-                $_GET['type'] = $type;
-                $_GET['id'] = $id;
-                self::validatedOne();
+                self::validatedOne($type, $id);
             }
         }
 

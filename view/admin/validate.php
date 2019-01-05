@@ -13,8 +13,11 @@
     <main class="mdl-layout__content">
         <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
             <div class="page-content">
+                <form method="post" action="?action=validatedAll&controller=admin&type=adherent">
+                    <fieldset>
                     <ul class="demo-list-icon mdl-list">
                         <?php  $i=1; foreach ($tabAdherents as $o) {
+                            $type = 'adherent';
                             $id = $o->get('idAdherent');
                             $p = ModelPersonne::select($o->get('mailPersonne'));?>
                             <li class="mdl-list__item">
@@ -23,25 +26,29 @@
                                 <a href="?action=gotoupdate&id=<?php echo urlencode($id); ?>&type=adherent&controller=admin"><?php echo htmlspecialchars($p->get('prenomPersonne')) . " " . htmlspecialchars($p->get('nomPersonne')); ?></a>
                             </span>
                                 <span class="mdl-list__item-secondary-content">
-                                <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-<?php echo $i;?>">
-                                <input type="checkbox" id="switch-<?php echo $i;?>" name="<?php echo $id ?>" class="mdl-switch__input">
+                                <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="<?php echo "$type-$i";?>">
+                                <input type="checkbox" id="<?php echo "$type-$i";?>" name="<?php echo $id ?>" class="mdl-switch__input">
                                 <span class="mdl-switch__label">Valider le producteur</span>
                                 </label>
+                                </span>
                             </li>
 
                             <?php $i++; } ?>
                     </ul>
-                <a href="?action=validatedAll&controller=admin&type=adherent">
-                <button class="mdl-button mdl-js-button mdl-button--raised">
-                    Enregistrer
+                <button class="mdl-button mdl-js-button mdl-button--raised" type="submit">
+                    Valider
                 </button>
-                </a>
+                    </fieldset>
+                </form>
             </div>
         </section>
         <section class="mdl-layout__tab-panel" id="fixed-tab-2">
             <div class="page-content">
+                <form method="post" action="?action=validatedAll&controller=admin&type=article">
+                    <fieldset>
                 <ul class="demo-list-icon mdl-list">
                     <?php  $i=1; foreach ($tabArticles as $o) {
+                        $type = 'article';
                         $id = $o->get('idArticle');?>
                         <li class="mdl-list__item">
                             <span class="mdl-list__item-primary-content">
@@ -49,25 +56,29 @@
                                 <a href="?action=gotoupdate&id=<?php echo urlencode($id); ?>&type=article&controller=admin"><?php echo htmlspecialchars($o->get('titreArticle')); ?></a>
                             </span>
                             <span class="mdl-list__item-secondary-content">
-                                <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-<?php echo $i;?>">
-                                <input type="checkbox" id="switch-<?php echo $i;?>" name="<?php echo $id ?>" class="mdl-switch__input">
+                                <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="<?php echo "$type-$i";?>">
+                                <input type="checkbox" id="<?php echo "$type-$i";?>" name="<?php echo $id ?>" class="mdl-switch__input">
                                 <span class="mdl-switch__label">Valider l'article</span>
                                 </label>
+                            </span>
                         </li>
 
                         <?php $i++; } ?>
                 </ul>
-                <a href="?action=validatedAll&controller=admin&type=article">
-                <button class="mdl-button mdl-js-button mdl-button--raised">
-                    Enregistrer
+                <button class="mdl-button mdl-js-button mdl-button--raised" type="submit">
+                    Valider
                 </button>
-                </a>
+                </fieldset>
+                </form>
             </div>
         </section>
         <section class="mdl-layout__tab-panel" id="fixed-tab-3">
             <div class="page-content">
-                <ul class="demo-list-icon mdl-list">
+                    <form method="post" action="?action=validatedAll&controller=admin&type=livreDor">
+                        <fieldset>
+                            <ul class="demo-list-icon mdl-list">
                     <?php  $i=1; foreach ($tablivreDor as $o) {
+                        $type = 'livreDor';
                         $id = $o->get('id_message');?>
                         <li class="mdl-list__item">
                             <span class="mdl-list__item-primary-content">
@@ -75,19 +86,20 @@
                                 <a href="?action=gotoupdate&id=<?php echo urlencode($id); ?>&type=livreDor&controller=admin"><?php echo htmlspecialchars($o->get('pseudo')); ?></a>
                             </span>
                             <span class="mdl-list__item-secondary-content">
-                                <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-<?php echo $i;?>">
-                                <input type="checkbox" id="switch-<?php echo $i;?>" name="<?php echo $id ?>" class="mdl-switch__input">
+                                <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="<?php echo "$type-$i";?>">
+                                <input type="checkbox" id="<?php echo "$type-$i";?>" name="<?php echo $id ?>" class="mdl-switch__input">
                                 <span class="mdl-switch__label">Valider le message</span>
                                 </label>
+                            </span>
                         </li>
 
                         <?php $i++; } ?>
                 </ul>
-                <a href="?action=validatedAll&controller=admin&type=livreDor">
-                <button class="mdl-button mdl-js-button mdl-button--raised">
-                    Enregistrer
+                <button class="mdl-button mdl-js-button mdl-button--raised" type="submit">
+                    Valider
                 </button>
-                </a>
+                </fieldset>
+                </form>
             </div>
         </section>
     </main>

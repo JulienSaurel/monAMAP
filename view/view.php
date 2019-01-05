@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>  
-        <link rel="icon" type="image/png" href="images/nature.png" />
-       	<link rel="stylesheet" type="text/css" href="css/styles.css">
-        <script src="script/jquery.min.js"></script>
-        <script src="script/script.js"></script>
+            <link rel="icon" type="image/png" href="images/nature.png" />
+            <link rel="stylesheet" type="text/css" href="css/styles.css">
+            <script src="script/jquery.min.js"></script>
+            <script src="script/script.js"></script>
         <meta charset="UTF-8">
         <title><?php echo $pagetitle; ?></title>
     
