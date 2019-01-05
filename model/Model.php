@@ -317,7 +317,7 @@ class Model {
 
     }
 
-    public static function CountToValid()
+    public static function countToValid()
     {
         try{
             //on recupere les noms de tables/classes a partir des attributs statics declares dans chaque classe
@@ -342,9 +342,9 @@ class Model {
         return $res;
     }
 
-    public static function CountTotalToValid()
+    public static function countTotalToValid()
     {
-        return ModelLivreDor::CountToValid() + ModelArticle::CountToValid() + ModelAdherent::CountToValid();
+        return ModelLivreDor::countToValid() + ModelArticle::countToValid() + ModelAdherent::countToValid();
     }
 }
 Model::Init();

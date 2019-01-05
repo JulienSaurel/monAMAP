@@ -52,10 +52,7 @@ class ControllerAdherent
 	// 	require File::build_path(array('view','view.php'));
 	// }
 	*/
-
-
-
-
+	
 	/**
 	 * action d'inscription
 	 */
@@ -219,7 +216,7 @@ class ControllerAdherent
 			'idAdherent' => trim($id),
 			'description' => $description,
 			'photo' => $name,
-			'estProducteur' => true,
+			'isValid' => false,
 			'dateProducteur' => $dateprod,
 		];
 

@@ -31,7 +31,7 @@
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
             <a class="mdl-navigation__link" href="?action=homepage&controller=accueil"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Page d'accueil du site</a>
-                <a class="mdl-navigation__link" href="?action=validate&controller=admin"> <div class="material-icons mdl-badge mdl-badge--overlap" data-badge="<?php echo Model::CountTotalToValid() ?>"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">flag</i></div>Validations en attente</a>
+                <a class="mdl-navigation__link" href="?action=validate&controller=admin"> <div class="material-icons mdl-badge mdl-badge--overlap" data-badge="<?php echo Model::countTotalToValid() ?>"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">flag</i></div>Validations en attente</a>
 
             <a class="mdl-navigation__link" href="?action=readAll&controller=admin&type=livreDor"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">forum</i>Messages</a>
             <a class="mdl-navigation__link" href="?action=readAll&controller=admin&type=adherent"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person</i>Adhérents</a>

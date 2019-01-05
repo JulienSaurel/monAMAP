@@ -63,6 +63,7 @@ class ControllerLaVieAlAMAP
             $arraymsg = [
                 'message' => $message,
                 'pseudo' => $pseudo,
+                'isValid' => false,
             ];
         }
 
@@ -148,6 +149,7 @@ class ControllerLaVieAlAMAP
                 'date' => $date,
                 'description' => $corps,
                 'mailPersonne' => $mailPersonne,
+                'isValid' => false,
             ];
 
             //on enregistre les données dans la bd

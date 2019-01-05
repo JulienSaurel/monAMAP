@@ -268,6 +268,9 @@ class ControllerAdmin
         require File::build_path(array('view', 'adminpanel.php'));
     }
 
+    /**
+     * Update ou crée selon le formulaire recu
+     */
     public static function update()
     {
         //Si la personne n'est pas connectée on declare une erreur
@@ -694,6 +697,10 @@ class ControllerAdmin
         }
     }
 
+    /**
+     * @return mixed|void
+     * redirige vers la page de validation
+     */
     public static function validate()
     {
         //Si la personne n'est pas connectée on declare une erreur
@@ -708,6 +715,10 @@ class ControllerAdmin
             return ControllerAccueil::homepage();
         }
 
+        $tabAdherents = ModelAdherent::selectAllToValid();
+        $tabArticles = ModelArticle::selectAllToValid();
+        $tablivreDor = ModelLivreDor::selectAllToValid();
+
         if (!isset($phrase)) {
             if (isset($_POST['phrase'])) {
                 $phrase = $_POST['phrase'];
@@ -718,6 +729,123 @@ class ControllerAdmin
         $view = 'validate';
         $pagetitle = 'Page de validation';
         return require File::build_path(['view','adminpanel.php']);
+    }
+
+    /**
+     * valide un objet caractérisé par id et type
+     */
+    public static function validatedOne()
+    {
+        //Si la personne n'est pas connectée on declare une erreur
+        if (!isset($_SESSION['login'])) {
+            $_POST['phrase'] = File::warning('Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url');
+            return ControllerAccueil::homepage();
+        }
+
+        //Si la personne n'est pas admin on declare une erreur
+        if (!isset($_SESSION['administrateur'])) {
+            $_POST['phrase'] = File::warning('Ne faîtes pas l\'enfant, vous n\'êtes pas administrateur');
+            return ControllerAccueil::homepage();
+        }
+
+        //Si on a pas toutes les données necessaires a la supression on declare une erreur
+        if (!isset($_GET['type'])||!isset($_GET['id'])) {
+            $_POST['phrase'] = File::warning('Erreur : données insuffiasantes, veuillez réessayer');
+            return self::adminhomepage();
+
+        }
+
+        //on recupere tout et on traite puis on redirige vers l'accueil
+        $type = $_GET['type'];
+        $id = $_GET['id'];
+
+        //en fonction du type on prepare un tableau pour l'update
+        if ($type == 'adherent') {
+            $lenom = 'L\'adhérent ';
+            $array = [
+                'idAdherent' => $id,
+                'isValid' => true,
+                'estProducteur' => true,
+            ];
+        } elseif ($type == 'article') {
+            $lenom = 'L\'article ';
+            $array = [
+                'idArticle' => $id,
+                'isValid' => true,
+            ];
+        } elseif ($type == 'livreDor') {
+            $lenom = 'Le message ';
+            $array = [
+                'id_message' => $id,
+                'isValid' => true,
+            ];
+        } else {
+            $_POST['phrase'] = File::warning("Erreur: type incorrect");
+            return self::adminhomepage();
+        }
+
+        //on update
+        $Modelgen = 'Model' . ucfirst($type);
+        if(!$Modelgen::update($array)) {
+            $_POST['phrase'] = File::warning('Erreur : données invalides, veuillez réessayer');
+            return self::adminhomepage();
+        }
+
+
+        $_POST['phrase'] = $lenom . $id . ' a bien été validé';
+        return self::adminhomepage();
+    }
+
+    /**
+     * Appel validatedOne autant de fois qu'il le faut pour tout valider
+     */
+    public static function validatedAll()
+    {
+        //Si la personne n'est pas connectée on declare une erreur
+        if (!isset($_SESSION['login'])) {
+            $_POST['phrase'] = File::warning('Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url');
+            return ControllerAccueil::homepage();
+        }
+
+        //Si la personne n'est pas admin on declare une erreur
+        if (!isset($_SESSION['administrateur'])) {
+            $_POST['phrase'] = File::warning('Ne faîtes pas l\'enfant, vous n\'êtes pas administrateur');
+            return ControllerAccueil::homepage();
+        }
+
+        //Si on a pas toutes les données necessaires on declare une erreur
+        if (!isset($_GET['type'])) {
+            $_POST['phrase'] = File::warning('Erreur : données insuffiasantes, veuillez réessayer');
+            return self::adminhomepage();
+
+        }
+
+        $type = $_GET['type'];
+        if ($type == 'adherent') {
+            $nameid = 'idAdherent';
+        } elseif ($type == 'article') {
+            $nameid = 'idArticle';
+        } elseif ($type == 'livreDor') {
+            $nameid = 'id_message';
+        } else {
+            $_POST['phrase'] = File::warning("Erreur: type incorrect");
+            return self::adminhomepage();
+        }
+
+        $Modelgen = "Model" . ucfirst($type);
+        foreach ($Modelgen::selectAllToValid() as $o)
+        {
+            $id = $o->get("$nameid");
+            var_dump($_POST);
+            var_dump($_POST["$id"]);
+            if (isset($_POST["$id"])) {
+                $_GET['type'] = $type;
+                $_GET['id'] = $id;
+                self::validatedOne();
+            }
+        }
+
+        self::validate();
     }
 //page d'erreur
     public static function error()
