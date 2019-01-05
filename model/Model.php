@@ -84,7 +84,7 @@ class Model {
         $primary_key = static::$primary;
 
         $sql = "SELECT * from " . ucfirst($table_name) .  " WHERE " . $primary_key . " ='" . trim($primary_value). "'";
-        //var_dump($sql);
+
         $req_prep = Model::$pdo->prepare($sql);
 
         $req_prep->execute();
@@ -142,7 +142,7 @@ class Model {
         $table_name = static::$object;
         $class_name = 'Model' . ucfirst($table_name);
         $sql = 'SELECT COUNT(*) FROM '.ucfirst($table_name);
-        // var_dump($sql);
+
         $req_prep = Model::$pdo->prepare($sql);
 
         $req_prep->execute();

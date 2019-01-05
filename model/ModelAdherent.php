@@ -48,7 +48,6 @@ class ModelAdherent extends Model
             }
             die();
         }
-		//var_dump($tab[0]);
         return $tab[0];
 
     }
@@ -86,6 +85,7 @@ class ModelAdherent extends Model
 
     }
 
+    // Attention le tableau est un tableau de tableau avec deux cases contenant la meme valeur
     public static function getMailAdmin(){
         try {
             $sql = "SELECT P.mailPersonne FROM Adherent A JOIN Personne P ON P.mailPersonne=A.mailPersonne WHERE A.estAdministrateur=:admin";
@@ -107,7 +107,6 @@ class ModelAdherent extends Model
             }
             die();
         }
-        //var_dump($tabAdmin[0][0]);
         return $tabAdmin;
     } 
 
@@ -132,7 +131,6 @@ class ModelAdherent extends Model
             }
             die();
         }
-        //var_dump($tab);
         return $tab;
         //TODO reregarder plus tard s'il ny a plus de pb
     }

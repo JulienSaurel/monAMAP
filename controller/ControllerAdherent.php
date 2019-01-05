@@ -1,8 +1,12 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 require_once File::build_path(array('model','ModelAdherent.php'));// chargement du modèle
 require_once File::build_path(array('model','ModelPersonne.php'));// chargement du modèle
 require_once File::build_path(array('controller','ControllerMonProfil.php'));// chargement du modèle
 require_once File::build_path(array('controller','ControllerAdmin.php'));// chargement du modèle
+require_once File::build_path(array('libExternes', 'PHPMailer-master','src','MailerLoader.php'));
 
 
 class ControllerAdherent
@@ -183,7 +187,7 @@ class ControllerAdherent
 			return self::error();
 
 		//on vérifie que l'image est uploadée
-		if (empty($_FILES['nom-image']) || !is_uploaded_file($_FILES['nom-image']['tmp_name']))
+		/*if (empty($_FILES['nom-image']) || !is_uploaded_file($_FILES['nom-image']['tmp_name']))
 			return self::error();
 
 		//on recupere le nom du fichier
@@ -205,7 +209,7 @@ class ControllerAdherent
 
 		//on test que le fichier upload existe au bon endroit
 		if (!file_exists($path))
-			return self::error();
+			return self::error();*/
 
 		//on recupere les infos du form
 		$description = $_POST['description'];
@@ -215,10 +219,57 @@ class ControllerAdherent
 		$arrayupd = [
 			'idAdherent' => trim($id),
 			'description' => $description,
-			'photo' => $name,
+			'photo' => null,//$name,
 			'isValid' => false,
 			'dateProducteur' => $dateprod,
 		];
+
+		///////////////////////////////////////
+		/// On envoie un mail aux admin //////
+		/////////////////////////////////////
+		$a = ModelAdherent::select($id);
+		$email = $a->get('mailPersonne');
+		$p = ModelPersonne::select($email);
+		$nom = $p->get('nomPersonne');
+		$prenom = $p->get('prenomPersonne');
+		$toValid = Model::countTotalToValid();
+		$idurl = urlencode($id);
+
+		$mail = new PHPMailer(TRUE);
+
+		/* Open the try/catch block. */
+		try {
+			/* Set the mail sender. */
+			$mail->setFrom('AMAP-Occitanie@no-reply.com', 'AMAP Occitanie');
+
+			/* Add a recipient. */
+			foreach (ModelAdherent::getMailAdmin() as $email) {
+				$prenomAdmin = ModelPersonne::select($email['0'])->get('prenomPersonne');
+				$nomAdmin = ModelPersonne::select($email['0'])->get('nomPersonne');
+				$mail->addAddress($email['0'], "$prenomAdmin $nomAdmin");
+			}
+
+			/* Set the subject. */
+			$mail->Subject = "$prenom $nom voudrait devenir producteur";
+
+			/* Set the mail message body. */
+			$mail->isHTML(TRUE);
+			$mail->Body = "<html>Bonjour, pour valider le nouveau producteur veuillez vous connecter en tant qu'administrateur puis, veuillez cliquez <a href=\"http://webinfo.iutmontp.univ-montp2.fr/~sambucd/monAMAP/?action=validatedOne&controller=admin&type=adherent&id=$idurl\">ici</a>, pour voir toutes les validations en attente veuillez cliquer <a href=\"http://webinfo.iutmontp.univ-montp2.fr/~sambucd/monAMAP/?action=validate&controller=admin\">ici</a>, il y a actuellement $toValid demandes a valider.</html>";
+			$mail->AltBody = "Bonjour, pour valider le nouveau producteur, veuillez copier coller ce lien dans la barre de navigation http://webinfo.iutmontp.univ-montp2.fr/~sambucd/monAMAP/?action=validatedOne&controller=admin&type=adherent&id=$idurl, pour voir toutes les validations en attente veuillez copier coller ce lien dans la barre de navigation http://webinfo.iutmontp.univ-montp2.fr/~sambucd/monAMAP/?action=validate&controller=admin , il y a actuellement $toValid demandes a valider.";
+
+			/* Finally send the mail. */
+			$mail->send();
+		}
+		catch (Exception $e)
+		{
+			/* PHPMailer exception. */
+			echo $e->errorMessage();
+		}
+		catch (\Exception $e)
+		{
+			/* PHP exception (note the backslash to select the global namespace Exception class). */
+			echo $e->getMessage();
+		}
 
 		//on update la personne
 		ModelAdherent::update($arrayupd);

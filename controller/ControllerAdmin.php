@@ -796,8 +796,8 @@ class ControllerAdmin
 
                 /* Set the mail message body. */
                 $mail->isHTML(TRUE);
-                $mail->Body = "<html>Bonjour $nom, félicitation, vous êtes désormais <strong>producteur officiel</strong> de l'amap d'O!</html>";
-                $mail->AltBody = "Bonjour $nom, félicitation, vous êtes désormais producteur officiel de l'amap d'O!";
+                $mail->Body = "<html>Bonjour $prenom $nom, félicitation, vous êtes désormais producteur officiel de l'amap d'O!</html>";
+                $mail->AltBody = "Bonjour $prenom $nom, félicitation, vous êtes désormais producteur officiel de l'amap d'O!";
 
                 /* Finally send the mail. */
                 $mail->send();
@@ -819,6 +819,44 @@ class ControllerAdmin
                 'idArticle' => $id,
                 'isValid' => true,
             ];
+            $a = ModelArticle::select($id);
+            $email = $a->get('mailPersonne');
+            $p = ModelPersonne::select($email);
+            $nom = $p->get('nomPersonne');
+            $prenom = $p->get('prenomPersonne');
+            $titre = $a->get('titreArticle');
+
+            $mail = new PHPMailer(TRUE);
+
+            /* Open the try/catch block. */
+            try {
+                /* Set the mail sender. */
+                $mail->setFrom('AMAP-Occitanie@no-reply.com', 'AMAP Occitanie');
+
+                /* Add a recipient. */
+                $mail->addAddress($email, "$prenom $nom");
+
+                /* Set the subject. */
+                $mail->Subject = "Publication de votre article";
+
+                /* Set the mail message body. */
+                $mail->isHTML(TRUE);
+                $mail->Body = "<html>Bonjour $prenom $nom, Votre article a bien été publié sur le site de l'amap!</html>";
+                $mail->AltBody = "Bonjour $prenom $nom, félicitation, vous êtes désormais producteur officiel de l'amap d'O!";
+
+                /* Finally send the mail. */
+                $mail->send();
+            }
+            catch (Exception $e)
+            {
+                /* PHPMailer exception. */
+                echo $e->errorMessage();
+            }
+            catch (\Exception $e)
+            {
+                /* PHP exception (note the backslash to select the global namespace Exception class). */
+                echo $e->getMessage();
+            }
         } elseif ($type == 'livreDor') {
             $lenom = 'Le message ';
             $array = [

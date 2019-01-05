@@ -1,8 +1,13 @@
 <?php
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 require_once File::build_path(array('model','ModelLivreDor.php')); // chargement du modèle
 require_once File::build_path(array('model','ModelArticle.php')); // chargement du modèle
 require_once File::build_path(array('model','ModelAdherent.php')); // chargement du modèle
 require_once File::build_path(array('model','Model.php')); // chargement du modèle
+require_once File::build_path(array('libExternes', 'PHPMailer-master','src','MailerLoader.php'));
 
 class ControllerLaVieAlAMAP
 {
@@ -25,7 +30,7 @@ class ControllerLaVieAlAMAP
         require File::build_path(array('view','view.php'));
     }
 
-    //redirige vers la page "Evenements"
+    //redirige vers la page "livre d'or"
     public static function display2nd()
     {
         $view = 'evenements';
@@ -59,8 +64,10 @@ class ControllerLaVieAlAMAP
         {
             $pseudo = htmlspecialchars($_POST['pseudo']); // On utilise mysql_real_escape_string et htmlspecialchars par mesure de sécurité
             $message = nl2br(htmlspecialchars($_POST['message'])); // pour le msg on gere aussi les retours charriots
+            $id = ModelLivreDor::generateId();
 
             $arraymsg = [
+                'id_message' => $id,
                 'message' => $message,
                 'pseudo' => $pseudo,
                 'isValid' => false,
@@ -68,6 +75,50 @@ class ControllerLaVieAlAMAP
         }
 
         ModelLivreDor::save($arraymsg);
+
+        ///////////////////////////////////////
+        /// On envoie un mail aux admin //////
+        /////////////////////////////////////
+        $a = ModelLivreDor::select($id);
+        $pseudo = $a->get('pseudo');
+        $toValid = Model::countTotalToValid();
+        $idurl = urlencode($id);
+
+        $mail = new PHPMailer(TRUE);
+
+        /* Open the try/catch block. */
+        try {
+            /* Set the mail sender. */
+            $mail->setFrom('AMAP-Occitanie@no-reply.com', 'AMAP Occitanie');
+
+            /* Add a recipient. */
+            foreach (ModelAdherent::getMailAdmin() as $email) {
+                $prenomAdmin = ModelPersonne::select($email['0'])->get('prenomPersonne');
+                $nomAdmin = ModelPersonne::select($email['0'])->get('nomPersonne');
+                $mail->addAddress($email['0'], "$prenomAdmin $nomAdmin");
+            }
+
+            /* Set the subject. */
+            $mail->Subject = "$pseudo voudrait publier un message sur le livre d'or";
+
+            /* Set the mail message body. */
+            $mail->isHTML(TRUE);
+            $mail->Body = "<html>Bonjour, pour valider le nouveau message veuillez vous connecter en tant qu'administrateur puis, veuillez cliquez <a href=\"http://webinfo.iutmontp.univ-montp2.fr/~sambucd/monAMAP/?action=validatedOne&controller=admin&type=livreDor&id=$idurl\">ici</a>, pour voir toutes les validations en attente veuillez cliquer <a href=\"http://webinfo.iutmontp.univ-montp2.fr/~sambucd/monAMAP/?action=validate&controller=admin\">ici</a>, il y a actuellement $toValid demandes a valider.</html>";
+            $mail->AltBody = "Bonjour, pour valider le nouveau message, veuillez copier coller ce lien dans la barre de navigation http://webinfo.iutmontp.univ-montp2.fr/~sambucd/monAMAP/?action=validatedOne&controller=admin&type=livreDor&id=$idurl, pour voir toutes les validations en attente veuillez copier coller ce lien dans la barre de navigation http://webinfo.iutmontp.univ-montp2.fr/~sambucd/monAMAP/?action=validate&controller=admin , il y a actuellement $toValid demandes a valider.";
+
+            /* Finally send the mail. */
+            $mail->send();
+        }
+        catch (Exception $e)
+        {
+            /* PHPMailer exception. */
+            echo $e->errorMessage();
+        }
+        catch (\Exception $e)
+        {
+            /* PHP exception (note the backslash to select the global namespace Exception class). */
+            echo $e->getMessage();
+        }
 
         $nombrepages = ModelLivreDor::getNbPages();
 
@@ -137,6 +188,7 @@ class ControllerLaVieAlAMAP
             $date = date("Y-m-d H:i:s");
 
             //on met toutes les données dans un tableau
+            $id = ModelArticle::generateId();
             $a = ModelAdherent::select($_SESSION['login']);
             $mailPersonne = $a->get('mailPersonne');
             $titre = $_POST['titre'];
@@ -144,16 +196,65 @@ class ControllerLaVieAlAMAP
             $corps = $_POST['corps'];
 
             $data = [
+                'idArticle' => $id,
                 'titreArticle' => $titre,
                 'photo' => $photo,
                 'date' => $date,
                 'description' => $corps,
                 'mailPersonne' => $mailPersonne,
-                'isValid' => false,
+                'isValid' => 0,
             ];
 
             //on enregistre les données dans la bd
             ModelArticle::save($data);
+
+            ///////////////////////////////////////
+            /// On envoie un mail aux admin //////
+            /////////////////////////////////////
+            $a = ModelArticle::select($id);
+            $email = $a->get('mailPersonne');
+            $p = ModelPersonne::select($email);
+            $nom = $p->get('nomPersonne');
+            $prenom = $p->get('prenomPersonne');
+            $toValid = Model::countTotalToValid();
+            $idurl = urlencode($id);
+
+            $mail = new PHPMailer(TRUE);
+
+            /* Open the try/catch block. */
+            try {
+                /* Set the mail sender. */
+                $mail->setFrom('AMAP-Occitanie@no-reply.com', 'AMAP Occitanie');
+
+                /* Add a recipient. */
+
+                foreach (ModelAdherent::getMailAdmin() as $email) {
+                    $prenomAdmin = ModelPersonne::select($email['0'])->get('prenomPersonne');
+                    $nomAdmin = ModelPersonne::select($email['0'])->get('nomPersonne');
+                    $mail->addAddress($email['0'], "$prenomAdmin $nomAdmin");
+                }
+
+                /* Set the subject. */
+                $mail->Subject = "$prenom $nom voudrait publier un article";
+
+                /* Set the mail message body. */
+                $mail->isHTML(TRUE);
+                $mail->Body = "<html>Bonjour, pour valider le nouvel article veuillez vous connecter en tant qu'administrateur puis, veuillez cliquez <a href=\"http://webinfo.iutmontp.univ-montp2.fr/~sambucd/monAMAP/?action=validatedOne&controller=admin&type=article&id=$idurl\">ici</a>, pour voir toutes les validations en attente veuillez cliquer <a href=\"http://webinfo.iutmontp.univ-montp2.fr/~sambucd/monAMAP/?action=validate&controller=admin\">ici</a>, il y a actuellement $toValid demandes a valider.</html>";
+                $mail->AltBody = "Bonjour, pour valider le nouvel article, veuillez copier coller ce lien dans la barre de navigation http://webinfo.iutmontp.univ-montp2.fr/~sambucd/monAMAP/?action=validatedOne&controller=admin&type=article&id=$idurl, pour voir toutes les validations en attente veuillez copier coller ce lien dans la barre de navigation http://webinfo.iutmontp.univ-montp2.fr/~sambucd/monAMAP/?action=validate&controller=admin , il y a actuellement $toValid demandes a valider.";
+
+                /* Finally send the mail. */
+                $mail->send();
+            }
+            catch (Exception $e)
+            {
+                /* PHPMailer exception. */
+                echo $e->errorMessage();
+            }
+            catch (\Exception $e)
+            {
+                /* PHP exception (note the backslash to select the global namespace Exception class). */
+                echo $e->getMessage();
+            }
 
             //redirection vers les articles
             self::display1st();
