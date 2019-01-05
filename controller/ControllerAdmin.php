@@ -179,6 +179,10 @@ class ControllerAdmin
         $id =  $_GET['id'] ?? null;
         $Modelgen = 'Model' . ucfirst($type);
         $o = isset($_GET['id']) ? $Modelgen::select($id) : new $Modelgen();
+        if (!$o) {
+            $_POST['phrase'] = File::warning('Erreur : id incorrecte, veuillez réessayer');
+            return self::adminhomepage();
+        }
         $restriction = $id ? 'readonly':'required';
         $idurl = $id ? urlencode($id) : null;
         $action = $id? "?action=update&controller=admin&type=$type&id=$idurl" : "?action=update&controller=admin&type=$type";
@@ -279,7 +283,7 @@ class ControllerAdmin
         }
 
         //Si on a pas toutes les données nécessaires on declare une erreur
-        if (!isset($_GET['type'])||!isset($_GET['id']))
+        if (!isset($_GET['type']))
         {
             $_POST['phrase'] = File::warning('Erreur : données insuffiasantes, veuillez réessayer');
             return self::adminhomepage();
@@ -288,6 +292,7 @@ class ControllerAdmin
 
         //On recupere les infos
         $type = $_GET['type'];
+
 
         //si c'est une mise a jour
         if (isset($_GET['id']))
@@ -479,32 +484,74 @@ class ControllerAdmin
             $phrase = $lenom . $id . ' a bien été mise à jour';
             self::adminhomepage();
         } else { //Création
+
+            ///////////////////////////////////////
+            // Traitement de l'upload et verifs //
+            /////////////////////////////////////
+            if (!empty($_FILES['nom-image']) && is_uploaded_file($_FILES['nom-image']['tmp_name']))
+            {
+
+                //on recupere le nom du fichier
+                $name = $_FILES['nom-image']['name'];
+                $pic_path = File::build_path(array('images', $name));
+                $allowed_ext = array("jpg", "jpeg", "png");
+
+                $realextarray = explode('.', $_FILES['nom-image']['name']);
+
+                //on test l'extension du fichier upload
+                if (!in_array(end($realextarray), $allowed_ext))
+                    return self::error();
+
+                //on essaie de le déplacer et on retourne une erreur si ca plante
+                if (!move_uploaded_file($_FILES['nom-image']['tmp_name'], $pic_path))
+                    return self::error();
+
+                $path = File::build_path(array('images', $name));
+
+                //on test que le fichier upload existe au bon endroit
+                if (!file_exists($path))
+                    return self::error();
+
+                $name = "./images/" . $name;
+            }
+
             if ($type == 'adherent') {
+
+                //on verifie que les deux mots de passe sont renseignés
                 if (!isset($_POST['PW_Adherent'])||!isset($_POST['PW_Adherent2']))
                 {
                     $_POST['phrase'] = File::warning("Veuillez saisir un mot de passe");
                     return self::adminhomepage();
                 }
+
+                //on verifie qu'ils sont identiques
                 if ($_POST['PW_Adherent'] != $_POST['PW_Adherent2'])
                 {
                     $_POST['phrase'] = File::warning("Veuillez saisir deux mots de passe identiques");
                     return self::adminhomepage();
                 }
+
+                //on verifie qu'on a toutes les infos nécessaires
                 if (!isset($_POST['idAdherent'])||!isset($_POST['nomPersonne'])||!isset($_POST['prenomPersonne'])||!isset($_POST['adressepostaleAdherent'])||!isset($_POST['ville'])||!isset($_POST['mailPersonne'])||!isset($_POST['estProducteur'])||!isset($_POST['estAdministrateur'])){
                     $_POST['phrase'] = File::warning("Il manque des données");
                     self::adminhomepage();
                 }
+
+                //on verifie que le pseudo soit disponible
                 if (!ModelAdherent::checklogin($_POST['idAdherent']))
                 {
                     $_POST['phrase'] = File::warning("Ce pseudo n'est pas disponible");
                     self::adminhomepage();
                 }
+
+                //on vérifie que le mail soit disponible
                 if (!ModelAdherent::checkbindedmail($_POST['mailPersonne']))
                 {
                     $_POST['phrase'] = File::warning("Cette adresse mail est déjà utilisée");
                     self::adminhomepage();
                 }
 
+                //on récupère les données du form
                 $idAdherent = $_POST['idAdherent'];
                 $mailPersonne = $_POST['mailPersonne'];
                 $nomPersonne = $_POST['nomPersonne'];
@@ -514,32 +561,164 @@ class ControllerAdmin
                 $estAdministrateur = $_POST['estAdministrateur'];
                 $estProducteur = $_POST['estProducteur'];
                 $PW_Adherent = Security::chiffrer($_POST['PW_Adherent']);
+                $photo = $name ?? ($_POST['photo'] ?? null);
+                $dateinscription = date("Y-m-d H:i:s");
 
+                //on crée le tableau de création de l'adhérent et de la personne
                 $arrayAdherent = [
                     'idAdherent' => $idAdherent,
                     'mailPersonne' => $mailPersonne,
-                    'nomPersonne' => $nomPersonne,
-                    'prenomPersonne' => $prenomPersonne,
                     'adressepostaleAdherent' => $adressepostaleAdherent,
                     'ville' => $ville,
                     'estAdministrateur' => $estAdministrateur,
                     'estProducteur' => $estProducteur,
                     'PW_Adherent' => $PW_Adherent,
+                    'photo' => $photo,
+                    'dateinscription' => $dateinscription,
+                    'dateproducteur' => $estProducteur ? $dateinscription : null,
                 ];
 
+                $arrayPersonne = [
+                    'mailPersonne' => $mailPersonne,
+                    'nomPersonne' => $nomPersonne,
+                    'prenomPersonne' => $prenomPersonne,
+                ];
+
+                //si la personne n'existe pas on la crée, sinon on l'update puis on crée l'adherent
+                ModelPersonne::checkMail($mailPersonne) ? ModelPersonne::save($arrayPersonne) : ModelPersonne::update($arrayPersonne);
+                ModelAdherent::save($arrayAdherent);
+                $_POST['phrase'] = "L'adhérent $idAdherent a bien été inscrit";
 
             } elseif ($type == 'article') {
 
+                //on vérifie qu'on a bien reçu les données
+                if(!isset($_POST['titreArticle'])||!isset($_POST['mailPersonne'])||!isset($_POST['description']))
+                {
+                    $_POST['phrase'] = File::warning("Manque de données");
+                    self::adminhomepage();
+                }
+
+                //on vérifie qu'il y a une image
+                if (!isset($name)&&!isset($_POST['photo']))
+                {
+                    $_POST['phrase'] = "Il faut une image pour l'article qu'elle soit enregistrée par upload ou rensignée par lien";
+                    return self::adminhomepage();
+                }
+
+                //on récupére les infos
+                $idArticle = ModelArticle::generateId();
+                $titreArticle = $_POST['titreArticle'];
+                $description = $_POST['description'];
+                $mailPersonne = $_POST['mailPersonne'];
+                $date = date("Y-m-d H:i:s");
+                $photo = $name ?? $_POST['photo'];
+
+                //on crée un tableau pour save
+                $arrayArticle = [
+                    'idArticle' => $idArticle,
+                    'titreArticle' => $titreArticle,
+                    'description' => $description,
+                    'mailPersonne' => $mailPersonne,
+                    'date' => $date,
+                    'photo' => $photo,
+                ];
+
+                //on save
+                ModelArticle::save($arrayArticle);
+                $_POST['phrase'] = "L'article $titreArticle a bien été créé";
+
             } elseif ($type == 'livreDor') {
+                //on vérifie qu'on a bien reçu les données
+                if(!isset($_POST['pseudo'])||!isset($_POST['message']))
+                {
+                    $_POST['phrase'] = File::warning("Manque de données");
+                    self::adminhomepage();
+                }
+
+                //on récupére les infos
+                $id_message = ModelLivreDor::generateId();
+                $pseudo = $_POST['pseudo'];
+                $message = $_POST['message'];
+
+
+                //on crée un tableau pour save
+                $arrayMessage = [
+                    'id_message' => $id_message,
+                    'pseudo' => $pseudo,
+                    'message' => $message,
+                ];
+
+                //on save
+                ModelLivreDor::save($arrayMessage);
+                $_POST['phrase'] = "Le message $id_message a bien été créé";
 
             } elseif ($type == 'produit') {
 
+                //on vérifie qu'on a bien reçu les données
+                if(!isset($_POST['nomProduit'])||!isset($_POST['description']))
+                {
+                    $_POST['phrase'] = File::warning("Manque de données");
+                    self::adminhomepage();
+                }
+
+                //on vérifie qu'il y a une image
+                if (!isset($name)&&!isset($_POST['image']))
+                {
+                    $_POST['phrase'] = "Il faut une image pour l'article qu'elle soit enregistrée par upload ou rensignée par lien";
+                    return self::adminhomepage();
+                }
+
+                //on récupére les infos
+                $nomProduit = $_POST['nomProduit'];
+                $description = $_POST['description'];
+                $image = $name ?? $_POST['image '];
+
+                //on crée un tableau pour save
+                $arrayProduit = [
+                    'nomProduit' => $nomProduit,
+                    'description' => $description,
+                    'image' => $image,
+                ];
+
+                //on save
+                ModelProduit::save($arrayProduit);
+                $_POST['phrase'] = "Le produit $nomProduit a bien été créé";
+
+            } else {
+                $_POST['phrase'] = "Type inconnu, veuillez réessayer";
+                return self::error();
             }
+
+
+            return self::adminhomepage();
         }
     }
 
+    public static function validate()
+    {
+        //Si la personne n'est pas connectée on declare une erreur
+        if (!isset($_SESSION['login'])) {
+            $_POST['phrase'] = File::warning('Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url');
+            return ControllerAccueil::homepage();
+        }
 
+        //Si la personne n'est pas admin on declare une erreur
+        if (!isset($_SESSION['administrateur'])) {
+            $_POST['phrase'] = File::warning('Ne faîtes pas l\'enfant, vous n\'êtes pas administrateur');
+            return ControllerAccueil::homepage();
+        }
 
+        if (!isset($phrase)) {
+            if (isset($_POST['phrase'])) {
+                $phrase = $_POST['phrase'];
+            } else {
+                $phrase = "";
+            }
+        }
+        $view = 'validate';
+        $pagetitle = 'Page de validation';
+        return require File::build_path(['view','adminpanel.php']);
+    }
 //page d'erreur
     public static function error()
     {

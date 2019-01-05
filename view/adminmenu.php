@@ -31,11 +31,13 @@
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
             <a class="mdl-navigation__link" href="?action=homepage&controller=accueil"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Page d'accueil du site</a>
-            <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">flag</i>Validations en attente</a>
+                <a class="mdl-navigation__link" href="?action=validate&controller=admin"> <div class="material-icons mdl-badge mdl-badge--overlap" data-badge="<?php echo Model::CountTotalToValid() ?>"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">flag</i></div>Validations en attente</a>
+
             <a class="mdl-navigation__link" href="?action=readAll&controller=admin&type=livreDor"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">forum</i>Messages</a>
-            <a class="mdl-navigation__link" href="?action=readAll&controller=admin&type=adherent"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">people</i>Adhérents</a>
+            <a class="mdl-navigation__link" href="?action=readAll&controller=admin&type=adherent"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person</i>Adhérents</a>
             <a class="mdl-navigation__link" href="?action=readAll&controller=admin&type=article"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">art_track</i>Articles</a>
             <a class="mdl-navigation__link" href="?action=readAll&controller=admin&type=produit"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">local_florist</i>Produits</a>
+            <a class="mdl-navigation__link" href="?action=readAll&controller=admin&type=produit"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">group</i>Roles</a>
             <div class="mdl-layout-spacer"></div>
             <a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">help_outline</i><span class="visuallyhidden">Help</span></a>
         </nav>

@@ -237,7 +237,8 @@ _:-ms-input-placeholder, :root .demo-graph {
 }
 
  .demo-list-icon {
-     width: 300px;
+     width: 500px;
+     max-width: 80%;
  }
 
  main{
@@ -252,4 +253,10 @@ a > i {
 .mdl-layout-title {
     color: #878787;
     text-decoration: none;
+}
+
+#readAll {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
 }

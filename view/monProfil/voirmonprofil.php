@@ -3,11 +3,14 @@
 
 		<ul>
 			<!--gestion des photos-->
-			<?php 
-			if ($a->get('photo') == NULL){
+			<?php
+
+            $photo = $a->get('photo');
+            $idAdherent = $a->get('idAdherent');
+            if ($photo == NULL){
 				echo 'vous n\'avez pas de photo';
 			} else {
-				echo '<img class="imgprofil" src= "images\/'. $a->get('photo') . '" alt="' . $a->get('idAdherent'). '"/>';
+				echo "<img class=\"imgprofil\" src=\"$photo\" alt=\"$idAdherent\"/>";
 			}
 			?>
 			<a href="?action=updatePhoto&controller=monProfil">Ajoutez ou modifiez votre photo.</a>

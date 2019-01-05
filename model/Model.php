@@ -255,6 +255,97 @@ class Model {
             return $res+1;
         return 1;
     }
+
+    //selectAll qui ne renvoie que les objets ayant isValid=false
+    public static function selectAllToValid()
+    {
+        try{
+            //on recupere les noms de tables/classes a partir des attributs statics declares dans chaque classe
+            $table_name = static::$object;
+            $class_name = 'Model' . ucfirst($table_name);
+            $sql = 'SELECT * FROM '.ucfirst($table_name) . " WHERE isValid = 0;";
+
+
+            $req_prep = Model::$pdo->prepare($sql);
+
+            $req_prep->execute();
+
+            $req_prep->setFetchMode(PDO::FETCH_CLASS, $class_name);
+
+
+            $tab = $req_prep->fetchAll();
+        } catch(PDOException $e) { //on gere les exceptions
+            if (Conf::getDebug()) {
+                echo $e->getMessage(); // affiche un message d'erreur
+            } else {
+                echo 'Une erreur est survenue <a href=""> retour a la page d\'accueil </a>';
+            }
+            die();
+        }
+        return $tab;
+
+    }
+
+    //selectAll qui ne renvoie que les objets ayant isValid=true
+    public static function selectAllValid()
+
+    {
+        try{
+            //on recupere les noms de tables/classes a partir des attributs statics declares dans chaque classe
+            $table_name = static::$object;
+            $class_name = 'Model' . ucfirst($table_name);
+            $sql = 'SELECT * FROM '.ucfirst($table_name) . " WHERE isValid <> 0;";
+
+
+            $req_prep = Model::$pdo->prepare($sql);
+
+            $req_prep->execute();
+
+            $req_prep->setFetchMode(PDO::FETCH_CLASS, $class_name);
+
+
+            $tab = $req_prep->fetchAll();
+        } catch(PDOException $e) { //on gere les exceptions
+            if (Conf::getDebug()) {
+                echo $e->getMessage(); // affiche un message d'erreur
+            } else {
+                echo 'Une erreur est survenue <a href=""> retour a la page d\'accueil </a>';
+            }
+            die();
+        }
+        return $tab;
+
+    }
+
+    public static function CountToValid()
+    {
+        try{
+            //on recupere les noms de tables/classes a partir des attributs statics declares dans chaque classe
+            $table_name = static::$object;
+            $class_name = 'Model' . ucfirst($table_name);
+            $sql = 'SELECT COUNT(*) FROM '.ucfirst($table_name) . " WHERE isValid = 0;";
+
+
+            $req_prep = Model::$pdo->prepare($sql);
+
+            $req_prep->execute();
+
+            $res = $req_prep->fetchColumn();
+        } catch(PDOException $e) { //on gere les exceptions
+            if (Conf::getDebug()) {
+                echo $e->getMessage(); // affiche un message d'erreur
+            } else {
+                echo 'Une erreur est survenue <a href=""> retour a la page d\'accueil </a>';
+            }
+            die();
+        }
+        return $res;
+    }
+
+    public static function CountTotalToValid()
+    {
+        return ModelLivreDor::CountToValid() + ModelArticle::CountToValid() + ModelAdherent::CountToValid();
+    }
 }
 Model::Init();
 ?>

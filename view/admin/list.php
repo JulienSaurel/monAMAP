@@ -25,19 +25,13 @@ if ($type == 'adherent')
                     <a href="?action=delete&id=<?php echo urlencode($id); ?>&type=adherent&controller=admin"><i class="material-icons">delete</i></a>
                 </div>
             </div>
-            <!--<li class="mdl-list__item">
-    <span class="mdl-list__item-primary-content">
-    <i class="material-icons mdl-list__item-icon">person</i>
-        <a href="?action=gotoupdate&id=<?php /*echo urlencode($id); */?>&type=adherent&controller=admin"><?php /*echo htmlspecialchars($p->get('prenomPersonne'))  . " " . htmlspecialchars($p->get('nomPersonne')) . " "; */?></a>
-</span>
-                <span class="mdl-list__item-secondary-content">
-    <a href="?action=delete&controller=admin&id=<?php /*echo urlencode($id); */?>&type=adherent&controller=admin"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">delete</i></a>
-  </span>
-            </li>-->
-
         <?php } ?>
     </div>
-
+    <a href="?action=gotoupdate&controller=admin&type=<?php echo $type;?>">
+        <button id="readAll" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
+            <i class="material-icons">add</i>
+        </button>
+    </a>
 <?php }
 
 ///////////////////////////////////////
@@ -67,6 +61,11 @@ elseif ($type == 'article') { ?>
 
         <?php } ?>
     </div>
+    <a href="?action=gotoupdate&controller=admin&type=<?php echo $type;?>">
+        <button id="readAll" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
+            <i class="material-icons">add</i>
+        </button>
+    </a>
 <?php }
 ///////////////////////////////////////
 //Affichage de la liste des messages//
@@ -87,6 +86,11 @@ elseif ($type == 'livreDor') { ?>
 
         <?php } ?>
     </ul>
+    <a href="?action=gotoupdate&controller=admin&type=<?php echo $type;?>">
+        <button id="readAll" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
+            <i class="material-icons">add</i>
+        </button>
+    </a>
 <?php }
 ///////////////////////////////////////
 //Affichage de la liste des produits//
@@ -114,5 +118,10 @@ elseif ($type == 'produit') { ?>
             </div>
 
         <?php } ?>
+        <a href="?action=gotoupdate&controller=admin&type=<?php echo $type;?>">
     </div>
+    <button id="readAll" class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
+        <i class="material-icons">add</i>
+    </button>
+    </a>
 <?php }

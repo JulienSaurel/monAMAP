@@ -167,7 +167,7 @@ class ModelAdherent extends Model
     public static function checklogin($login)
     {
         try {
-            $sql = "SELECT COUNT(*) FROM Adherent WHERE idAdherent=:login";
+            $sql = "SELECT COUNT(*) FROM Adherent WHERE idAdherent=:idAdherent";
             $sql = Model::$pdo->prepare($sql);
             $array = ['idAdherent' => $login];
             $sql->execute($array);
