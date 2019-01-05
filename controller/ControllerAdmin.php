@@ -1,4 +1,7 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 require_once File::build_path(array('model','Model.php')); // chargement du modèle
 require_once File::build_path(array('model','ModelArticle.php')); // chargement du modèle
 require_once File::build_path(array('model','ModelAdherent.php')); // chargement du modèle
@@ -7,6 +10,8 @@ require_once File::build_path(array('model','ModelDon.php')); // chargement du m
 require_once File::build_path(array('model','ModelDonnateur.php')); // chargement du modèle
 require_once File::build_path(array('model','ModelLivreDor.php')); // chargement du modèle
 require_once File::build_path(array('model','ModelPersonne.php')); // chargement du modèle
+require_once File::build_path(array('libExternes', 'PHPMailer-master','src','MailerLoader.php'));
+
 
 class ControllerAdmin
 {
@@ -768,6 +773,46 @@ class ControllerAdmin
                 'isValid' => true,
                 'estProducteur' => true,
             ];
+
+            $adh = ModelAdherent::select($id);
+            $email = $adh->get('mailPersonne');
+            $p = ModelPersonne::select($email);
+            $nom = $p->get('nomPersonne');
+            $prenom = $p->get('prenomPersonne');
+
+
+            $mail = new PHPMailer(TRUE);
+
+            /* Open the try/catch block. */
+            try {
+                /* Set the mail sender. */
+                $mail->setFrom('AMAP-Occitanie@no-reply.com', 'AMAP Occitanie');
+
+                /* Add a recipient. */
+                $mail->addAddress($email, "$prenom $nom");
+
+                /* Set the subject. */
+                $mail->Subject = 'Acceptation de votre demande de devenir producteur';
+
+                /* Set the mail message body. */
+                $mail->isHTML(TRUE);
+                $mail->Body = "<html>Bonjour $nom, félicitation, vous êtes désormais <strong>producteur officiel</strong> de l'amap d'O!</html>";
+                $mail->AltBody = "Bonjour $nom, félicitation, vous êtes désormais producteur officiel de l'amap d'O!";
+
+                /* Finally send the mail. */
+                $mail->send();
+            }
+            catch (Exception $e)
+            {
+                /* PHPMailer exception. */
+                echo $e->errorMessage();
+            }
+            catch (\Exception $e)
+            {
+                /* PHP exception (note the backslash to select the global namespace Exception class). */
+                echo $e->getMessage();
+            }
+
         } elseif ($type == 'article') {
             $lenom = 'L\'article ';
             $array = [

@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94c3ccb3-3951-4670-8efd-8102a2c7e176" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/libExternes/PHPMailer-master/src/MailerLoader.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/ControllerAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControllerAdmin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/Model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/admin/validate.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/admin/validate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/view.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,12 +14,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controller/ControllerAdmin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="634">
-              <caret line="840" selection-start-line="840" selection-end-line="840" />
+            <state relative-caret-position="574">
+              <caret line="798" column="112" selection-start-line="798" selection-start-column="112" selection-end-line="798" selection-end-column="112" />
               <folding>
+                <element signature="e#6#40#0#PHP" expanded="true" />
                 <element signature="n#adminhomepage#0;n#ControllerAdmin#0;n#!!top" />
                 <element signature="n#readAll#0;n#ControllerAdmin#0;n#!!top" />
                 <element signature="n#delete#0;n#ControllerAdmin#0;n#!!top" />
@@ -33,9 +32,27 @@
                 <element signature="n#gotoupdate#0;n#ControllerAdmin#0;n#!!top" />
                 <element signature="n#update#0;n#ControllerAdmin#0;n#!!top" />
                 <element signature="n#validate#0;n#ControllerAdmin#0;n#!!top" />
-                <element signature="n#validatedOne#0;n#ControllerAdmin#0;n#!!top" />
+                <element signature="n#validatedAll#0;n#ControllerAdmin#0;n#!!top" />
                 <element signature="n#error#0;n#ControllerAdmin#0;n#!!top" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controller/ControllerNousSoutenir.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="102" column="72" selection-start-line="102" selection-start-column="28" selection-end-line="102" selection-end-column="72" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/libExternes/PHPMailer-master/src/MailerLoader.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
             </state>
           </provider>
         </entry>
@@ -44,7 +61,7 @@
         <entry file="file://$PROJECT_DIR$/model/Model.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="454">
-              <caret line="190" column="9" lean-forward="true" selection-start-line="190" selection-start-column="9" selection-end-line="190" selection-end-column="9" />
+              <caret line="190" column="9" selection-start-line="190" selection-start-column="9" selection-end-line="190" selection-end-column="9" />
               <folding>
                 <element signature="n#Init#0;n#Model#0;n#!!top" />
                 <element signature="n#get#0;n#Model#0;n#!!top" />
@@ -65,11 +82,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/admin/validate.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="65">
+              <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -115,7 +132,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/model/ModelContrat.php" />
         <option value="$PROJECT_DIR$/controller/ControllerNosContrats.php" />
         <option value="$PROJECT_DIR$/controller/ControllerPersonne.php" />
@@ -164,8 +180,9 @@
         <option value="$PROJECT_DIR$/view/view.php" />
         <option value="$PROJECT_DIR$/model/Model.php" />
         <option value="$PROJECT_DIR$/css/adminstyles.css" />
-        <option value="$PROJECT_DIR$/controller/ControllerAdmin.php" />
         <option value="$PROJECT_DIR$/view/admin/validate.php" />
+        <option value="$PROJECT_DIR$/libExternes/PHPMailer-master/src/MailerLoader.php" />
+        <option value="$PROJECT_DIR$/controller/ControllerAdmin.php" />
       </list>
     </option>
   </component>
@@ -213,6 +230,24 @@
               <item name="monAMAP" type="b2602c69:ProjectViewProjectNode" />
               <item name="monAMAP" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="monAMAP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="monAMAP" type="462c0819:PsiDirectoryNode" />
+              <item name="libExternes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="monAMAP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="monAMAP" type="462c0819:PsiDirectoryNode" />
+              <item name="libExternes" type="462c0819:PsiDirectoryNode" />
+              <item name="PHPMailer-master" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="monAMAP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="monAMAP" type="462c0819:PsiDirectoryNode" />
+              <item name="libExternes" type="462c0819:PsiDirectoryNode" />
+              <item name="PHPMailer-master" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="monAMAP" type="b2602c69:ProjectViewProjectNode" />
@@ -316,7 +351,7 @@
       <workItem from="1546511799933" duration="30852000" />
       <workItem from="1546593811744" duration="5279000" />
       <workItem from="1546610719461" duration="27397000" />
-      <workItem from="1546688582035" duration="4262000" />
+      <workItem from="1546688582035" duration="7801000" />
     </task>
     <task id="LOCAL-00001" summary="Model generique et petits fix">
       <created>1545583549669</created>
@@ -458,11 +493,18 @@
       <option name="project" value="LOCAL" />
       <updated>1546655636820</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="fin validation (il manque juste les envois de mail aux adminet aux adhérents lors des demandes de validations et des validations)">
+      <created>1546696296513</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1546696296514</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="200894000" />
+    <option name="totallyTimeSpent" value="204433000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -597,7 +639,8 @@
     <MESSAGE value="Debut create" />
     <MESSAGE value="Debut validation" />
     <MESSAGE value="milieu validation" />
-    <option name="LAST_COMMIT_MESSAGE" value="milieu validation" />
+    <MESSAGE value="fin validation (il manque juste les envois de mail aux adminet aux adhérents lors des demandes de validations et des validations)" />
+    <option name="LAST_COMMIT_MESSAGE" value="fin validation (il manque juste les envois de mail aux adminet aux adhérents lors des demandes de validations et des validations)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
@@ -609,16 +652,6 @@
     <select />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/images/Article1.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/File.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/styles.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="814">
@@ -866,9 +899,6 @@
     <entry file="file://$PROJECT_DIR$/controller/ControllerNousConnaitre.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/ControllerNousSoutenir.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/controller/ControllerPersonne.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -896,7 +926,7 @@
     <entry file="file://$PROJECT_DIR$/model/Model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="454">
-          <caret line="190" column="9" lean-forward="true" selection-start-line="190" selection-start-column="9" selection-end-line="190" selection-end-column="9" />
+          <caret line="190" column="9" selection-start-line="190" selection-start-column="9" selection-end-line="190" selection-end-column="9" />
           <folding>
             <element signature="n#Init#0;n#Model#0;n#!!top" />
             <element signature="n#get#0;n#Model#0;n#!!top" />
@@ -923,11 +953,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/view/admin/validate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="65">
+          <caret line="31" column="40" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libExternes/PHPMailer-master/src/PHPMailer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="25" column="8" lean-forward="true" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libExternes/PHPMailer-master/src/MailerLoader.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/ControllerNousSoutenir.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="102" column="72" selection-start-line="102" selection-start-column="28" selection-end-line="102" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/controller/ControllerAdmin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="634">
-          <caret line="840" selection-start-line="840" selection-end-line="840" />
+        <state relative-caret-position="574">
+          <caret line="798" column="112" selection-start-line="798" selection-start-column="112" selection-end-line="798" selection-end-column="112" />
           <folding>
+            <element signature="e#6#40#0#PHP" expanded="true" />
             <element signature="n#adminhomepage#0;n#ControllerAdmin#0;n#!!top" />
             <element signature="n#readAll#0;n#ControllerAdmin#0;n#!!top" />
             <element signature="n#delete#0;n#ControllerAdmin#0;n#!!top" />
@@ -939,16 +998,9 @@
             <element signature="n#gotoupdate#0;n#ControllerAdmin#0;n#!!top" />
             <element signature="n#update#0;n#ControllerAdmin#0;n#!!top" />
             <element signature="n#validate#0;n#ControllerAdmin#0;n#!!top" />
-            <element signature="n#validatedOne#0;n#ControllerAdmin#0;n#!!top" />
+            <element signature="n#validatedAll#0;n#ControllerAdmin#0;n#!!top" />
             <element signature="n#error#0;n#ControllerAdmin#0;n#!!top" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/admin/validate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
