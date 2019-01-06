@@ -40,7 +40,7 @@ if ($type == 'adherent') {
             </p>
             <p>
                 <label for="desc">Descritpion:</label>
-                <textarea name="description" id="desc" rows="8" cols="35" required><?php echo htmlspecialchars($o->get('description')); ?></textarea>
+                <textarea name="description" id="desc" rows="8" cols="35"><?php echo htmlspecialchars($o->get('description')); ?></textarea>
             </p>
             <?php echo $inputoldphoto; ?>
             <p>
@@ -58,6 +58,7 @@ if ($type == 'adherent') {
         </fieldset>
     </form>
     <?php
+    echo $validate;
 } elseif ($type == 'article') { ?>
     <form method="post" action="<?php echo $action; ?>" enctype="multipart/form-data" >
 
@@ -92,7 +93,8 @@ if ($type == 'adherent') {
         </fieldset>
     </form>
 
-<?php } elseif ($type == 'livreDor') {?>
+<?php echo $validate;
+} elseif ($type == 'livreDor') {?>
 <form method="post" action="<?php echo $action; ?>">
     <fieldset>
         <legend> <?php echo $formtitle; ?></legend>
@@ -110,7 +112,8 @@ if ($type == 'adherent') {
         </p>
     </fieldset>
 </form>
-<?php } elseif ($type == 'produit') {?>
+<?php echo $validate;
+} elseif ($type == 'produit') {?>
 <form method="post" action="<?php echo $action; ?>" enctype="multipart/form-data">
     <fieldset>
         <legend> <?php echo $formtitle;?></legend>

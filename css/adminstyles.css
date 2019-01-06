@@ -260,3 +260,136 @@ a > i {
     bottom: 10px;
     right: 10px;
 }
+
+.content-grid{
+    max-width: 90%;
+}
+
+#exiladroite {
+    position: absolute;
+    left:80em;
+    top: 5em;
+
+}
+
+#imgPro {
+    background-image: url("../images/produits.jpg");
+}
+
+#imgArt {
+    background-image: url("../images/article.jpg");
+}
+
+#imgMsg {
+    background-image: url("../images/message.jpg");
+}
+
+#imgVal {
+    background-image: url("../images/validation.jpg");
+}
+
+#imgRole {
+    background-image: url("../images/rolemanagement.png");
+}
+
+#imgAdh {
+    background-image: url("../images/adherents.png");
+}
+
+/************************************************************
+*************************DIAPO******************************
+***********************************************************/
+.contener_slideshow
+{
+    width:700px;
+    height:500px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 70px;
+
+}
+
+.slid_1, .slid_2, .slid_3
+{
+    position: absolute;
+    width:700px;
+    height:600px;
+}
+
+.slid_1{left: 0;}
+.slid_2{left: 700px;}
+.slid_3{left: 1400px;}
+
+
+
+.contener_slide
+{
+    width: 700px;
+    height: 600px;
+    left:0px;
+    position: relative;
+    animation-duration: 10s;
+    animation-iteration-count:infinite;
+    animation-name: anim_slide;
+}
+
+
+
+@keyframes anim_slide
+{
+    0% {left:0px;}
+    22% {left:0px;}
+    33% {left:-705px;}
+    45% {left:-705px;}
+    66% {left:-1405px;}
+    99% {left:-1405px;}
+
+
+}
+
+
+@media screen and (max-width: 1498px) {
+
+    .contener_slideshow
+    {
+        width:350px;
+        height:250px;
+        overflow: hidden;
+        position: relative;
+        margin-bottom: 70px;
+
+    }
+
+    .slid_1, .slid_2, .slid_3
+    {
+        position: absolute;
+        width:350px;
+        height:300px;
+    }
+
+    .slid_1{left: 0;}
+    .slid_2{left: 350px;}
+    .slid_3{left: 700px;}
+
+
+    .contener_slide
+    {
+        width: 350px;
+        height: 300px;
+        left:0px;
+        position: relative;
+        animation-duration: 10s;
+        animation-iteration-count:infinite;
+        animation-name: anim_slide;
+    }
+
+    @keyframes anim_slide
+    {
+        0% {left:0px;}
+        22% {left:0px;}
+        33% {left:-355px;}
+        45% {left:-355px;}
+        66% {left:-705px;}
+        99% {left:-705px;}
+    }
+}

@@ -53,5 +53,12 @@ class ModelArticle extends Model
         // )
         return $tab_a;
     }
+
+    public function isValid()
+    {
+        if ($this->get('isValid') == true)
+            return true;
+        return false;
+    }
 }
  ?>

@@ -187,7 +187,7 @@ class ControllerAdherent
 			return self::error();
 
 		//on vérifie que l'image est uploadée
-		/*if (empty($_FILES['nom-image']) || !is_uploaded_file($_FILES['nom-image']['tmp_name']))
+		if (empty($_FILES['nom-image']) || !is_uploaded_file($_FILES['nom-image']['tmp_name']))
 			return self::error();
 
 		//on recupere le nom du fichier
@@ -209,7 +209,7 @@ class ControllerAdherent
 
 		//on test que le fichier upload existe au bon endroit
 		if (!file_exists($path))
-			return self::error();*/
+			return self::error();
 
 		//on recupere les infos du form
 		$description = $_POST['description'];
@@ -220,7 +220,7 @@ class ControllerAdherent
 			'idAdherent' => trim($id),
 			'description' => $description,
 			'photo' => null,//$name,
-			'isValid' => false,
+			'isValid' => 0,
 			'dateProducteur' => $dateprod,
 		];
 

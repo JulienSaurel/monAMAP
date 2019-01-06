@@ -70,7 +70,7 @@ class ControllerLaVieAlAMAP
                 'id_message' => $id,
                 'message' => $message,
                 'pseudo' => $pseudo,
-                'isValid' => false,
+                'isValid' => 0,
             ];
         }
 

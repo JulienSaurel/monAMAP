@@ -44,5 +44,12 @@ class ModelLivreDor extends Model
         $tab = $req_prep->fetchAll();
         return $tab;
     }
+
+    public function isValid()
+    {
+        if ($this->get('isValid') == true)
+            return true;
+        return false;
+    }
 }
 ?>

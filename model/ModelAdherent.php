@@ -151,15 +151,94 @@ class ModelAdherent extends Model
         return $chaine;
     }
 
-    public static function readAllProd(){
-        $sql = "SELECT * FROM Adherent A WHERE A.estProducteur=:prod";
+    public static function selectAllProd(){
+        try {
+        $sql = "SELECT * FROM Adherent A WHERE A.estProducteur=1";
         $req_prep = Model::$pdo->prepare($sql);
-        $values = array(
-            "prod" => '1');
-        $req_prep->execute($values);
+        $req_prep->execute();
         $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelAdherent');
-        return $req_prep->fetchAll();
+        $tab = $req_prep->fetchAll();
+        } catch(PDOException $e) { //on gere les exceptions
+            if (Conf::getDebug()) {
+                echo $e->getMessage(); // affiche un message d'erreur
+            } else {
+                echo 'Une erreur est survenue <a href=""> retour a la page d\'accueil </a>';
+            }
+            die();
+        }
+        return $tab;
+    }
 
+    public static function selectAllAdminNotProd(){
+        try {
+            $sql = "SELECT * FROM Adherent A WHERE A.estAdministrateur=1 AND A.estProducteur = 0";
+            $req_prep = Model::$pdo->prepare($sql);
+            $req_prep->execute();
+            $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelAdherent');
+            $tab = $req_prep->fetchAll();
+        } catch(PDOException $e) { //on gere les exceptions
+            if (Conf::getDebug()) {
+                echo $e->getMessage(); // affiche un message d'erreur
+            } else {
+                echo 'Une erreur est survenue <a href=""> retour a la page d\'accueil </a>';
+            }
+            die();
+        }
+        return $tab;
+    }
+
+    public static function selectAllAdminAndProd(){
+        try {
+            $sql = "SELECT * FROM Adherent A WHERE A.estAdministrateur=1 AND A.estProducteur = 1";
+            $req_prep = Model::$pdo->prepare($sql);
+            $req_prep->execute();
+            $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelAdherent');
+            $tab = $req_prep->fetchAll();
+        } catch(PDOException $e) { //on gere les exceptions
+            if (Conf::getDebug()) {
+                echo $e->getMessage(); // affiche un message d'erreur
+            } else {
+                echo 'Une erreur est survenue <a href=""> retour a la page d\'accueil </a>';
+            }
+            die();
+        }
+        return $tab;
+    }
+
+    public static function selectAllProdNotAdmin(){
+        try {
+            $sql = "SELECT * FROM Adherent A WHERE A.estProducteur = 1 AND A.estAdministrateur=0";
+            $req_prep = Model::$pdo->prepare($sql);
+            $req_prep->execute();
+            $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelAdherent');
+            $tab = $req_prep->fetchAll();
+        } catch(PDOException $e) { //on gere les exceptions
+            if (Conf::getDebug()) {
+                echo $e->getMessage(); // affiche un message d'erreur
+            } else {
+                echo 'Une erreur est survenue <a href=""> retour a la page d\'accueil </a>';
+            }
+            die();
+        }
+        return $tab;
+    }
+
+    public static function selectAllOnlyAdh(){
+        try {
+            $sql = "SELECT * FROM Adherent A WHERE A.estProducteur = 0 AND A.estAdministrateur=0";
+            $req_prep = Model::$pdo->prepare($sql);
+            $req_prep->execute();
+            $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelAdherent');
+            $tab = $req_prep->fetchAll();
+        } catch(PDOException $e) { //on gere les exceptions
+            if (Conf::getDebug()) {
+                echo $e->getMessage(); // affiche un message d'erreur
+            } else {
+                echo 'Une erreur est survenue <a href=""> retour a la page d\'accueil </a>';
+            }
+            die();
+        }
+        return $tab;
     }
 
     public static function checklogin($login)
@@ -204,6 +283,12 @@ class ModelAdherent extends Model
         return true;
     }
 
+    public function isValid()
+    {
+        if ($this->get('isValid') == true)
+            return true;
+        return false;
+    }
     
 }
 ?>

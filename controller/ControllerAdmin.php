@@ -10,6 +10,7 @@ require_once File::build_path(array('model','ModelDon.php')); // chargement du m
 require_once File::build_path(array('model','ModelDonnateur.php')); // chargement du modèle
 require_once File::build_path(array('model','ModelLivreDor.php')); // chargement du modèle
 require_once File::build_path(array('model','ModelPersonne.php')); // chargement du modèle
+require_once File::build_path(array('model','ModelHomepage.php'));
 require_once File::build_path(array('libExternes', 'PHPMailer-master','src','MailerLoader.php'));
 
 
@@ -51,7 +52,7 @@ class ControllerAdmin
      * @return void
      *
      */
-    public static function readAll()
+    public static function readAll($type = null)
     {
         //Si la personne n'est pas connectée on declare une erreur
         if (!isset($_SESSION['login'])) {
@@ -66,9 +67,12 @@ class ControllerAdmin
         }
 
         //on verifie qu'on a bien le type a traiter
-        if (!isset($_GET['type']))
-            return self::error();
-        $type = $_GET['type'];
+        if (!isset($_GET['type'])) {
+            if (!isset($type))
+                return self::error();
+
+        }
+        $type = $type ?: $_GET['type'];
 
         //on recupere le tableau a traiter
         if ($type == 'adherent')
@@ -153,7 +157,7 @@ class ControllerAdmin
             $lenom = 'Le produit';
         }
         $_POST['phrase'] = $lenom . $id . ' a bien été supprimé';
-        return self::adminhomepage();
+        return self::readAll($type);
     }
 
     /**
@@ -191,7 +195,9 @@ class ControllerAdmin
         $restriction = $id ? 'readonly':'required';
         $idurl = $id ? urlencode($id) : null;
         $action = $id? "?action=update&controller=admin&type=$type&id=$idurl" : "?action=update&controller=admin&type=$type";
-
+        if($type != 'produit') {
+            $validate = ($id && !$o->isValid()) ? "<a href=\"?action=validatedOne&controller=admin&type=$type&id=$idurl\">Valider</a>" : "";
+        }
         ///////////////////////////////////////////////////////////
         // Définitions de variables pour le formulaire adhérent //
         /////////////////////////////////////////////////////////
@@ -490,7 +496,7 @@ class ControllerAdmin
                 $lenom = 'Le produit';
             }
             $phrase = $lenom . $id . ' a bien été mise à jour';
-            self::adminhomepage();
+            self::readAll($type);
         } else { //Création
 
             ///////////////////////////////////////
@@ -698,7 +704,7 @@ class ControllerAdmin
             }
 
 
-            return self::adminhomepage();
+            return self::readAll($type);
         }
     }
 
@@ -927,6 +933,85 @@ class ControllerAdmin
         }
 
         self::validate();
+    }
+
+
+    public static function gotorole()
+    {
+        $tabAdminProd = ModelAdherent::selectAllAdminAndProd();
+        $tabAdminNotProd = ModelAdherent::selectAllAdminNotProd();
+        $tabProdNotAdmin = ModelAdherent::selectAllProdNotAdmin();
+        $tabAdherentsOnly = ModelAdherent::selectAllOnlyAdh();
+
+
+        if (!isset($phrase)) {
+            if (isset($_POST['phrase'])) {
+                $phrase = $_POST['phrase'];
+            } else {
+                $phrase = "";
+            }
+        }
+        $pagetitle = 'Gestion des rôles';
+        $view = 'roles';
+        require File::build_path(['view','adminpanel.php']);
+    }
+
+    public static function gotoupdatehomepage()
+    {
+        $homepage = ModelHomepage::select('Accueil');
+        $idHomepage = $homepage->get('idHompage');
+        $pagetitlehp = $homepage->get('pagetitle');
+        $welcomephrase = $homepage->get('welcomephrase');
+        $descbannerphrase = $homepage->get('descbannerphrase');
+        $newsnameandtext = $homepage->get('newsnameandtext');
+        $namearticlelink = $homepage->get('namearticlelink');
+        $firstarticledisplayed = $homepage->get('firstarticledisplayed');
+        $secondarticledisplayed = $homepage->get('secondarticledisplayed');
+        $firstparagraph = $homepage->get('firstparagraph');
+        $maptitle = $homepage->get('maptitle');
+        $firstimagetitle = $homepage->get('firstimagetitle');
+        $firstimage = $homepage->get('firstimage');
+        $firstimagephrase = $homepage->get('firstimagephrase');
+        $secondimagetitle = $homepage->get('secondimagetitle');
+        $secondimage = $homepage->get('secondimage');
+        $secondimageparagraph = $homepage->get('secondimageparagraph');
+        $firstparagraphlink = $homepage->get('firstparagraphlink');
+        $firstimagelist = $homepage->get('firstimagelist');
+        $maplink = $homepage->get('maplink');
+        $banner = $homepage->get('banner');
+
+        $tabbanner = explode(" ", $banner);
+
+        //on recupere un tableau des images presentes dans le repertoire images
+        $cpt = 0;
+        $tabimages = [];
+        if ($dossier = opendir('./images'))
+        {
+            while(false !== ($fichier = readdir($dossier)))
+            {
+                $extension = explode('.',$fichier);
+                $allowed_extensions = ['png','jpeg','jpg'];
+                if (isset($extension['1']) && in_array($extension['1'], $allowed_extensions)) {
+                    $tabimages["$cpt"] = $fichier;
+                }
+                $cpt++;
+            }
+            closedir($dossier);
+        } else {
+            $_POST['phrase'] = File::warning("Attention, vous essayez d'ouvrir un fichier inexistant");
+            self::error();
+        }
+
+        if (!isset($phrase)) {
+            if (isset($_POST['phrase'])) {
+                $phrase = $_POST['phrase'];
+            } else {
+                $phrase = "";
+            }
+        }
+        $pagetitle = 'Modification de la page d\'accueil';
+        $view = 'newaccueil';
+        require File::build_path(['view','adminpanel.php']);
     }
 //page d'erreur
     public static function error()
