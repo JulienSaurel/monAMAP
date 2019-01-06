@@ -1,20 +1,30 @@
 <h1> Nos articles </h1>
 
-<?php  if (isset($_SESSION['login'])) { //seuls les adhérents connectés peuvent écrire de nouveaux articles ?> 
-        <li>
-          <a href="?action=createArt&controller=LaVieAlAMAP">Ecrivez un nouvel article</a>
-      </li>
+<?php  if (isset($_SESSION['login'])) { //seuls les adhérents connectés peuvent écrire de nouveaux articles ?>
+    <li>
+        <a href="?action=createArt&controller=LaVieAlAMAP">Ecrivez un nouvel article</a>
+    </li>
 <?php }
 ?>
 <?php
-foreach ($tabArticles as $art) { // pour chaque article de la base de données, on affiche ses infos
+$i=1;
+foreach ($tabArticles as $art) {
+    // pour chaque article de la base de données, on affiche ses infos
     //var_dump($art);
-	$a = ModelPersonne::select($art->get("mailPersonne"));
-	$prenom = $a->get('prenomPersonne') ?? "";
-	$nom = $a->get('nomPersonne') ?? "";
-	$date = $art->get('date');
-	echo '<div class="article"><h2>' . $art->get('titreArticle') . '</h2><img src="' . $art->get('photo') . '" alt="' . $art->get('idArticle') . '"/><p>' . $art->get('description') . '</p><p>Ecrit par : ' . $prenom . ' ' . $nom . ', Le :' . $date . ' </p></div>';
+    $a = ModelPersonne::select($art->get("mailPersonne"));
+    $prenom = $a->get('prenomPersonne') ?? "";
+    $nom = $a->get('nomPersonne') ?? "";
+    $date = $art->get('date');
+    $titreArticle = $art->get('titreArticle');
+    $photo = $art->get('photo');
+    $idArticle = $art->get('idArticle');
+    $description = $art->get('description');?>
 
-}
-?>
+    <div id="target<?php echo $i;?>" class="article">
+       <?php echo "<h2>  $titreArticle <button id=\"source\" onclick='changeSizePercent(\"target$i\", 22);'>+</button> <button id=\"source\" onclick='changeSizePx(\"target$i\", 50);'>-</button> </h2>       
+<img src=\"$photo\" alt=\"$idArticle\"/><p>$description</p><p>Ecrit par : $prenom $nom, Le : $date</p>" ?>
+    </div>
+
+
+    <?php $i++; } ?>
 

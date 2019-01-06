@@ -19,3 +19,22 @@ function closeLink(){
 }
 
 
+//JS Articles
+function changeSizePercent (_divId_, /*_newSizex_,*/ _newSizey_){
+    if ( document.getElementById(_divId_) != null ){
+/*
+        document.getElementById(_divId_).style.width = _newSizex_ +"%";
+*/
+        document.getElementById(_divId_).style.height = _newSizey_ +"%";
+    }
+}
+
+function changeSizePx (_divId_, /*_newSizex_,*/ _newSizey_){
+    if ( document.getElementById(_divId_) != null ){
+        /*
+                document.getElementById(_divId_).style.width = _newSizex_ +"px";
+        */
+        document.getElementById(_divId_).style.height = _newSizey_ +"px";
+    }
+}
+//JS Articles
