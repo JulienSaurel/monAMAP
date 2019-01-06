@@ -2,13 +2,21 @@
 -- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost:8889
--- Généré le :  mer. 26 déc. 2018 à 19:50
--- Version du serveur :  5.7.23
--- Version de PHP :  7.2.8
+-- Hôte : localhost:3306
+-- Généré le :  Dim 06 jan. 2019 à 18:42
+-- Version du serveur :  5.7.24-0ubuntu0.18.04.1
+-- Version de PHP :  7.2.10-0ubuntu0.18.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de données :  `MonAMAP`
@@ -21,28 +29,33 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `Adherent` (
-  `idAdherent` varchar(30) NOT NULL,
-  `mailPersonne` varchar(50) NOT NULL,
-  `adressepostaleAdherent` varchar(50) NOT NULL,
-  `PW_Adherent` varchar(64) NOT NULL,
-  `estProducteur` tinyint(1) NOT NULL,
-  `estAdministrateur` tinyint(1) NOT NULL,
-  `dateinscription` datetime NOT NULL,
-  `dateproducteur` datetime DEFAULT NULL,
-  `photo` varchar(300) DEFAULT NULL,
-  `description` varchar(500) DEFAULT NULL,
-  `ville` varchar(50) NOT NULL
+                          `idAdherent` varchar(30) NOT NULL,
+                          `mailPersonne` varchar(50) NOT NULL,
+                          `adressepostaleAdherent` varchar(50) NOT NULL,
+                          `PW_Adherent` varchar(64) NOT NULL,
+                          `estProducteur` tinyint(1) NOT NULL,
+                          `estAdministrateur` tinyint(1) NOT NULL,
+                          `dateinscription` datetime NOT NULL,
+                          `dateproducteur` datetime DEFAULT NULL,
+                          `photo` varchar(300) DEFAULT NULL,
+                          `description` varchar(500) DEFAULT NULL,
+                          `ville` varchar(50) NOT NULL,
+                          `isValid` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `Adherent`
 --
 
-INSERT INTO `Adherent` (`idAdherent`, `mailPersonne`, `adressepostaleAdherent`, `PW_Adherent`, `estProducteur`, `estAdministrateur`, `dateinscription`, `dateproducteur`, `photo`, `description`, `ville`) VALUES
-('lightnaruto', 'mabroua@icloud.com', '71 chemin des plantier', '84ada0e4bf93886610c494fd36acc11bfc43790b62445c46f4a0396d4e7d5a41', 0, 0, '2018-12-26 12:01:41', NULL, 'https://figuya.com/uploads/product/profile_picture/10582/profile_light-yagami-kira-und-ryuuk-ryuk-diorama20171214-28947-1gms6ny', NULL, 'cavaillon'),
-('mabroukl', 'mabroukl@icloud.com', '75 chemin des plantiers', '64fb57e333a3ab729ebc1f4c8f31354db5b150fafd2fe3d08722f00bf9a2a575', 1, 1, '2018-12-24 09:40:18', '2018-12-24 09:40:18', 'https://images.ecosia.org/RC1B-XW9-56MMnJlDUTk8BBFaWg=/0x390/smart/https%3A%2F%2Fwww.fc-photos.com%2Fwp-content%2Fuploads%2F2016%2F09%2Ffc-photos-Weynacht-0001.jpg', 'Je suis productrice de pommes depuis près de 50 ans. J\'aime les chats.', 'Lagnes'),
-('pandav', 'dsambuc@free.fr', '11, rue des étangs', '9327cfdac7c820149a65789a387dc9dda64694e9c7c3850536f0302302bf7f13', 1, 0, '2018-12-23 18:07:08', '2018-12-23 18:07:08', NULL, NULL, 'Montpellier'),
-('Popola', 'ANDRE@yahoo.fr', '56 Rue des paniers MIX', '64fb57e333a3ab729ebc1f4c8f31354db5b150fafd2fe3d08722f00bf9a2a575', 0, 0, '2018-12-24 16:42:21', NULL, 'https://images.ecosia.org/Oh5dAT4YGWmW3WHQoZVpc54NG-c=/0x390/smart/https%3A%2F%2Fblog.fotolia.com%2Ffr%2Ffiles%2F2015%2F09%2FScreenshot2-575x600.png', NULL, 'Lagnes');
+INSERT INTO `Adherent` (`idAdherent`, `mailPersonne`, `adressepostaleAdherent`, `PW_Adherent`, `estProducteur`, `estAdministrateur`, `dateinscription`, `dateproducteur`, `photo`, `description`, `ville`, `isValid`) VALUES
+('aezrytyjuy', 'aezrtyt@efzgrhtryjt', 'aerzt', '44ffa0af7ba28bfe3d7c1aa5b5f66c1ee973bb65c072948165c3ecca373f9b67', 0, 1, '2019-01-05 22:42:11', NULL, './images/Producteur6.png', '', 'aztretryt', 1),
+('issoezgru', 'fezgrhty@ezretryt', 'azrethr', '44ffa0af7ba28bfe3d7c1aa5b5f66c1ee973bb65c072948165c3ecca373f9b67', 1, 0, '2019-01-04 16:04:59', '2019-01-04 16:04:59', './images/Producteur5.png', '', 'azertyu', 1),
+('issou', 'ezfrgtryt@ezretryt', 'azrethr', '44ffa0af7ba28bfe3d7c1aa5b5f66c1ee973bb65c072948165c3ecca373f9b67', 1, 0, '2019-01-04 16:04:59', '2019-01-04 16:04:59', './images/Producteur7.png', '', 'azertyu', 1),
+('mabrouazfegrkl', 'mabzaegrroukl@icloud.com', '75 chemin des plantiers', '64fb57e333a3ab729ebc1f4c8f31354db5b150fafd2fe3d08722f00bf9a2a575', 0, 1, '2018-12-24 09:40:18', '2018-12-24 09:40:18', './images/Producteur4.png', 'Je suis productrice de pommes depuis près de 50 ans. J\'aime les chats.', 'Lagnes', 1),
+('mabroukl', 'mabroukl@icloud.com', '75 chemin des plantiers', '64fb57e333a3ab729ebc1f4c8f31354db5b150fafd2fe3d08722f00bf9a2a575', 0, 0, '2018-12-24 09:40:18', '2018-12-24 09:40:18', 'https://images.ecosia.org/RC1B-XW9-56MMnJlDUTk8BBFaWg=/0x390/smart/https%3A%2F%2Fwww.fc-photos.com%2Fwp-content%2Fuploads%2F2016%2F09%2Ffc-photos-Weynacht-0001.jpg', 'Je suis productrice de pommes depuis près de 50 ans. J\'aime les chats.', 'Lagnes', 0),
+('pandav', 'dsambuc@free.fr', '11, rue des étangs', '9327cfdac7c820149a65789a387dc9dda64694e9c7c3850536f0302302bf7f13', 1, 1, '2018-12-23 18:07:08', '2018-12-23 18:07:08', './images/pandab.png', 'a\r\ntest', 'Montpellier', 0),
+('pandzafegrhtav', 'dsaaezgrhtrmbuc@free.fr', '11, rue des étangs', '9327cfdac7c820149a65789a387dc9dda64694e9c7c3850536f0302302bf7f13', 1, 1, '2018-12-23 18:07:08', '2018-12-23 18:07:08', './images/Producteur3.png', 'a\r\ntest', 'Montpellier', 1),
+('zefgrhtryjtuy', 'aezrtyt@efzgrhtrt', 'aerzt', '44ffa0af7ba28bfe3d7c1aa5b5f66c1ee973bb65c072948165c3ecca373f9b67', 0, 0, '2019-01-05 22:42:11', NULL, './images/Producteur2.png', '', 'aztretryt', 1);
 
 -- --------------------------------------------------------
 
@@ -51,60 +64,62 @@ INSERT INTO `Adherent` (`idAdherent`, `mailPersonne`, `adressepostaleAdherent`, 
 --
 
 CREATE TABLE `Article` (
-  `idArticle` int(11) NOT NULL,
-  `titreArticle` varchar(50) NOT NULL,
-  `photo` varchar(500) DEFAULT NULL,
-  `date` datetime NOT NULL,
-  `description` varchar(1000) NOT NULL,
-  `mailPersonne` varchar(32) NOT NULL
+                         `idArticle` int(11) NOT NULL,
+                         `titreArticle` varchar(50) NOT NULL,
+                         `photo` varchar(500) DEFAULT NULL,
+                         `date` datetime NOT NULL,
+                         `description` varchar(1000) NOT NULL,
+                         `mailPersonne` varchar(32) NOT NULL,
+                         `isValid` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `Article`
 --
 
-INSERT INTO `Article` (`idArticle`, `titreArticle`, `photo`, `date`, `description`, `mailPersonne`) VALUES
-(1, 'La viande de veau', './images/Article1.jpg', '2018-11-26 00:00:00', 'Les Français gardent un attachement particulier pour la viande de veau qui continue de figurer parmi leurs viandes préférées, de l’escalope de veau à la blanquette de veau.\r\n\r\nMais d’abord, il faut s’assurer que sa couleur est légèrement rosée avec un gras clair et nacré. C’est le gage d’une viande tendre.\r\n\r\nIl est à noter que la viande de veau, pour conserver la finesse de son grain doit être consommée à peine rosée ou cuite à point mais jamais saignante et encore moins trop cuite.', 'mabroukl@icloud.com'),
-(2, 'Cuisinez le butternut au four', './images/Article2.jpg', '2018-11-27 13:29:31', 'C\'est tout simple !', 'mabroukl@icloud.com'),
-(4, 'Chandeleur avec l\'AMAP', 'https://images.ecosia.org/_666ebrNLPj6GZwFScgpmnEhtsc=/0x390/smart/https%3A%2F%2Fstatic3.hervecuisine.com%2Fwp-content%2Fuploads%2F2010%2F11%2Frecette-crepes-chandeleur-2018.jpg%3Fx89858', '2018-12-24 15:22:31', 'Les crêpes de l\'AMAP', 'mabroukl@icloud.com'),
-(5, 'Crème brulée aux marrons', 'https://images.ecosia.org/Qh6P0TQkLqwTBSPMaRjFY_mWeAU=/0x390/smart/http%3A%2F%2Fcdn-elle.ladmedia.fr%2Fvar%2Fplain_site%2Fstorage%2Fimages%2Felle-a-table%2Frecettes-de-cuisine%2Fcreme-brulee-facile-2894406%2F52734072-1-fre-FR%2FCreme-brulee-facile.jpeg', '2018-12-24 15:25:04', 'Creme brulée avec les marrons de mon panier !', 'mabroukl@icloud.com'),
-(6, 'Galette des rois aux pommes', 'https://2.bp.blogspot.com/-huQ7BfjHTPA/WGwUXGhN-dI/AAAAAAAAV5w/Y_CMLzYRl70nb-w4TebubGBzeQ0yuzehwCLcB/s1600/galette-des-rois-pommes.jpg', '2018-12-26 19:46:03', 'Recette délicieuse à tester', 'mabroua@icloud.com');
+INSERT INTO `Article` (`idArticle`, `titreArticle`, `photo`, `date`, `description`, `mailPersonne`, `isValid`) VALUES
+(1, 'La viande de veau', './images/Article1.jpg', '2018-11-26 00:00:00', 'Les Français gardent un attachement particulier pour la viande de veau qui continue de figurer parmi leurs viandes préférées, de l’escalope de veau à la blanquette de veau.\r\n\r\nMais d’abord, il faut s’assurer que sa couleur est légèrement rosée avec un gras clair et nacré. C’est le gage d’une viande tendre.\r\n\r\nIl est à noter que la viande de veau, pour conserver la finesse de son grain doit être consommée à peine rosée ou cuite à point mais jamais saignante et encore moins trop cuite.', 'dsambuc@free.fr', 0),
+(2, 'Cuisinez le butternut au four', './images/Article2.jpg', '2018-11-27 13:29:31', 'C\'est tout simple !\r\ntest', 'mabroukl@icloud.com', 0),
+(4, 'Chandeleur avec l\'AMAP', 'https://images.ecosia.org/_666ebrNLPj6GZwFScgpmnEhtsc=/0x390/smart/https%3A%2F%2Fstatic3.hervecuisine.com%2Fwp-content%2Fuploads%2F2010%2F11%2Frecette-crepes-chandeleur-2018.jpg%3Fx89858', '2018-12-24 15:22:31', 'Les crêpes de l\'AMAP', 'mabroukl@icloud.com', 0),
+(5, 'Crème brulée aux marrons', 'https://images.ecosia.org/Qh6P0TQkLqwTBSPMaRjFY_mWeAU=/0x390/smart/http%3A%2F%2Fcdn-elle.ladmedia.fr%2Fvar%2Fplain_site%2Fstorage%2Fimages%2Felle-a-table%2Frecettes-de-cuisine%2Fcreme-brulee-facile-2894406%2F52734072-1-fre-FR%2FCreme-brulee-facile.jpeg', '2018-12-24 15:25:04', 'Creme brulée avec les marrons de mon panier !', 'mabroukl@icloud.com', 1),
+(6, 'Galette des rois aux pommes', 'https://2.bp.blogspot.com/-huQ7BfjHTPA/WGwUXGhN-dI/AAAAAAAAV5w/Y_CMLzYRl70nb-w4TebubGBzeQ0yuzehwCLcB/s1600/galette-des-rois-pommes.jpg', '2018-12-26 19:46:03', 'Recette délicieuse à tester', 'mabroua@icloud.com', 1);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `contrat`
+-- Structure de la table `Contrat`
 --
 
-CREATE TABLE `contrat` (
-  `idContrat` int(11) NOT NULL,
-  `tailleContrat` varchar(1) NOT NULL,
-  `typeContrat` varchar(32) NOT NULL,
-  `frequenceContrat` varchar(20) NOT NULL,
-  `idAdherent` int(11) NOT NULL
+CREATE TABLE `Contrat` (
+                         `idContrat` int(11) NOT NULL,
+                         `tailleContrat` varchar(1) NOT NULL,
+                         `typeContrat` varchar(32) NOT NULL,
+                         `frequenceContrat` varchar(20) NOT NULL,
+                         `idAdherent` int(11) NOT NULL,
+                         `encours` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `contrat`
+-- Déchargement des données de la table `Contrat`
 --
 
-INSERT INTO `contrat` (`idContrat`, `tailleContrat`, `typeContrat`, `frequenceContrat`, `idAdherent`) VALUES
-(12, 'L', 'carné', 'bimensuel', 96),
-(13, 'L', 'carné', 'bimensuel', 96),
-(14, 'L', 'carné', 'hebdomadaire', 48),
-(15, 'M', 'végétal', 'mensuel', 48),
-(16, 'M', 'végétal', 'mensuel', 48),
-(17, 'L', 'carné', 'mensuel', 384),
-(18, 'S', 'laitier', 'hebdomadaire', 96),
-(19, 'S', 'carné', 'hebdomadaire', 48),
-(20, 'M', 'carné', 'mensuel', 48),
-(21, 'M', 'végétal', 'mensuel', 3069),
-(22, 'S', 'laitier', 'hebdomadaire', 96),
-(23, 'S', 'laitier', 'hebdomadaire', 96),
-(24, 'S', 'laitier', 'hebdomadaire', 96),
-(25, 'S', 'laitier', 'hebdomadaire', 96),
-(26, 'M', 'végétal', 'bimensuel', 96),
-(27, 'M', 'laitier', 'hebdomadaire', 48);
+INSERT INTO `Contrat` (`idContrat`, `tailleContrat`, `typeContrat`, `frequenceContrat`, `idAdherent`, `encours`) VALUES
+(12, 'L', 'carné', 'bimensuel', 96, 0),
+(13, 'L', 'carné', 'bimensuel', 96, 0),
+(14, 'L', 'carné', 'hebdomadaire', 48, 0),
+(15, 'M', 'végétal', 'mensuel', 48, 0),
+(16, 'M', 'végétal', 'mensuel', 48, 0),
+(17, 'L', 'carné', 'mensuel', 384, 0),
+(18, 'S', 'laitier', 'hebdomadaire', 96, 0),
+(19, 'S', 'carné', 'hebdomadaire', 48, 0),
+(20, 'M', 'carné', 'mensuel', 48, 0),
+(21, 'M', 'végétal', 'mensuel', 3069, 0),
+(22, 'S', 'laitier', 'hebdomadaire', 96, 0),
+(23, 'S', 'laitier', 'hebdomadaire', 96, 0),
+(24, 'S', 'laitier', 'hebdomadaire', 96, 0),
+(25, 'S', 'laitier', 'hebdomadaire', 96, 0),
+(26, 'M', 'végétal', 'bimensuel', 96, 0),
+(27, 'M', 'laitier', 'hebdomadaire', 48, 0);
 
 -- --------------------------------------------------------
 
@@ -113,9 +128,9 @@ INSERT INTO `contrat` (`idContrat`, `tailleContrat`, `typeContrat`, `frequenceCo
 --
 
 CREATE TABLE `Don` (
-  `idDon` int(11) NOT NULL,
-  `montantDon` int(11) NOT NULL,
-  `mailAddressDonnateur` varchar(70) NOT NULL
+                     `idDon` int(11) NOT NULL,
+                     `montantDon` int(11) NOT NULL,
+                     `mailAddressDonnateur` varchar(70) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -184,10 +199,10 @@ INSERT INTO `Don` (`idDon`, `montantDon`, `mailAddressDonnateur`) VALUES
 --
 
 CREATE TABLE `Donnateur` (
-  `mailAddressDonnateur` varchar(70) NOT NULL,
-  `nomDonnateur` varchar(20) NOT NULL,
-  `prenomDonnateur` varchar(20) NOT NULL,
-  `montantTotal` int(11) NOT NULL
+                           `mailAddressDonnateur` varchar(70) NOT NULL,
+                           `nomDonnateur` varchar(20) NOT NULL,
+                           `prenomDonnateur` varchar(20) NOT NULL,
+                           `montantTotal` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -235,35 +250,73 @@ INSERT INTO `Donnateur` (`mailAddressDonnateur`, `nomDonnateur`, `prenomDonnateu
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `Homepage`
+--
+
+CREATE TABLE `Homepage` (
+                          `pagetitle` varchar(100) NOT NULL,
+                          `welcomephrase` varchar(100) NOT NULL,
+                          `descbannerphrase` varchar(100) NOT NULL,
+                          `newsnameandtext` varchar(1000) NOT NULL,
+                          `namearticlelink` varchar(100) NOT NULL,
+                          `firstarticledisplayed` varchar(100) NOT NULL,
+                          `secondarticledisplayed` varchar(100) NOT NULL,
+                          `firstparagraph` varchar(1000) NOT NULL,
+                          `maptitle` varchar(100) NOT NULL,
+                          `firstimagetitle` varchar(100) NOT NULL,
+                          `firstimage` varchar(100) NOT NULL,
+                          `firstimagephrase` varchar(1000) NOT NULL,
+                          `secondimagetitle` varchar(100) NOT NULL,
+                          `secondimage` varchar(100) NOT NULL,
+                          `secondimageparagraph` varchar(1000) NOT NULL,
+                          `idHomepage` varchar(100) NOT NULL,
+                          `firstimagelist` text NOT NULL,
+                          `firstparagraphlink` varchar(100) NOT NULL,
+                          `maplink` varchar(1000) NOT NULL,
+                          `banner` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `Homepage`
+--
+
+INSERT INTO `Homepage` (`pagetitle`, `welcomephrase`, `descbannerphrase`, `newsnameandtext`, `namearticlelink`, `firstarticledisplayed`, `secondarticledisplayed`, `firstparagraph`, `maptitle`, `firstimagetitle`, `firstimage`, `firstimagephrase`, `secondimagetitle`, `secondimage`, `secondimageparagraph`, `idHomepage`, `firstimagelist`, `firstparagraphlink`, `maplink`, `banner`) VALUES
+('Accueil', ' Bienvenue sur le site de l\'AMAP de la région Occitanie ', 'Présentation de l\'AMAP.', 'Actualités\r\n\r\nProchaine rencontre à Saint-Jean-de-Védas.\r\nplus de renseignements ici.', 'Derniers articles', '5', '6', ' L\'AMAP d\'O regroupe plusieurs maraîchers et éveleurs de la région Occitanie, qui vous proposent leurs produits BIO. Mauris ante tellus, egestas nec arcu eget, hendrerit laoreet velit. Pellentesque id urna in massa scelerisque fermentum ac vel leo. Curabitur sem sapien, feugiat vel varius sed, condimentum vitae erat. Vestibulum non velit augue. Maecenas pretium in ex sed luctus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis vel sodales lacus. Phasellus diam massa, tincidunt a dui a, porttitor posuere nisi. Maecenas arcu risus, volutpat sit amet cursus sed, facilisis in nisi.\r\n', 'Nous trouver', 'Q\'est-ce qu\'une AMAP ?', './images/section2-accueil.jpg', ' À travers notre site, vous pouvez profiter d\'une multitude de fonctionnalités :\r\n', 'Notre engagement dans le BI0', './images/section3-accueil.jpg', 'Ut hendrerit ex ac libero venenatis, sit amet elementum dolor porttitor. Vivamus semper, erat non facilisis pellentesque, mauris ipsum ullamcorper lacus, ac egestas tortor turpis eu ligula. Nulla lacinia hendrerit libero, nec sollicitudin enim fermentum vitae. Nullam vestibulum, leo gravida luctus vehicula, diam dolor condimentum nulla, in pretium orci massa non erat. Duis gravida est porttitor, efficitur tellus ut, tincidunt est. In hac habitasse platea dictumst. Aliquam semper imperdiet ligula, sed vulputate dolor ultrices ut. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras feugiat maximus libero, in ultrices diam eleifend nec. Sed ut erat porttitor, vulputate dui quis, volutpat lorem.', 'Accueil', 'Découvrir les valeurs de l\'AMAP\r\n Profiter des articles, des recettes et s\'informer sur les évenements organisés par les adhérents\r\n Consulter les contrats que nos partenaires proposent\r\n Adhérer à l\'AMAP et choisir son ou ses contrats', 'En savoir plus...', 'https://www.google.com/maps/d/embed?mid=1jXR-N1Ge3qSqQ48tiTxcWRYDfhcAoGb2', 'images/pasteque.jpg images/fruit.jpg images/leg.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `LivreDor`
 --
 
 CREATE TABLE `LivreDor` (
-  `id_message` int(11) NOT NULL,
-  `pseudo` varchar(25) NOT NULL,
-  `message` text NOT NULL
+                          `id_message` int(11) NOT NULL,
+                          `pseudo` varchar(25) NOT NULL,
+                          `message` text NOT NULL,
+                          `isValid` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `LivreDor`
 --
 
-INSERT INTO `LivreDor` (`id_message`, `pseudo`, `message`) VALUES
-(1, 'a1', 'issou'),
-(2, 'a2', 'azere'),
-(3, 'a3', 'azr'),
-(4, 'a4', 'eztgzer'),
-(5, 'a5', 'ezrtre'),
-(6, 'a6', 'azrfze'),
-(7, 'a7', 'azrzed'),
-(8, 'a8', 'zareza'),
-(9, 'a9', 'zaraa'),
-(10, 'a10', 'zaraezraz'),
-(11, 'a11', 'eazr'),
-(12, 'robertl', 'niquel j\'adore cette AMAP !!'),
-(13, 'julien', 'Ouah super l\'AMAP elle est géniale'),
-(14, 'JUJU', 'excellent !');
-
+INSERT INTO `LivreDor` (`id_message`, `pseudo`, `message`, `isValid`) VALUES
+(1, 'a1', 'issou test', 1),
+(6, 'a6', 'azrfze', 1),
+(7, 'a7', 'azrzed', 1),
+(8, 'a8', 'zareza', 1),
+(9, 'a9', 'zaraa', 1),
+(10, 'a10', 'zaraezraz', 0),
+(11, 'a11', 'eazr', 1),
+(12, 'robertl', 'niquel j\'adore cette AMAP !!', 1),
+(13, 'julien', 'Ouah super l\'AMAP elle est géniale', 1),
+(14, 'JUJU', 'excellent !', 1),
+(15, 'issou', 'ezrtry', 1),
+(16, 'kezfrgthydyjf', 'kezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjf', 1),
+(17, 'kezfrgthydyjf', 'kezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjf', 0),
+(18, 'kezfrgthydyjf', 'kezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjf', 0),
+(19, 'kezfrgthydyjf', 'kezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjf', 1),
+(20, 'kezfrgthydyjf', 'kezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjfkezfrgthydyjf', 1);
 
 -- --------------------------------------------------------
 
@@ -272,9 +325,9 @@ INSERT INTO `LivreDor` (`id_message`, `pseudo`, `message`) VALUES
 --
 
 CREATE TABLE `Personne` (
-  `nomPersonne` varchar(32) NOT NULL,
-  `prenomPersonne` varchar(32) NOT NULL,
-  `mailPersonne` varchar(32) NOT NULL
+                          `nomPersonne` varchar(32) NOT NULL,
+                          `prenomPersonne` varchar(32) NOT NULL,
+                          `mailPersonne` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -282,14 +335,18 @@ CREATE TABLE `Personne` (
 --
 
 INSERT INTO `Personne` (`nomPersonne`, `prenomPersonne`, `mailPersonne`) VALUES
-('ANDRE', 'Andrea', 'ANDRE@yahoo.fr'),
-('sdfgsf', 'sfdbgwsf', 'dfb@dfb.fr'),
+('eheqthesqwbeq', 'thqehqegbdq', 'aezrtyt@efzgrhtrt'),
+('ezrty', 'azezretryt', 'aezrtyt@efzgrhtryjt'),
+('ezret', 'zareter', 'azeretr@aezteyrt'),
+('muhlihu', 'ihmhm', 'dsaaezgrhtrmbuc@free.fr'),
 ('Sambuc', 'David', 'dsambuc@free.fr'),
-('muhlihu', 'ihmhm', 'liuhlihb@luh.fr'),
+('ezrthyjy', 'azretry', 'ezfrgtryt@ezretryt'),
+('ANDRE', 'Andrea', 'fezgrhty@ezretryt'),
 ('mabrouk', 'anas', 'mabroua@icloud.com'),
 ('mabrouk', 'anas', 'mabrouka@icloud.com'),
 ('Mabrouk', 'Leila', 'mabroukl@icloud.com'),
-('eheqthesqwbeq', 'thqehqegbdq', 'qebqegfb@lbmoub.fr'),
+('sdfgsf', 'sfdbgwsf', 'mabzaegrroukl@icloud.com'),
+('ezrety', 'rteyrtuy', 'panda@gmail.com'),
 ('eszutrd', 'trst', 'rts@ytdjyt.fr');
 
 -- --------------------------------------------------------
@@ -299,9 +356,9 @@ INSERT INTO `Personne` (`nomPersonne`, `prenomPersonne`, `mailPersonne`) VALUES
 --
 
 CREATE TABLE `Produit` (
-  `nomProduit` varchar(20) NOT NULL,
-  `image` varchar(300) NOT NULL,
-  `description` varchar(200) NOT NULL
+                         `nomProduit` varchar(20) NOT NULL,
+                         `image` varchar(300) NOT NULL,
+                         `description` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -309,7 +366,7 @@ CREATE TABLE `Produit` (
 --
 
 INSERT INTO `Produit` (`nomProduit`, `image`, `description`) VALUES
-('Courgettes', 'https://tse4.mm.bing.net/th?id=OIP.iLKY88RipxGb68SLOHz5hwHaHa&pid=Api', 'courgettes bio de Lagnes');
+('Courgettes', './images/courgette.jpeg', 'courgettes bio de Lagnes');
 
 --
 -- Index pour les tables déchargées
@@ -330,9 +387,9 @@ ALTER TABLE `Article`
   ADD KEY `idAdherent` (`mailPersonne`);
 
 --
--- Index pour la table `contrat`
+-- Index pour la table `Contrat`
 --
-ALTER TABLE `contrat`
+ALTER TABLE `Contrat`
   ADD PRIMARY KEY (`idContrat`),
   ADD KEY `idAdherent` (`idAdherent`);
 
@@ -348,6 +405,12 @@ ALTER TABLE `Don`
 --
 ALTER TABLE `Donnateur`
   ADD PRIMARY KEY (`mailAddressDonnateur`);
+
+--
+-- Index pour la table `Homepage`
+--
+ALTER TABLE `Homepage`
+  ADD PRIMARY KEY (`idHomepage`);
 
 --
 -- Index pour la table `LivreDor`
@@ -379,9 +442,9 @@ ALTER TABLE `Article`
   MODIFY `idArticle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT pour la table `contrat`
+-- AUTO_INCREMENT pour la table `Contrat`
 --
-ALTER TABLE `contrat`
+ALTER TABLE `Contrat`
   MODIFY `idContrat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
@@ -394,7 +457,7 @@ ALTER TABLE `Don`
 -- AUTO_INCREMENT pour la table `LivreDor`
 --
 ALTER TABLE `LivreDor`
-  MODIFY `id_message` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_message` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Contraintes pour les tables déchargées
@@ -405,3 +468,8 @@ ALTER TABLE `LivreDor`
 --
 ALTER TABLE `Don`
   ADD CONSTRAINT `fk_mailAddressDonnateur` FOREIGN KEY (`mailAddressDonnateur`) REFERENCES `Donnateur` (`mailAddressDonnateur`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
