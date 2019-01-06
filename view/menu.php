@@ -54,6 +54,7 @@
                 <ul>
                     <li><a class="lienMenu" href="?action=profile&controller=monProfil">Voir mon profil</a></li>
                     <li><a class="lienMenu" href="?action=gotoupdate&controller=monProfil">Modifier mon profil</a></li>
+                    <li><a class="lienMenu" href="?action=updatePW&controller=monProfil">Modifier votre mot de passe</a></li>
                     <?php if(!isset($_SESSION['producteur'])){ ?>
                         <li><a class="lienMenu" href="?action=display2nd&controller=monProfil">Devenir producteur</a></li>
                     <?php } ?>
@@ -127,6 +128,7 @@
                 <ul>
                     <li><a class="lienMenu" href="?action=profile&controller=monProfil">Voir mon profil</a></li>
                     <li><a class="lienMenu" href="?action=gotoupdate&controller=monProfil">Modifier mon profil</a></li>
+                    <li><a class="lienMenu" href="?action=updatePW&controller=monProfil">Modifier votre mot de passe</a></li>
                     <?php if(!isset($_SESSION['producteur'])){ ?>
                         <li><a class="lienMenu" href="?action=display2nd&controller=monProfil">Devenir producteur</a></li>
                     <?php } ?>

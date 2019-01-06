@@ -56,7 +56,7 @@ class ControllerAdherent
 	// 	require File::build_path(array('view','view.php'));
 	// }
 	*/
-	
+
 	/**
 	 * action d'inscription
 	 */
@@ -139,6 +139,8 @@ class ControllerAdherent
 		$adressepostaleAdherent = $_POST['adressepostaleAdherent'];
 		$PW_Adherent = Security::chiffrer($_POST['PW_Adherent']);
 		$date = date("Y-m-d H:i:s");
+		$nonce = Security::generateRandomHex();
+
 
 		//on met toutes les données dans un tableau
 		$arrayadh = [
@@ -151,16 +153,93 @@ class ControllerAdherent
 			'estAdministrateur' => 0,
 			'dateinscription' => $date,
 			'dateproducteur' => null,
+			'nonce' => $nonce,
 		];
 
 		//on enregistre dans la bdd
 
 		ModelAdherent::save($arrayadh);
 
+		////////////////////////////////////////////////////
+		/// On envoie un mail pour valider l'adresse //////
+		//////////////////////////////////////////////////
+		$a = ModelAdherent::select($idAdherent);
+		$email = $a->get('mailPersonne');
+		$p = ModelPersonne::select($email);
+		$nom = $p->get('nomPersonne');
+		$prenom = $p->get('prenomPersonne');
+		$idurl = urlencode($idAdherent);
+		$nonceurl = urlencode($nonce);
+
+		$mail = new PHPMailer(TRUE);
+
+		/* Open the try/catch block. */
+		try {
+			/* Set the mail sender. */
+			$mail->setFrom('AMAP-Occitanie@no-reply.com', 'AMAP Occitanie');
+
+			/* Add a recipient. */
+			$mail->addAddress($email, "$prenom $nom");
+
+
+			/* Set the subject. */
+			$mail->Subject = "Validation de votre adresse mail";
+
+			/* Set the mail message body. */
+			$mail->isHTML(TRUE);
+			$mail->Body = "<html>Bonjour, pour valider votre adresse mail veuillez cliquez <a href=\"http://webinfo.iutmontp.univ-montp2.fr/~sambucd/monAMAP/?action=validatedMail&controller=adherent&id=$idurl&nonce=$nonceurl\">ici</a></html>";
+			$mail->AltBody = "Bonjour, pour valider votre adresse mail veuillez copier coller ce lien http://webinfo.iutmontp.univ-montp2.fr/~sambucd/monAMAP/?action=validatedMail&controller=adherent&id=$idurl&nonce=$nonceurl";
+			/* Finally send the mail. */
+			$mail->send();
+		}
+		catch (Exception $e)
+		{
+			/* PHPMailer exception. */
+			echo $e->errorMessage();
+		}
+		catch (\Exception $e)
+		{
+			/* PHP exception (note the backslash to select the global namespace Exception class). */
+			echo $e->getMessage();
+		}
+
+
 		//on redirige vers l'accueil ou vers le formulaire pour les producteurs s'il a coché est producteur
 		if(!$estprod)
 			return ControllerAccueil::homepage();
 		return self::becomeprod($idAdherent);
+	}
+
+	public static function validatedMail()
+	{
+		//on vérifie qu'on a bien les infos
+		if(isset($_GET['login'])&&isset($_GET['nonce'])) {
+			return self::error();
+		}
+
+		//on les récupère dans des variables
+		$login = $_GET['login'];
+		$nonce = urldecode($_GET['nonce']);
+		$c = ModelAdherent::select($login);
+
+		//on vérifie que l'id est valide
+		if (!$c) {
+			return self::error();
+		}
+
+		//on vérifie que le nonce est valide
+		if ($c->get('nonce') != $nonce) {
+			return self::error;
+		}
+
+		//on update
+		$array = array(
+			'login' => $login,
+			'nonce' => null,
+		);
+		ModelClient::update($array);
+		ControllerAdherent::connect();
+
 	}
 
 	/**
