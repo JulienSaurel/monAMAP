@@ -213,14 +213,14 @@ class ControllerAdherent
 	public static function validatedMail()
 	{
 		//on vérifie qu'on a bien les infos
-		if(isset($_GET['login'])&&isset($_GET['nonce'])) {
+		if(!isset($_GET['id'])||!isset($_GET['nonce'])) {
 			return self::error();
 		}
 
 		//on les récupère dans des variables
-		$login = $_GET['login'];
+		$id = $_GET['id'];
 		$nonce = urldecode($_GET['nonce']);
-		$c = ModelAdherent::select($login);
+		$c = ModelAdherent::select($id);
 
 		//on vérifie que l'id est valide
 		if (!$c) {
@@ -234,10 +234,11 @@ class ControllerAdherent
 
 		//on update
 		$array = array(
-			'login' => $login,
+			'idAdherent' => $id,
 			'nonce' => null,
 		);
-		ModelClient::update($array);
+		ModelAdherent::update($array);
+		$_POST['phrase'] = 'Votre adresse email a bien été validée.';
 		ControllerAdherent::connect();
 
 	}
@@ -361,6 +362,13 @@ class ControllerAdherent
 	public static function connect()
 	{
 		//redirection vers le formulaire de connexion
+		if (!isset($phrase)) {
+			if (isset($_POST['phrase'])) {
+				$phrase = $_POST['phrase'];
+			} else {
+				$phrase = "";
+			}
+		}
 		$view = 'connect';
 		$pagetitle = 'Se connecter';
 		require File::build_path(array('view','view.php'));

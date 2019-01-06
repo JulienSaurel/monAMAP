@@ -1,4 +1,4 @@
-
+<?php echo $phrase;?>
 <form method="post" action="?action=connected&controller=adherent">
 
 
