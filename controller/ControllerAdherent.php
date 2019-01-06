@@ -386,28 +386,32 @@ class ControllerAdherent
 			//(2) si l'utilisateur rempli les champs "login" et "mot de passe"
 			if (isset($_POST['idAdherent'])&&isset($_POST['pw']))
 			{
-				//on récupère les données de celui qui veut se connecter, grâce à son login (=idAdherent)
-				$informations=ModelAdherent::select($_POST['idAdherent']);
-				//var_dump($informations->get('estProducteur'));
+				
+				
+				//var_dump($adh->get('estProducteur'));
 				$login = $_POST['idAdherent'];
 
 				//on chiffre le mot de passe saisi pour le comparer à celui dans la base de donnée
 				$pw = Security::chiffrer($_POST['pw']);
 
 				//(3)si l'idAdherent existe dans la base de donnée
-				if (ModelAdherent::select($_POST['idAdherent']))
+				if ($adh=ModelAdherent::select($login))
 				{
+					if (!is_null($adh->get('nonce')))
+					{
+						return self::error();
+					}
 
 					//(4) si les deux mots de passes correspondent
 					if (ModelAdherent::select($login)->checkPW($login, $pw))
 					{
 
 						//si il est admin
-						if($informations->get('estAdministrateur') == '1'){
+						if($adh->get('estAdministrateur') == '1'){
 							$_SESSION['administrateur'] = 1;
 						}
 						//si il est prod
-						if($informations->get('estProducteur') == '1'){
+						if($adh->get('estProducteur') == '1'){
 							$_SESSION['producteur'] = 1;
 						}
 
