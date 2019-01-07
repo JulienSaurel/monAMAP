@@ -666,14 +666,30 @@ footer {
  /*
  CSS ARTICLES
  */
-#source {
+#sourceplus1, #sourceplus2, #sourceplus3, #sourceplus4, #sourceplus5, #sourceplus6, #sourceplus7, #sourceplus8, #sourceplus9, #sourceplus10, #sourceplus11, #sourceplus12 {
+    display: inline;
     position: relative;
     right: auto;
 }
 
-#target1, #target2, #target3, target4, target5 {
+#sourcemoins1, #sourcemoins2, #sourcemoins3, #sourcemoins4, #sourcemoins5, #sourcemoins6, #sourcemoins7, #sourcemoins8, #sourcemoins9, #sourcemoins10, #sourcemoins11, #sourcemoins12 {
+    display: none;
+    position: relative;
+    right: auto;
+}
+
+#target1, #target2, #target3, #target4, #target5, #target6, #target7, #target8, #target9, #target10, #target11, #target12 {
     height: 50px;
     overflow: hidden;
+}
+
+.bouton {
+    background: center
+}
+
+.imgArt {
+    width: 5px;
+    height: auto;
 }
 /*
  CSS ARTICLES

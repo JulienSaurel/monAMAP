@@ -21,10 +21,9 @@ foreach ($tabArticles as $art) {
     $description = $art->get('description');?>
 
     <div id="target<?php echo $i;?>" class="article">
-       <?php echo "<h2>  $titreArticle <button id=\"source\" onclick='changeSizePercent(\"target$i\", 22);'>+</button> <button id=\"source\" onclick='changeSizePx(\"target$i\", 50);'>-</button> </h2>       
-<img src=\"$photo\" alt=\"$idArticle\"/><p>$description</p><p>Ecrit par : $prenom $nom, Le : $date</p>" ?>
+       <?php echo "<h2>  $titreArticle <button class='bouton' id=\"sourceplus$i\" onclick='Extend(\"target$i\", $i)'>+</button> <button class='bouton' id=\"sourcemoins$i\" onclick='Reduce(\"target$i\", $i);'>-</button> </h2>       
+<img class=\"imgArt\" src=\"$photo\" alt=\"$idArticle\"/><p>$description</p><p>Ecrit par : $prenom $nom, Le : $date</p>" ?>
     </div>
 
 
     <?php $i++; } ?>
-

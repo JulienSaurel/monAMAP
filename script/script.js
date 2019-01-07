@@ -18,8 +18,70 @@ function closeLink(){
 	document.getElementByClassName("linkmenu").children.style.display = "none";
 }
 
+///////////////////////////////////////////////////////////
+////////////////////// JS Articles ///////////////////////
+/////////////////////////////////////////////////////////
+/**
+ * Affiche un article en grand, si l'article est trop grand on peux scroll
+ * Ferme tous les autres articles ouverts
+ * @param _divId_ id de l'article
+ * @param int numero de l'id
+ * @constructor
+ */
+function Extend(_divId_, int) {
 
-//JS Articles
+    // on crée un tableau avec tous les div
+    var AllObj=document.getElementsByTagName('div')
+
+    //on crée un tableau vide pour y stocker nos div d'articles
+    var targetObj =new Array()
+
+    //on parcours le grand tableau et on range dans le tableau vide les div d'articles en testant leur id
+    for (i=0;i<AllObj.length;i++){
+        if (AllObj[i].id.substr(0,6)=="target"){targetObj.push(AllObj[i])}
+    }
+
+    //on parcours les articles et on les réduit tous sauf celui que l'on aggrandit
+    for (i=0;i<targetObj.length; i++) {
+       if (targetObj[i].id != _divId_) {
+           Reduce(targetObj[i].id, i+1)
+       }
+    }
+    //on augmente la height a 50%(ancienne: 50px)
+    changeSizePercent(_divId_, 50);
+
+    //on permet le scroll
+    document.getElementById(_divId_).style.overflow = "scroll";
+
+    //on affiche le bouton pour rétrécir et on cache celui pour agrandir
+    document.getElementById('sourceplus' + int).style.display='none';
+    document.getElementById('sourcemoins' + int).style.display='inline';
+}
+
+/**
+ * Rétrécit l'article et empeche le scroll
+ * @param _divId_
+ * @param int
+ * @constructor
+ */
+function Reduce(_divId_, int) {
+
+    //on réduit la height a 50px(ancienne: 50%)
+    changeSizePx(_divId_, 50);
+
+    //on empeche le scroll et on cache ce qui dépasse
+    document.getElementById(_divId_).style.overflow = "hidden";
+
+    //on cache le bouton qui réduit et on affiche celui qui aggrandit
+    document.getElementById('sourcemoins' + int).style.display='none';
+    document.getElementById('sourceplus' + int).style.display='inline';
+}
+
+/**
+ * Set la height à _newSizey_ d'une div en pourcentage (on peut aussi rajouter la width en décommentant)
+ * @param _divId_
+ * @param _newSizey_
+ */
 function changeSizePercent (_divId_, /*_newSizex_,*/ _newSizey_){
     if ( document.getElementById(_divId_) != null ){
 /*
@@ -29,6 +91,11 @@ function changeSizePercent (_divId_, /*_newSizex_,*/ _newSizey_){
     }
 }
 
+/**
+ * Set la height à _newSizey_ d'une div en pixels (on peut aussi rajouter la width en décommentant)
+ * @param _divId_
+ * @param _newSizey_
+ */
 function changeSizePx (_divId_, /*_newSizex_,*/ _newSizey_){
     if ( document.getElementById(_divId_) != null ){
         /*
@@ -37,4 +104,6 @@ function changeSizePx (_divId_, /*_newSizex_,*/ _newSizey_){
         document.getElementById(_divId_).style.height = _newSizey_ +"px";
     }
 }
-//JS Articles
+///////////////////////////////////////////////////////////
+////////////////////// JS Articles ///////////////////////
+/////////////////////////////////////////////////////////

@@ -7,6 +7,7 @@
       <change beforePath="$PROJECT_DIR$/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/script/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/script/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/laVieAlAMAP/articles.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/laVieAlAMAP/articles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/view.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,20 +18,11 @@
   <component name="ComposerSettings" synchronizationState="DONT_SYNCHRONIZE" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/view/laVieAlAMAP/articles.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="184" selection-start-line="23" selection-start-column="184" selection-end-line="23" selection-end-column="184" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/script/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="36" column="71" selection-start-line="36" selection-start-column="71" selection-end-line="36" selection-end-column="71" />
+            <state relative-caret-position="360">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -38,11 +30,25 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="670" column="4" selection-start-line="670" selection-start-column="4" selection-end-line="670" selection-end-column="4" />
+            <state relative-caret-position="380">
+              <caret line="674" column="181" selection-start-line="674" selection-start-column="181" selection-end-line="674" selection-end-column="181" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/laVieAlAMAP/createArt.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/laVieAlAMAP/articles.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="675">
+              <caret line="45" column="49" selection-start-line="45" selection-start-column="49" selection-end-line="45" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -75,6 +81,7 @@
       <find>home</find>
       <find>article</find>
       <find>.article</find>
+      <find>button</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -114,7 +121,6 @@
         <option value="$PROJECT_DIR$/model/ModelPersonne.php" />
         <option value="$PROJECT_DIR$/view/admin/list.php" />
         <option value="$PROJECT_DIR$/view/admin/detail.php" />
-        <option value="$PROJECT_DIR$/view/view.php" />
         <option value="$PROJECT_DIR$/libExternes/PHPMailer-master/src/MailerLoader.php" />
         <option value="$PROJECT_DIR$/model/Model.php" />
         <option value="$PROJECT_DIR$/view/laVieAlAMAP/created.php" />
@@ -140,9 +146,10 @@
         <option value="$PROJECT_DIR$/lib/Security.php" />
         <option value="$PROJECT_DIR$/view/adherent/connect.php" />
         <option value="$PROJECT_DIR$/controller/ControllerAdherent.php" />
-        <option value="$PROJECT_DIR$/css/styles.css" />
+        <option value="$PROJECT_DIR$/view/view.php" />
         <option value="$PROJECT_DIR$/script/script.js" />
         <option value="$PROJECT_DIR$/view/laVieAlAMAP/articles.php" />
+        <option value="$PROJECT_DIR$/css/styles.css" />
       </list>
     </option>
   </component>
@@ -189,6 +196,16 @@
             <path>
               <item name="monAMAP" type="b2602c69:ProjectViewProjectNode" />
               <item name="monAMAP" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="monAMAP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="monAMAP" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="monAMAP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="monAMAP" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -217,6 +234,10 @@
               <item name="monAMAP" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
               <item name="laVieAlAMAP" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="monAMAP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="bcb0276e:PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
             </path>
           </expand>
           <select />
@@ -305,7 +326,7 @@
       <workItem from="1546593811744" duration="5279000" />
       <workItem from="1546610719461" duration="27397000" />
       <workItem from="1546688582035" duration="42455000" />
-      <workItem from="1546796417170" duration="11191000" />
+      <workItem from="1546796417170" duration="19327000" />
     </task>
     <task id="LOCAL-00001" summary="Model generique et petits fix">
       <created>1545583549669</created>
@@ -503,11 +524,18 @@
       <option name="project" value="LOCAL" />
       <updated>1546801558243</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Début Article qui s'aggrandissent">
+      <created>1546812430778</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1546812430778</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="250278000" />
+    <option name="totallyTimeSpent" value="258414000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -622,7 +650,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="modif extends" />
     <MESSAGE value="Livre d'or" />
     <MESSAGE value="Update fichiers pas fini" />
     <MESSAGE value="Update fichiers producteur" />
@@ -647,7 +674,8 @@
     <MESSAGE value="Validation par mail" />
     <MESSAGE value="Verif mail testée avec msg de confirmation" />
     <MESSAGE value="Connection empechée si l'adresse mail n'est pas validée(a comenté quand on test des inscriptions)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Connection empechée si l'adresse mail n'est pas validée(a comenté quand on test des inscriptions)" />
+    <MESSAGE value="Début Article qui s'aggrandissent" />
+    <option name="LAST_COMMIT_MESSAGE" value="Début Article qui s'aggrandissent" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
@@ -659,193 +687,121 @@
     <select />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/controller/ControllerNousConnaitre.php">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/images/adherents.png">
+      <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller/ControllerPersonne.php">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/images/carotte.jpg">
+      <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/libExternes/PHPMailer-master/src/PHPMailer.php">
+    <entry file="file://$PROJECT_DIR$/images/cerise.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/citron.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/courgette.jpeg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/croix.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/dinde.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/favicon.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/facebook.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/framboise.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/fraise.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/fruit.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/googleplus.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/leg.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/logo.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/louise.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/marron.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/melange.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/message.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/nature.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/ognon.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/pandab.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/panier.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/panierLaitier.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/panierLegumes.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/panierMix.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/panierViande.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/pasteque.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/Producteur1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/Producteur2.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/Producteur3.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/Producteur4.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/Producteur5.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/Producteur6.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/Producteur7.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/Producteur8.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/produits.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/monAMAP.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="25" column="8" lean-forward="true" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libExternes/PHPMailer-master/src/MailerLoader.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/ControllerNousSoutenir.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="102" column="72" selection-start-line="102" selection-start-column="28" selection-end-line="102" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/laVieAlAMAP/created.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="59" lean-forward="true" selection-start-line="6" selection-start-column="59" selection-end-line="6" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/laVieAlAMAP/livredor.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/ModelLivreDor.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="52" column="5" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/ModelArticle.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="844">
-          <caret line="61" column="5" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/ControllerLaVieAlAMAP.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="82" column="30" lean-forward="true" selection-start-line="82" selection-start-column="30" selection-end-line="82" selection-end-column="30" />
-          <folding>
-            <element signature="e#7#41#0#PHP" expanded="true" />
-            <element signature="n#display#0;n#ControllerLaVieAlAMAP#0;n#!!top" />
-            <element signature="n#display1st#0;n#ControllerLaVieAlAMAP#0;n#!!top" />
-            <element signature="n#display2nd#0;n#ControllerLaVieAlAMAP#0;n#!!top" />
-            <element signature="n#display3rd#0;n#ControllerLaVieAlAMAP#0;n#!!top" />
-            <element signature="n#createArt#0;n#ControllerLaVieAlAMAP#0;n#!!top" />
-            <element signature="n#error#0;n#ControllerLaVieAlAMAP#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/Model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="138" column="37" selection-start-line="138" selection-start-column="37" selection-end-line="138" selection-end-column="37" />
-          <folding>
-            <element signature="n#Init#0;n#Model#0;n#!!top" />
-            <element signature="n#get#0;n#Model#0;n#!!top" />
-            <element signature="n#set#0;n#Model#0;n#!!top" />
-            <element signature="n#__construct#0;n#Model#0;n#!!top" />
-            <element signature="n#selectAll#0;n#Model#0;n#!!top" />
-            <element signature="n#select#0;n#Model#0;n#!!top" />
-            <element signature="n#delete#0;n#Model#0;n#!!top" />
-            <element signature="n#countAll#0;n#Model#0;n#!!top" />
-            <element signature="n#update#0;n#Model#0;n#!!top" />
-            <element signature="n#save#0;n#Model#0;n#!!top" />
-            <element signature="n#generateId#0;n#Model#0;n#!!top" />
-            <element signature="n#selectAllToValid#0;n#Model#0;n#!!top" />
-            <element signature="n#selectAllValid#0;n#Model#0;n#!!top" />
-            <element signature="n#countToValid#0;n#Model#0;n#!!top" />
-            <element signature="n#countTotalToValid#0;n#Model#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/ControllerNosProduits.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-645">
-          <caret line="11" column="43" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/admin/roles.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1875">
-          <caret line="125" column="15" selection-start-line="125" selection-start-column="15" selection-end-line="125" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/ModelAdherent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="43" lean-forward="true" selection-start-line="18" selection-start-column="4" selection-end-line="19" selection-end-column="43" />
-          <folding>
-            <element signature="n#getPersonneByIdAdh#0;n#ModelAdherent#0;n#!!top" />
-            <element signature="n#checkPW#0;n#ModelAdherent#0;n#!!top" />
-            <element signature="n#getMailAdmin#0;n#ModelAdherent#0;n#!!top" />
-            <element signature="n#getMontantTotal#0;n#ModelAdherent#0;n#!!top" />
-            <element signature="n#chaineMail#0;n#ModelAdherent#0;n#!!top" />
-            <element signature="n#checkbindedmail#0;n#ModelAdherent#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/adminmenu.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="93" selection-start-line="32" selection-start-column="93" selection-end-line="32" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/admin/validate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-195">
-          <caret line="26" column="47" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/ModelHomepage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/admin/newaccueil.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="62" column="35" selection-start-line="62" selection-start-column="35" selection-end-line="62" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/admin/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="63" column="4" selection-start-line="63" selection-start-column="4" selection-end-line="63" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/ControllerAccueil.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="42" column="39" selection-start-line="42" selection-end-line="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/accueil/accueil.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="10" selection-start-line="1" selection-end-line="14" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/adminstyles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="604">
-          <caret line="295" column="50" selection-start-line="295" selection-start-column="50" selection-end-line="295" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/admin/home.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="42" column="30" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/admin/update.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" column="67" lean-forward="true" selection-start-line="37" selection-start-column="67" selection-end-line="37" selection-end-column="67" />
+        <state relative-caret-position="315">
+          <caret line="66" column="54" lean-forward="true" selection-start-line="66" selection-start-column="54" selection-end-line="66" selection-end-column="54" />
         </state>
       </provider>
     </entry>
@@ -855,171 +811,51 @@
     <entry file="file://$PROJECT_DIR$/images/user.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/images/twitter.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/tomcer.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/tomate.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/section3-accueil.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/section2-accueil.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/section1-accueil.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/images/rolemanagement.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/images/produits.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/pandab.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/message.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/favicon.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/dog.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/article.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/adherents.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/monProfil/update.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/monProfil/updatePW.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/monProfil/voirmonprofil.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="739">
-          <caret line="57" column="11" selection-start-line="57" selection-start-column="11" selection-end-line="57" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/menu.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1950">
-          <caret line="130" column="125" selection-start-line="130" selection-start-column="125" selection-end-line="130" selection-end-column="125" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/adherent/create.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/adherent/created.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Security.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="2" lean-forward="true" selection-start-line="26" selection-start-column="2" selection-end-line="26" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/monAMAP.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="284" lean-forward="true" selection-start-line="254" selection-end-line="284" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/ControllerMonProfil.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="190" column="35" selection-start-line="190" selection-start-column="35" selection-end-line="190" selection-end-column="35" />
-          <folding>
-            <element signature="n#profile#0;n#ControllerMonProfil#0;n#!!top" />
-            <element signature="n#updateAdrP#0;n#ControllerMonProfil#0;n#!!top" />
-            <element signature="n#updatedAdrP#0;n#ControllerMonProfil#0;n#!!top" />
-            <element signature="n#updatePW#0;n#ControllerMonProfil#0;n#!!top" />
-            <element signature="n#updatedPW#0;n#ControllerMonProfil#0;n#!!top" />
-            <element signature="n#updateDes#0;n#ControllerMonProfil#0;n#!!top" />
-            <element signature="n#updatedDes#0;n#ControllerMonProfil#0;n#!!top" />
-            <element signature="n#updatePhoto#0;n#ControllerMonProfil#0;n#!!top" />
-            <element signature="n#updatedPhoto#0;n#ControllerMonProfil#0;n#!!top" />
-            <element signature="n#gotoupdate#0;n#ControllerMonProfil#0;n#!!top" />
-            <element signature="n#update#0;n#ControllerMonProfil#0;n#!!top" />
-            <element signature="n#display2nd#0;n#ControllerMonProfil#0;n#!!top" />
-            <element signature="n#error#0;n#ControllerMonProfil#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/adherent/connect.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="19" selection-start-column="19" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/ControllerAdherent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="245" column="7" lean-forward="true" selection-start-line="245" selection-start-column="7" selection-end-line="245" selection-end-column="7" />
-          <folding>
-            <element signature="e#6#40#0#PHP" expanded="true" />
-            <element signature="n#readAll#0;n#ControllerAdherent#0;n#!!top" />
-            <element signature="n#read#0;n#ControllerAdherent#0;n#!!top" />
-            <element signature="n#create#0;n#ControllerAdherent#0;n#!!top" />
-            <element signature="n#created#0;n#ControllerAdherent#0;n#!!top" />
-            <element signature="n#validatedMail#0;n#ControllerAdherent#0;n#!!top" />
-            <element signature="n#becomeprod#0;n#ControllerAdherent#0;n#!!top" />
-            <element signature="n#newprod#0;n#ControllerAdherent#0;n#!!top" />
-            <element signature="n#connect#0;n#ControllerAdherent#0;n#!!top" />
-            <element signature="n#deconnect#0;n#ControllerAdherent#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/adherent/payment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="11" lean-forward="true" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/ControllerAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="556">
-          <caret line="183" column="9" lean-forward="true" selection-start-line="183" selection-start-column="9" selection-end-line="183" selection-end-column="9" />
-          <folding>
-            <element signature="e#6#40#0#PHP" expanded="true" />
-            <element signature="n#adminhomepage#0;n#ControllerAdmin#0;n#!!top" />
-            <element signature="n#readAll#0;n#ControllerAdmin#0;n#!!top" />
-            <element signature="n#delete#0;n#ControllerAdmin#0;n#!!top" />
-            <element signature="n#update#0;n#ControllerAdmin#0;n#!!top" />
-            <element signature="n#validate#0;n#ControllerAdmin#0;n#!!top" />
-            <element signature="n#validatedOne#0;n#ControllerAdmin#0;n#!!top" />
-            <element signature="n#validatedAll#0;n#ControllerAdmin#0;n#!!top" />
-            <element signature="n#error#0;n#ControllerAdmin#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="670" column="4" selection-start-line="670" selection-start-column="4" selection-end-line="670" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/script/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="71" selection-start-line="36" selection-start-column="71" selection-end-line="36" selection-end-column="71" />
+        <state relative-caret-position="360">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/view/laVieAlAMAP/createArt.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/view/laVieAlAMAP/articles.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="184" selection-start-line="23" selection-start-column="184" selection-end-line="23" selection-end-column="184" />
+        <state relative-caret-position="675">
+          <caret line="45" column="49" selection-start-line="45" selection-start-column="49" selection-end-line="45" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="674" column="181" selection-start-line="674" selection-start-column="181" selection-end-line="674" selection-end-column="181" />
         </state>
       </provider>
     </entry>
