@@ -37,14 +37,14 @@ function Extend(_divId_, int) {
     var targetObj =new Array()
 
     //on parcours le grand tableau et on range dans le tableau vide les div d'articles en testant leur id
-    for (i=0;i<AllObj.length;i++){
+    for (var i=0;i<AllObj.length;i++){
         if (AllObj[i].id.substr(0,6)=="target"){targetObj.push(AllObj[i])}
     }
 
     //on parcours les articles et on les réduit tous sauf celui que l'on aggrandit
-    for (i=0;i<targetObj.length; i++) {
-       if (targetObj[i].id != _divId_) {
-           Reduce(targetObj[i].id, i+1)
+    for (var j=0;j<targetObj.length; j++) {
+       if (targetObj[j].id != _divId_) {
+           Reduce(targetObj[j].id, j+1)
        }
     }
     //on augmente la height a 50%(ancienne: 50px)
@@ -69,7 +69,8 @@ function Reduce(_divId_, int) {
     //on réduit la height a 50px(ancienne: 50%)
     changeSizePx(_divId_, 50);
 
-    //on empeche le scroll et on cache ce qui dépasse
+    //on reset le scroll puis on l'empeche et on cache ce qui dépasse
+    document.getElementById(_divId_).scrollTop = 0;
     document.getElementById(_divId_).style.overflow = "hidden";
 
     //on cache le bouton qui réduit et on affiche celui qui aggrandit

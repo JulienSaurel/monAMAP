@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="94c3ccb3-3951-4670-8efd-8102a2c7e176" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/symfony2.xml" afterDir="false" />
+    <list default="true" id="94c3ccb3-3951-4670-8efd-8102a2c7e176" name="Default Changelist" comment="Fix reset scroll">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/script/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/script/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/laVieAlAMAP/articles.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/laVieAlAMAP/articles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/view.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/view.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,10 +15,42 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/view.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/menu.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1275">
+              <caret line="75" selection-start-line="75" selection-end-line="75" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/footer.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/Conf.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="116" selection-start-line="5" selection-start-column="116" selection-end-line="5" selection-end-column="116" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/script/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="28" selection-start-line="28" selection-end-line="28" />
+            <state relative-caret-position="269">
+              <caret line="46" column="37" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -30,27 +58,45 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/css/styles.css">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/adminpanel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="674" column="181" selection-start-line="674" selection-start-column="181" selection-end-line="674" selection-end-column="181" />
+            <state relative-caret-position="663">
+              <caret line="39" column="68" selection-start-line="39" selection-start-column="68" selection-end-line="39" selection-end-column="68" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/laVieAlAMAP/createArt.php">
+        <entry file="file://$PROJECT_DIR$/view/adminmenu.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/admin/home.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="799">
+              <caret line="47" column="123" selection-start-line="47" selection-start-column="123" selection-end-line="47" selection-end-column="123" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/admin/list.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1581">
+              <caret line="93" column="7" selection-start-line="93" selection-start-column="7" selection-end-line="93" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/admin/error.php">
           <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/laVieAlAMAP/articles.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="45" column="49" selection-start-line="45" selection-start-column="49" selection-end-line="45" selection-end-column="49" />
-            </state>
-          </provider>
         </entry>
       </file>
     </leaf>
@@ -109,7 +155,6 @@
         <option value="$PROJECT_DIR$/controller/ControllerNousSoutenir.php" />
         <option value="$PROJECT_DIR$/controller/ControllerMonProfil.php" />
         <option value="$PROJECT_DIR$/view/monProfil/update.php" />
-        <option value="$PROJECT_DIR$/config/Conf.php" />
         <option value="$PROJECT_DIR$/lib/File.php" />
         <option value="$PROJECT_DIR$/view/laVieAlAMAP/lvala.php" />
         <option value="$PROJECT_DIR$/view/admin/updateArt.php" />
@@ -147,9 +192,10 @@
         <option value="$PROJECT_DIR$/view/adherent/connect.php" />
         <option value="$PROJECT_DIR$/controller/ControllerAdherent.php" />
         <option value="$PROJECT_DIR$/view/view.php" />
-        <option value="$PROJECT_DIR$/script/script.js" />
         <option value="$PROJECT_DIR$/view/laVieAlAMAP/articles.php" />
         <option value="$PROJECT_DIR$/css/styles.css" />
+        <option value="$PROJECT_DIR$/config/Conf.php" />
+        <option value="$PROJECT_DIR$/script/script.js" />
       </list>
     </option>
   </component>
@@ -167,9 +213,6 @@
     <option name="width" value="927" />
     <option name="height" value="1055" />
   </component>
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -180,64 +223,59 @@
         <subPane>
           <expand>
             <path>
-              <item name="monAMAP" type="b2602c69:ProjectViewProjectNode" />
-              <item name="monAMAP" type="462c0819:PsiDirectoryNode" />
+              <item name="Mon AMAP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Mon AMAP" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="monAMAP" type="b2602c69:ProjectViewProjectNode" />
-              <item name="monAMAP" type="462c0819:PsiDirectoryNode" />
+              <item name="Mon AMAP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Mon AMAP" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="monAMAP" type="b2602c69:ProjectViewProjectNode" />
-              <item name="monAMAP" type="462c0819:PsiDirectoryNode" />
+              <item name="Mon AMAP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Mon AMAP" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="monAMAP" type="b2602c69:ProjectViewProjectNode" />
-              <item name="monAMAP" type="462c0819:PsiDirectoryNode" />
+              <item name="Mon AMAP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Mon AMAP" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="monAMAP" type="b2602c69:ProjectViewProjectNode" />
-              <item name="monAMAP" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="monAMAP" type="b2602c69:ProjectViewProjectNode" />
-              <item name="monAMAP" type="462c0819:PsiDirectoryNode" />
+              <item name="Mon AMAP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Mon AMAP" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="monAMAP" type="b2602c69:ProjectViewProjectNode" />
-              <item name="monAMAP" type="462c0819:PsiDirectoryNode" />
+              <item name="Mon AMAP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Mon AMAP" type="462c0819:PsiDirectoryNode" />
+              <item name="libExternes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Mon AMAP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Mon AMAP" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="monAMAP" type="b2602c69:ProjectViewProjectNode" />
-              <item name="monAMAP" type="462c0819:PsiDirectoryNode" />
+              <item name="Mon AMAP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Mon AMAP" type="462c0819:PsiDirectoryNode" />
+              <item name="nbproject" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Mon AMAP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Mon AMAP" type="462c0819:PsiDirectoryNode" />
               <item name="script" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="monAMAP" type="b2602c69:ProjectViewProjectNode" />
-              <item name="monAMAP" type="462c0819:PsiDirectoryNode" />
+              <item name="Mon AMAP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Mon AMAP" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="monAMAP" type="b2602c69:ProjectViewProjectNode" />
-              <item name="monAMAP" type="462c0819:PsiDirectoryNode" />
+              <item name="Mon AMAP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Mon AMAP" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="accueil" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="monAMAP" type="b2602c69:ProjectViewProjectNode" />
-              <item name="monAMAP" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="laVieAlAMAP" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="monAMAP" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="bcb0276e:PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -246,6 +284,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -327,6 +366,7 @@
       <workItem from="1546610719461" duration="27397000" />
       <workItem from="1546688582035" duration="42455000" />
       <workItem from="1546796417170" duration="19327000" />
+      <workItem from="1546858620514" duration="182000" />
     </task>
     <task id="LOCAL-00001" summary="Model generique et petits fix">
       <created>1545583549669</created>
@@ -535,7 +575,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="258414000" />
+    <option name="totallyTimeSpent" value="259103000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -547,12 +587,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49947312" visible="true" weight="0.1444383" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49947312" visible="true" weight="0.15809768" />
       <window_info id="Structure" order="1" sideWeight="0.50052685" side_tool="true" weight="0.124123044" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="SonarLint" sideWeight="0.4993573" visible="true" weight="0.3293011" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32937366" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -562,9 +603,9 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32974428" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4964029" weight="0.32829374" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49550128" weight="0.32795697" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49973017" weight="0.30777538" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50359714" side_tool="true" weight="0.32937366" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50064266" side_tool="true" visible="true" weight="0.3293011" />
       <window_info anchor="bottom" id="Inspection Results" order="12" weight="0.32974428" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.32937366" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -650,7 +691,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Livre d'or" />
     <MESSAGE value="Update fichiers pas fini" />
     <MESSAGE value="Update fichiers producteur" />
     <MESSAGE value="Modif nous soutenir, création de personne et deplacement du sql" />
@@ -675,7 +715,8 @@
     <MESSAGE value="Verif mail testée avec msg de confirmation" />
     <MESSAGE value="Connection empechée si l'adresse mail n'est pas validée(a comenté quand on test des inscriptions)" />
     <MESSAGE value="Début Article qui s'aggrandissent" />
-    <option name="LAST_COMMIT_MESSAGE" value="Début Article qui s'aggrandissent" />
+    <MESSAGE value="Fix reset scroll" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix reset scroll" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
@@ -687,39 +728,6 @@
     <select />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/images/adherents.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/carotte.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/cerise.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/citron.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/courgette.jpeg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/croix.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/dinde.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/favicon.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/facebook.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/framboise.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/fraise.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/images/fruit.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -832,16 +840,6 @@
     <entry file="file://$PROJECT_DIR$/images/rolemanagement.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/script/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/laVieAlAMAP/createArt.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -856,6 +854,81 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="674" column="181" selection-start-line="674" selection-start-column="181" selection-end-line="674" selection-end-column="181" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/ModelPersonne.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/ModelProduit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/menu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1275">
+          <caret line="75" selection-start-line="75" selection-end-line="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/footer.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/adminpanel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="39" column="68" selection-start-line="39" selection-start-column="68" selection-end-line="39" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/adminmenu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/admin/home.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="799">
+          <caret line="47" column="123" selection-start-line="47" selection-start-column="123" selection-end-line="47" selection-end-column="123" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/admin/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1581">
+          <caret line="93" column="7" selection-start-line="93" selection-start-column="7" selection-end-line="93" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/admin/error.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/Conf.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="116" selection-start-line="5" selection-start-column="116" selection-end-line="5" selection-end-column="116" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="46" column="37" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
