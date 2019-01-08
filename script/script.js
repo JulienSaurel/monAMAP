@@ -119,7 +119,7 @@ function changeSizePx (_divId_, /*_newSizex_,*/ _newSizey_){
  * change le prix et le minimum du prix
  * @constructor
  */
-function ModifySelectedElmt()
+function RefreshSubscriptionPrice()
 {
     //on recupere l'option du select et on change le prix affiché la valeur par défaut et le min
     var firstselect = document.getElementById('duration')

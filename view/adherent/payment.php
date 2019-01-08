@@ -16,7 +16,7 @@
         <legend>Paiement:</legend>
         <p>
             <label for="duration">Durée de l'adhésion:</label>
-            <select onchange="ModifySelectedElmt()" name="duration" id="duration" required>
+            <select onchange="RefreshSubscriptionPrice()" name="duration" id="duration" required>
                 <option value="6">6 mois</option>
                 <option value="12" selected>1 an</option>
                 <option value="24">2 ans</option>

@@ -26,7 +26,7 @@ class ControllerAdmin
         //Si la personne n'est pas connectée on declare une erreur
         if (!isset($_SESSION['login'])) {
             $_POST['phrase'] = File::warning('Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url');
-            ControllerAccueil::homepage();
+            ControllerAccueil::connect();
         }
 
         //Si la personne n'est pas admin on declare une erreur
@@ -57,7 +57,7 @@ class ControllerAdmin
         //Si la personne n'est pas connectée on declare une erreur
         if (!isset($_SESSION['login'])) {
             $_POST['phrase'] = File::warning('Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url');
-            ControllerAccueil::homepage();
+            ControllerAccueil::connect();
         }
 
         //Si la personne n'est pas admin on declare une erreur
@@ -122,7 +122,7 @@ class ControllerAdmin
         //Si la personne n'est pas connectée on declare une erreur
         if (!isset($_SESSION['login'])) {
             $_POST['phrase'] = File::warning('Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url');
-            return ControllerAccueil::homepage();
+            return ControllerAccueil::connect();
         }
 
         //Si la personne n'est pas admin on declare une erreur
@@ -168,7 +168,7 @@ class ControllerAdmin
         //Si la personne n'est pas connectée on declare une erreur
         if (!isset($_SESSION['login'])) {
             $_POST['phrase'] = File::warning('Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url');
-            ControllerAccueil::homepage();
+            ControllerAccueil::connect();
         }
 
         //Si la personne n'est pas admin on declare une erreur
@@ -186,7 +186,6 @@ class ControllerAdmin
         //On recupere puis on traite
         $type = $_GET['type'];
         $id =  $_GET['id'] ?? null;
-        var_dump($id);
         $Modelgen = 'Model' . ucfirst($type);
         $o = isset($_GET['id']) ? $Modelgen::select($id) : new $Modelgen();
         if (!$o) {
@@ -288,7 +287,7 @@ class ControllerAdmin
         //Si la personne n'est pas connectée on declare une erreur
         if (!isset($_SESSION['login'])) {
             $_POST['phrase'] = File::warning('Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url');
-            return ControllerAccueil::homepage();
+            return ControllerAccueil::connect();
         }
 
         //Si la personne n'est pas admin on declare une erreur
@@ -718,7 +717,7 @@ class ControllerAdmin
         //Si la personne n'est pas connectée on declare une erreur
         if (!isset($_SESSION['login'])) {
             $_POST['phrase'] = File::warning('Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url');
-            return ControllerAccueil::homepage();
+            return ControllerAccueil::connect();
         }
 
         //Si la personne n'est pas admin on declare une erreur
@@ -751,7 +750,7 @@ class ControllerAdmin
         //Si la personne n'est pas connectée on declare une erreur
         if (!isset($_SESSION['login'])) {
             $_POST['phrase'] = File::warning('Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url');
-            return ControllerAccueil::homepage();
+            return ControllerAccueil::connect();
         }
 
         //Si la personne n'est pas admin on declare une erreur
@@ -896,7 +895,7 @@ class ControllerAdmin
         //Si la personne n'est pas connectée on declare une erreur
         if (!isset($_SESSION['login'])) {
             $_POST['phrase'] = File::warning('Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url');
-            return ControllerAccueil::homepage();
+            return ControllerAccueil::connect();
         }
 
         //Si la personne n'est pas admin on declare une erreur
@@ -957,8 +956,111 @@ class ControllerAdmin
         require File::build_path(['view','adminpanel.php']);
     }
 
+    public static function setrole()
+    {
+        //Si la personne n'est pas connectée on declare une erreur
+        if (!isset($_SESSION['login'])) {
+            $_POST['phrase'] = File::warning('Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url');
+            return ControllerAccueil::connect();
+        }
+
+        //Si la personne n'est pas admin on declare une erreur
+        if (!isset($_SESSION['administrateur'])) {
+            $_POST['phrase'] = File::warning('Ne faîtes pas l\'enfant, vous n\'êtes pas administrateur');
+            return ControllerAccueil::homepage();
+        }
+
+        //var_dump($_POST);
+        //On recupere en POST 8 tableaux: 2 par categories pour admin ou prod dans les 4 categories
+        //on les traite 2 par 2
+
+        //on recupere les tableaux dont on a besoin pour les màj
+        $AdminAndProd = ModelAdherent::selectAllAdminAndProd();
+        $AdminNotProd = ModelAdherent::selectAllAdminNotProd();
+        $ProdNotAdmin = ModelAdherent::selectAllProdNotAdmin();
+        $None = ModelAdherent::selectAllOnlyAdh();
+
+        $i = 1;
+        foreach ($AdminAndProd as $adh) {
+            $idAdherent = $adh->get('idAdherent');
+            $estProducteur = isset($_POST["AdminProdProd?$i"]) ? 1 : 0;
+            $estAdministrateur = isset($_POST["AdminProdAdmin?$i"]) ? 1 : 0;
+
+            $arrayAdminProd = [
+                'idAdherent' => $idAdherent,
+                'estProducteur' => $estProducteur,
+                'estAdministrateur' => $estAdministrateur,
+            ];
+            var_dump($arrayAdminProd);
+            ModelAdherent::update($arrayAdminProd);
+            $i++;
+        }
+
+        $i = 1;
+        foreach ($AdminNotProd as $adh) {
+            $idAdherent = $adh->get('idAdherent');
+            $estProducteur = isset($_POST["AdminProd?$i"]) ? 1 : 0;
+            $estAdministrateur = isset($_POST["AdminAdmin?$i"]) ? 1 : 0;
+
+            $arrayAdmin = [
+                'idAdherent' => $idAdherent,
+                'estProducteur' => $estProducteur,
+                'estAdministrateur' => $estAdministrateur,
+            ];
+            //var_dump($arrayAdmin);
+            ModelAdherent::update($arrayAdmin);
+            $i++;
+        }
+
+        $i = 1;
+        foreach ($ProdNotAdmin as $adh) {
+            $idAdherent = $adh->get('idAdherent');
+            $estProducteur = isset($_POST["ProdProd?$i"]) ? 1 : 0;
+            $estAdministrateur = isset($_POST["ProdAdmin?$i"]) ? 1 : 0;
+
+            $arrayProd = [
+                'idAdherent' => $idAdherent,
+                'estProducteur' => $estProducteur,
+                'estAdministrateur' => $estAdministrateur,
+            ];
+            //var_dump($arrayProd);
+            ModelAdherent::update($arrayProd);
+            $i++;
+        }
+
+        $i = 1;
+        foreach ($None as $adh) {
+            $idAdherent = $adh->get('idAdherent');
+            $estProducteur = isset($_POST["NoneProd?$i"]) ? 1 : 0;
+            $estAdministrateur = isset($_POST["NoneAdmin?$i"]) ? 1 : 0;
+
+            $arrayNone = [
+                'idAdherent' => $idAdherent,
+                'estProducteur' => $estProducteur,
+                'estAdministrateur' => $estAdministrateur,
+            ];
+            //var_dump($arrayNone);
+            ModelAdherent::update($arrayNone);
+            $i++;
+        }
+
+        return self::gotorole();
+    }
+
     public static function gotoupdatehomepage()
     {
+        //Si la personne n'est pas connectée on declare une erreur
+        if (!isset($_SESSION['login'])) {
+            $_POST['phrase'] = File::warning('Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url');
+            return ControllerAccueil::connect();
+        }
+
+        //Si la personne n'est pas admin on declare une erreur
+        if (!isset($_SESSION['administrateur'])) {
+            $_POST['phrase'] = File::warning('Ne faîtes pas l\'enfant, vous n\'êtes pas administrateur');
+            return ControllerAccueil::homepage();
+        }
+
         $homepage = ModelHomepage::select('Accueil');
         $idHomepage = $homepage->get('idHompage');
         $pagetitlehp = $homepage->get('pagetitle');
