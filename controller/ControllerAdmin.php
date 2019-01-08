@@ -186,6 +186,7 @@ class ControllerAdmin
         //On recupere puis on traite
         $type = $_GET['type'];
         $id =  $_GET['id'] ?? null;
+        var_dump($id);
         $Modelgen = 'Model' . ucfirst($type);
         $o = isset($_GET['id']) ? $Modelgen::select($id) : new $Modelgen();
         if (!$o) {

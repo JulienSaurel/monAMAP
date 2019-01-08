@@ -47,15 +47,6 @@ class ControllerAdherent
 		require File::build_path(array('view','view.php'));
 	}
 
-	/**affichage de la page de paiement de la cotisation
-	 *
-	 */
-	/* public static function payment(){
-	// 	$view = 'payment';
-	// 	$pagetitle = 'payez la cotisation';
-	// 	require File::build_path(array('view','view.php'));
-	// }
-	*/
 
 	/**
 	 * action d'inscription
@@ -120,14 +111,6 @@ class ControllerAdherent
 				$dateProducteur = date("Y-m-d H:i:s");
 			}
 		}
-		/*		var_dump($dateProducteur);
-                var_dump($_POST['idAdherent']);
-                var_dump($mailPersonne);
-                var_dump($_POST['PW_Adherent']);
-                var_dump($_POST['adressepostaleAdherent']);
-                var_dump($_POST['estProducteur']);
-                var_dump($dateProducteur);
-                var_dump(date("d M Y\, H:i:s"));*/
 
 
 		//////////////////////////////
@@ -139,6 +122,7 @@ class ControllerAdherent
 		$adressepostaleAdherent = $_POST['adressepostaleAdherent'];
 		$PW_Adherent = Security::chiffrer($_POST['PW_Adherent']);
 		$date = date("Y-m-d H:i:s");
+		$limiteAdhesion = date("Y-m-d H:i:s");
 		$nonce = Security::generateRandomHex();
 
 
@@ -154,6 +138,7 @@ class ControllerAdherent
 			'dateinscription' => $date,
 			'dateproducteur' => null,
 			'nonce' => $nonce,
+			'limiteAdhesion' => $limiteAdhesion,
 		];
 
 		//on enregistre dans la bdd
@@ -206,8 +191,67 @@ class ControllerAdherent
 
 		//on redirige vers l'accueil ou vers le formulaire pour les producteurs s'il a coché est producteur
 		if(!$estprod)
-			return ControllerAccueil::homepage();
+			return ControllerAdherent::payment($idAdherent);
 		return self::becomeprod($idAdherent);
+	}
+
+	/**affichage de la page de paiement de la cotisation
+	 *
+	 */
+	public static function payment($id = null){
+
+		if (!isset($id)) {
+			if (!isset($_SESSION['login']) && !isset($_GET['id']))
+				return self::error();
+
+			/*if (isset($_SESSION['login']))
+                $id = $_SESSION['login'];
+            else
+                $id = $_GET['id'];*/
+			$id = isset($_SESSION['login']) ? $_SESSION['login'] : $_GET['id'];
+		}
+		$idUrl = urlencode($id);
+		$view = 'payment';
+		$pagetitle = 'payez la cotisation';
+		require File::build_path(array('view','view.php'));
+	}
+
+
+
+	public static function extendSubscription()
+	{
+
+		//si on a pas toutes les données necessaires on declare une erreur
+		if (!isset($_GET['id'])||!isset($_POST['total'])||!isset($_POST['duration']))
+			return self::error();
+
+		//on récupere les données
+		$id = urldecode($_GET['id']);
+		$adh = ModelAdherent::select($id);
+
+		if (!$adh)
+			return self::error();
+
+		//on prepare le nb de mois et d'années a ajouter
+		$yeartoadd = floor($_POST['duration']/12);
+		$monthtoadd = $_POST['duration']%12;
+
+		//on ajoute les mois
+		$monthextend = ' +' . $monthtoadd . ' month';
+		$limite = date("Y-m-d H:i:s", strtotime($monthextend, strtotime($adh->get('limiteAdhesion'))) );
+
+		//on ajoute les années
+		$yearextend = ' +' . $yeartoadd . ' year';
+		$limite = date("Y-m-d H:i:s", strtotime($yearextend, strtotime($limite)) );
+
+		//on crée le tableau update et redirige
+		$arraySub = [
+			'idAdherent' => trim($id),
+			'limiteAdhesion' => $limite,
+		];
+
+		ModelAdherent::update($arraySub);
+		self::connect();
 	}
 
 	public static function validatedMail()
@@ -353,6 +397,9 @@ class ControllerAdherent
 
 		//on update la personne
 		ModelAdherent::update($arrayupd);
+
+		if (strtotime($a->get('limiteAdhesion')) <= strtotime(date("Y-m-d H:i:s")))
+			return self::payment($id);
 		return ControllerAccueil::homepage();
 	}
 
@@ -388,7 +435,6 @@ class ControllerAdherent
 			{
 				
 				
-				//var_dump($adh->get('estProducteur'));
 				$login = $_POST['idAdherent'];
 
 				//on chiffre le mot de passe saisi pour le comparer à celui dans la base de donnée

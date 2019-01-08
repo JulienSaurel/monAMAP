@@ -173,9 +173,9 @@ class Model {
             $sql = "UPDATE " . ucfirst($table_name) . " SET ";
             foreach ($data as $key => $value)
             {
-                $sql .= $key . " = :" . $key . ', ';
+                $sql .= $key . " =:" . $key . ', ';
             }
-            $sql = rtrim($sql, ', ') . " WHERE " . $primary_key . " =:" . $primary_key;
+            $sql = rtrim($sql, ', ') . " WHERE " . $primary_key . " =:" . trim($primary_key);
             $req_prep = Model::$pdo->prepare($sql);
             $req_prep->execute($data);
         } catch(PDOException $e) {

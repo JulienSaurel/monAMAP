@@ -13,21 +13,22 @@
 				echo "<img class=\"imgprofil\" src=\"$photo\" alt=\"$idAdherent\"/>";
 			}
 			?>
-			<li>Pseudo: <?php echo $a->get('idAdherent'); ?> </li>
-			<li>Nom: <?php echo $p->get('nomPersonne'); ?> </li>
-			<li>Prénom: <?php echo $p->get('prenomPersonne'); ?> </li>
-			<li>E-mail: <?php echo $p->get('mailPersonne'); ?> </li> <!--<a href="?action=updateAdrM&controller=monProfil">Modifier votre adresse mail.</a>-->
+			<li>Pseudo: <?php echo htmlspecialchars($a->get('idAdherent')); ?> </li>
+			<li>Nom: <?php echo htmlspecialchars($p->get('nomPersonne')); ?> </li>
+			<li>Prénom: <?php echo htmlspecialchars($p->get('prenomPersonne')); ?> </li>
+			<li>E-mail: <?php echo htmlspecialchars($p->get('mailPersonne')); ?> </li> <!--<a href="?action=updateAdrM&controller=monProfil">Modifier votre adresse mail.</a>-->
 			</li>
-			<li>Membre depuis le <?php echo $a->get('dateinscription'); ?> </li>
+			<li>Membre depuis le <?php echo htmlspecialchars($a->get('dateinscription')); ?> </li>
+            <li>Adhésion valide jusqu'au <?php echo htmlspecialchars($a->get('limiteAdhesion')) ?></li>
 			<?php if(isset($_SESSION['producteur']))
 				{ ?>
-					<li>Producteur depuis le <?php echo $a->get('dateproducteur'); ?> </li>
+					<li>Producteur depuis le <?php echo htmlspecialchars($a->get('dateproducteur')); ?> </li>
 					<li>Votre description publique : 
 						<?php 
 						if($a->get('description') == NULL){
 							echo 'vous n\'avez pas de description !';
 						} else {
-							echo $a->get('description'); 
+							echo htmlspecialchars($a->get('description')); 
 						}
 						?>
 					</li>
@@ -44,11 +45,11 @@
 			<li>Actuellement , vous souscrivez à <?php echo count($tabC);?> Contrats. </li>
 			<?php if (count($tabC)!=0){ ?>
 			<li>Vos contrats en cours :<a></a> <?php foreach($tabC as $contrat){
-				echo "<p>Contrat ".ucfirst($contrat->get('typeContrat'))."</p>";
-				echo "<p>taille : ".$contrat->get('tailleContrat')."</p>";
-				echo "<p>fréquence : ".$contrat->get('frequenceContrat')."</p>";
+				echo "<p>Contrat ".ucfirst(htmlspecialchars($contrat->get('typeContrat')))."</p>";
+				echo "<p>taille : ". htmlspecialchars($contrat->get('tailleContrat'))."</p>";
+				echo "<p>fréquence : ".htmlspecialchars($contrat->get('frequenceContrat'))."</p>";
 				$idContrat =$contrat->get('idContrat');
-				echo "<a href=\"?action=resilier&idC=".$idContrat."&controller=nosContrats\">Résiliser ce contrat</a>";
+				echo "<a href=\"?action=resilier&idC=".urlencode($idContrat)."&controller=nosContrats\">Résiliser ce contrat</a>";
 			} ?> </li> <?php } else { ?>
 			<?php } ?>
 
@@ -57,4 +58,5 @@
         <p><a href="?action=gotoupdate&controller=monProfil">Modifier votre profil</a></p>
         <p><a href="?action=updatePW&controller=monProfil">Modifier votre mot de passe</a></p>
         <p><a href ="?action=display&controller=nosContrats" >Consultez nos contrats !</a></p>
+        <p><a href="?action=payment&controller=adherent&id=<?php echo urlencode($idAdherent);?>">Prolonger votre adhésion</a></p>
     </div>
