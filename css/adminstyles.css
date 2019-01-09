@@ -272,6 +272,11 @@ a > i {
 
 }
 
+.imagesprevisu {
+    width: 200px;
+    height: auto;
+}
+
 #imgPro {
     background-image: url("../images/produits.jpg");
 }

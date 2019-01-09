@@ -11,6 +11,7 @@ require_once File::build_path(array('model','ModelDonnateur.php')); // chargemen
 require_once File::build_path(array('model','ModelLivreDor.php')); // chargement du modèle
 require_once File::build_path(array('model','ModelPersonne.php')); // chargement du modèle
 require_once File::build_path(array('model','ModelHomepage.php'));
+require_once File::build_path(array('lib','Session.php'));
 require_once File::build_path(array('libExternes', 'PHPMailer-master','src','MailerLoader.php'));
 
 
@@ -23,16 +24,9 @@ class ControllerAdmin
      */
     public static function adminhomepage()
     {
-        //Si la personne n'est pas connectée on declare une erreur
-        if (!isset($_SESSION['login'])) {
-            $_POST['phrase'] = File::warning('Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url');
-            ControllerAccueil::connect();
-        }
-
-        //Si la personne n'est pas admin on declare une erreur
-        if (!isset($_SESSION['administrateur'])) {
-            $_POST['phrase'] = File::warning('Ne faîtes pas l\'enfant, vous n\'êtes pas administrateur');
-            ControllerAccueil::homepage();
+        //on teste si la personne connectée? est un admin
+        if (Session::isAdmin() !== true) {
+            return false;
         }
 
         //On redirige vers la page d'accueil
@@ -54,16 +48,9 @@ class ControllerAdmin
      */
     public static function readAll($type = null)
     {
-        //Si la personne n'est pas connectée on declare une erreur
-        if (!isset($_SESSION['login'])) {
-            $_POST['phrase'] = File::warning('Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url');
-            ControllerAccueil::connect();
-        }
-
-        //Si la personne n'est pas admin on declare une erreur
-        if (!isset($_SESSION['administrateur'])) {
-            $_POST['phrase'] = File::warning('Ne faîtes pas l\'enfant, vous n\'êtes pas administrateur');
-            ControllerAccueil::homepage();
+        //on teste si la personne connectée? est un admin
+        if (Session::isAdmin() !== true) {
+            return false;
         }
 
         //on verifie qu'on a bien le type a traiter
@@ -119,16 +106,9 @@ class ControllerAdmin
      */
     public static function delete()
     {
-        //Si la personne n'est pas connectée on declare une erreur
-        if (!isset($_SESSION['login'])) {
-            $_POST['phrase'] = File::warning('Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url');
-            return ControllerAccueil::connect();
-        }
-
-        //Si la personne n'est pas admin on declare une erreur
-        if (!isset($_SESSION['administrateur'])) {
-            $_POST['phrase'] = File::warning('Ne faîtes pas l\'enfant, vous n\'êtes pas administrateur');
-            return ControllerAccueil::homepage();
+        //on teste si la personne connectée? est un admin
+        if (Session::isAdmin() !== true) {
+            return false;
         }
 
         //Si on a pas toutes les données necessaires a la supression on declare une erreur
@@ -165,16 +145,9 @@ class ControllerAdmin
      */
     public static function gotoupdate()
     {
-        //Si la personne n'est pas connectée on declare une erreur
-        if (!isset($_SESSION['login'])) {
-            $_POST['phrase'] = File::warning('Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url');
-            ControllerAccueil::connect();
-        }
-
-        //Si la personne n'est pas admin on declare une erreur
-        if (!isset($_SESSION['administrateur'])) {
-            $_POST['phrase'] = File::warning('Ne faîtes pas l\'enfant, vous n\'êtes pas administrateur');
-            ControllerAccueil::homepage();
+        //on teste si la personne connectée? est un admin
+        if (Session::isAdmin() !== true) {
+            return false;
         }
 
         //Si on a pas toutes les données necessaires on declare une erreur
@@ -284,16 +257,9 @@ class ControllerAdmin
      */
     public static function update()
     {
-        //Si la personne n'est pas connectée on declare une erreur
-        if (!isset($_SESSION['login'])) {
-            $_POST['phrase'] = File::warning('Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url');
-            return ControllerAccueil::connect();
-        }
-
-        //Si la personne n'est pas admin on declare une erreur
-        if (!isset($_SESSION['administrateur'])) {
-            $_POST['phrase'] = File::warning('Ne faîtes pas l\'enfant, vous n\'êtes pas administrateur');
-            return ControllerAccueil::homepage();
+        //on teste si la personne connectée? est un admin
+        if (Session::isAdmin() !== true) {
+            return false;
         }
 
         //Si on a pas toutes les données nécessaires on declare une erreur
@@ -714,16 +680,9 @@ class ControllerAdmin
      */
     public static function validate()
     {
-        //Si la personne n'est pas connectée on declare une erreur
-        if (!isset($_SESSION['login'])) {
-            $_POST['phrase'] = File::warning('Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url');
-            return ControllerAccueil::connect();
-        }
-
-        //Si la personne n'est pas admin on declare une erreur
-        if (!isset($_SESSION['administrateur'])) {
-            $_POST['phrase'] = File::warning('Ne faîtes pas l\'enfant, vous n\'êtes pas administrateur');
-            return ControllerAccueil::homepage();
+        //on teste si la personne connectée? est un admin
+        if (Session::isAdmin() !== true) {
+            return false;
         }
 
         $tabAdherents = ModelAdherent::selectAllToValid();
@@ -747,16 +706,9 @@ class ControllerAdmin
      */
     public static function validatedOne($type = null, $id = null)
     {
-        //Si la personne n'est pas connectée on declare une erreur
-        if (!isset($_SESSION['login'])) {
-            $_POST['phrase'] = File::warning('Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url');
-            return ControllerAccueil::connect();
-        }
-
-        //Si la personne n'est pas admin on declare une erreur
-        if (!isset($_SESSION['administrateur'])) {
-            $_POST['phrase'] = File::warning('Ne faîtes pas l\'enfant, vous n\'êtes pas administrateur');
-            return ControllerAccueil::homepage();
+        //on teste si la personne connectée? est un admin
+        if (Session::isAdmin() !== true) {
+            return false;
         }
 
         //Si on a pas toutes les données necessaires a la supression on declare une erreur
@@ -892,16 +844,9 @@ class ControllerAdmin
      */
     public static function validatedAll()
     {
-        //Si la personne n'est pas connectée on declare une erreur
-        if (!isset($_SESSION['login'])) {
-            $_POST['phrase'] = File::warning('Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url');
-            return ControllerAccueil::connect();
-        }
-
-        //Si la personne n'est pas admin on declare une erreur
-        if (!isset($_SESSION['administrateur'])) {
-            $_POST['phrase'] = File::warning('Ne faîtes pas l\'enfant, vous n\'êtes pas administrateur');
-            return ControllerAccueil::homepage();
+        //on teste si la personne connectée? est un admin
+        if (Session::isAdmin() !== true) {
+            return false;
         }
 
         //Si on a pas toutes les données necessaires on declare une erreur
@@ -938,6 +883,11 @@ class ControllerAdmin
 
     public static function gotorole()
     {
+        //on teste si la personne connectée? est un admin
+        if (Session::isAdmin() !== true) {
+            return false;
+        }
+
         $tabAdminProd = ModelAdherent::selectAllAdminAndProd();
         $tabAdminNotProd = ModelAdherent::selectAllAdminNotProd();
         $tabProdNotAdmin = ModelAdherent::selectAllProdNotAdmin();
@@ -958,16 +908,9 @@ class ControllerAdmin
 
     public static function setrole()
     {
-        //Si la personne n'est pas connectée on declare une erreur
-        if (!isset($_SESSION['login'])) {
-            $_POST['phrase'] = File::warning('Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url');
-            return ControllerAccueil::connect();
-        }
-
-        //Si la personne n'est pas admin on declare une erreur
-        if (!isset($_SESSION['administrateur'])) {
-            $_POST['phrase'] = File::warning('Ne faîtes pas l\'enfant, vous n\'êtes pas administrateur');
-            return ControllerAccueil::homepage();
+        //on teste si la personne connectée? est un admin
+        if (Session::isAdmin() !== true) {
+            return false;
         }
 
         //var_dump($_POST);
@@ -991,7 +934,7 @@ class ControllerAdmin
                 'estProducteur' => $estProducteur,
                 'estAdministrateur' => $estAdministrateur,
             ];
-            var_dump($arrayAdminProd);
+            //var_dump($arrayAdminProd);
             ModelAdherent::update($arrayAdminProd);
             $i++;
         }
@@ -1049,18 +992,12 @@ class ControllerAdmin
 
     public static function gotoupdatehomepage()
     {
-        //Si la personne n'est pas connectée on declare une erreur
-        if (!isset($_SESSION['login'])) {
-            $_POST['phrase'] = File::warning('Cette page est réservée aux administrateurs, vous devez donc être connecté pour y accéder, s\'il vous plaît arrêter de jouer avec l\'url');
-            return ControllerAccueil::connect();
+        //on teste si la personne connectée? est un admin
+        if (Session::isAdmin() !== true) {
+            return false;
         }
 
-        //Si la personne n'est pas admin on declare une erreur
-        if (!isset($_SESSION['administrateur'])) {
-            $_POST['phrase'] = File::warning('Ne faîtes pas l\'enfant, vous n\'êtes pas administrateur');
-            return ControllerAccueil::homepage();
-        }
-
+        $tabIds = ModelHomepage::selectAllIds();
         $homepage = ModelHomepage::select('Accueil');
         $idHomepage = $homepage->get('idHompage');
         $pagetitlehp = $homepage->get('pagetitle');
@@ -1082,8 +1019,16 @@ class ControllerAdmin
         $firstimagelist = $homepage->get('firstimagelist');
         $maplink = $homepage->get('maplink');
         $banner = $homepage->get('banner');
+        $tabIdsArt = ModelArticle::selectAllIds();
 
         $tabbanner = explode(" ", $banner);
+
+        $list = explode(PHP_EOL , $firstimagelist);
+
+        $tabnewsnameandtext = explode(PHP_EOL, $newsnameandtext);
+        $news = $tabnewsnameandtext['0'];
+        $name = $tabnewsnameandtext['2'];
+        $text = $tabnewsnameandtext['3'];
 
         //on recupere un tableau des images presentes dans le repertoire images
         $cpt = 0;
@@ -1116,6 +1061,158 @@ class ControllerAdmin
         $view = 'newaccueil';
         require File::build_path(['view','adminpanel.php']);
     }
+
+    public static function updatetitlehp()
+    {
+        //on teste si la personne connectée? est un admin
+        if (Session::isAdmin() !== true) {
+            return false;
+        }
+        //var_dump($_POST);
+        if (!isset($_POST['id'])||!in_array($_POST['id'], ModelHomepage::selectAllIds())) {
+            $_POST['phrase'] = File::warning('Erreur : données insuffiasantes, veuillez réessayer');
+            return self::adminhomepage();
+        }
+
+        $id = $_POST['id'];
+        $hp = ModelHomepage::select($id);
+        $pagetitle = (isset($_POST['pagetitle'])&& $_POST['pagetitle']!="") ? $_POST['pagetitle'] : $hp->get('pagetitle');
+        $welcomephrase = (isset($_POST['welcomephrase'])&& $_POST['welcomephrase']!="") ? $_POST['welcomephrase'] : $hp->get('welcomephrase');
+        $descbannerphrase = (isset($_POST['descbannerphrase'])&& $_POST['descbannerphrase']!="") ? $_POST['descbannerphrase'] : $hp->get('descbannerphrase');
+        $firstimagediapo = $_POST['firstimagediapo'] ?? null;
+        $secondimagediapo = $_POST['secondimagediapo'] ?? null;
+        $thirdimagediapo = $_POST['thirdimagediapo'] ?? null;
+        $banner = ($firstimagediapo&&$secondimagediapo&&$thirdimagediapo) ? "images/$firstimagediapo" . " " ."images/$secondimagediapo" . " " ."images/$thirdimagediapo" . " " : $hp->get('banner');
+
+        $arrayTitlehp = [
+            'idHomepage' => $id,
+            'pagetitle' => $pagetitle,
+            'welcomephrase' => $welcomephrase,
+            'descbannerphrase' => $descbannerphrase,
+            'banner' => $banner,
+        ];
+        ModelHomepage::update($arrayTitlehp);
+
+        self::gotoupdatehomepage();
+    }
+
+    public static function updatenewshp()
+    {
+        //on teste si la personne connectée? est un admin
+        if (Session::isAdmin() !== true) {
+            return false;
+        }
+        //var_dump($_POST);
+        if (!isset($_POST['id'])||!in_array($_POST['id'], ModelHomepage::selectAllIds())) {
+            $_POST['phrase'] = File::warning('Erreur : données insuffiasantes, veuillez réessayer');
+            return self::adminhomepage();
+        }
+
+        $id = $_POST['id'];
+        $hp = ModelHomepage::select($id);
+
+        $namearticlelink = (isset($_POST['namearticlelink'])&& $_POST['namearticlelink']!="") ? $_POST['namearticlelink'] : $hp->get('namearticlelink');
+        $firstarticledisplayed = (isset($_POST['firstarticledisplayed'])&& $_POST['firstarticledisplayed']!="") ? $_POST['firstarticledisplayed'] : $hp->get('firstarticledisplayed');
+        $secondarticledisplayed = (isset($_POST['secondarticledisplayed'])&& $_POST['secondarticledisplayed']!="") ? $_POST['secondarticledisplayed'] : $hp->get('secondarticledisplayed');
+        $maptitle = (isset($_POST['maptitle'])&& $_POST['maptitle']!="") ? $_POST['maptitle'] : $hp->get('maptitle');
+        $maplink= (isset($_POST['maplink'])&& $_POST['maplink']!="") ? $_POST['maplink'] : $hp->get('maplink');
+
+        $tabnewsnameandtext = explode(PHP_EOL, $hp->get('newsnameandtext'));
+        $news = (isset($_POST['news'])&& $_POST['news']!="") ? $_POST['news'] : $tabnewsnameandtext['0'];
+        $name = (isset($_POST['name'])&& $_POST['name']!="") ? $_POST['name'] : $tabnewsnameandtext['2'];
+        $text = (isset($_POST['text'])&& $_POST['text']!="") ? $_POST['text'] : $tabnewsnameandtext['3'];
+        $newsnameandtext = $news . PHP_EOL . PHP_EOL . $name . PHP_EOL . $text;
+
+        $arrayArticlehp = [
+            'idHomepage' => $id,
+            'namearticlelink' => $namearticlelink,
+            'firstarticledisplayed' => $firstarticledisplayed,
+            'secondarticledisplayed' => $secondarticledisplayed,
+            'maptitle' => $maptitle,
+            'maplink' => $maplink,
+            'newsnameandtext' => $newsnameandtext,
+        ];
+        //var_dump($arrayArticlehp);
+        ModelHomepage::update($arrayArticlehp);
+
+        self::gotoupdatehomepage();
+    }
+
+    public static function updatemiddlehp()
+    {
+        //on teste si la personne connectée? est un admin
+        if (Session::isAdmin() !== true) {
+            return false;
+        }
+        //var_dump($_POST);
+        if (!isset($_POST['id'])||!in_array($_POST['id'], ModelHomepage::selectAllIds())) {
+            $_POST['phrase'] = File::warning('Erreur : données insuffiasantes, veuillez réessayer');
+            return self::adminhomepage();
+        }
+        //var_dump($_POST);
+        $id = $_POST['id'];
+        $hp = ModelHomepage::select($id);
+
+        $firstparagraph = (isset($_POST['firstparagraph'])&& $_POST['firstparagraph']!="") ? $_POST['firstparagraph'] : $hp->get('firstparagraph');
+        $firstparagraphlink = (isset($_POST['firstparagraphlink'])&& $_POST['firstparagraphlink']!="") ? $_POST['firstparagraphlink'] : $hp->get('firstparagraphlink');
+        $firstimagetitle = (isset($_POST['firstimagetitle'])&& $_POST['firstimagetitle']!="") ? $_POST['firstimagetitle'] : $hp->get('firstimagetitle');
+        $firstimage = (isset($_POST['firstimage'])&& $_POST['firstimage']!="") ? $_POST['firstimage'] : $hp->get('firstimage');
+        $firstimagephrase = (isset($_POST['firstimagephrase'])&& $_POST['firstimagephrase']!="") ? $_POST['firstimagephrase'] : $hp->get('firstimagephrase');
+        $firstimagelist = (isset($_POST['firstimagelist'])&& $_POST['firstimagelist']!="") ? $_POST['firstimagelist'] : $hp->get('firstimagelist');
+
+
+        $arrayMiddlehp = [
+            'idHomepage' => $id,
+            'firstparagraph' => $firstparagraph,
+            'firstparagraphlink' => $firstparagraphlink,
+            'firstimagetitle' => $firstimagetitle,
+            'firstimage' => $firstimage,
+            'firstimagephrase' => $firstimagephrase,
+            'firstimagelist' => $firstimagelist,
+        ];
+        //var_dump($arrayMiddlehp);
+
+        ModelHomepage::update($arrayMiddlehp);
+
+        return self::gotoupdatehomepage();
+
+    }
+
+    public static function updatebottomhp()
+    {
+        //on teste si la personne connectée? est un admin
+        if (Session::isAdmin() !== true) {
+            return false;
+        }
+        //var_dump($_POST);
+        if (!isset($_POST['id'])||!in_array($_POST['id'], ModelHomepage::selectAllIds())) {
+            $_POST['phrase'] = File::warning('Erreur : données insuffiasantes, veuillez réessayer');
+            return self::adminhomepage();
+        }
+        //var_dump($_POST);
+        $id = $_POST['id'];
+        $hp = ModelHomepage::select($id);
+
+        $secondimagetitle = (isset($_POST['secondimagetitle'])&& $_POST['secondimagetitle']!="") ? $_POST['secondimagetitle'] : $hp->get('secondimagetitle');
+        $secondimage = (isset($_POST['secondimage'])&& $_POST['secondimage']!="") ? $_POST['secondimage'] : $hp->get('secondimage');
+        $secondimageparagraph = (isset($_POST['secondimageparagraph'])&& $_POST['secondimageparagraph']!="") ? $_POST['secondimageparagraph'] : $hp->get('secondimageparagraph');
+
+
+        $arrayBottomhp = [
+            'idHomepage' => $id,
+            'secondimagetitle' => $secondimagetitle,
+            'secondimage' => $secondimage,
+            'secondimageparagraph' => $secondimageparagraph,
+        ];
+        //var_dump($arrayBottomhp);
+
+        ModelHomepage::update($arrayBottomhp);
+
+        return self::gotoupdatehomepage();
+
+    }
+
+
 //page d'erreur
     public static function error()
     {
