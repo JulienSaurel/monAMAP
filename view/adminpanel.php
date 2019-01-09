@@ -38,6 +38,7 @@
     require File::build_path(array("view", static::$object, "$view.php"))?>
 
 <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="./script/adminscript.js"></script>
 </main>
 </body>
 </html>

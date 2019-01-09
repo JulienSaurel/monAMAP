@@ -31,14 +31,14 @@ function closeLink(){
 function Extend(_divId_, int) {
 
     // on crée un tableau avec tous les div
-    var AllObj=document.getElementsByTagName('div')
+    var AllObj=document.getElementsByTagName('div');
 
     //on crée un tableau vide pour y stocker nos div d'articles
-    var targetObj =new Array()
+    var targetObj =new Array();
 
     //on parcours le grand tableau et on range dans le tableau vide les div d'articles en testant leur id
     for (var i=0;i<AllObj.length;i++){
-        if (AllObj[i].id.substr(0,6)=="target"){targetObj.push(AllObj[i])}
+        if (AllObj[i].id.substr(0,6)==="target"){targetObj.push(AllObj[i])}
     }
 
     //on parcours les articles et on les réduit tous sauf celui que l'on aggrandit
@@ -122,11 +122,11 @@ function changeSizePx (_divId_, /*_newSizex_,*/ _newSizey_){
 function RefreshSubscriptionPrice()
 {
     //on recupere l'option du select et on change le prix affiché la valeur par défaut et le min
-    var firstselect = document.getElementById('duration')
-    var prixmin = document.getElementById('pricemin')
+    var firstselect = document.getElementById('duration');
+    var prixmin = document.getElementById('pricemin');
     var casetochange = document.getElementById('total');
-    casetochange.value = 1.5*parseInt(firstselect.value)
-    casetochange.min = casetochange.value
+    casetochange.value = 1.5*parseInt(firstselect.value);
+    casetochange.min = casetochange.value;
     prixmin.innerText = "Prix minimum: " + casetochange.value + " €"
 
 }

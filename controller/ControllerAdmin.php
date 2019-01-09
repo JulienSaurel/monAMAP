@@ -1102,6 +1102,7 @@ class ControllerAdmin
         if (Session::isAdmin() !== true) {
             return false;
         }
+
         //var_dump($_POST);
         if (!isset($_POST['id'])||!in_array($_POST['id'], ModelHomepage::selectAllIds())) {
             $_POST['phrase'] = File::warning('Erreur : données insuffiasantes, veuillez réessayer');
@@ -1211,6 +1212,63 @@ class ControllerAdmin
         return self::gotoupdatehomepage();
 
     }
+
+
+
+
+
+    /////////////////////////////////////////////////////////
+    /////////////////////// AJAX ///////////////////////////
+    ///////////////////////////////////////////////////////
+    public static function getArticleImage()
+    {
+        //on teste si la personne connectée? est un admin
+        if (Session::isAdmin() !== true) {
+            return false;
+        }
+
+        if (isset($_GET['id'])) {
+
+            $id = (int)$_GET['id'];
+            $photo = ModelArticle::select($id)->get('photo');
+            echo $photo;
+        }
+    }
+
+    public static function gethomepageatribute()
+    {
+        //on teste si la personne connectée? est un admin
+        if (Session::isAdmin() !== true) {
+            return false;
+        }
+
+        if (isset($_GET['id'])&&isset($_GET['attr'])) {
+            $hp = ModelHomepage::select($_GET['id']);
+            $attrvalue = $hp->get($_GET['attr']);
+            echo $attrvalue;
+        }
+    }
+
+    public static function getnewsnameortext()
+    {
+        //on teste si la personne connectée? est un admin
+        if (Session::isAdmin() !== true) {
+            return false;
+        }
+
+        if (isset($_GET['id'])&&isset($_GET['offset'])) {
+            $hp = ModelHomepage::select($_GET['id']);
+            $attrvalue = $hp->get('newsnameandtext');
+            $tab = explode(PHP_EOL, $attrvalue);
+            echo $tab[$_GET['offset']];
+        }
+    }
+
+    /////////////////////////////////////////////////////////
+    /////////////////////// AJAX ///////////////////////////
+    ///////////////////////////////////////////////////////
+
+
 
 
 //page d'erreur

@@ -301,36 +301,76 @@ a > i {
     background-image: url("../images/adherents.png");
 }
 
+.previsu{
+    width: 100%;
+    background-color: rgb(204, 227, 206);
+    display: inline-flex;
+}
+
+#previsutitle > div {
+    margin: 25px 15px;
+}
+
+/*#previsutitle {
+    position: fixed;
+    bottom: 0px;
+}*/
+
+#previsunews > div {
+    margin: 1em 8em 8em 5em;
+}
+
+#previsubottom {
+    display: block;
+}
+
+#toinline {
+display: inline-flex;
+}
+
+#toinblock {
+    display: block;
+    width: 30%;
+}
+
+#toinblock > p {
+    text-align: left;
+}
+
+#previsumiddle > div {
+    margin: 0em 5em ;
+}
+
 /************************************************************
 *************************DIAPO******************************
 ***********************************************************/
 .contener_slideshow
 {
-    width:700px;
-    height:500px;
+    width:350px;
+    height:250px;
     overflow: hidden;
     position: relative;
-    margin-bottom: 70px;
+    margin-bottom: 35px;
 
 }
 
 .slid_1, .slid_2, .slid_3
 {
     position: absolute;
-    width:700px;
-    height:600px;
+    width:350px;
+    height:300px;
 }
 
 .slid_1{left: 0;}
-.slid_2{left: 700px;}
-.slid_3{left: 1400px;}
+.slid_2{left: 350px;}
+.slid_3{left: 700px;}
 
 
 
 .contener_slide
 {
-    width: 700px;
-    height: 600px;
+    width: 350px;
+    height: 300px;
     left:0px;
     position: relative;
     animation-duration: 10s;
@@ -344,12 +384,10 @@ a > i {
 {
     0% {left:0px;}
     22% {left:0px;}
-    33% {left:-705px;}
-    45% {left:-705px;}
-    66% {left:-1405px;}
-    99% {left:-1405px;}
-
-
+    33% {left:-355px;}
+    45% {left:-355px;}
+    66% {left:-702px;}
+    99% {left:-702px;}
 }
 
 
