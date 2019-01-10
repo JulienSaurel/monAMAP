@@ -242,6 +242,8 @@ class ControllerMonProfil
             //on test que le fichier upload existe au bon endroit
             if (!file_exists($path))
                 return self::error();
+
+            $name = "./images/$name";
         }
 
         //on cree des tableaux pour mettre la bdd a jour

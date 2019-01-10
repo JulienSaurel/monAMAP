@@ -57,9 +57,7 @@
       </ul>
     </p>
   </article>
-  <aside>
-    <h1> ASIDE </h1>
-  </aside>
+
 </section>
 
   <section class="usercontent">
@@ -68,9 +66,7 @@
     <img src="<?php echo $secondimage; ?>" alt="AMAP biologique"/> <!--width="925" height="335"-->
     <p><?php echo $secondimageparagraph; ?></p>
   </article>
-  <aside>
-    <h1> ASIDE </h1>
-  </aside>
+
 
    </section>
 
