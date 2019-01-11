@@ -343,6 +343,32 @@ class Model {
         return $res;
     }
 
+    //renvoie le nombre d'objets valides dans le model appelé
+    public static function countAllValid()
+    {
+        try{
+            //on recupere les noms de tables/classes a partir des attributs statics declares dans chaque classe
+            $table_name = static::$object;
+            $class_name = 'Model' . ucfirst($table_name);
+            $sql = 'SELECT COUNT(*) FROM '.ucfirst($table_name) . " WHERE isValid <> 0;";
+
+
+            $req_prep = Model::$pdo->prepare($sql);
+
+            $req_prep->execute();
+
+            $res = $req_prep->fetchColumn();
+        } catch(PDOException $e) { //on gere les exceptions
+            if (Conf::getDebug()) {
+                echo $e->getMessage(); // affiche un message d'erreur
+            } else {
+                echo 'Une erreur est survenue <a href=""> retour a la page d\'accueil </a>';
+            }
+            die();
+        }
+        return $res;
+    }
+
     //renvoie le nombre total d'objets a valider
     public static function countTotalToValid()
     {

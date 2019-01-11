@@ -1235,6 +1235,30 @@ class ControllerAdmin
         }
     }
 
+        public static function getArticleTitleByHpId()
+    {
+        if (Session::isAdmin() !== true) {
+            return false;
+        }
+
+        if (isset($_GET['id'])&&isset($_GET['attr'])) {
+            $article = ModelArticle::select(ModelHomepage::select($_GET['id'])->get($_GET['attr']));
+            echo $article->get('titreArticle');
+        }
+    }
+
+    public static function getArticlePhotoByHpId()
+    {
+        if (Session::isAdmin() !== true) {
+            return false;
+        }
+
+        if (isset($_GET['id'])&&isset($_GET['attr'])) {
+            $article = ModelArticle::select(ModelHomepage::select($_GET['id'])->get($_GET['attr']));
+            echo $article->get('photo');
+        }
+    }
+
     public static function gethomepageatribute()
     {
         //on teste si la personne connectée? est un admin
@@ -1245,7 +1269,13 @@ class ControllerAdmin
         if (isset($_GET['id'])&&isset($_GET['attr'])) {
             $hp = ModelHomepage::select($_GET['id']);
             $attrvalue = $hp->get($_GET['attr']);
-            echo $attrvalue;
+            if (isset($_GET['img'])) {
+                $attrvalue = explode("/",$attrvalue);
+                //var_dump($attrvalue);
+                $attrvalue = $attrvalue['2'];
+            }
+                echo $attrvalue;
+
         }
     }
 
@@ -1261,6 +1291,27 @@ class ControllerAdmin
             $attrvalue = $hp->get('newsnameandtext');
             $tab = explode(PHP_EOL, $attrvalue);
             echo $tab[$_GET['offset']];
+        }
+    }
+
+    public static function getbanner()
+    {
+        //on teste si la personne connectée? est un admin
+        if (Session::isAdmin() !== true) {
+            return false;
+        }
+
+        if (isset($_GET['id'])&&isset($_GET['index'])){
+            $hp = ModelHomepage::select($_GET['id']);
+            $banner = $hp->get('banner');
+            $tabbaner = explode(" ", $banner);
+            if (isset($_GET['previ'])) {
+                echo $tabbaner[$_GET['index']];
+            } else {
+                $tabimage = explode("/", $tabbaner[$_GET['index']]);
+                $image = $tabimage['1'];
+                echo $image;
+            }
         }
     }
 

@@ -22,7 +22,7 @@ class ModelLivreDor extends Model
     public static function getNbPages()
     {
         
-        $totalDesMessages = self::countAll();
+        $totalDesMessages = self::countAllValid();
         $nombreDePages = ceil($totalDesMessages / self::$nbmessagepage);
         //var_dump($nombreDePages);
         
@@ -31,7 +31,7 @@ class ModelLivreDor extends Model
 
     public static function getAllBetween($offset, $nbmsg)
     {     
-        $sql = 'SELECT * FROM LivreDor ORDER BY id_message DESC LIMIT ' . $nbmsg . ' OFFSET ' . $offset  ;
+        $sql = 'SELECT * FROM LivreDor WHERE isValid = 1 ORDER BY id_message DESC LIMIT ' . $nbmsg . ' OFFSET ' . $offset;
         
 
         $req_prep = Model::$pdo->prepare($sql);

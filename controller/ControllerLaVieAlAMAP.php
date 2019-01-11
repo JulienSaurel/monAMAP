@@ -62,8 +62,8 @@ class ControllerLaVieAlAMAP
     {
         if (isset($_POST['pseudo']) && isset($_POST['message']))
         {
-            $pseudo = htmlspecialchars($_POST['pseudo']); // On utilise mysql_real_escape_string et htmlspecialchars par mesure de sécurité
-            $message = nl2br(htmlspecialchars($_POST['message'])); // pour le msg on gere aussi les retours charriots
+            $pseudo = $_POST['pseudo'];
+            $message = $_POST['message'];
             $id = ModelLivreDor::generateId();
 
             $arraymsg = [

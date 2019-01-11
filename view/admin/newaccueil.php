@@ -58,7 +58,7 @@
 
                     <div class="mdl-cell mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <label class="mdl-textfield__label" for="5">2eme image de la diapo</label>
-                        <select class="mdl-textfield__input" name="secondimagediapo" id="5">
+                        <select class="mdl-textfield__input" onchange="ActualizeImage('photo2','5')" name="secondimagediapo" id="5">
                             <?php foreach ($tabimages as $image) { ?>
                             <option <?php echo ("images/$image" == $tabbanner['1']) ? 'selected':'';?>> <?php echo $image;?>
 
@@ -68,7 +68,7 @@
 
                     <div class="mdl-cell mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <label class="mdl-textfield__label" for="6">3eme image de la diapo</label>
-                        <select class="mdl-textfield__input" name="thirdimagediapo" id="6">
+                        <select class="mdl-textfield__input" onchange="ActualizeImage('photo3','6')" name="thirdimagediapo" id="6">
                             <?php foreach ($tabimages as $image) { ?>
                             <option <?php echo ("images/$image" == $tabbanner['2']) ? 'selected':'';?>> <?php echo $image;?>
 
@@ -166,7 +166,7 @@
 
                     <div class="mdl-cell mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <input class="mdl-textfield__input" name="maplink" type="text" id="108">
-                        <label class="mdl-textfield__label" for="108"><?php echo $maplink;?></label>
+                        <label class="mdl-textfield__label" id="label108" for="108"><?php echo $maplink;?></label>
                     </div>
 
                     <button class="mdl-button mdl-js-button mdl-button--raised" type="submit">

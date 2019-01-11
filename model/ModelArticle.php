@@ -41,7 +41,7 @@ class ModelArticle extends Model
     }
 
     public static function selectAllTri(){
-      $SQL_request = " SELECT * FROM Article ORDER BY date DESC";
+      $SQL_request = " SELECT * FROM Article WHERE isValid <> 0 ORDER BY date DESC";
         $rep = Model::$pdo->query($SQL_request);
         $rep->setFetchMode(PDO::FETCH_CLASS, 'ModelArticle');
         $tab_a = $rep->fetchAll();

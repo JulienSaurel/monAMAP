@@ -40,58 +40,112 @@ function ActualizeSelectedPage(location, ididhp) {
     }
 }
 
-
+//////////////////  TITLE  ///////////////////////////
 function ActualizeTitleBySelect(idhp) {
-    //alert(idhp);
+                //// FORM ////
+    //LABEL FORM;
     ActualizeValueBySelect('pagetitle', idhp, 'label1', 'label');
     ActualizeValueBySelect('welcomephrase', idhp, 'label2', 'label');
     ActualizeValueBySelect('descbannerphrase', idhp, 'label3', 'label');
 
+    //SELECTED INDEX FORM
+    ActualizeValueBySelect('photo1', idhp, '4', 'selected');
+    ActualizeValueBySelect('photo2', idhp, '5', 'selected');
+    ActualizeValueBySelect('photo3', idhp, '6', 'selected');
 
+                //// PREVI ////
+    //Prévisualisation TEXT
     ActualizeTextInputFromAjaxReq('pagetitlehp', idhp, 'pagetitle');
     ActualizeTextInputFromAjaxReq('welcomephrase',idhp, 'welcomephrase');
     ActualizeTextInputFromAjaxReq('descbannerphrase',idhp, 'descbannerphrase');
 
-}
+    //Prévisualisation IMG
+    ActualizeImageInputFromAjaxReq('photo1',idhp, 'photo1');
+    ActualizeImageInputFromAjaxReq('photo2',idhp, 'photo2');
+    ActualizeImageInputFromAjaxReq('photo3',idhp, 'photo3');
 
+
+}
+//////////////////  TITLE  ///////////////////////////
+
+
+/////////////////  NEWS  ///////////////////
 function ActualizeNewsBySelect(idhp) {
+            //// FORM ////
+    //LABEL FORM;
     ActualizeValueBySelect('news', idhp, 'label101','label');
     ActualizeValueBySelect('name', idhp, 'label102','label');
-    ActualizeValueBySelect('text', idhp, 'label103','label');//compliqué
+    ActualizeValueBySelect('text', idhp, 'label103','label');
     ActualizeValueBySelect('namearticlelink', idhp, 'label104','label');
     ActualizeValueBySelect('maptitle', idhp, 'label107','label');
     ActualizeValueBySelect('maplink', idhp, 'label108','label');
 
+    //SELECTED INDEX FORM
+    ActualizeValueBySelect('firstarticledisplayed', idhp, '105', 'selected');
+    ActualizeValueBySelect('secondarticledisplayed', idhp, '106', 'selected');
 
+            //// PREVI ////
+    //Prévisualisation TEXT
     ActualizeTextInputFromAjaxReq('namearticlelink', idhp, 'namearticlelink');
     ActualizeTextInputFromAjaxReq('maptitle',idhp, 'maptitle');
+
+    //Prévisualisation IMG
     ActualizeImageInputFromAjaxReq('maplink',idhp, 'maplink');
+    ActualizeImageInputFromAjaxReq('firstarticledisplayed',idhp, 'firstarticledisplayed');
+    ActualizeImageInputFromAjaxReq('secondarticledisplayed',idhp, 'secondarticledisplayed');
 
 }
+/////////////////  NEWS  ///////////////////
 
+
+
+
+//////////////////  MIDDLE  ///////////////////////////
 function ActualizeMiddleBySelect(idhp) {
+            //// FORM ////
+    //LABEL FORM;
     ActualizeValueBySelect('firstparagraph', idhp, 'label20','label');
     ActualizeValueBySelect('firstparagraphlink', idhp, 'label21','label');
     ActualizeValueBySelect('firstimagetitle', idhp, 'label22','label');
     ActualizeValueBySelect('firstimagephrase', idhp, 'label24','label');
     //ActualizeValueBySelect('firstparagraph', idhp, 'label20','label');//compliqué
 
+    //SELECTED INDEX FORM
+    ActualizeValueBySelect('firstimage', idhp, '23', 'selected');
+
+            //// PREVI ////
+    //Prévisualisation TEXT
     ActualizeTextInputFromAjaxReq('firstparagraph', idhp, 'firstimageparagraph');
     ActualizeTextInputFromAjaxReq('firstparagraphlink', idhp, 'firstparagraphlink');
     ActualizeTextInputFromAjaxReq('firstimagetitle', idhp, 'firstimagetitle');
     ActualizeTextInputFromAjaxReq('firstimagephrase', idhp, 'firstimagephrase');
 
+    //Prévisualisation IMG
+    ActualizeImageInputFromAjaxReq('firstimage',idhp, 'firstimage');
 }
+//////////////////  MIDDLE  ///////////////////////////
 
+
+//////////////////  BOTTOM  ///////////////////////////
 function ActualizeBottomBySelect(idhp) {
+            //// FORM ////
+    //LABEL FORM;
     ActualizeValueBySelect('secondimagetitle', idhp, 'label1001', 'label');
     ActualizeValueBySelect('secondimageparagraph', idhp, 'label1003', 'label');
 
+    //SELECTED INDEX FORM
+    ActualizeValueBySelect('secondimage', idhp, '1002', 'selected');//TODO
 
+            //// PREVI ////
+    //Prévisualisation TEXT
     ActualizeTextInputFromAjaxReq('secondimagetitle', idhp, 'secondimagetitle');
     ActualizeTextInputFromAjaxReq('secondimageparagraph', idhp, 'secondimageparagraph');
-}
 
+    //Prévisualisation IMG
+    ActualizeImageInputFromAjaxReq('secondimage',idhp, 'secondimage');
+
+}
+//////////////////  BOTTOM  ///////////////////////////
 
 function ActualizeValueBySelect(attr, idhp, idtochange, type) {
     var toact = document.getElementById(idtochange);
@@ -106,8 +160,13 @@ function ActualizeValueBySelect(attr, idhp, idtochange, type) {
             } else if (type === "label") {
                 toact.textContent = request.responseText;
             } else if (type === "selected") {
-                //issou
-                alert("");
+                for (var i=0; i<toact.options.length; i++){
+                    if (toact.options.item(i).text.replace(/^\s+|\s+$/g,'') === request.responseText.replace(/^\s+|\s+$/g,'')) {
+                        toact.options.item(i).selected = "selected";
+                    } else {
+                        toact.options.item(i).selected = "";
+                    }
+                }
             }
         }
     };
@@ -117,6 +176,16 @@ function ActualizeValueBySelect(attr, idhp, idtochange, type) {
         request.open('GET', '?action=getnewsnameortext&controller=admin&id='+ idhp + '&offset=2');
     } else if (attr === "text") {
         request.open('GET', '?action=getnewsnameortext&controller=admin&id='+ idhp + '&offset=3');
+    } else if (attr === "photo1") {
+        request.open('GET', '?action=getbanner&controller=admin&id='+ idhp + '&index=0');
+    } else if (attr === "photo2") {
+        request.open('GET', '?action=getbanner&controller=admin&id='+ idhp + '&index=1');
+    } else if (attr === "photo3") {
+        request.open('GET', '?action=getbanner&controller=admin&id='+ idhp + '&index=2');
+    } else if (attr === "firstarticledisplayed" || attr === "secondarticledisplayed") {
+        request.open('GET', '?action=getArticleTitleByHpId&controller=admin&id=' + idhp + '&attr=' + attr);//TODO
+    } else if (attr === "firstimage" || attr === "secondimage") {
+        request.open('GET', '?action=gethomepageatribute&controller=admin&id=' + idhp + '&attr=' + attr + '&img=y');
     } else {
         request.open('GET', '?action=gethomepageatribute&controller=admin&id=' + idhp + '&attr=' + attr);
     }
@@ -132,8 +201,7 @@ function ActualizeTextInputFromAjaxReq(_divId_, idhp, attr) {
 
     request.onreadystatechange = function() {
         if (request.status === 200 && request.readyState === 4) {
-            var response = request.responseText.replace(/^\s+|\s+$/g,'');
-            toact.innerText = response;
+            toact.innerText = request.responseText.replace(/^\s+|\s+$/g,'');
         }
     };
 
@@ -148,12 +216,19 @@ function ActualizeImageInputFromAjaxReq(_divId_, idhp, attr) {
 
     request.onreadystatechange = function() {
         if (request.status === 200 && request.readyState === 4) {
-            var response = request.responseText.replace(/^\s+|\s+$/g,'');
-            toact.src = response;
+            toact.src = request.responseText.replace(/^\s+|\s+$/g,'');
         }
     };
 
-    request.open('GET', '?action=gethomepageatribute&controller=admin&id='+ idhp + '&attr=' + attr);
+    if (attr === "photo1" || attr === "photo2" || attr === "photo3") {
+        var index = attr.substring(attr.length - 1) - 1;
+        var url = '?action=getbanner&controller=admin&id=' + idhp + '&index=' + index + '&previ=y';
+        request.open('GET', url);
+    } else if (attr === "firstarticledisplayed" || attr === "secondarticledisplayed") {
+        request.open('GET', '?action=getArticlePhotoByHpId&controller=admin&id=' + idhp + '&attr=' + attr);
+    } else {
+        request.open('GET', '?action=gethomepageatribute&controller=admin&id=' + idhp + '&attr=' + attr);
+    }
     request.send('');
 }
 
