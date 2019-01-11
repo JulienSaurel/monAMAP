@@ -13,7 +13,6 @@
     <main class="mdl-layout__content">
 
 
-
         <!--******************************************************
            ********************TITRE*****************************
           ******************************************************-->
@@ -183,11 +182,11 @@
                     </div>
 
                     <div id="toinline">
-                        <div>
+                        <div class=firsttoinline">
                             <img id="firstarticledisplayed" src="<?php echo ModelArticle::select($firstarticledisplayed)->get('photo');?>" alt="<?php echo $firstarticledisplayed;?>" width="135" height="135"/>
                             <h4><a href="?action=display1st&controller=laVieAlAMAP"> <?php echo ModelArticle::select($firstarticledisplayed)->get('titreArticle'); ?> </a></h4>
                         </div>
-                        <div>
+                        <div class="firsttoinline">
                             <img id="secondarticledisplayed" src="<?php echo ModelArticle::select($secondarticledisplayed)->get('photo');?>" alt="<?php echo $secondarticledisplayed;?>" width="135" height="135"/>
                             <h4><a href="?action=display1st&controller=laVieAlAMAP"> <?php echo ModelArticle::select($secondarticledisplayed)->get('titreArticle'); ?> </a></h4>
                         </div>
@@ -259,7 +258,7 @@
                     </div>
 
                     <div class="mdl-cell mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <textarea class="mdl-textfield__input" oninput="launchActualizeTextInput('firstimagelist','25');" type="text" name="firstimagelist" id="25" cols="15" rows="4"><?php echo $firstimagelist; ?></textarea>
+                        <textarea class="mdl-textfield__input" oninput="launchActualizeListInput('firstimagelist','19', '25');" type="text" name="firstimagelist" id="25" cols="15" rows="4"><?php echo $firstimagelist; ?></textarea>
                         <label class="mdl-textfield__label" id="label25" for="25">Liste:</label>
                     </div>
 

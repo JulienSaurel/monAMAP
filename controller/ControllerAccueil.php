@@ -8,9 +8,20 @@ class ControllerAccueil
 {
     protected static $object='accueil';
 
-	public static function homepage()
+
+    public static function setlang()
+    {
+        if ($_GET['lang']) {
+            setcookie("lang", serialize($_GET['lang']), time() + 99999999);
+            return self::homepage($_GET['lang']);
+        }
+        self::homepage();
+    }
+
+
+	public static function homepage($idhp = null)
 	{
-        $homepage = ModelHomepage::select('Accueil');
+        $homepage = isset($idhp)?  ModelHomepage::select($idhp) : (isset($_COOKIE['lang']) ? ModelHomepage::select(unserialize($_COOKIE['lang'])) : ModelHomepage::select('Accueil'));
         $idHomepage = $homepage->get('idHompage');
         $pagetitlehp = $homepage->get('pagetitle');
         $welcomephrase = $homepage->get('welcomephrase');

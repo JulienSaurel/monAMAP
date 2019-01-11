@@ -29,7 +29,6 @@ function ActualizeSelectedImage(_divId_, sourceId) {
 function ActualizeSelectedPage(location, ididhp) {
     idhp = document.getElementById(ididhp).value;
     if (location === "title") {
-        //alert(idhp);
         ActualizeTitleBySelect(idhp);
     } else if(location === "news") {
         ActualizeNewsBySelect(idhp);
@@ -88,6 +87,9 @@ function ActualizeNewsBySelect(idhp) {
     //Prévisualisation TEXT
     ActualizeTextInputFromAjaxReq('namearticlelink', idhp, 'namearticlelink');
     ActualizeTextInputFromAjaxReq('maptitle',idhp, 'maptitle');
+    ActualizeTextInputFromAjaxReq('news',idhp, 'news');
+    ActualizeTextInputFromAjaxReq('name', idhp, 'name');
+    ActualizeTextInputFromAjaxReq('text',idhp, 'text');
 
     //Prévisualisation IMG
     ActualizeImageInputFromAjaxReq('maplink',idhp, 'maplink');
@@ -108,17 +110,19 @@ function ActualizeMiddleBySelect(idhp) {
     ActualizeValueBySelect('firstparagraphlink', idhp, 'label21','label');
     ActualizeValueBySelect('firstimagetitle', idhp, 'label22','label');
     ActualizeValueBySelect('firstimagephrase', idhp, 'label24','label');
-    //ActualizeValueBySelect('firstparagraph', idhp, 'label20','label');//compliqué
+    ActualizeValueBySelect('firstimagelist', idhp, '25','textearea');
 
     //SELECTED INDEX FORM
     ActualizeValueBySelect('firstimage', idhp, '23', 'selected');
 
             //// PREVI ////
     //Prévisualisation TEXT
-    ActualizeTextInputFromAjaxReq('firstparagraph', idhp, 'firstimageparagraph');
+    ActualizeTextInputFromAjaxReq('firstparagraph', idhp, 'firstparagraph');
     ActualizeTextInputFromAjaxReq('firstparagraphlink', idhp, 'firstparagraphlink');
     ActualizeTextInputFromAjaxReq('firstimagetitle', idhp, 'firstimagetitle');
     ActualizeTextInputFromAjaxReq('firstimagephrase', idhp, 'firstimagephrase');
+    ActualizeTextInputFromAjaxReq('firstimagelist', idhp, 'firstimagelist');
+
 
     //Prévisualisation IMG
     ActualizeImageInputFromAjaxReq('firstimage',idhp, 'firstimage');
@@ -156,7 +160,7 @@ function ActualizeValueBySelect(attr, idhp, idtochange, type) {
             if (type === "textinput") {
                 toact.value = request.responseText;
             } else if (type === "textearea") {
-                toact.innerText = request.responseText;
+                toact.value = request.responseText.replace(/^\s+|\s+$/g,'');
             } else if (type === "label") {
                 toact.textContent = request.responseText;
             } else if (type === "selected") {
@@ -205,7 +209,15 @@ function ActualizeTextInputFromAjaxReq(_divId_, idhp, attr) {
         }
     };
 
-    request.open('GET', '?action=gethomepageatribute&controller=admin&id='+ idhp + '&attr=' + attr);
+    if (attr === "news") {
+        request.open('GET', '?action=getnewsnameortext&controller=admin&id='+ idhp + '&offset=0');
+    } else if(attr === "name") {
+        request.open('GET', '?action=getnewsnameortext&controller=admin&id='+ idhp + '&offset=2');
+    } else if(attr === "text") {
+        request.open('GET', '?action=getnewsnameortext&controller=admin&id='+ idhp + '&offset=3');
+    } else {
+        request.open('GET', '?action=gethomepageatribute&controller=admin&id=' + idhp + '&attr=' + attr);
+    }
     request.send('');
 }
 
@@ -221,8 +233,8 @@ function ActualizeImageInputFromAjaxReq(_divId_, idhp, attr) {
     };
 
     if (attr === "photo1" || attr === "photo2" || attr === "photo3") {
-        var index = attr.substring(attr.length - 1) - 1;
-        var url = '?action=getbanner&controller=admin&id=' + idhp + '&index=' + index + '&previ=y';
+        let index = attr.substring(attr.length - 1) - 1;
+        let url = '?action=getbanner&controller=admin&id=' + idhp + '&index=' + index + '&previ=y';
         request.open('GET', url);
     } else if (attr === "firstarticledisplayed" || attr === "secondarticledisplayed") {
         request.open('GET', '?action=getArticlePhotoByHpId&controller=admin&id=' + idhp + '&attr=' + attr);
@@ -240,15 +252,38 @@ function ActualizeImageInputFromAjaxReq(_divId_, idhp, attr) {
  * @param sourceId
  */
 function ActualizeImage(_divId_, sourceId) {
-    var source = document.getElementById(sourceId);
-    var value = source.value;
-    var toact = document.getElementById(_divId_);
+    let source = document.getElementById(sourceId);
+    let value = source.value;
+    let toact = document.getElementById(_divId_);
     if (value.indexOf("./images/")=== -1) {
         toact.src = "./images/" + value;
     } else {
         toact.src = value;
     }
 }
+
+
+/**
+* Appelle ActualizeTextInput ou getDefaultValue en fonction de si le texte est null ou non
+* @param _divId_
+* @param sourceId
+ * *@param idhp
+*/
+function launchActualizeListInput(_divId_,ididhp,sourceId) {
+    let source = document.getElementById(sourceId);
+    let value = source.value;
+    if (value !== "") {
+        ActualizeTextInput(_divId_, value);
+    } else {
+        //Actualise by AJAX;
+        let idhp = document.getElementById(ididhp).value;
+        ActualizeTextInputFromAjaxReq('firstimagelist', idhp, 'firstimagelist');
+
+    }
+}
+
+
+
 
 /**
  * Appelle ActualizeTextInput ou getDefaultValue en fonction de si le texte est null ou non

@@ -256,6 +256,7 @@ a > i {
 }
 
 #readAll {
+    z-index: 5;
     position: fixed;
     bottom: 10px;
     right: 10px;
@@ -325,7 +326,11 @@ a > i {
 }
 
 #toinline {
-display: inline-flex;
+    display: inline-flex;
+}
+
+.firsttoinline {
+    margin: 10px;
 }
 
 #toinblock {
@@ -340,6 +345,7 @@ display: inline-flex;
 #previsumiddle > div {
     margin: 0em 5em ;
 }
+
 
 /************************************************************
 *************************DIAPO******************************
