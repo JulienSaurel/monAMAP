@@ -625,7 +625,7 @@ footer {
     .liensfooter {
       display: none;
     }
- 
+
 
 }
 
@@ -694,6 +694,11 @@ footer {
 /*
  CSS ARTICLES
  */
+
+.flagicon {
+    border-bottom: none !important;
+}
+
  
 
 /*css diapo */

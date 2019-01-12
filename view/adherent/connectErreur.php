@@ -17,7 +17,9 @@
     </p>
 
   </fieldset>
-    <a href="?action=create&controller=adherent">S'inscrire</a>
+    <p><a href="?action=create&controller=adherent">S'inscrire</a></p>
+    <p><a href="?action=gotoreset&controller=adherent&type=pwd">Mot de passe oublié?</a></p>
+    <p><a href="?action=gotoreset&controller=adherent&type=mail">Renvoyer le mail de validation</a></p>
 </form>
 
 <p> <span class="erreurFormulaire"> <?php echo $errmsg ?> </span></p>

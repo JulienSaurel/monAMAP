@@ -208,7 +208,96 @@ class ControllerAdherent
 		require File::build_path(array('view','view.php'));
 	}
 
+    public static function gotoreset() {
+	    if (!isset($_GET['type']))
+	        return self::error();
+	    $type = $_GET['type'];
+	    if (!in_array($type,['pwd','mail']))
+	        return self::error();
+	    if ($type == "mail") {
+	        $formtitle = "Renvoyer le mail de validation de mon adresse mail";
+	        $pagetitle = "Validation par mail";
+	        $text = "valider votre adresse mail.";
+        } elseif ($type == 'pwd') {
+	        $formtitle = "Réinitialiser mon mot de passe";
+	        $pagetitle = "Réinitialisation du mot de passe";
+            $text = "redéfinir votre mot de passe.";
+        }
+        $view = 'reset';
+        require File::build_path(array('view','view.php'));
+	}
 
+    public static function reset()
+    {
+     if (!isset($_GET['type'])||!isset($_POST['idAdherent'])) {
+         return self::error();
+     }
+     $idAdherent = $_POST['idAdherent'];
+    $type = $_GET['type'];
+
+     if(!$adh = ModelAdherent::select($_POST['idAdherent'])) {
+            return self::error();
+     }
+
+     if (!in_array($type,['pwd','mail']))
+         return self::error();
+
+         $nonce = Security::generateRandomHex();
+         ModelAdherent::update(['idAdherent'=>$idAdherent,'nonce'=>$nonce]);
+         ////////////////////////////////////////////////////
+         /// On envoie un mail pour valider l'adresse //////
+         //////////////////////////////////////////////////
+         $email = $adh->get('mailPersonne');
+         $p = ModelPersonne::select($email);
+         $nom = $p->get('nomPersonne');
+         $prenom = $p->get('prenomPersonne');
+         $idurl = urlencode($idAdherent);
+         $nonceurl = urlencode($nonce);
+
+         $mail = new PHPMailer(TRUE);
+
+         /* Open the try/catch block. */
+         try {
+             /* Set the mail sender. */
+             $mail->setFrom('AMAP-Occitanie@no-reply.com', 'AMAP Occitanie');
+
+             /* Add a recipient. */
+             $mail->addAddress($email, "$prenom $nom");
+
+
+
+             if ($type == "mail") {
+                 /* Set the subject. */
+                 $mail->Subject = "Validation de votre adresse mail";
+
+                 /* Set the mail message body. */
+                 $mail->isHTML(TRUE);
+                 $mail->Body = "<html>Bonjour, pour valider votre adresse mail veuillez cliquez <a href=\"http://webinfo.iutmontp.univ-montp2.fr/~sambucd/monAMAP/?action=validatedMail&controller=adherent&id=$idurl&nonce=$nonceurl\">ici</a></html>";
+                 $mail->AltBody = "Bonjour, pour valider votre adresse mail veuillez copier coller ce lien http://webinfo.iutmontp.univ-montp2.fr/~sambucd/monAMAP/?action=validatedMail&controller=adherent&id=$idurl&nonce=$nonceurl";
+             } elseif ($type == "pwd") {
+                 /* Set the subject. */
+                 $mail->Subject = "Modification de votre mot de passe";
+
+                 /* Set the mail message body. */
+                 $mail->isHTML(TRUE);
+                 $mail->Body = "<html>Bonjour, pour changer votre mot de passe veuillez cliquez <a href=\"http://webinfo.iutmontp.univ-montp2.fr/~sambucd/monAMAP/?action=gotoresetpwd&controller=adherent&id=$idurl&nonce=$nonceurl\">ici</a>, si vous ne vouliez pas changer votre mot de passe, cliquez  <a href=\"http://webinfo.iutmontp.univ-montp2.fr/~sambucd/monAMAP/?action=validatedMail&controller=adherent&id=$idurl&nonce=$nonceurl\">ici</a></html>";
+                 $mail->AltBody = "Bonjour, pour changer votre mot de passe veuillez copier coller ce lien http://webinfo.iutmontp.univ-montp2.fr/~sambucd/monAMAP/?action=gotoresetpwd&controller=adherent&id=$idurl&nonce=$nonceurl , si vous ne vouliez pas changer votre mot de passe, copiez coller ce lien http://webinfo.iutmontp.univ-montp2.fr/~sambucd/monAMAP/?action=validatedMail&controller=adherent&id=$idurl&nonce=$nonceurl";
+             }
+             /* Finally send the mail. */
+             $mail->send();
+         }
+         catch (Exception $e)
+         {
+             /* PHPMailer exception. */
+             echo $e->errorMessage();
+         }
+         catch (\Exception $e)
+         {
+             /* PHP exception (note the backslash to select the global namespace Exception class). */
+             echo $e->getMessage();
+         }
+         return self::connect();
+	}
 
 	public static function extendSubscription()
 	{
@@ -268,7 +357,7 @@ class ControllerAdherent
 
 		//on vérifie que le nonce est valide
 		if ($c->get('nonce') != $nonce) {
-			return self::error;
+			return self::error();
 		}
 
 		//on update
@@ -280,6 +369,72 @@ class ControllerAdherent
 		$_POST['phrase'] = 'Votre adresse email a bien été validée.';
 		ControllerAdherent::connect();
 
+	}
+
+    public static function gotoresetpwd()
+    {
+        //on vérifie qu'on a bien les infos
+        if(!isset($_GET['id'])||!isset($_GET['nonce'])) {
+            return self::error();
+        }
+
+        //on les récupère dans des variables
+        $id = $_GET['id'];
+        $nonce = urldecode($_GET['nonce']);
+        $c = ModelAdherent::select($id);
+
+        //on vérifie que l'id est valide
+        if (!$c) {
+            return self::error();
+        }
+
+        //on vérifie que le nonce est valide
+        if ($c->get('nonce') != $nonce) {
+            return self::error();
+        }
+
+        //on update
+        $array = array(
+            'idAdherent' => $id,
+            'nonce' => null,
+        );
+        ModelAdherent::update($array);
+        $idUrl = urlencode($id);
+        $view = 'resetpwd';
+        $pagetitle = "Changement de mot de passe";
+        require File::build_path(array('view','view.php'));
+	}
+
+    public static function resetpwd()
+    {
+        if (!isset($_GET['id'])) {
+            return self::error();
+        }
+        $id = $_GET['id'];
+        if(!$adh = ModelAdherent::select($id)) {
+            return self::error();
+        }
+
+        if (!is_null($adh->get('nonce'))) {
+            return self::error();
+        }
+
+        if (!isset($_POST['pw1'])||!isset($_POST['pw2'])) {
+            return self::error();
+        }
+        $pw1 = $_POST['pw1'];
+        $pw2 = $_POST['pw2'];
+        if ($pw1 != $pw2) {
+            return self::error();
+        }
+
+        $arrayAdherent = [
+          'idAdherent' => $id,
+          'PW_Adherent' => Security::chiffrer($pw1),
+        ];
+
+        $_POST['phrase'] = "Votre mot de passe a bien été modifié.";
+        return self::connect();
 	}
 
 	/**

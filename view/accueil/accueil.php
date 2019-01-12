@@ -1,5 +1,5 @@
 <?php echo $phrase; ?>
-<p><a href="?action=setlang&controller=accueil&lang=English Homepage"> <img src="./images/gb.png" alt=""> </a>  <a href="?action=setlang&controller=accueil&lang=Accueil"> <img src="./images/fr.png" alt=""> </a></p>
+<p><a class="flagicon" href="?action=setlang&controller=accueil&lang=English Homepage"> <img src="./images/gb.png" alt=""> </a>  <a class="flagicon" href="?action=setlang&controller=accueil&lang=Accueil"> <img src="./images/fr.png" alt=""> </a></p>
 <h1> <?php echo htmlspecialchars($welcomephrase); ?> </h1>
 
  <section class="usercontent">
