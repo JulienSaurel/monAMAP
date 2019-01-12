@@ -54,9 +54,9 @@
 			<?php } ?>
 
 		</ul>
-        <p><a href="?action=display&controller=nousSoutenir">Soutenez-nous !</a></p>
+        <p><a href="?action=donnate&controller=nousSoutenir">Soutenez-nous !</a></p>
         <p><a href="?action=gotoupdate&controller=monProfil">Modifier votre profil</a></p>
         <p><a href="?action=updatePW&controller=monProfil">Modifier votre mot de passe</a></p>
-        <p><a href ="?action=display&controller=nosContrats" >Consultez nos contrats !</a></p>
+        <p><a href ="?action=detail&controller=nosContrats" >Consultez nos contrats !</a></p>
         <p><a href="?action=payment&controller=adherent&id=<?php echo urlencode($idAdherent);?>">Prolonger votre adhésion</a></p>
     </div>

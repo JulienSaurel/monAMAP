@@ -20,9 +20,9 @@ class ControllerMonProfil
             //on récupère les informations dans la table "Personne" lié l'adhérent
             $p = ModelPersonne::select($a->get('mailPersonne'));
             //on récupère les contrats en cours liés à l'adhérent
-            $tabC = ModelContrat::getContrats($a->get('mailPersonne'));
+            $tabC = ModelContrat::getContrats($a->get('idAdherent'));
             // on récupère tous les contrats de l'adhérent
-            $tabTotalC = ModelContrat::getTotalContrats($a->get('mailPersonne'));
+            $tabTotalC = ModelContrat::getTotalContrats($a->get('idAdherent'));
             $controller ='monProfil';
             $view = 'voirmonprofil';
             $pagetitle = 'Mon Profil';
@@ -34,35 +34,6 @@ class ControllerMonProfil
         }
     }
 
-//redirige vers la page de modifications Adresse Postale
-    public static function updateAdrP(){
-        //si l'utilisateur est connecté
-        if (isset($_SESSION['login'])) {
-            $view = 'updateAdrP';
-            $pagetitle = 'Modifier l\'adresse postale';
-            require File::build_path(array('view','view.php'));
-        }
-        //sinon erreur
-        else {
-            self::error();
-        }
-    }
-
-//action de modification Adresse Postale
-    public static function updatedAdrP(){
-        //si l'utilisateur est connecté
-        if (isset($_SESSION['login'])) {
-
-            $a=$_POST['newadrL'];
-            $b=$_POST['newVille'];
-            ModelAdherent::update(array("adressePostaleAdherent"=>$a, "ville"=>$b, "idAdherent"=>$_SESSION['login']));
-            self::profile();
-        }
-        //sinon erreur
-        else {
-            self::error();
-        }
-    }
 
 //redirige vers la page de modifications PW
     public static function updatePW(){
@@ -118,54 +89,7 @@ class ControllerMonProfil
         }
     }
 
-//redirige vers la page de modifications Description
-    public static function updateDes(){
-        $view = 'updateDes';
-        $pagetitle = 'Description';
-        require File::build_path(array('view','view.php'));
-    }
 
-//action de modification Description
-    public static function updatedDes(){
-        //si l'utilisateur est connecté
-        if (isset($_SESSION['login'])) {
-            $a=$_POST['newdesc'];
-            ModelAdherent::update(array("description"=>$a, "idAdherent"=>$_SESSION['login']));
-            self::profile();
-        }
-        //sinon erreur
-        else {
-            self::error();
-        }
-    }
-
-//redirige vers la page de modifications Photo
-    public static function updatePhoto(){
-        //si l'utilisateur est connecté
-        if (isset($_SESSION['login'])) {
-            $view = 'updatePhoto';
-            $pagetitle = 'Photo';
-            require File::build_path(array('view','view.php'));
-        }
-        //sinon erreur
-        else {
-            self::error();
-        }
-    }
-
-//action de modification Photo
-    public static function updatedPhoto(){
-        //si l'utilisateur est connecté
-        if (isset($_SESSION['login'])) {
-            $a=$_POST['photo'];
-            ModelAdherent::update(array("photo"=>$a, "idAdherent"=>$_SESSION['login']));
-            self::profile();
-        }
-        //sinon erreur
-        else {
-            self::error();
-        }
-    }
 
     public static function gotoupdate()
     {
@@ -270,7 +194,7 @@ class ControllerMonProfil
         return self::profile();
     }
 
-    public static function display2nd()
+    public static function becomeprod()
     {
         $view = 'devenirproducteur';
         $pagetitle = 'Devenir Producteur';

@@ -192,11 +192,11 @@ class ControllerAdherent
 		//on redirige vers l'accueil ou vers le formulaire pour les producteurs s'il a coché est producteur
 		if(!$estprod)
 			return ControllerAdherent::payment($idAdherent);
-		return self::becomeprod($idAdherent);
+		return self::becomeprod($idAdherent, 'inscription');
 	}
 
 	/**affichage de la page de paiement de la cotisation
-	 *
+	 * @param $id
 	 */
 	public static function payment($id = null){
 
@@ -291,14 +291,18 @@ class ControllerAdherent
 	 *	Fait passer un adhérent à producteur
 	 *
 	 *	@param l'idAdherent $idAdherent qui peut etre null
-	 *
+	 * @param $from indique d'ou on vient
 	 */
-	public static function becomeprod($idAdherent = null)
+	public static function becomeprod($idAdherent = null, $from = null)
 	{
 		if (is_null($idAdherent) && isset($_SESSION['login']))
 			$id = $_SESSION['login'];
 		else
 			$id = $idAdherent;
+		if(!isset($from)&&!isset($_GET['from']))
+			return self::error();
+		$from = isset($from) ? $from : $_GET['from'];
+
 		$view = 'formprod';
 		$pagetitle = 'Finalisation de l\'inscription';
 		require File::build_path(array('view','view.php'));
@@ -427,76 +431,60 @@ class ControllerAdherent
 	 */
 	public static function connected()
 	{
-		//(1) si l'utilisateur n'est pas connecté, alors il peut se connection.
-		if (!isset($_SESSION['login'])){
-
-			//(2) si l'utilisateur rempli les champs "login" et "mot de passe"
-			if (isset($_POST['idAdherent'])&&isset($_POST['pw']))
-			{
-				
-				
-				$login = $_POST['idAdherent'];
-
-				//on chiffre le mot de passe saisi pour le comparer à celui dans la base de donnée
-				$pw = Security::chiffrer($_POST['pw']);
-
-				//(3)si l'idAdherent existe dans la base de donnée
-				if ($adh=ModelAdherent::select($login))
-				{
-					if (!is_null($adh->get('nonce')))
-					{
-						return self::error();
-					}
-
-					//(4) si les deux mots de passes correspondent
-					if (ModelAdherent::select($login)->checkPW($login, $pw))
-					{
-
-						//si il est admin
-						if($adh->get('estAdministrateur') == '1'){
-							$_SESSION['administrateur'] = 1;
-						}
-						//si il est prod
-						if($adh->get('estProducteur') == '1'){
-							$_SESSION['producteur'] = 1;
-						}
-
-						$_SESSION['login'] = $login;
-						$a = ModelAdherent::select($login);
-						ControllerMonProfil::profile();
-
-					}
-
-					//(4) sinon il ne peut pas se connecter
-					else {
-						$view = 'connectErreur';
-						$pagetitle = 'Se connecter';
-						$errmsg = "Mot de passe incorrect";
-						require File::build_path(array('view','view.php'));
-					}
-				}
-
-				//(3) sinon il ne peut pas se connecter
-				else {
-					$view = 'connectErreur';
-					$pagetitle = 'Se connecter';
-					$errmsg = " Login incorrect ";
-					require File::build_path(array('view','view.php'));
-				}
-			}
-			//(2) sinon il ne peut pas de connecter
-			else {
-				$view = 'connectErreur';
-				$pagetitle = 'Se connecter';
-				$errmsg = " Veuillez vous connecter ";
-				require File::build_path(array('view','view.php'));
-			}
-		}
-		//(1) sinon, comme il est déjà connecté, il ne peut pas se connecter 
-		else {
+		//(1) si l'utilisateur n'est pas connecté, alors il peut se connecter.
+		if (isset($_SESSION['login'])) {
 			self::error();
 		}
+
+		//(2) si l'utilisateur rempli les champs "login" et "mot de passe"
+		if (!isset($_POST['idAdherent'])||!isset($_POST['pw'])) {
+			$_POST['errmsg'] = " Veuillez vous connecter ";
+			self::connectError();
+		}
+
+		$login = $_POST['idAdherent'];
+
+		//(3)si l'idAdherent existe dans la base de donnée
+		if (!$adh=ModelAdherent::select($login)) {
+			$_POST['errmsg'] = " Login incorrect ";
+			self::connectError();
+		}
+		if (!is_null($adh->get('nonce'))) {
+			$_POST['errmsg'] = "Veuillez valider votre adresse mail";
+			return self::connectError();
+		}
+
+		if (strtotime($adh->get('limiteAdhesion')) <= strtotime(date("Y-m-d H:i:s"))) {
+			$_POST['errmsg'] = "Vous n'etes plus adhérent à l'amap, veuillez prolonger votre adhésion";
+			return self::connectError();
+		}
+
+		//on chiffre le mot de passe saisi pour le comparer à celui dans la base de donnée
+		$pw = Security::chiffrer($_POST['pw']);
+
+		//(4) si les deux mots de passes correspondent
+		if (!ModelAdherent::select($login)->checkPW($login, $pw)) {
+			$_POST['errmsg'] = "Mot de passe incorrect";
+			return self::connectError();
+		}
+
+		//si il est admin
+		if($adh->get('estAdministrateur') == '1'){
+			$_SESSION['administrateur'] = 1;
+		}
+		//si il est prod
+		if($adh->get('estProducteur') == '1'){
+			$_SESSION['producteur'] = 1;
+		}
+
+		$_SESSION['login'] = $login;
+		$a = ModelAdherent::select($login);
+		ControllerMonProfil::profile();
+
 	}
+
+
+
 
 	/**
 	 * Deconnecte la personne si elle été connectée redirige vers une erreur sinon
@@ -515,6 +503,14 @@ class ControllerAdherent
 	{
 		$view = 'error';
 		$pagetitle = 'Error 404';
+		require File::build_path(array('view','view.php'));
+	}
+
+	public static function connectError()
+	{
+		$errmsg = $_POST['errmsg'];
+		$view = 'connectErreur';
+		$pagetitle = 'Se connecter';
 		require File::build_path(array('view','view.php'));
 	}
 }

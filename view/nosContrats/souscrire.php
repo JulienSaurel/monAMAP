@@ -31,10 +31,10 @@
 	        <p>
 		      <label for="type_contrat">Type de contrat :</label> 
 		      <select name = "typeContrat" size = "1">
-		      	<option> laitier </option>
-		      	<option> carné </option>
-		      	<option> végétal </option>
-		      	<option> mix </option>
+		      	<option <?php echo $type == "laitier"? "selected": ""; ?>> laitier </option>
+		      	<option <?php echo $type == "carné"? "selected": ""; ?>> carné </option>
+		      	<option <?php echo $type == "végétal"? "selected": ""; ?>> végétal </option>
+		      	<option <?php echo $type == "mix"? "selected": ""; ?>> mix </option>
 		      </select>
 		    </p>
 		    <p>

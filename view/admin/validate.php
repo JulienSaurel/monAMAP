@@ -3,10 +3,10 @@
     <header class="mdl-layout__header">
 
 
-        <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-            <a href="#fixed-tab-1" class="mdl-layout__tab is-active">Producteurs</a>
-            <a href="#fixed-tab-2" class="mdl-layout__tab">Articles</a>
-            <a href="#fixed-tab-3" class="mdl-layout__tab">Messages</a>
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect" id="toextend">
+            <a href="#fixed-tab-1" class="mdl-layout__tab is-active"><span class="mdl-badge" data-badge="<?php echo ModelAdherent::countToValid() ?>">Producteurs</span></a>
+            <a href="#fixed-tab-2" class="mdl-layout__tab"><span class="mdl-badge" data-badge="<?php echo ModelArticle::countToValid() ?>">Articles</span></a>
+            <a href="#fixed-tab-3" class="mdl-layout__tab"><span class="mdl-badge" data-badge="<?php echo ModelLivreDor::countToValid() ?>">Messages</span></a>
         </div>
     </header>
     <main class="mdl-layout__content">

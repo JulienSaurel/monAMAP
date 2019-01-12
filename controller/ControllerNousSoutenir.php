@@ -9,7 +9,7 @@ class ControllerNousSoutenir
 	/* 
 		Redirige vers la vue de donnation
 	*/
-	public static function display()
+	public static function donnate()
 	{
         $view = 'soutenir';
         $pagetitle = 'Nous Soutenir';

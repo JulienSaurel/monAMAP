@@ -23,12 +23,12 @@
             </ul>
         </li>
         <li class="nosContrats">
-            <a onclick="openLink()" class="lienMenu" href="?action=display&controller=nosContrats">Nos contrats</a>
+            <a onclick="openLink()" class="lienMenu" href="?action=detail&controller=nosContrats">Nos contrats</a>
             <ul>
-                <li><a class="lienMenu" href="?action=display1st&controller=nosContrats">Laitier</a></li>
-                <li><a class="lienMenu" href="?action=display2nd&controller=nosContrats">Viande</a></li>
-                <li><a class="lienMenu" href="?action=display3rd&controller=nosContrats">Légumes</a></li>
-                <li><a class="lienMenu" href="?action=display4th&controller=nosContrats">Mix</a></li>
+                <li><a class="lienMenu" href="?action=detail&controller=nosContrats&type=laitier">Laitier</a></li>
+                <li><a class="lienMenu" href="?action=detail&controller=nosContrats&type=carné">Viande</a></li>
+                <li><a class="lienMenu" href="?action=detail&controller=nosContrats&type=végétal">Légumes</a></li>
+                <li><a class="lienMenu" href="?action=detail&controller=nosContrats&type=mix">Mix</a></li>
             </ul>
         </li>
         <li class="laVieAlAMAP">
@@ -40,7 +40,7 @@
             </ul>
         </li>
         <li class="nousSoutenir">
-            <a onclick="openLink()" class="lienMenu " href="?action=display&controller=nousSoutenir">Nous soutenir</a>
+            <a onclick="openLink()" class="lienMenu " href="?action=donnate&controller=nousSoutenir">Nous soutenir</a>
         </li>
         <?php  if (!isset($_SESSION['login'])) { ?>
             <li class="SeConnecter">
@@ -56,7 +56,7 @@
                     <li><a class="lienMenu" href="?action=gotoupdate&controller=monProfil">Modifier mon profil</a></li>
                     <li><a class="lienMenu" href="?action=updatePW&controller=monProfil">Modifier votre mot de passe</a></li>
                     <?php if(!isset($_SESSION['producteur'])){ ?>
-                        <li><a class="lienMenu" href="?action=display2nd&controller=monProfil">Devenir producteur</a></li>
+                        <li><a class="lienMenu" href="?action=becomeprod&controller=monProfil">Devenir producteur</a></li>
                     <?php } ?>
                     <li><a class="lienMenu"href="?action=deconnect&controller=adherent">Se deconnecter</a></li>
                 </ul>
@@ -97,12 +97,12 @@
             </ul>
         </li>
         <li class="nosContrats">
-            <a class="lienMenu" href="?action=display&controller=nosContrats">Nos contrats</a>
+            <a class="lienMenu" href="?action=detail&controller=nosContrats">Nos contrats</a>
             <ul>
-                <li><a class="lienMenu" href="?action=display1st&controller=nosContrats">Laitier</a></li>
-                <li><a class="lienMenu" href="?action=display2nd&controller=nosContrats">Viande</a></li>
-                <li><a class="lienMenu" href="?action=display3rd&controller=nosContrats">Légumes</a></li>
-                <li><a class="lienMenu" href="?action=display4th&controller=nosContrats">Mix</a></li>
+                <li><a class="lienMenu" href="?action=detail&controller=nosContrats&type=laitier">Laitier</a></li>
+                <li><a class="lienMenu" href="?action=detail&controller=nosContrats&type=carné">Viande</a></li>
+                <li><a class="lienMenu" href="?action=detail&controller=nosContrats&type=végétal">Légumes</a></li>
+                <li><a class="lienMenu" href="?action=detail&controller=nosContrats&type=mix">Mix</a></li>
             </ul>
         </li>
         <li class="laVieAlAMAP">
@@ -114,7 +114,7 @@
             </ul>
         </li>
         <li class="nousSoutenir">
-            <a class="lienMenu" href="?action=display&controller=nousSoutenir">Nous soutenir</a>
+            <a class="lienMenu" href="?action=donnate&controller=nousSoutenir">Nous soutenir</a>
         </li>
         <?php  if (!isset($_SESSION['login'])) { ?>
             <li class="SeConnecter">
@@ -130,9 +130,9 @@
                     <li><a class="lienMenu" href="?action=gotoupdate&controller=monProfil">Modifier mon profil</a></li>
                     <li><a class="lienMenu" href="?action=updatePW&controller=monProfil">Modifier votre mot de passe</a></li>
                     <?php if(!isset($_SESSION['producteur'])){ ?>
-                        <li><a class="lienMenu" href="?action=display2nd&controller=monProfil">Devenir producteur</a></li>
+                        <li><a class="lienMenu" href="?action=becomeprod&controller=monProfil">Devenir producteur</a></li>
                     <?php } ?>
-                    <li><a class="lienMenu"href="?action=deconnect&controller=adherent">Se deconnecter</a></li>
+                    <li><a class="lienMenu" href="?action=deconnect&controller=adherent">Se deconnecter</a></li>
                 </ul>
             </li>
         <?php } ?>

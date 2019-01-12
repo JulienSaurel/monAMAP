@@ -18,11 +18,11 @@ class ModelContrat extends Model
 	 * @param adresse mail de l'adhérent
      * @return un tableau de ModelContrat 
      */
-	public static function getTotalContrats($mailAdh){
+	public static function getTotalContrats($idAdh){
 		$sql = "SELECT * FROM Contrat WHERE idAdherent=:adh ";
         $req_prep = Model::$pdo->prepare($sql);
         $values = array(
-            "adh" => $mailAdh);
+            "adh" => $idAdh);
         $req_prep->execute($values);
         $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelContrat');
         $tabContrat = $req_prep->fetchAll();
@@ -35,11 +35,11 @@ class ModelContrat extends Model
 	 * @param adresse mail de l'adhérent
      * @return un tableau de ModelContrat 
      */
-	public static function getContrats($mailAdh){
+	public static function getContrats($idAdh){
 		$sql = "SELECT * FROM Contrat WHERE idAdherent=:adh AND encours=1";
         $req_prep = Model::$pdo->prepare($sql);
         $values = array(
-            "adh" => $mailAdh);
+            "adh" => $idAdh);
         $req_prep->execute($values);
         $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelContrat');
         $tabContrat = $req_prep->fetchAll();

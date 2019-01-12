@@ -31,7 +31,7 @@
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
             <a class="mdl-navigation__link" href="?action=homepage&controller=accueil"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Retourner à la page d'accueil</a>
-            <a class="mdl-navigation__link" href="?action=validate&controller=admin"> <div class="material-icons mdl-badge mdl-badge--overlap" data-badge="<?php echo Model::countTotalToValid() ?>"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">flag</i></div>Validations en attente</a>
+            <a class="mdl-navigation__link" href="?action=validate&controller=admin"> <span class="material-icons mdl-badge mdl-badge--overlap" data-badge="<?php echo Model::countTotalToValid() ?>"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">flag</i></span>Validations en attente</a>
             <a class="mdl-navigation__link" href="?action=readAll&controller=admin&type=livreDor"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">forum</i>Messages</a>
             <a class="mdl-navigation__link" href="?action=readAll&controller=admin&type=adherent"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">person</i>Adhérents</a>
             <a class="mdl-navigation__link" href="?action=readAll&controller=admin&type=article"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">art_track</i>Articles</a>

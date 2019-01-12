@@ -119,6 +119,7 @@ class ControllerAdmin
     /**
      * Supprime l'objet du type donné
      * @param id de l'objet a supprimer et son type
+     * @return void
      */
     public static function delete()
     {
@@ -737,6 +738,9 @@ class ControllerAdmin
 
     /**
      * valide un objet caractérisé par id et type
+     * @param $type
+     * @param $id
+     * @return void
      */
     public static function validatedOne($type = null, $id = null)
     {
