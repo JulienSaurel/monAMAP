@@ -48,6 +48,10 @@ class ControllerNosProduits
 
 //redirige vers le formulaire d'ajout de produit
     public static function createProd(){
+         if (!$_SESSION['login']) {
+             $_POST['phrase'] = "Veuillez vous connecter pour effectuer cette action.";
+             return ControllerAdherent::connect();
+         }
         if (isset($_SESSION['producteur'])){
             $view = 'createProd';
             $pagetitle = 'Ajoutez un article';

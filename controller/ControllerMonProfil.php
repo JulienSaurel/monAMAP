@@ -30,7 +30,7 @@ class ControllerMonProfil
         }
         //sinon erreur
         else {
-            self::error();
+            ControllerAdherent::connect();
         }
     }
 
@@ -45,7 +45,7 @@ class ControllerMonProfil
         }
         //sinon erreur
         else {
-            self::error();
+            ControllerAdherent::connect();
         }
     }
 
@@ -85,7 +85,7 @@ class ControllerMonProfil
         }
         //sinon erreur
         else {
-            self::error();
+            ControllerAdherent::connect();
         }
     }
 
@@ -94,7 +94,7 @@ class ControllerMonProfil
     public static function gotoupdate()
     {
         if (!isset($_SESSION['login']))
-            return self::error();
+            return ControllerAdherent::connect();
         $login = $_SESSION['login'];
         $adh = ModelAdherent::select($login);
         $mail = $adh->get('mailPersonne');
@@ -116,7 +116,7 @@ class ControllerMonProfil
     {
         //s'il la personne n'est pas connectée elle ne peut pas modifier de profil
         if (!isset($_SESSION['login']))
-            return self::error();
+            return ControllerAdherent::connect();
 
         //si on a pas toutes les infos -> erreur
         if (!isset($_POST['login']) || !isset($_POST['mail']) || !isset($_POST['nom']) || !isset($_POST['prenom']) || !isset($_POST['adresse']) || !isset($_POST['description']))
@@ -196,6 +196,13 @@ class ControllerMonProfil
 
     public static function becomeprod()
     {
+        if (!isset($_SESSION['login'])) {
+            return ControllerAdherent::connect();
+        }
+
+        if (isset($_SESSION['producteur'])||isset($_SESSION['Waitingvalidation']))
+            return self::profile();
+
         $view = 'devenirproducteur';
         $pagetitle = 'Devenir Producteur';
         require File::build_path(array('view','view.php'));

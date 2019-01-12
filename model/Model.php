@@ -402,6 +402,35 @@ class Model {
         $tab = File::getNiceArray($tab);
         return $tab;
     }
+
+
+    static public function selectAllValidIds() {
+        try{
+            //on recupere les noms de tables/classes a partir des attributs statics declares dans chaque classe
+            $table_name = static::$object;
+            $class_name = 'Model' . ucfirst($table_name);
+            $primary_key = static::$primary;
+
+            $sql = 'SELECT '. $primary_key . ' FROM '.ucfirst($table_name) . ' WHERE isValid = 1';
+
+
+            $req_prep = Model::$pdo->prepare($sql);
+
+            $req_prep->execute();
+
+
+            $tab = $req_prep->fetchAll();
+        } catch(PDOException $e) { //on gere les exceptions
+            if (Conf::getDebug()) {
+                echo $e->getMessage(); // affiche un message d'erreur
+            } else {
+                echo 'Une erreur est survenue <a href=""> retour a la page d\'accueil </a>';
+            }
+            die();
+        }
+        $tab = File::getNiceArray($tab);
+        return $tab;
+    }
 }
 Model::Init();
 ?>

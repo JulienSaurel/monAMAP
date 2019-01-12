@@ -1079,7 +1079,7 @@ class ControllerAdmin
         $firstimagelist = $homepage->get('firstimagelist');
         $maplink = $homepage->get('maplink');
         $banner = $homepage->get('banner');
-        $tabIdsArt = ModelArticle::selectAllIds();
+        $tabIdsArt = ModelArticle::selectAllValidIds();
 
         $tabbanner = explode(" ", $banner);
 
@@ -1109,6 +1109,7 @@ class ControllerAdmin
             $_POST['phrase'] = File::warning("Attention, vous essayez d'ouvrir un fichier inexistant");
             self::error();
         }
+        asort($tabimages);
 
         if (!isset($phrase)) {
             if (isset($_POST['phrase'])) {

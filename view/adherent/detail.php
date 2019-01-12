@@ -1,2 +1,0 @@
-<?php echo "<ul> <li> Identifiant: {$a->get('idAdherent')} </li> <li> mailPersonne: " . $a->get('mailPersonne') . "</li><li> adresse: {$a->get('adressepostaleAdherent')}</li>" //On affiche les details de l'adherent en utilisant les getters generiques et la methode toString de la classe ModelPersonne
-?>

@@ -3,27 +3,27 @@
             <legend>Modifier votre profil</legend>
             <p>
                 <label for="login">Pseudo:</label>
-                <input type="text" value="<?php echo $login ?>" name="login" id="login" readonly/>
+                <input type="text" value="<?php echo htmlspecialchars($login); ?>" name="login" id="login" readonly/>
             </p>
             <p>
                 <label for="nom">Nom:</label>
-                <input type="text" value="<?php echo $nom ?>" name="nom" id="nom" required/>
+                <input type="text" value="<?php echo htmlspecialchars($nom); ?>" name="nom" id="nom" required/>
             </p>
             <p>
                 <label for="prenom">Prénom:</label>
-                <input type="text" value="<?php echo $prenom ?>" name="prenom" id="prenom" required/>
+                <input type="text" value="<?php echo htmlspecialchars($prenom); ?>" name="prenom" id="prenom" required/>
             </p>
             <p>
                 <label for="mail">Adresse mail:</label>
-                <input type="text" value="<?php echo $mail ?>" name="mail" id="mail" readonly/>
+                <input type="text" value="<?php echo htmlspecialchars($mail); ?>" name="mail" id="mail" readonly/>
             </p>
             <p>
                 <label for="adresse">Adresse postale:</label>
-                <input type="text" value="<?php echo $adresse ?>" name="adresse" id="adresse" required/>
+                <input type="text" value="<?php echo htmlspecialchars($adresse); ?>" name="adresse" id="adresse" required/>
             </p>
             <p>
                 <label for="description">Description:</label>
-                <input type="text" value="<?php echo $description ?>" name="description" id="description"/>
+                <input type="text" value="<?php echo htmlspecialchars($description); ?>" name="description" id="description"/>
             </p>
             <p>
                 <label for="fichier">Photo(jpg, png ou jpeg):</label>

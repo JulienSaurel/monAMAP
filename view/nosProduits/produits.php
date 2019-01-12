@@ -25,7 +25,7 @@ foreach ($tab as $pro) {
 	//$prenom = $a->get('prenomPersonne');
 	//$nom = $a->get('nomPersonne');
 	//$date = $pro->get('date');
-	echo '<div class="article"><h2>' . $pro->get('nomProduit') . '</h2><img src="' . $pro->get('image') . '" alt="' . $pro->get('nomProduit') . '"/><p>' . $pro->get('description') . '</p></div>'; 
+	echo '<div class="article"><h2>' . htmlspecialchars($pro->get('nomProduit')) . '</h2><img src="' . $pro->get('image') . '" alt="' . htmlspecialchars($pro->get('nomProduit')) . '"/><p>' . htmlspecialchars($pro->get('description')) . '</p></div>';
 }
 }
 

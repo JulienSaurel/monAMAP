@@ -55,7 +55,7 @@
                     <li><a class="lienMenu" href="?action=profile&controller=monProfil">Voir mon profil</a></li>
                     <li><a class="lienMenu" href="?action=gotoupdate&controller=monProfil">Modifier mon profil</a></li>
                     <li><a class="lienMenu" href="?action=updatePW&controller=monProfil">Modifier votre mot de passe</a></li>
-                    <?php if(!isset($_SESSION['producteur'])){ ?>
+                    <?php if(!isset($_SESSION['producteur'])&&!isset($_SESSION['Waitingvalidation'])){ ?>
                         <li><a class="lienMenu" href="?action=becomeprod&controller=monProfil">Devenir producteur</a></li>
                     <?php } ?>
                     <li><a class="lienMenu"href="?action=deconnect&controller=adherent">Se deconnecter</a></li>
@@ -129,7 +129,7 @@
                     <li><a class="lienMenu" href="?action=profile&controller=monProfil">Voir mon profil</a></li>
                     <li><a class="lienMenu" href="?action=gotoupdate&controller=monProfil">Modifier mon profil</a></li>
                     <li><a class="lienMenu" href="?action=updatePW&controller=monProfil">Modifier votre mot de passe</a></li>
-                    <?php if(!isset($_SESSION['producteur'])){ ?>
+                    <?php if(!isset($_SESSION['producteur'])&&!isset($_SESSION['Waitingvalidation'])){ ?>
                         <li><a class="lienMenu" href="?action=becomeprod&controller=monProfil">Devenir producteur</a></li>
                     <?php } ?>
                     <li><a class="lienMenu" href="?action=deconnect&controller=adherent">Se deconnecter</a></li>

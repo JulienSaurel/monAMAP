@@ -13,28 +13,6 @@ class ControllerAdherent
 {
 	protected static $object='adherent';
 
-	public static function readAll()
-	{
-		$tab_adh = ModelAdherent::selectAll();
-		//appel au modèle pour gerer la BD
-		$view='list';
-		$pagetitle = 'Liste des adhérents';
-		require File::build_path(array('view', 'view.php'));
-		//"redirige" vers la vue list.php qui affiche la liste des adherents
-	}
-
-	public static function read()
-	{
-		$a = $_GET['idAdherent'];
-		$a = ModelAdherent::select($a);
-		//appel au modèle pour gerer la BD
-		if(!$a)
-			return self::error();
-		$view = 'detail';
-		$pagetitle = 'Personne';
-		require File::build_path(array('view','view.php'));
-		//"redirige" vers la vue qui affiche les details d'un adherent
-	}
 
 	/**
 	 *  Redirige vers une page d'inscription
@@ -191,14 +169,14 @@ class ControllerAdherent
 
 		//on redirige vers l'accueil ou vers le formulaire pour les producteurs s'il a coché est producteur
 		if(!$estprod)
-			return ControllerAdherent::payment($idAdherent);
+			return ControllerAdherent::payment($idAdherent, 'inscription');
 		return self::becomeprod($idAdherent, 'inscription');
 	}
 
 	/**affichage de la page de paiement de la cotisation
 	 * @param $id
 	 */
-	public static function payment($id = null){
+	public static function payment($id = null, $from = null){
 
 		if (!isset($id)) {
 			if (!isset($_SESSION['login']) && !isset($_GET['id']))
@@ -210,6 +188,21 @@ class ControllerAdherent
                 $id = $_GET['id'];*/
 			$id = isset($_SESSION['login']) ? $_SESSION['login'] : $_GET['id'];
 		}
+
+		if (!isset($from)) {
+			if (!isset($_GET['from']))
+				return self::error();
+			$from = $_GET['from'];
+		}
+
+		if ($from == "inscription") {
+			$formtitle = "Paiement de la cotisation";
+			$submit = "Finaliser mon adhésion";
+		} elseif ($from == "prolonger") {
+			$formtitle = "Prolongation de l'adhésion";
+			$submit = "Prolonger mon adhésion";
+		}
+
 		$idUrl = urlencode($id);
 		$view = 'payment';
 		$pagetitle = 'payez la cotisation';
@@ -238,7 +231,10 @@ class ControllerAdherent
 
 		//on ajoute les mois
 		$monthextend = ' +' . $monthtoadd . ' month';
-		$limite = date("Y-m-d H:i:s", strtotime($monthextend, strtotime($adh->get('limiteAdhesion'))) );
+
+		//on ajoute a la limite adhesion si elle est superieure a la date actuelle, a la date actuelle sinon
+		$datetoincrease = strtotime($adh->get('limiteAdhesion')) <= strtotime(date("Y-m-d H:i:s")) ? date("Y-m-d H:i:s") : $adh->get('limiteAdhesion');
+		$limite = date("Y-m-d H:i:s", strtotime($monthextend, strtotime($datetoincrease)) );
 
 		//on ajoute les années
 		$yearextend = ' +' . $yeartoadd . ' year';
@@ -295,7 +291,14 @@ class ControllerAdherent
 	 */
 	public static function becomeprod($idAdherent = null, $from = null)
 	{
-		if (is_null($idAdherent) && isset($_SESSION['login']))
+		if (!isset($_SESSION['login'])) {
+			return self::connect();
+		}
+
+		if (isset($_SESSION['producteur'])||isset($_SESSION['Waitingvalidation']))
+			return ControllerAccueil::homepage();
+
+		if (is_null($idAdherent))
 			$id = $_SESSION['login'];
 		else
 			$id = $idAdherent;
@@ -403,7 +406,7 @@ class ControllerAdherent
 		ModelAdherent::update($arrayupd);
 
 		if (strtotime($a->get('limiteAdhesion')) <= strtotime(date("Y-m-d H:i:s")))
-			return self::payment($id);
+			return self::payment($id, 'inscription');
 		return ControllerAccueil::homepage();
 	}
 
@@ -455,7 +458,7 @@ class ControllerAdherent
 		}
 
 		if (strtotime($adh->get('limiteAdhesion')) <= strtotime(date("Y-m-d H:i:s"))) {
-			$_POST['errmsg'] = "Vous n'etes plus adhérent à l'amap, veuillez prolonger votre adhésion";
+			$_POST['errmsg'] = "Vous n'etes plus adhérent à l'amap, veuillez <a href='?action=payment&controller=adherent&id=$login&from=prolonger'>prolonger votre adhésion</a>";
 			return self::connectError();
 		}
 
@@ -475,6 +478,8 @@ class ControllerAdherent
 		//si il est prod
 		if($adh->get('estProducteur') == '1'){
 			$_SESSION['producteur'] = 1;
+		} elseif ($adh->get('isValid') != 1) {
+			$_SESSION['Waitingvalidation'] = true;
 		}
 
 		$_SESSION['login'] = $login;

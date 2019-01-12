@@ -22,7 +22,7 @@ if ($type == 'adherent')
                     </a>
                 </div>
                 <div class="mdl-card__menu">
-                    <a href="?action=delete&id=<?php echo urlencode($id); ?>&type=adherent&controller=admin"><i class="material-icons">delete</i></a>
+                    <a onclick="return(confirm('Etes vous sûr de vouloir supprimer cet adhérent?'))" href="?action=delete&id=<?php echo urlencode($id); ?>&type=adherent&controller=admin"><i class="material-icons">delete</i></a>
                 </div>
             </div>
         <?php } ?>
@@ -55,7 +55,7 @@ elseif ($type == 'article') { ?>
                     </a>
                 </div>
                 <div class="mdl-card__menu">
-                    <a href="?action=delete&id=<?php echo urlencode($id); ?>&type=article&controller=admin"><i class="material-icons">delete</i></a>
+                    <a onclick="return(confirm('Etes vous sûr de vouloir supprimer cet article?'))" href="?action=delete&id=<?php echo urlencode($id); ?>&type=article&controller=admin"><i class="material-icons">delete</i></a>
                 </div>
             </div>
 
@@ -80,7 +80,7 @@ elseif ($type == 'livreDor') { ?>
         <a href="?action=gotoupdate&id=<?php echo urlencode($id); ?>&type=livreDor&controller=admin"><?php echo htmlspecialchars($o->get('pseudo'))  . " a écrit: " . htmlspecialchars($o->get('message')) . " "; ?></a>
 </span>
                 <span class="mdl-list__item-secondary-content">
-    <a href="?action=delete&controller=admin&id=<?php echo urlencode($id); ?>&type=livreDor&controller=admin"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">delete</i></a>
+    <a onclick="return(confirm('Etes vous sûr de vouloir supprimer ce message?'))" href="?action=delete&controller=admin&id=<?php echo urlencode($id); ?>&type=livreDor&controller=admin"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">delete</i></a>
   </span>
             </li>
 
@@ -113,7 +113,7 @@ elseif ($type == 'produit') { ?>
                     </a>
                 </div>
                 <div class="mdl-card__menu">
-                    <a href="?action=delete&id=<?php echo urlencode($id); ?>&type=produit&controller=admin"><i class="material-icons">delete</i></a>
+                    <a onclick="return(confirm('Etes vous sûr de vouloir supprimer ce produit?'))" href="?action=delete&id=<?php echo urlencode($id); ?>&type=produit&controller=admin"><i class="material-icons">delete</i></a>
                 </div>
             </div>
 

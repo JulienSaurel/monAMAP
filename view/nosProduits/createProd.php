@@ -33,15 +33,3 @@
   </fieldset>
 </form>
 <?php }
-
-if (!isset($_SESSION['producteur'])) { ?>
-<!--ajouter else if isset login => devenez producteur pour ajoutez vos produits.-->
-
-<li><a href="?action=becomeprod&controller=monProfil">Devenez producteur maintenant pour pouvoir ajouter un article !</a></li>
-
-
-<?php } else if (!isset($_SESSION['login'])) {?>
-
-<li>Veuillez vous <a href="?action=connect&controller=adherent">connecter</a>, ou <a href="?action=create&controller=adherent">créer un compte.</a></li>
-<?php
-}?>

@@ -26,7 +26,6 @@ function closeLink(){
  * Ferme tous les autres articles ouverts
  * @param _divId_ id de l'article
  * @param int numero de l'id
- * @constructor
  */
 function Extend(_divId_, int) {
 
@@ -62,7 +61,6 @@ function Extend(_divId_, int) {
  * Rétrécit l'article et empeche le scroll
  * @param _divId_
  * @param int
- * @constructor
  */
 function Reduce(_divId_, int) {
 
@@ -117,7 +115,6 @@ function changeSizePx (_divId_, /*_newSizex_,*/ _newSizey_){
 /////////////////////////////////////////////////////////
 /**
  * change le prix et le minimum du prix
- * @constructor
  */
 function RefreshSubscriptionPrice()
 {

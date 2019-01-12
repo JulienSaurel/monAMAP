@@ -30,26 +30,26 @@
                     <!--oninput="launchActualize('pagetitlehp', '1')"-->
                     <div class="mdl-cell mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <input class="mdl-textfield__input" oninput="launchActualizeTextInput('pagetitlehp','1');" name="pagetitle" type="text" id="1">
-                        <label class="mdl-textfield__label" id="label1" for="1"><?php echo $pagetitlehp;?></label>
+                        <label class="mdl-textfield__label" id="label1" for="1"><?php echo htmlspecialchars($pagetitlehp);?></label>
                     </div>
 
 
                     <div class="mdl-cell mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <input class="mdl-textfield__input" oninput="launchActualizeTextInput('welcomephrase','2');" name="welcomephrase" type="text" id="2">
-                        <label class="mdl-textfield__label" id="label2" for="2"><?php echo $welcomephrase;?></label>
+                        <label class="mdl-textfield__label" id="label2" for="2"><?php echo htmlspecialchars($welcomephrase);?></label>
                     </div>
 
 
                     <div class="mdl-cell mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <input class="mdl-textfield__input" oninput="launchActualizeTextInput('descbannerphrase','3');" name="descbannerphrase" type="text" id="3">
-                        <label class="mdl-textfield__label" id="label3" for="3"><?php echo $descbannerphrase;?></label>
+                        <label class="mdl-textfield__label" id="label3" for="3"><?php echo htmlspecialchars($descbannerphrase);?></label>
                     </div>
 
                     <div class="mdl-cell mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <label class="mdl-textfield__label" id="label4" for="4">1ere image de la diapo</label>
                         <select class="mdl-textfield__input" onchange="ActualizeImage('photo1','4')" name="firstimagediapo" id="4">
                             <?php foreach ($tabimages as $image) { ?>
-                            <option <?php echo ("images/$image" == $tabbanner['0']) ? 'selected':'';?>> <?php echo $image;?>
+                            <option <?php echo ("images/$image" == $tabbanner['0']) ? 'selected':'';?>> <?php echo htmlspecialchars($image);?>
 
                                 <?php }?>
                         </select>
@@ -59,7 +59,7 @@
                         <label class="mdl-textfield__label" for="5">2eme image de la diapo</label>
                         <select class="mdl-textfield__input" onchange="ActualizeImage('photo2','5')" name="secondimagediapo" id="5">
                             <?php foreach ($tabimages as $image) { ?>
-                            <option <?php echo ("images/$image" == $tabbanner['1']) ? 'selected':'';?>> <?php echo $image;?>
+                            <option <?php echo ("images/$image" == $tabbanner['1']) ? 'selected':'';?>> <?php echo htmlspecialchars($image);?>
 
                                 <?php }?>
                         </select>
@@ -69,7 +69,7 @@
                         <label class="mdl-textfield__label" for="6">3eme image de la diapo</label>
                         <select class="mdl-textfield__input" onchange="ActualizeImage('photo3','6')" name="thirdimagediapo" id="6">
                             <?php foreach ($tabimages as $image) { ?>
-                            <option <?php echo ("images/$image" == $tabbanner['2']) ? 'selected':'';?>> <?php echo $image;?>
+                            <option <?php echo ("images/$image" == $tabbanner['2']) ? 'selected':'';?>> <?php echo htmlspecialchars($image);?>
 
                                 <?php }?>
                         </select>
@@ -81,10 +81,10 @@
 
                 <div class="previsu" id="previsutitle">
                     <div>
-                        <h1 id="pagetitlehp"><?php echo $pagetitlehp;?> (titre de la page)</h1>
-                        <h5 id="welcomephrase"> <?php echo $welcomephrase; ?> </h5>
+                        <h1 id="pagetitlehp"><?php echo htmlspecialchars($pagetitlehp);?> (titre de la page)</h1>
+                        <h5 id="welcomephrase"> <?php echo htmlspecialchars($welcomephrase); ?> </h5>
 
-                        <h6 id="descbannerphrase"><?php echo $descbannerphrase; ?></h6>
+                        <h6 id="descbannerphrase"><?php echo htmlspecialchars($descbannerphrase); ?></h6>
                     </div>
                     <div class="contener_slideshow">
                         <div class="contener_slide">
@@ -120,30 +120,30 @@
 
                     <div class="mdl-cell mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <input class="mdl-textfield__input" oninput="launchActualizeTextInput('news','101');" name="news" type="text" id="101">
-                        <label class="mdl-textfield__label" id="label101" for="101"><?php echo $news;?></label>
+                        <label class="mdl-textfield__label" id="label101" for="101"><?php echo htmlspecialchars($news);?></label>
                     </div>
 
                     <div class="mdl-cell mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <input class="mdl-textfield__input" oninput="launchActualizeTextInput('name','102');" name="name" type="text" id="102">
-                        <label class="mdl-textfield__label" id="label102" for="102"><?php echo $name;?></label>
+                        <label class="mdl-textfield__label" id="label102" for="102"><?php echo htmlspecialchars($name);?></label>
                     </div>
 
                     <div class="mdl-cell mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <input class="mdl-textfield__input" oninput="launchActualizeTextInput('text','103');" name="text" type="text" id="103">
-                        <label class="mdl-textfield__label" id="label103" for="103"><?php echo $text;?></label>
+                        <label class="mdl-textfield__label" id="label103" for="103"><?php echo htmlspecialchars($text);?></label>
                     </div>
 
 
                     <div class="mdl-cell mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <input class="mdl-textfield__input" oninput="launchActualizeTextInput('namearticlelink','104');" name="namearticlelink" type="text" id="104">
-                        <label class="mdl-textfield__label" id="label104" for="104"><?php echo $namearticlelink;?></label>
+                        <label class="mdl-textfield__label" id="label104" for="104"><?php echo htmlspecialchars($namearticlelink);?></label>
                     </div>
 
                     <div class="mdl-cell mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <label class="mdl-textfield__label" id="label105" for="105">1er Article</label>
                         <select class="mdl-textfield__input" onchange="ActualizeSelectedImage('firstarticledisplayed','105')" name="firstarticledisplayed" id="105">
                             <?php foreach ($tabIdsArt as $idArt) { ?>
-                            <option value="<?php echo $idArt;?>" <?php echo ("$idArt" == $firstarticledisplayed) ? 'selected':'';?>> <?php echo ModelArticle::select($idArt)->get('titreArticle');?>
+                            <option value="<?php echo $idArt;?>" <?php echo ("$idArt" == $firstarticledisplayed) ? 'selected':'';?>> <?php echo htmlspecialchars(ModelArticle::select($idArt)->get('titreArticle'));?>
 
                                 <?php }?>
                         </select>
@@ -153,19 +153,19 @@
                         <label class="mdl-textfield__label" id="label106" for="106">2eme Article</label>
                         <select class="mdl-textfield__input" onchange="ActualizeSelectedImage('secondarticledisplayed','106')" name="secondarticledisplayed" id="106">
                             <?php foreach ($tabIdsArt as $idArt) { ?>
-                            <option value="<?php echo $idArt;?>" <?php echo ("$idArt" == $secondarticledisplayed) ? 'selected':'';?>> <?php echo ModelArticle::select($idArt)->get('titreArticle');?>
+                            <option value="<?php echo $idArt;?>" <?php echo ("$idArt" == $secondarticledisplayed) ? 'selected':'';?>> <?php echo htmlspecialchars(ModelArticle::select($idArt)->get('titreArticle'));?>
                                 <?php }?>
                         </select>
                     </div>
 
                     <div class="mdl-cell mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <input class="mdl-textfield__input" oninput="launchActualizeTextInput('maptitle','107');" name="maptitle" type="text" id="107">
-                        <label class="mdl-textfield__label" id="label107" for="107"><?php echo $maptitle;?></label>
+                        <label class="mdl-textfield__label" id="label107" for="107"><?php echo htmlspecialchars($maptitle);?></label>
                     </div>
 
                     <div class="mdl-cell mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <input class="mdl-textfield__input" name="maplink" type="text" id="108">
-                        <label class="mdl-textfield__label" id="label108" for="108"><?php echo $maplink;?></label>
+                        <label class="mdl-textfield__label" id="label108" for="108"><?php echo htmlspecialchars($maplink);?></label>
                     </div>
 
                     <button class="mdl-button mdl-js-button mdl-button--raised" type="submit">
@@ -174,10 +174,10 @@
                 </form>
                 <div class="previsu" id="previsunews">
                     <div>
-                        <h4 id="news"><?php echo $news; ?></h4>
-                        <p id="name"><?php echo $name; ?> </p>
-                        <p><a id="text" href="?action=readAllevents&controller=laVieAlAMAP"><?php echo $text; ?></a></p> <!--redirection vers la page évenements-->
-                        <h4><a id="namearticlelink" href="?action=readAllart&controller=laVieAlAMAP"><?php echo $namearticlelink; ?></a></h4>
+                        <h4 id="news"><?php echo htmlspecialchars($news); ?></h4>
+                        <p id="name"><?php echo htmlspecialchars($name); ?> </p>
+                        <p><a id="text" href="?action=readAllevents&controller=laVieAlAMAP"><?php echo htmlspecialchars($text); ?></a></p> <!--redirection vers la page évenements-->
+                        <h4><a id="namearticlelink" href="?action=readAllart&controller=laVieAlAMAP"><?php echo htmlspecialchars($namearticlelink); ?></a></h4>
 
                     </div>
 
@@ -193,8 +193,8 @@
                     </div>
 
                     <div>
-                        <h3 id="maptitle"><?php echo $maptitle; ?></h3>
-                        <iframe id="maplink" src="<?php echo $maplink;?>" width="135" height="135"></iframe>
+                        <h3 id="maptitle"><?php echo htmlspecialchars($maptitle); ?></h3>
+                        <iframe id="maplink" src="<?php echo htmlspecialchars($maplink);?>" width="135" height="135"></iframe>
                     </div>
                 </div>
             </div>
@@ -227,25 +227,25 @@
 
                     <div class="mdl-cell mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <textarea class="mdl-textfield__input" oninput="launchActualizeTextInput('firstparagraph','20');" name="firstparagraph" type="text" id="20" cols="4"></textarea>
-                        <label class="mdl-textfield__label" id="label20" for="20"><?php echo $firstparagraph;?></label>
+                        <label class="mdl-textfield__label" id="label20" for="20"><?php echo htmlspecialchars($firstparagraph);?></label>
                     </div>
 
                     <div class="mdl-cell mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <input class="mdl-textfield__input" oninput="launchActualizeTextInput('firstparagraphlink','21');" name="firstparagraphlink" type="text" id="21">
-                        <label class="mdl-textfield__label" id="label21" for="21"><?php echo $firstparagraphlink;?></label>
+                        <label class="mdl-textfield__label" id="label21" for="21"><?php echo htmlspecialchars($firstparagraphlink);?></label>
                     </div>
 
 
                     <div class="mdl-cell mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <input class="mdl-textfield__input" oninput="launchActualizeTextInput('firstimagetitle','22');" name="firstimagetitle" type="text" id="22">
-                        <label class="mdl-textfield__label" id="label22" for="22"><?php echo $firstimagetitle;?></label>
+                        <label class="mdl-textfield__label" id="label22" for="22"><?php echo htmlspecialchars($firstimagetitle);?></label>
                     </div>
 
                     <div class="mdl-cell mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <label class="mdl-textfield__label" id="label23" for="23">1ere Image:</label>
                         <select class="mdl-textfield__input" onchange="ActualizeImage('firstimage','23')" name="firstimage" id="23">
                             <?php foreach ($tabimages as $image) { ?>
-                            <option value="./images/<?php echo $image;?>" <?php echo ("./images/$image" == $firstimage) ? 'selected':'';?>> <?php echo $image;?>
+                            <option value="./images/<?php echo $image;?>" <?php echo ("./images/$image" == $firstimage) ? 'selected':'';?>> <?php echo htmlspecialchars($image);?>
 
                                 <?php }?>
                         </select>
@@ -254,11 +254,11 @@
 
                     <div class="mdl-cell mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <input class="mdl-textfield__input" oninput="launchActualizeTextInput('firstimagephrase','24');" name="firstimagephrase" type="text" id="24">
-                        <label class="mdl-textfield__label" id="label24" for="24"><?php echo $firstimagephrase;?></label>
+                        <label class="mdl-textfield__label" id="label24" for="24"><?php echo htmlspecialchars($firstimagephrase);?></label>
                     </div>
 
                     <div class="mdl-cell mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <textarea class="mdl-textfield__input" oninput="launchActualizeListInput('firstimagelist','19', '25');" type="text" name="firstimagelist" id="25" cols="15" rows="4"><?php echo $firstimagelist; ?></textarea>
+                        <textarea class="mdl-textfield__input" oninput="launchActualizeListInput('firstimagelist','19', '25');" type="text" name="firstimagelist" id="25" cols="15" rows="4"><?php echo htmlspecialchars($firstimagelist); ?></textarea>
                         <label class="mdl-textfield__label" id="label25" for="25">Liste:</label>
                     </div>
 
@@ -271,19 +271,19 @@
 
                 <div class="previsu" id="previsumiddle">
                     <div id="toinblock">
-                        <p id="firstparagraph">   <?php echo $firstparagraph; ?>    </p>
-                        <a id="firstparagraphlink" href="?action=AMAPstory&controller=nousConnaitre"><?php echo $firstparagraphlink ?></a>
+                        <p id="firstparagraph">   <?php echo htmlspecialchars($firstparagraph); ?>    </p>
+                        <a id="firstparagraphlink" href="?action=AMAPstory&controller=nousConnaitre"><?php echo htmlspecialchars($firstparagraphlink); ?></a>
                     </div>
                     <div>
-                        <h2 id="firstimagetitle"><?php echo $firstimagetitle; ?></h2>
-                        <img id="firstimage" class="imagesprevisu" src="<?php echo $firstimage; ?>" alt="AMAP présentation"/>
+                        <h2 id="firstimagetitle"><?php echo htmlspecialchars($firstimagetitle); ?></h2>
+                        <img id="firstimage" class="imagesprevisu" src="<?php echo htmlspecialchars($firstimage); ?>" alt="AMAP présentation"/>
                     </div>
                     <div>
-                        <p id="firstimagephrase"><?php echo $firstimagephrase; ?></p>
+                        <p id="firstimagephrase"><?php echo htmlspecialchars($firstimagephrase); ?></p>
                         <ul id="firstimagelist">
                             <?php foreach ($list as $li) {
                                 if($li != "") {?>
-                                    <li><?php echo $li; ?> </li>
+                                    <li><?php echo htmlspecialchars($li); ?> </li>
                                 <?php }
                             } ?>
                         </ul>
@@ -303,21 +303,21 @@
                         <label class="mdl-textfield__label" for="1000">Page a modifer</label>
                         <select class="mdl-textfield__input" onchange="ActualizeSelectedPage('bottom','1000');" name="id" id="1000">
                             <?php foreach ($tabIds as $ids) {?>
-                                <option <?php echo ($ids==$idHomepage) ? 'selected':'';?>><?php echo $ids;?></option>
+                                <option <?php echo ($ids==$idHomepage) ? 'selected':'';?>><?php echo htmlspecialchars($ids);?></option>
                             <?php }?>
                         </select>
                     </div>
 
                     <div class="mdl-cell mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <input class="mdl-textfield__input" oninput="launchActualizeTextInput('secondimagetitle','1001');" name="secondimagetitle" type="text" id="1001">
-                        <label class="mdl-textfield__label" id="label1001" for="1001"><?php echo $secondimagetitle;?></label>
+                        <label class="mdl-textfield__label" id="label1001" for="1001"><?php echo htmlspecialchars($secondimagetitle);?></label>
                     </div>
 
                     <div class="mdl-cell mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <label class="mdl-textfield__label" id="label1002" for="1002">2eme Image:</label>
                         <select class="mdl-textfield__input" onchange="ActualizeImage('secondimage','1002')" name="secondimage" id="1002">
                             <?php foreach ($tabimages as $image) { ?>
-                            <option value="./images/<?php echo $image;?>" <?php echo ("./images/$image" == $secondimage) ? 'selected':'';?>> <?php echo $image;?>
+                            <option value="./images/<?php echo $image;?>" <?php echo ("./images/$image" == $secondimage) ? 'selected':'';?>> <?php echo htmlspecialchars($image);?>
 
                                 <?php }?>
                         </select>
@@ -325,7 +325,7 @@
 
                     <div class="mdl-cell mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                         <input class="mdl-textfield__input" oninput="launchActualizeTextInput('secondimageparagraph','1003');" name="secondimageparagraph" type="text" id="1003">
-                        <label class="mdl-textfield__label" id="label1003" for="1003"><?php echo $secondimageparagraph;?></label>
+                        <label class="mdl-textfield__label" id="label1003" for="1003"><?php echo htmlspecialchars($secondimageparagraph);?></label>
                     </div>
                     <button class="mdl-button mdl-js-button mdl-button--raised" type="submit">
                         Enregistrer
@@ -333,9 +333,9 @@
                 </form>
             </div>
             <div class="previsu" id="previsubottom">
-                <h2 id="secondimagetitle"><?php echo $secondimagetitle; ?></h2>
-                <img id="secondimage" class="imagesprevisu" src="<?php echo $secondimage; ?>" alt="AMAP biologique"/> <!--width="925" height="335"-->
-                <p id="secondimageparagraph"><?php echo $secondimageparagraph; ?></p>
+                <h2 id="secondimagetitle"><?php echo htmlspecialchars($secondimagetitle); ?></h2>
+                <img id="secondimage" class="imagesprevisu" src="<?php echo htmlspecialchars($secondimage); ?>" alt="AMAP biologique"/> <!--width="925" height="335"-->
+                <p id="secondimageparagraph"><?php echo htmlspecialchars($secondimageparagraph); ?></p>
             </div>
         </section>
     </main>

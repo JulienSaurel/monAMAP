@@ -12,13 +12,13 @@ foreach ($tabArticles as $art) {
     // pour chaque article de la base de données, on affiche ses infos
     //var_dump($art);
     $a = ModelPersonne::select($art->get("mailPersonne"));
-    $prenom = $a->get('prenomPersonne') ?? "";
-    $nom = $a->get('nomPersonne') ?? "";
-    $date = $art->get('date');
-    $titreArticle = $art->get('titreArticle');
-    $photo = $art->get('photo');
-    $idArticle = $art->get('idArticle');
-    $description = $art->get('description');?>
+    $prenom = htmlspecialchars($a->get('prenomPersonne')) ?? "";
+    $nom = htmlspecialchars($a->get('nomPersonne')) ?? "";
+    $date = htmlspecialchars($art->get('date'));
+    $titreArticle = htmlspecialchars($art->get('titreArticle'));
+    $photo = htmlspecialchars($art->get('photo'));
+    $idArticle = htmlspecialchars($art->get('idArticle'));
+    $description = htmlspecialchars($art->get('description'));?>
 
     <div id="target<?php echo $i;?>" class="article">
        <?php echo "<h2>  $titreArticle <button class='bouton' id=\"sourceplus$i\" onclick='Extend(\"target$i\", $i)'>+</button> <button class='bouton' id=\"sourcemoins$i\" onclick='Reduce(\"target$i\", $i);'>-</button> </h2>       

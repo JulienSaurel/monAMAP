@@ -13,10 +13,7 @@ if (!$tab_prod){
 		$a = ModelPersonne::select($prod->get('mailPersonne'));
 		$prenom = $a->get('prenomPersonne');
 		$nom = $a->get('nomPersonne');
-		echo '<div><img class="imgprofil" src= "'.$prod->get('photo') . '" alt="' . $prod->get('idAdherent'). '"/><h2>'. $prenom . ' ' . $nom . ' - ' . $prod->get('ville') . '</h2><p>' . $prod->get('description') . '</p></div>';
-		//var_dump($prod->get('mailPersonne'));
-		//$p = ModelPersonne::getPersonneById($prod->get('mailPersonne'));
-		//var_dump($prod->get('photo'));
+		echo '<div><img class="imgprofil" src= "'.$prod->get('photo') . '" alt="' . $prod->get('idAdherent'). '"/><h2>'. htmlspecialchars($prenom) . ' ' . htmlspecialchars($nom) . ' - ' . htmlspecialchars($prod->get('ville')) . '</h2><p>' . htmlspecialchars($prod->get('description')) . '</p></div>';
 	}
 }
 

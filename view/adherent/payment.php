@@ -1,4 +1,4 @@
-<h1 class="titlet">Paiement</h1>
+<h1 class="titlet"><?php echo htmlspecialchars($formtitle);?></h1>
 <form method="post" id="paiement" action="?action=extendSubscription&controller=adherent&id=<?php echo$idUrl;?>">
     <!--Champs pour le choix du type de carte-->
     <fieldset>
@@ -45,7 +45,7 @@
             <input type="text" placeholder="Ex : 123" name="prenom" id="prenom" required/>
         </p>
         <p>
-            <input type="submit" value="Finaliser mon adhésion">
+            <input type="submit" value="<?php echo htmlspecialchars($submit);?>">
         </p>
     </fieldset>
 </form>
