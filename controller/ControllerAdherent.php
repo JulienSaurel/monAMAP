@@ -166,7 +166,6 @@ class ControllerAdherent
 			echo $e->getMessage();
 		}
 
-
 		//on redirige vers l'accueil ou vers le formulaire pour les producteurs s'il a coché est producteur
 		if(!$estprod)
 			return ControllerAdherent::payment($idAdherent, 'inscription');
@@ -291,9 +290,6 @@ class ControllerAdherent
 	 */
 	public static function becomeprod($idAdherent = null, $from = null)
 	{
-		if (!isset($_SESSION['login'])) {
-			return self::connect();
-		}
 
 		if (isset($_SESSION['producteur'])||isset($_SESSION['Waitingvalidation']))
 			return ControllerAccueil::homepage();
@@ -304,7 +300,13 @@ class ControllerAdherent
 			$id = $idAdherent;
 		if(!isset($from)&&!isset($_GET['from']))
 			return self::error();
+
 		$from = isset($from) ? $from : $_GET['from'];
+		if ($from == "menu") {
+			$formtitle = "Demander à devenir producteur";
+		} elseif ($from == "inscription") {
+			$formtitle = "Compléter votre profil";
+		}
 
 		$view = 'formprod';
 		$pagetitle = 'Finalisation de l\'inscription';
