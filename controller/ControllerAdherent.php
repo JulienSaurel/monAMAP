@@ -427,12 +427,12 @@ class ControllerAdherent
         if ($pw1 != $pw2) {
             return self::error();
         }
-
+        $pw = Security::chiffrer($pw1);
         $arrayAdherent = [
           'idAdherent' => $id,
-          'PW_Adherent' => Security::chiffrer($pw1),
+          'PW_Adherent' => $pw,
         ];
-
+        ModelAdherent::update($arrayAdherent);
         $_POST['phrase'] = "Votre mot de passe a bien été modifié.";
         return self::connect();
 	}

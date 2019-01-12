@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94c3ccb3-3951-4670-8efd-8102a2c7e176" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/view/adherent/reset.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/adherent/resetpwd.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/ControllerAdherent.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControllerAdherent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/accueil/accueil.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/accueil/accueil.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/adherent/connect.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/adherent/connect.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/adherent/connectErreur.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/adherent/connectErreur.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,17 +26,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controller/ControllerAdherent.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="235" column="26" selection-start-line="235" selection-start-column="26" selection-end-line="235" selection-end-column="26" />
+            <state relative-caret-position="380">
+              <caret line="429" selection-start-line="429" selection-end-line="429" />
               <folding>
                 <element signature="n#create#0;n#ControllerAdherent#0;n#!!top" />
                 <element signature="n#created#0;n#ControllerAdherent#0;n#!!top" />
                 <element signature="n#payment#0;n#ControllerAdherent#0;n#!!top" />
                 <element signature="n#reset#0;n#ControllerAdherent#0;n#!!top" />
+                <element signature="n#reset#0;n#ControllerAdherent#0;n#!!top" />
                 <element signature="n#extendSubscription#0;n#ControllerAdherent#0;n#!!top" />
                 <element signature="n#validatedMail#0;n#ControllerAdherent#0;n#!!top" />
                 <element signature="e#12540#12583#0#PHP" />
-                <element signature="e#13472#13515#0#PHP" />
                 <element signature="n#becomeprod#0;n#ControllerAdherent#0;n#!!top" />
                 <element signature="n#newprod#0;n#ControllerAdherent#0;n#!!top" />
                 <element signature="n#connect#0;n#ControllerAdherent#0;n#!!top" />
@@ -403,7 +397,7 @@
       <workItem from="1547195067246" duration="2119000" />
       <workItem from="1547218087020" duration="9703000" />
       <workItem from="1547229009139" duration="16870000" />
-      <workItem from="1547292542225" duration="20879000" />
+      <workItem from="1547292542225" duration="22031000" />
     </task>
     <task id="LOCAL-00001" summary="Model generique et petits fix">
       <created>1545583549669</created>
@@ -685,11 +679,18 @@
       <option name="project" value="LOCAL" />
       <updated>1547319285290</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Récupération de mot de passe">
+      <created>1547328450036</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1547328450036</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="427841000" />
+    <option name="totallyTimeSpent" value="428993000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -806,7 +807,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update/create en cours, il manque juste le traitement de la création des objets" />
     <MESSAGE value="Debut create" />
     <MESSAGE value="Debut validation" />
     <MESSAGE value="milieu validation" />
@@ -831,7 +831,8 @@
     <MESSAGE value="Refactor display fini" />
     <MESSAGE value="Encodage des variables&#10;htaccess pour gerer la redirection d'erreur 404&#10;routeur updated&#10;Confirmation sur les delete" />
     <MESSAGE value="From becomprod/payment et fix liens" />
-    <option name="LAST_COMMIT_MESSAGE" value="From becomprod/payment et fix liens" />
+    <MESSAGE value="Récupération de mot de passe" />
+    <option name="LAST_COMMIT_MESSAGE" value="Récupération de mot de passe" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
@@ -1086,17 +1087,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/ControllerAdherent.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="235" column="26" selection-start-line="235" selection-start-column="26" selection-end-line="235" selection-end-column="26" />
+        <state relative-caret-position="380">
+          <caret line="429" selection-start-line="429" selection-end-line="429" />
           <folding>
             <element signature="n#create#0;n#ControllerAdherent#0;n#!!top" />
             <element signature="n#created#0;n#ControllerAdherent#0;n#!!top" />
             <element signature="n#payment#0;n#ControllerAdherent#0;n#!!top" />
             <element signature="n#reset#0;n#ControllerAdherent#0;n#!!top" />
+            <element signature="n#reset#0;n#ControllerAdherent#0;n#!!top" />
             <element signature="n#extendSubscription#0;n#ControllerAdherent#0;n#!!top" />
             <element signature="n#validatedMail#0;n#ControllerAdherent#0;n#!!top" />
             <element signature="e#12540#12583#0#PHP" />
-            <element signature="e#13472#13515#0#PHP" />
             <element signature="n#becomeprod#0;n#ControllerAdherent#0;n#!!top" />
             <element signature="n#newprod#0;n#ControllerAdherent#0;n#!!top" />
             <element signature="n#connect#0;n#ControllerAdherent#0;n#!!top" />
