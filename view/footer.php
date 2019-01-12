@@ -6,15 +6,15 @@
     </div>
     <div class="liensfooter">
     	<ul>
-        <li><a class="lienMenu" href="?action=display2nd&controller=nousConnaitre"> l'AMAP </a></li>
-        <li><a class="lienMenu" href="?action=display3rd&controller=nousConnaitre"> Nous contacter </a></li>
-        <li><a class="lienMenu" href="?action=display4th&controller=nousConnaitre"> Nous trouver </a></li>
+        <li><a class="lienMenu" href="?action=AMAPstory&controller=nousConnaitre"> l'AMAP </a></li>
+        <li><a class="lienMenu" href="?action=contactus&controller=nousConnaitre"> Nous contacter </a></li>
+        <li><a class="lienMenu" href="?action=findus&controller=nousConnaitre"> Nous trouver </a></li>
       </ul>
     </div>
     <div class="liensfooter">
     	<ul>
-        <li><a class="lienMenu" href="?action=display1st&controller=laVieAlAMAP"> Articles </a></li>
-        <li><a class="lienMenu" href="?action=display2nd&controller=laVieAlAMAP"> Evénements </a></li>
-    	  <li><a class="lienMenu" href="?action=display3rd&controller=laVieAlAMAP"> Livre d'or </a></li>
+        <li><a class="lienMenu" href="?action=readAllart&controller=laVieAlAMAP"> Articles </a></li>
+        <li><a class="lienMenu" href="?action=readAllevents&controller=laVieAlAMAP"> Evénements </a></li>
+    	  <li><a class="lienMenu" href="?action=readAllmsg&controller=laVieAlAMAP"> Livre d'or </a></li>
       </ul>
     </div>

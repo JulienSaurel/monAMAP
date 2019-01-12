@@ -8,18 +8,18 @@
             <a class="lienMenu" href="?action=homepage&controller=accueil">Accueil</a>
         </li>
         <li class="nousConnaitre">
-            <a class="lienMenu" onclick"openLink()" href="?action=display1st&controller=nousConnaitre"> Nous connaitre</a>
+            <a class="lienMenu" onclick="openLink()" href="?action=presentation&controller=nousConnaitre"> Nous connaitre</a>
             <ul>
-                <li><a class="lienMenu" href="?action=display2nd&controller=nousConnaitre">l'AMAP</a></li>
-                <li><a class="lienMenu" href="?action=display3rd&controller=nousConnaitre">Nous contacter</a></li>
-                <li><a class="lienMenu" href="?action=display4th&controller=nousConnaitre">Nous trouver</a></li>
+                <li><a class="lienMenu" href="?action=AMAPstory&controller=nousConnaitre">l'AMAP</a></li>
+                <li><a class="lienMenu" href="?action=contactus&controller=nousConnaitre">Nous contacter</a></li>
+                <li><a class="lienMenu" href="?action=findus&controller=nousConnaitre">Nous trouver</a></li>
             </ul>
         </li>
         <li class="nosProduits">
-            <a onclick="openLink()" class="lienMenu"  href="?action=display&controller=nosProduits">Nos produits</a>
+            <a onclick="openLink()" class="lienMenu"  href="?action=readAllproducts&controller=nosProduits">Nos produits</a>
             <ul>
-                <li><a class="lienMenu" href="?action=display1st&controller=nosProduits">Nos producteurs</a></li>
-                <li><a class="lienMenu" href="?action=display2nd&controller=nosProduits">Produits du moment</a></li>
+                <li><a class="lienMenu" href="?action=readAllprod&controller=nosProduits">Nos producteurs</a></li>
+                <li><a class="lienMenu" href="?action=seasonsproducts&controller=nosProduits">Produits du moment</a></li>
             </ul>
         </li>
         <li class="nosContrats">
@@ -32,11 +32,11 @@
             </ul>
         </li>
         <li class="laVieAlAMAP">
-            <a onclick="openLink()" class="lienMenu" href="?action=display&controller=laVieAlAMAP">La vie à l'AMAP</a>
+            <a onclick="openLink()" class="lienMenu" href="?action=AMAPslife&controller=laVieAlAMAP">La vie à l'AMAP</a>
             <ul>
-                <li><a class="lienMenu" href="?action=display1st&controller=laVieAlAMAP">Articles</a></li>
-                <li><a class="lienMenu" href="?action=display2nd&controller=laVieAlAMAP">Evénements</a></li>
-                <li><a class="lienMenu" href="?action=display3rd&controller=laVieAlAMAP">Livre d'or</a></li>
+                <li><a class="lienMenu" href="?action=readAllart&controller=laVieAlAMAP">Articles</a></li>
+                <li><a class="lienMenu" href="?action=readAllmsg&controller=laVieAlAMAP">Evénements</a></li>
+                <li><a class="lienMenu" href="?action=readAllevents&controller=laVieAlAMAP">Livre d'or</a></li>
             </ul>
         </li>
         <li class="nousSoutenir">
@@ -82,18 +82,18 @@
             <a class="lienMenu" href="?action=homepage&controller=accueil">Accueil</a>
         </li>
         <li class="nousConnaitre">
-            <a class="lienMenu" href="?action=display1st&controller=nousConnaitre">Nous connaitre</a>
+            <a class="lienMenu" href="?action=presentation&controller=nousConnaitre">Nous connaitre</a>
             <ul>
-                <li><a class="lienMenu" href="?action=display2nd&controller=nousConnaitre">l'AMAP</a></li>
-                <li><a class="lienMenu" href="?action=display3rd&controller=nousConnaitre">Nous contacter</a></li>
-                <li><a class="lienMenu" href="?action=display4th&controller=nousConnaitre">Nous trouver</a></li>
+                <li><a class="lienMenu" href="?action=AMAPstory&controller=nousConnaitre">l'AMAP</a></li>
+                <li><a class="lienMenu" href="?action=contactus&controller=nousConnaitre">Nous contacter</a></li>
+                <li><a class="lienMenu" href="?action=findus&controller=nousConnaitre">Nous trouver</a></li>
             </ul>
         </li>
         <li class="nosProduits">
-            <a class="lienMenu" href="?action=display&controller=nosProduits">Nos produits</a>
+            <a class="lienMenu" href="?action=readAllproducts&controller=nosProduits">Nos produits</a>
             <ul>
-                <li><a class="lienMenu" href="?action=display1st&controller=nosProduits">Nos producteurs</a></li>
-                <li><a class="lienMenu" href="?action=display2nd&controller=nosProduits">Produits du moment</a></li>
+                <li><a class="lienMenu" href="?action=readAllprod&controller=nosProduits">Nos producteurs</a></li>
+                <li><a class="lienMenu" href="?action=seasonsproducts&controller=nosProduits">Produits du moment</a></li>
             </ul>
         </li>
         <li class="nosContrats">
@@ -106,11 +106,11 @@
             </ul>
         </li>
         <li class="laVieAlAMAP">
-            <a class="lienMenu" href="?action=display&controller=laVieAlAMAP">La vie à l'AMAP</a>
+            <a class="lienMenu" href="?action=AMAPslife&controller=laVieAlAMAP">La vie à l'AMAP</a>
             <ul>
-                <li><a class="lienMenu" href="?action=display1st&controller=laVieAlAMAP">Articles</a></li>
-                <li><a class="lienMenu" href="?action=display2nd&controller=laVieAlAMAP">Evénements</a></li>
-                <li><a class="lienMenu" href="?action=display3rd&controller=laVieAlAMAP">Livre d'or</a></li>
+                <li><a class="lienMenu" href="?action=readAllart&controller=laVieAlAMAP">Articles</a></li>
+                <li><a class="lienMenu" href="?action=readAllmsg&controller=laVieAlAMAP">Evénements</a></li>
+                <li><a class="lienMenu" href="?action=readAllevents&controller=laVieAlAMAP">Livre d'or</a></li>
             </ul>
         </li>
         <li class="nousSoutenir">

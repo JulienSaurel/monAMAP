@@ -3,7 +3,7 @@ class ControllerNousConnaitre
 {
 	protected static $object='nousConnaitre';
 
-	public static function display1st()
+	public static function presentation()
 	{
 		$controller ='nousConnaitre';
         $view = 'connaitre';
@@ -11,7 +11,7 @@ class ControllerNousConnaitre
         require File::build_path(array('view','view.php')); 
 	}
 
-	public static function display2nd()
+	public static function AMAPstory()
 	{
 		$controller ='nousConnaitre';
         $view = 'lamap';
@@ -19,7 +19,7 @@ class ControllerNousConnaitre
         require File::build_path(array('view','view.php')); 
 	}
 
-	public static function display3rd()
+	public static function contactus()
 	{
 		$controller ='nousConnaitre';
         $view = 'nousContacter';
@@ -27,7 +27,7 @@ class ControllerNousConnaitre
         require File::build_path(array('view','view.php')); 
 	}
 
-	public static function display4th()
+	public static function findus()
 	{
 		$controller ='nousConnaitre';
         $view = 'nousTrouver';

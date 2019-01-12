@@ -14,7 +14,7 @@ class ControllerLaVieAlAMAP
     protected static $object='laVieAlAMAP';
 
     //redirige vers la page "La vie à l'AMAP"
-    public static function display()
+    public static function AMAPslife()
     {
         $view = 'lvala';
         $pagetitle = 'La vie à l\' AMAP';
@@ -22,7 +22,7 @@ class ControllerLaVieAlAMAP
     }
 
     //redirige vers la page "Articles"
-    public static function display1st()
+    public static function readAllart()
     {
         $tabArticles = ModelArticle::selectAllTri();
         $view = 'articles';
@@ -31,7 +31,7 @@ class ControllerLaVieAlAMAP
     }
 
     //redirige vers la page "livre d'or"
-    public static function display2nd()
+    public static function readAllmsg()
     {
         $view = 'evenements';
         $pagetitle = 'Evenements';
@@ -39,7 +39,7 @@ class ControllerLaVieAlAMAP
     }
 
     //redirige vers la page "Evenements"
-    public static function display3rd()
+    public static function readAllevents()
     {
         $nombrepages = ModelLivreDor::getNbPages();
         $page = 0;
@@ -126,10 +126,6 @@ class ControllerLaVieAlAMAP
         $pagetitle = 'Livre d\'or';
         require File::build_path(array('view','view.php'));
     }
-
-    // public static function allArticles(){
-    //     return ModelArticle::selectAll();
-    // }
 
 
 ///////////************Création d'article************///////////
@@ -257,7 +253,7 @@ class ControllerLaVieAlAMAP
             }
 
             //redirection vers les articles
-            self::display1st();
+            self::readAllart();
         }
         //sinon erreur
         else {

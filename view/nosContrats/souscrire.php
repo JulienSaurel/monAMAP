@@ -10,7 +10,7 @@
 	<li> Le rapporter aux organisateurs lors d'une de nos distributions </li>
 </lu>
 
-<p> consultez le calendrier des distributions <a href="?action=display2nd&controller=laVieAlAMAP"> ici </a> </p>
+<p> consultez le calendrier des distributions <a href="?action=readAllevents&controller=laVieAlAMAP"> ici </a> </p>
 
 <h3> Seconde possibilité: sourscrire en ligne </h3>
 

@@ -16,23 +16,23 @@
     </div>
     <p>
         <?php echo $firstparagraph; ?>    </p>
-    <a href="?action=display2nd&controller=nousConnaitre"><?php echo $firstparagraphlink ?></a></p> <!--redirection vers la page AMAP-->
+    <a href="?action=AMAPstory&controller=nousConnaitre"><?php echo $firstparagraphlink ?></a></p> <!--redirection vers la page AMAP-->
   </article>
   <aside>
       <div>
           <h4><?php echo $newstab['0']; ?></h4>
           <p><?php echo $newstab['2']; ?> <br/>
-              <a href="?action=display2nd&controller=laVieAlAMAP"><?php echo $newstab['3']; ?></a></p> <!--redirection vers la page évenements-->
+              <a href="?action=readAllevents&controller=laVieAlAMAP"><?php echo $newstab['3']; ?></a></p> <!--redirection vers la page évenements-->
       </div>
 
    <div>
-    <h4><a href="?action=display1st&controller=laVieAlAMAP"><?php echo $namearticlelink; ?></a></h4>
+    <h4><a href="?action=readAllart&controller=laVieAlAMAP"><?php echo $namearticlelink; ?></a></h4>
 
        <img src="<?php echo $firstarticlephoto;?>" alt="<?php echo $firstarticledisplayed;?>" width="135" height="135"/>
-       <h4><a href="?action=display1st&controller=laVieAlAMAP"> <?php echo $firstarticlename ?> </a></h4>
+       <h4><a href="?action=readAllart&controller=laVieAlAMAP"> <?php echo $firstarticlename ?> </a></h4>
 
        <img src="<?php echo $secondarticlephoto;?>" alt="<?php echo $secondarticledisplayed;?>" width="135" height="135"/>
-       <h4><a href="?action=display1st&controller=laVieAlAMAP"> <?php echo $secondarticlename ?> </a></h4>
+       <h4><a href="?action=readAllart&controller=laVieAlAMAP"> <?php echo $secondarticlename ?> </a></h4>
   </div>
   
   <div>

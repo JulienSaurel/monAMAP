@@ -1,12 +1,5 @@
-N'oubliez pas d'importer ma base de donnée dans le dossier config les copains !
-
-Connexion administrateur :
-login : mabrouk
-mdp : azeqsdwxc
-
-BISOUS test 
-
-
+setfacl -R -m www-data:rwx ./images
+pour pouvoir upload des fichiers
   quelques remarques :
   
      1. FPDF ne gère pas les accents => utilisation de utf8_decode()

@@ -6,6 +6,12 @@ class ControllerNosContrats
 {
     protected static $object='nosContrats';
 
+    public static function readAll() {
+        $view = 'contrats';
+        $pagetitle = 'Nos Contrats';
+        require File::build_path(array('view','view.php'));
+    }
+
     public static function detail()
     {
         if (!isset($_GET['type'])||!in_array($_GET['type'], ['laitier','carné','mix','végétal'])) {
@@ -39,6 +45,12 @@ class ControllerNosContrats
         require File::build_path(array('view','view.php'));
     }
 
+    public static function error()
+    {
+        $view = 'error';
+        $pagetitle = 'Error 404';
+        require File::build_path(array('view','view.php'));
+    }
 
     public static function souscripted(){
 
@@ -239,12 +251,4 @@ class ControllerNosContrats
         // affichage du pdf
         echo '<embed src="facture.pdf" width="100%" height="900px">';
     }
-
-    public static function error()
-    {
-        $view = 'error';
-        $pagetitle = 'Error 404';
-        require File::build_path(array('view','view.php'));
-    }
-
 } ?>

@@ -8,16 +8,10 @@ class ControllerNosProduits
 {
     protected static $object='nosProduits';
 
-// public static function readAll(){
-//        $tab_prod = ModelAdherent::selectAllProd();
-//        return $tab_prod;
-//       $view = 'nosproducteurs';
-//         $pagetitle = 'Nos Producteurs';
-//         require File::build_path(array('view','view.php')); 
-//     }
 
 
-     public static function display()
+
+     public static function readAllproducts()
     {
 
         $tab = ModelProduit::selectAll();
@@ -28,17 +22,7 @@ class ControllerNosProduits
 
 
 
-    /*public static function display()
-    {   
-        $view = 'produits';
-        $pagetitle = 'Nos Produits';
-        require File::build_path(array('view','view.php')); 
-         $tab_produit = ModelProduit::getAllProduit();
-       return $tab_produit;
-    }
-*/
-
-    public static function display1st()
+    public static function readAllprod()
     {
         $tab_prod = ModelAdherent::selectAllProd();
         $view = 'nosproducteurs';
@@ -46,7 +30,7 @@ class ControllerNosProduits
         require File::build_path(array('view','view.php'));    
     }
 
-    public static function display2nd()
+    public static function seasonsproducts()
     {
         $view = 'produitsdumoment';
         $pagetitle = 'Produits du moment';
@@ -116,7 +100,7 @@ class ControllerNosProduits
             ];
             ModelProduit::save($array);
             //redirection vers les articles
-            self::display();
+            self::readAllproducts();
         } else {
             self::error();
         }   

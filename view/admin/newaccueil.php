@@ -176,19 +176,19 @@
                     <div>
                         <h4 id="news"><?php echo $news; ?></h4>
                         <p id="name"><?php echo $name; ?> </p>
-                        <p><a id="text" href="?action=display2nd&controller=laVieAlAMAP"><?php echo $text; ?></a></p> <!--redirection vers la page évenements-->
-                        <h4><a id="namearticlelink" href="?action=display1st&controller=laVieAlAMAP"><?php echo $namearticlelink; ?></a></h4>
+                        <p><a id="text" href="?action=readAllevents&controller=laVieAlAMAP"><?php echo $text; ?></a></p> <!--redirection vers la page évenements-->
+                        <h4><a id="namearticlelink" href="?action=readAllart&controller=laVieAlAMAP"><?php echo $namearticlelink; ?></a></h4>
 
                     </div>
 
                     <div id="toinline">
                         <div class=firsttoinline">
                             <img id="firstarticledisplayed" src="<?php echo ModelArticle::select($firstarticledisplayed)->get('photo');?>" alt="<?php echo $firstarticledisplayed;?>" width="135" height="135"/>
-                            <h4><a href="?action=display1st&controller=laVieAlAMAP"> <?php echo ModelArticle::select($firstarticledisplayed)->get('titreArticle'); ?> </a></h4>
+                            <h4><a href="?action=readAllart&controller=laVieAlAMAP"> <?php echo ModelArticle::select($firstarticledisplayed)->get('titreArticle'); ?> </a></h4>
                         </div>
                         <div class="firsttoinline">
                             <img id="secondarticledisplayed" src="<?php echo ModelArticle::select($secondarticledisplayed)->get('photo');?>" alt="<?php echo $secondarticledisplayed;?>" width="135" height="135"/>
-                            <h4><a href="?action=display1st&controller=laVieAlAMAP"> <?php echo ModelArticle::select($secondarticledisplayed)->get('titreArticle'); ?> </a></h4>
+                            <h4><a href="?action=readAllart&controller=laVieAlAMAP"> <?php echo ModelArticle::select($secondarticledisplayed)->get('titreArticle'); ?> </a></h4>
                         </div>
                     </div>
 
@@ -272,7 +272,7 @@
                 <div class="previsu" id="previsumiddle">
                     <div id="toinblock">
                         <p id="firstparagraph">   <?php echo $firstparagraph; ?>    </p>
-                        <a id="firstparagraphlink" href="?action=display2nd&controller=nousConnaitre"><?php echo $firstparagraphlink ?></a>
+                        <a id="firstparagraphlink" href="?action=AMAPstory&controller=nousConnaitre"><?php echo $firstparagraphlink ?></a>
                     </div>
                     <div>
                         <h2 id="firstimagetitle"><?php echo $firstimagetitle; ?></h2>

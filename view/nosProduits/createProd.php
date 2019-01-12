@@ -37,7 +37,7 @@
 if (!isset($_SESSION['producteur'])) { ?>
 <!--ajouter else if isset login => devenez producteur pour ajoutez vos produits.-->
 
-<li><a href="?action=display2nd&controller=monProfil">Devenez producteur maintenant pour pouvoir ajouter un article !</a></li>
+<li><a href="?action=becomeprod&controller=monProfil">Devenez producteur maintenant pour pouvoir ajouter un article !</a></li>
 
 
 <?php } else if (!isset($_SESSION['login'])) {?>
