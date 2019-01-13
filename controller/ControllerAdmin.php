@@ -207,8 +207,8 @@ class ControllerAdmin
             $mailPersonne = $id ? htmlspecialchars($p->get('mailPersonne')) : '';
             $adressepostaleAdherent = $id ? htmlspecialchars($o->get('adressepostaleAdherent')) : '';
             $ville = $id ? htmlspecialchars($o->get('ville')) : '';
-            $estAdministrateur = $id ? $o->get('estAdministrateur') : '';
-            $estProducteur = $id ? $o->get('estProducteur') : '';
+            $selectedAdmin = $o->get('estAdministrateur')=="1"? "Oui" : 'Non';
+            $selectedProd = $o->get('estProducteur')=="1"? "Oui" : 'Non';
             $description = $id ? $o->get('description') : '';
             $photo = $id ? $o->get('photo') : '';
             $dateinscription = $id ? $o->get('dateinscription') : '';

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="94c3ccb3-3951-4670-8efd-8102a2c7e176" name="Default Changelist" comment="">
+    <list default="true" id="94c3ccb3-3951-4670-8efd-8102a2c7e176" name="Default Changelist" comment="Fix chgt mot de passe">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/ControllerAdherent.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControllerAdherent.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/ControllerAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControllerAdmin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/admin/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/admin/update.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,30 +14,19 @@
   </component>
   <component name="ComposerSettings" synchronizationState="DONT_SYNCHRONIZE" />
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/monProfil/voirmonprofil.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="754">
-              <caret line="60" column="70" selection-start-line="60" selection-start-column="70" selection-end-line="60" selection-end-column="70" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controller/ControllerAdherent.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="429" selection-start-line="429" selection-end-line="429" />
+            <state relative-caret-position="335">
+              <caret line="338" column="5" lean-forward="true" selection-start-line="338" selection-start-column="5" selection-end-line="338" selection-end-column="5" />
               <folding>
                 <element signature="n#create#0;n#ControllerAdherent#0;n#!!top" />
                 <element signature="n#created#0;n#ControllerAdherent#0;n#!!top" />
                 <element signature="n#payment#0;n#ControllerAdherent#0;n#!!top" />
                 <element signature="n#reset#0;n#ControllerAdherent#0;n#!!top" />
-                <element signature="n#reset#0;n#ControllerAdherent#0;n#!!top" />
                 <element signature="n#extendSubscription#0;n#ControllerAdherent#0;n#!!top" />
                 <element signature="n#validatedMail#0;n#ControllerAdherent#0;n#!!top" />
-                <element signature="e#12540#12583#0#PHP" />
                 <element signature="n#becomeprod#0;n#ControllerAdherent#0;n#!!top" />
                 <element signature="n#newprod#0;n#ControllerAdherent#0;n#!!top" />
                 <element signature="n#connect#0;n#ControllerAdherent#0;n#!!top" />
@@ -44,6 +34,27 @@
                 <element signature="n#deconnect#0;n#ControllerAdherent#0;n#!!top" />
                 <element signature="n#error#0;n#ControllerAdherent#0;n#!!top" />
                 <element signature="n#connectError#0;n#ControllerAdherent#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/view/admin/update.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="645">
+              <caret line="43" column="91" selection-start-line="43" selection-start-column="91" selection-end-line="43" selection-end-column="91" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controller/ControllerAdmin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="311">
+              <caret line="210" column="71" selection-start-line="210" selection-start-column="71" selection-end-line="210" selection-end-column="71" />
+              <folding>
+                <element signature="n#update#0;n#ControllerAdmin#0;n#!!top" />
               </folding>
             </state>
           </provider>
@@ -97,7 +108,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="686">
+            <state relative-caret-position="10470">
               <caret line="698" column="35" selection-start-line="698" selection-start-column="35" selection-end-line="698" selection-end-column="35" />
             </state>
           </provider>
@@ -170,7 +181,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/model/ModelArticle.php" />
         <option value="$PROJECT_DIR$/model/ModelAdherent.php" />
         <option value="$PROJECT_DIR$/script/adminscript.js" />
         <option value="$PROJECT_DIR$/controller/ControllerAccueil.php" />
@@ -190,7 +200,6 @@
         <option value="$PROJECT_DIR$/view/nousConnaitre/contacted.php" />
         <option value="$PROJECT_DIR$/view/footer.php" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/controller/ControllerAdmin.php" />
         <option value="$PROJECT_DIR$/model/Model.php" />
         <option value="$PROJECT_DIR$/view/admin/list.php" />
         <option value="$PROJECT_DIR$/controller/ControllerPersonne.php" />
@@ -221,6 +230,8 @@
         <option value="$PROJECT_DIR$/view/adherent/connect.php" />
         <option value="$PROJECT_DIR$/view/adherent/connectErreur.php" />
         <option value="$PROJECT_DIR$/controller/ControllerAdherent.php" />
+        <option value="$PROJECT_DIR$/controller/ControllerAdmin.php" />
+        <option value="$PROJECT_DIR$/view/admin/update.php" />
       </list>
     </option>
   </component>
@@ -246,7 +257,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -285,6 +295,12 @@
               <item name="monAMAP" type="b2602c69:ProjectViewProjectNode" />
               <item name="monAMAP" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="monAMAP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="monAMAP" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
               <item name="monProfil" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -295,6 +311,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -397,7 +414,8 @@
       <workItem from="1547195067246" duration="2119000" />
       <workItem from="1547218087020" duration="9703000" />
       <workItem from="1547229009139" duration="16870000" />
-      <workItem from="1547292542225" duration="22031000" />
+      <workItem from="1547292542225" duration="22175000" />
+      <workItem from="1547375661345" duration="1351000" />
     </task>
     <task id="LOCAL-00001" summary="Model generique et petits fix">
       <created>1545583549669</created>
@@ -686,11 +704,18 @@
       <option name="project" value="LOCAL" />
       <updated>1547328450036</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Fix chgt mot de passe">
+      <created>1547329675826</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1547329675826</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="428993000" />
+    <option name="totallyTimeSpent" value="430488000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -705,7 +730,7 @@
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49947312" visible="true" weight="0.1765357" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49947312" visible="true" weight="0.17874931" />
       <window_info id="Structure" order="1" sideWeight="0.50052685" side_tool="true" weight="0.124123044" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -807,7 +832,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Debut create" />
     <MESSAGE value="Debut validation" />
     <MESSAGE value="milieu validation" />
     <MESSAGE value="fin validation (il manque juste les envois de mail aux adminet aux adhérents lors des demandes de validations et des validations)" />
@@ -832,7 +856,8 @@
     <MESSAGE value="Encodage des variables&#10;htaccess pour gerer la redirection d'erreur 404&#10;routeur updated&#10;Confirmation sur les delete" />
     <MESSAGE value="From becomprod/payment et fix liens" />
     <MESSAGE value="Récupération de mot de passe" />
-    <option name="LAST_COMMIT_MESSAGE" value="Récupération de mot de passe" />
+    <MESSAGE value="Fix chgt mot de passe" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix chgt mot de passe" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
@@ -844,12 +869,8 @@
     <select />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/view/monProfil/updateAdrP.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/monProfil/updateAdrM.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/view/monProfil/updateAdrP.php" />
+    <entry file="file://$PROJECT_DIR$/view/monProfil/updateAdrM.php" />
     <entry file="file://$PROJECT_DIR$/view/monProfil/updatePW.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -961,9 +982,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/admin/update.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/controller/ControllerAccueil.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -973,16 +991,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/view/adherent/payment.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/ControllerAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="193" column="32" selection-start-line="193" selection-start-column="23" selection-end-line="193" selection-end-column="32" />
-          <folding>
-            <element signature="n#update#0;n#ControllerAdmin#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/ControllerLaVieAlAMAP.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -1026,48 +1034,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/monProfil/voirmonprofil.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="754">
-          <caret line="60" column="70" selection-start-line="60" selection-start-column="70" selection-end-line="60" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/monProfil/devenirproducteur.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/adherent/formprod.php">
+    <entry file="file://$PROJECT_DIR$/view/monProfil/voirmonprofil.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="58" selection-start-line="13" selection-start-column="58" selection-end-line="13" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/accueil/accueil.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="148" selection-start-line="1" selection-start-column="148" selection-end-line="1" selection-end-column="148" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="686">
-          <caret line="698" column="35" selection-start-line="698" selection-start-column="35" selection-end-line="698" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/adherent/reset.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="56" selection-start-line="4" selection-start-column="56" selection-end-line="4" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/adherent/resetpwd.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="114" selection-start-line="4" selection-start-column="114" selection-end-line="4" selection-end-column="114" />
+        <state relative-caret-position="900">
+          <caret line="60" column="70" selection-start-line="60" selection-start-column="70" selection-end-line="60" selection-end-column="70" />
         </state>
       </provider>
     </entry>
@@ -1085,19 +1058,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/view/adherent/resetpwd.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="114" selection-start-line="4" selection-start-column="114" selection-end-line="4" selection-end-column="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/adherent/reset.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="56" selection-start-line="4" selection-start-column="56" selection-end-line="4" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/accueil/accueil.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="148" selection-start-line="1" selection-start-column="148" selection-end-line="1" selection-end-column="148" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10470">
+          <caret line="698" column="35" selection-start-line="698" selection-start-column="35" selection-end-line="698" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/adherent/formprod.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="58" selection-start-line="13" selection-start-column="58" selection-end-line="13" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/controller/ControllerAdherent.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="429" selection-start-line="429" selection-end-line="429" />
+        <state relative-caret-position="335">
+          <caret line="338" column="5" lean-forward="true" selection-start-line="338" selection-start-column="5" selection-end-line="338" selection-end-column="5" />
           <folding>
             <element signature="n#create#0;n#ControllerAdherent#0;n#!!top" />
             <element signature="n#created#0;n#ControllerAdherent#0;n#!!top" />
             <element signature="n#payment#0;n#ControllerAdherent#0;n#!!top" />
             <element signature="n#reset#0;n#ControllerAdherent#0;n#!!top" />
-            <element signature="n#reset#0;n#ControllerAdherent#0;n#!!top" />
             <element signature="n#extendSubscription#0;n#ControllerAdherent#0;n#!!top" />
             <element signature="n#validatedMail#0;n#ControllerAdherent#0;n#!!top" />
-            <element signature="e#12540#12583#0#PHP" />
             <element signature="n#becomeprod#0;n#ControllerAdherent#0;n#!!top" />
             <element signature="n#newprod#0;n#ControllerAdherent#0;n#!!top" />
             <element signature="n#connect#0;n#ControllerAdherent#0;n#!!top" />
@@ -1106,6 +1112,23 @@
             <element signature="n#error#0;n#ControllerAdherent#0;n#!!top" />
             <element signature="n#connectError#0;n#ControllerAdherent#0;n#!!top" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/ControllerAdmin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="210" column="71" selection-start-line="210" selection-start-column="71" selection-end-line="210" selection-end-column="71" />
+          <folding>
+            <element signature="n#update#0;n#ControllerAdmin#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/admin/update.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="43" column="91" selection-start-line="43" selection-start-column="91" selection-end-line="43" selection-end-column="91" />
         </state>
       </provider>
     </entry>

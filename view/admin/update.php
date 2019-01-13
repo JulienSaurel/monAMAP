@@ -32,11 +32,17 @@ if ($type == 'adherent') {
             </p>
             <p>
                 <label for="isProd">Rendre Producteur:</label>
-                <input type="text" value="<?php echo $estProducteur; ?>" name="estProducteur" id="isProd" required/>
+                <select name="estProducteur" id="isProd">
+                    <option value="1" <?php echo $selectedProd=="Oui"? 'selected' : ""; ?>>Oui</option>
+                    <option value="0" <?php echo $selectedProd=="Non"? 'selected' : ""; ?>>Non</option>
+                </select>
             </p>
             <p>
                 <label for="isAdmin">Rendre Administrateur:</label>
-                <input type="text" value="<?php echo $estAdministrateur; ?>" name="estAdministrateur" id="isAdmin" required/>
+                <select name="estAdministrateur" id="isAdmin">
+                    <option value="1" <?php echo $selectedAdmin=="Oui"? 'selected' : ""; ?>>Oui</option>
+                    <option value="0" <?php echo $selectedAdmin=="Non"? 'selected' : ""; ?>>Non</option>
+                </select>
             </p>
             <p>
                 <label for="desc">Descritpion:</label>
