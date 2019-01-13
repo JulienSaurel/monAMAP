@@ -150,8 +150,8 @@ class ControllerAdherent
 
 			/* Set the mail message body. */
 			$mail->isHTML(TRUE);
-			$mail->Body = "<html>Bonjour, pour valider votre adresse mail veuillez cliquez <a href=\"http://webinfo.iutmontp.univ-montp2.fr/~sambucd/monAMAP/?action=validatedMail&controller=adherent&id=$idurl&nonce=$nonceurl\">ici</a></html>";
-			$mail->AltBody = "Bonjour, pour valider votre adresse mail veuillez copier coller ce lien http://webinfo.iutmontp.univ-montp2.fr/~sambucd/monAMAP/?action=validatedMail&controller=adherent&id=$idurl&nonce=$nonceurl";
+			$mail->Body = "<html>Bonjour, pour valider votre adresse mail veuillez cliquez <a href=\"http://webinfo.iutmontp.univ-montp2.fr/~robertl/AMAP/monAMAP/?action=validatedMail&controller=adherent&id=$idurl&nonce=$nonceurl\">ici</a></html>";
+			$mail->AltBody = "Bonjour, pour valider votre adresse mail veuillez copier coller ce lien http://webinfo.iutmontp.univ-montp2.fr/~robertl/AMAP/monAMAP/?action=validatedMail&controller=adherent&id=$idurl&nonce=$nonceurl";
 			/* Finally send the mail. */
 			$mail->send();
 		}
