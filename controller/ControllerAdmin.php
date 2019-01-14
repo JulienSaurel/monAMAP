@@ -676,7 +676,7 @@ class ControllerAdmin
                 //on récupére les infos
                 $nomProduit = $_POST['nomProduit'];
                 $description = $_POST['description'];
-                $image = $name ?? $_POST['image '];
+                $image = $name ?? $_POST['image'];
 
                 //on crée un tableau pour save
                 $arrayProduit = [

@@ -42,14 +42,18 @@ class ControllerNousSoutenir
     	$nbDonnateur = ModelDonnateur::count($mail);
     	//passe
 
-		if($nbDonnateur == 0){ // si le donnateur n'existe pas on le crée
+		if($nbDonnateur == 0){ // si le donateur n'existe pas on le crée
 		    $arraypersonne = [
                 'mailPersonne' => $mail,
                 'nomPersonne' => $nom,
                 'prenomPersonne' => $prenom,
             ];
 
-		    ModelPersonne::save($arraypersonne);
+		    if (! $p = ModelPersonne::select($mail)) {
+                ModelPersonne::save($arraypersonne);
+            } else {
+                ModelPersonne::update($arraypersonne);
+            }
 
 			$arraydonnateur = [
                 'mailAddressDonnateur' => $mail,
@@ -128,9 +132,11 @@ class ControllerNousSoutenir
 	*/
 	public static function generePDF(){
         $mail = $_GET['mail'];
+        $nom = $_GET['nom'];
+        $prenom = $_GET['prenom'];
 
         $donnateur = ModelDonnateur::select($mail);
-        $personne = ModelAdherent::getPersonneByIdAdh($mail);
+        //$personne = ModelAdherent::getPersonneByIdAdh($mail);
         $don = ModelDon::getLastDonFrom($mail);
 
 
@@ -139,8 +145,8 @@ class ControllerNousSoutenir
     
     // l'adhérent à qui s'adresse la facture
     $adh = array(
-        'nom' => $personne->get('nomPersonne'),
-        'prenom' => $personne->get('prenomPersonne'),
+        'nom' => $nom,
+        'prenom' => $prenom,
         'email' => $donnateur->get('mailAddressDonnateur')
     );
 

@@ -32,7 +32,7 @@ class ControllerAdherent
 	public static function created()
 	{
 		//si l'adresse mail existe déjà on ramene a la page d'erreur
-		if (ModelPersonne::checkMail($_POST['mailPersonne']) == false ){
+		if (ModelAdherent::checkbindedmail($_POST['mailPersonne']) == false ){
 			return self::error();
 		}
 
@@ -72,7 +72,11 @@ class ControllerAdherent
 		];
 
 		//on l'enregistre dans la bdd
-		ModelPersonne::save($arrayPersonne);
+		if (! $p = ModelPersonne::select($mail)) {
+			ModelPersonne::save($arrayPersonne);
+		} else {
+			ModelPersonne::update($arrayPersonne);
+		}
 
 
 		///////////////////////////////
