@@ -150,8 +150,8 @@ class ControllerAdherent
 
 			/* Set the mail message body. */
 			$mail->isHTML(TRUE);
-			$mail->Body = "<html>Bonjour, pour valider votre adresse mail veuillez cliquez <a href=\"http://webinfo.iutmontp.univ-montp2.fr/~sambucd/monAMAP/?action=validatedMail&controller=adherent&id=$idurl&nonce=$nonceurl\">ici</a></html>";
-			$mail->AltBody = "Bonjour, pour valider votre adresse mail veuillez copier coller ce lien http://webinfo.iutmontp.univ-montp2.fr/~sambucd/monAMAP/?action=validatedMail&controller=adherent&id=$idurl&nonce=$nonceurl";
+			$mail->Body = "<html>Bonjour, pour valider votre adresse mail veuillez cliquez <a href=\"http://webinfo.iutmontp.univ-montp2.fr/~robertl/AMAP/monAMAP/?action=validatedMail&controller=adherent&id=$idurl&nonce=$nonceurl\">ici</a></html>";
+			$mail->AltBody = "Bonjour, pour valider votre adresse mail veuillez copier coller ce lien http://webinfo.iutmontp.univ-montp2.fr/~robertl/AMAP/monAMAP/?action=validatedMail&controller=adherent&id=$idurl&nonce=$nonceurl";
 			/* Finally send the mail. */
 			$mail->send();
 		}
@@ -272,16 +272,17 @@ class ControllerAdherent
 
                  /* Set the mail message body. */
                  $mail->isHTML(TRUE);
-                 $mail->Body = "<html>Bonjour, pour valider votre adresse mail veuillez cliquez <a href=\"http://webinfo.iutmontp.univ-montp2.fr/~sambucd/monAMAP/?action=validatedMail&controller=adherent&id=$idurl&nonce=$nonceurl\">ici</a></html>";
-                 $mail->AltBody = "Bonjour, pour valider votre adresse mail veuillez copier coller ce lien http://webinfo.iutmontp.univ-montp2.fr/~sambucd/monAMAP/?action=validatedMail&controller=adherent&id=$idurl&nonce=$nonceurl";
+                 $mail->Body = "<html>Bonjour, pour valider votre adresse mail veuillez cliquez <a href=\"http://webinfo.iutmontp.univ-montp2.fr/~robertl/AMAP/monAMAP/?action=validatedMail&controller=adherent&id=$idurl&nonce=$nonceurl\">ici</a></html>";
+                 $mail->AltBody = "Bonjour, pour valider votre adresse mail veuillez copier coller ce lien http://webinfo.iutmontp.univ-montp2.fr/~robertl/AMAP/monAMAP/?action=validatedMail&controller=adherent&id=$idurl&nonce=$nonceurl";
              } elseif ($type == "pwd") {
                  /* Set the subject. */
                  $mail->Subject = "Modification de votre mot de passe";
 
                  /* Set the mail message body. */
                  $mail->isHTML(TRUE);
-                 $mail->Body = "<html>Bonjour, pour changer votre mot de passe veuillez cliquez <a href=\"http://webinfo.iutmontp.univ-montp2.fr/~sambucd/monAMAP/?action=gotoresetpwd&controller=adherent&id=$idurl&nonce=$nonceurl\">ici</a>, si vous ne vouliez pas changer votre mot de passe, cliquez  <a href=\"http://webinfo.iutmontp.univ-montp2.fr/~sambucd/monAMAP/?action=validatedMail&controller=adherent&id=$idurl&nonce=$nonceurl\">ici</a></html>";
-                 $mail->AltBody = "Bonjour, pour changer votre mot de passe veuillez copier coller ce lien http://webinfo.iutmontp.univ-montp2.fr/~sambucd/monAMAP/?action=gotoresetpwd&controller=adherent&id=$idurl&nonce=$nonceurl , si vous ne vouliez pas changer votre mot de passe, copiez coller ce lien http://webinfo.iutmontp.univ-montp2.fr/~sambucd/monAMAP/?action=validatedMail&controller=adherent&id=$idurl&nonce=$nonceurl";
+
+                 $mail->Body = "<html>Bonjour, pour changer votre mot de passe veuillez cliquez <a href=\"http://webinfo.iutmontp.univ-montp2.fr/~robertl/AMAP/monAMAP/?action=gotoresetpwd&controller=adherent&id=$idurl&nonce=$nonceurl\">ici</a>, si vous ne vouliez pas changer votre mot de passe, cliquez  <a href=\"http://webinfo.iutmontp.univ-montp2.fr/~robertl/AMAP/monAMAP/?action=validatedMail&controller=adherent&id=$idurl&nonce=$nonceurl\">ici</a></html>";
+                 $mail->AltBody = "Bonjour, pour changer votre mot de passe veuillez copier coller ce lien http://webinfo.iutmontp.univ-montp2.fr/~robertl/AMAP/monAMAP/?action=gotoresetpwd&controller=adherent&id=$idurl&nonce=$nonceurl , si vous ne vouliez pas changer votre mot de passe, copiez coller ce lien http://webinfo.iutmontp.univ-montp2.fr/~robertl/AMAP/monAMAP/?action=validatedMail&controller=adherent&id=$idurl&nonce=$nonceurl";
              }
              /* Finally send the mail. */
              $mail->send();
@@ -542,8 +543,8 @@ class ControllerAdherent
 
 			/* Set the mail message body. */
 			$mail->isHTML(TRUE);
-			$mail->Body = "<html>Bonjour, pour valider le nouveau producteur veuillez vous connecter en tant qu'administrateur puis, veuillez cliquez <a href=\"http://webinfo.iutmontp.univ-montp2.fr/~sambucd/monAMAP/?action=validatedOne&controller=admin&type=adherent&id=$idurl\">ici</a>, pour voir toutes les validations en attente veuillez cliquer <a href=\"http://webinfo.iutmontp.univ-montp2.fr/~sambucd/monAMAP/?action=validate&controller=admin\">ici</a>, il y a actuellement $toValid demandes a valider.</html>";
-			$mail->AltBody = "Bonjour, pour valider le nouveau producteur, veuillez copier coller ce lien dans la barre de navigation http://webinfo.iutmontp.univ-montp2.fr/~sambucd/monAMAP/?action=validatedOne&controller=admin&type=adherent&id=$idurl, pour voir toutes les validations en attente veuillez copier coller ce lien dans la barre de navigation http://webinfo.iutmontp.univ-montp2.fr/~sambucd/monAMAP/?action=validate&controller=admin , il y a actuellement $toValid demandes a valider.";
+			$mail->Body = "<html>Bonjour, pour valider le nouveau producteur veuillez vous connecter en tant qu'administrateur puis, veuillez cliquez <a href=\"http://webinfo.iutmontp.univ-montp2.fr/~robertl/AMAP/monAMAP/?action=validatedOne&controller=admin&type=adherent&id=$idurl\">ici</a>, pour voir toutes les validations en attente veuillez cliquer <a href=\"http://webinfo.iutmontp.univ-montp2.fr/~robertl/AMAP/monAMAP/?action=validate&controller=admin\">ici</a>, il y a actuellement $toValid demandes a valider.</html>";
+			$mail->AltBody = "Bonjour, pour valider le nouveau producteur, veuillez copier coller ce lien dans la barre de navigation http://webinfo.iutmontp.univ-montp2.fr/~robertl/AMAP/monAMAP/?action=validatedOne&controller=admin&type=adherent&id=$idurl, pour voir toutes les validations en attente veuillez copier coller ce lien dans la barre de navigation http://webinfo.iutmontp.univ-montp2.fr/~robertl/AMAP/monAMAP/?action=validate&controller=admin , il y a actuellement $toValid demandes a valider.";
 
 			/* Finally send the mail. */
 			$mail->send();

@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="94c3ccb3-3951-4670-8efd-8102a2c7e176" name="Default Changelist" comment="">
+    <list default="true" id="94c3ccb3-3951-4670-8efd-8102a2c7e176" name="Default Changelist" comment="Fix chgt mot de passe">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/ControllerAdherent.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControllerAdherent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/ControllerMonProfil.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControllerMonProfil.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/menu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/monProfil/voirmonprofil.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/monProfil/voirmonprofil.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/ControllerAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ControllerAdmin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/admin/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/admin/update.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,53 +12,168 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ComposerSettings" synchronizationState="DONT_SYNCHRONIZE" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/monProfil/voirmonprofil.php">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controller/ControllerAdherent.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="129" column="54" selection-start-line="129" selection-start-column="54" selection-end-line="129" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controller/ControllerMonProfil.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+            <state relative-caret-position="335">
+              <caret line="338" column="5" lean-forward="true" selection-start-line="338" selection-start-column="5" selection-end-line="338" selection-end-column="5" />
+              <folding>
+                <element signature="n#create#0;n#ControllerAdherent#0;n#!!top" />
+                <element signature="n#created#0;n#ControllerAdherent#0;n#!!top" />
+                <element signature="n#payment#0;n#ControllerAdherent#0;n#!!top" />
+                <element signature="n#reset#0;n#ControllerAdherent#0;n#!!top" />
+                <element signature="n#extendSubscription#0;n#ControllerAdherent#0;n#!!top" />
+                <element signature="n#validatedMail#0;n#ControllerAdherent#0;n#!!top" />
+                <element signature="n#becomeprod#0;n#ControllerAdherent#0;n#!!top" />
+                <element signature="n#newprod#0;n#ControllerAdherent#0;n#!!top" />
+                <element signature="n#connect#0;n#ControllerAdherent#0;n#!!top" />
+                <element signature="n#connected#0;n#ControllerAdherent#0;n#!!top" />
+                <element signature="n#deconnect#0;n#ControllerAdherent#0;n#!!top" />
+                <element signature="n#error#0;n#ControllerAdherent#0;n#!!top" />
+                <element signature="n#connectError#0;n#ControllerAdherent#0;n#!!top" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/view/menu.php">
+        <entry file="file://$PROJECT_DIR$/view/admin/update.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="687">
-              <caret line="116" column="53" selection-start-line="116" selection-start-column="53" selection-end-line="116" selection-end-column="53" />
+            <state relative-caret-position="645">
+              <caret line="43" column="91" selection-start-line="43" selection-start-column="91" selection-end-line="43" selection-end-column="91" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controller/ControllerAdmin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="311">
+              <caret line="210" column="71" selection-start-line="210" selection-start-column="71" selection-end-line="210" selection-end-column="71" />
+              <folding>
+                <element signature="n#update#0;n#ControllerAdmin#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/adherent/connect.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/adherent/connectErreur.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/adherent/resetpwd.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="114" selection-start-line="4" selection-start-column="114" selection-end-line="4" selection-end-column="114" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/adherent/reset.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="56" selection-start-line="4" selection-start-column="56" selection-end-line="4" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/accueil/accueil.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="148" selection-start-line="1" selection-start-column="148" selection-end-line="1" selection-end-column="148" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/styles.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="10470">
+              <caret line="698" column="35" selection-start-line="698" selection-start-column="35" selection-end-line="698" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/adherent/formprod.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" column="58" selection-start-line="13" selection-start-column="58" selection-end-line="13" selection-end-column="58" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>U</find>
-      <find>Adherents</find>
-      <find>var_</find>
-      <find>date</find>
+      <find>nom-du-fichier</find>
+      <find>Contrat</find>
+      <find>user.jpg</find>
+      <find>view.php</find>
+      <find>icon</find>
+      <find>update</find>
+      <find>ModelArticles</find>
+      <find>articles</find>
+      <find>mdl-layout</find>
+      <find>livredor</find>
       <find>var</find>
+      <find>.slid</find>
+      <find>home</find>
+      <find>article</find>
+      <find>.article</find>
+      <find>button</find>
+      <find>tabIds</find>
+      <find>Home</find>
+      <find>list</find>
+      <find>var_</find>
+      <find>.previsu</find>
+      <find>ModelLivre</find>
+      <find>#re</find>
+      <find>alert</find>
+      <find>errmsg</find>
+      <find>2nd</find>
+      <find>display</find>
+      <find>html</find>
+      <find>htmlspe</find>
+      <find>urlencode</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
+    <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="3361969a807aee7f478191e604075484fc01d2a5" />
+      </map>
+    </option>
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/lib/File.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
@@ -69,25 +181,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/controller/routeur.php" />
-        <option value="$PROJECT_DIR$/view/adherent/list.php" />
-        <option value="$PROJECT_DIR$/view/adherent/detail.php" />
-        <option value="$PROJECT_DIR$/view/personne/create.php" />
-        <option value="$PROJECT_DIR$/../Projetgpmachat/view/commande/commande.php" />
         <option value="$PROJECT_DIR$/model/ModelAdherent.php" />
-        <option value="$PROJECT_DIR$/model/ModelPersonne.php" />
-        <option value="$PROJECT_DIR$/view/adherent/create.php" />
-        <option value="$PROJECT_DIR$/view/adherent/connect.php" />
+        <option value="$PROJECT_DIR$/script/adminscript.js" />
+        <option value="$PROJECT_DIR$/controller/ControllerAccueil.php" />
+        <option value="$PROJECT_DIR$/view/admin/validate.php" />
+        <option value="$PROJECT_DIR$/css/adminstyles.css" />
+        <option value="$PROJECT_DIR$/view/adminmenu.php" />
+        <option value="$PROJECT_DIR$/view/monProfil/devenirproducteur.php" />
+        <option value="$PROJECT_DIR$/controller/ControllerNousSoutenir.php" />
+        <option value="$PROJECT_DIR$/view/nosContrats/contrats.php" />
         <option value="$PROJECT_DIR$/model/ModelContrat.php" />
-        <option value="$PROJECT_DIR$/controller/ControllerPersonne.php" />
-        <option value="$PROJECT_DIR$/../index.php" />
-        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/controller/ControllerNousConnaitre.php" />
+        <option value="$PROJECT_DIR$/controller/ControllerNosContrats.php" />
+        <option value="$PROJECT_DIR$/controller/ControllerLaVieAlAMAP.php" />
+        <option value="$PROJECT_DIR$/view/laVieAlAMAP/lvala.php" />
+        <option value="$PROJECT_DIR$/view/nosContrats/souscrire.php" />
+        <option value="$PROJECT_DIR$/view/nousConnaitre/connaitre.php" />
+        <option value="$PROJECT_DIR$/view/nousConnaitre/contacted.php" />
+        <option value="$PROJECT_DIR$/view/footer.php" />
+        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/model/Model.php" />
-        <option value="$PROJECT_DIR$/config/Conf.php" />
-        <option value="$PROJECT_DIR$/view/monProfil/voirmonprofil.php" />
-        <option value="$PROJECT_DIR$/controller/ControllerMonProfil.php" />
-        <option value="$PROJECT_DIR$/controller/ControllerAdherent.php" />
+        <option value="$PROJECT_DIR$/view/admin/list.php" />
+        <option value="$PROJECT_DIR$/controller/ControllerPersonne.php" />
         <option value="$PROJECT_DIR$/view/menu.php" />
+        <option value="$PROJECT_DIR$/view/nosProduits/createProd.php" />
+        <option value="$PROJECT_DIR$/controller/ControllerNosProduits.php" />
+        <option value="$PROJECT_DIR$/controller/ControllerMonProfil.php" />
+        <option value="$PROJECT_DIR$/controller/routeur.php" />
+        <option value="$PROJECT_DIR$/.htaccess" />
+        <option value="$PROJECT_DIR$/script/script.js" />
+        <option value="$PROJECT_DIR$/view/adherent/payment.php" />
+        <option value="$PROJECT_DIR$/view/admin/newaccueil.php" />
+        <option value="$PROJECT_DIR$/view/admin/roles.php" />
+        <option value="$PROJECT_DIR$/view/laVieAlAMAP/articles.php" />
+        <option value="$PROJECT_DIR$/view/monProfil/update.php" />
+        <option value="$PROJECT_DIR$/view/monProfil/updatePhoto.php" />
+        <option value="$PROJECT_DIR$/view/nosContrats/detailcontrat.php" />
+        <option value="$PROJECT_DIR$/view/nosContrats/souscripted.php" />
+        <option value="$PROJECT_DIR$/view/nosProduits/nosproducteurs.php" />
+        <option value="$PROJECT_DIR$/view/nosProduits/produits.php" />
+        <option value="$PROJECT_DIR$/view/nousSoutenir/donnated.php" />
+        <option value="$PROJECT_DIR$/view/monProfil/voirmonprofil.php" />
+        <option value="$PROJECT_DIR$/view/adherent/formprod.php" />
+        <option value="$PROJECT_DIR$/view/accueil/accueil.php" />
+        <option value="$PROJECT_DIR$/css/styles.css" />
+        <option value="$PROJECT_DIR$/view/adherent/reset.php" />
+        <option value="$PROJECT_DIR$/view/adherent/resetpwd.php" />
+        <option value="$PROJECT_DIR$/view/adherent/connect.php" />
+        <option value="$PROJECT_DIR$/view/adherent/connectErreur.php" />
+        <option value="$PROJECT_DIR$/controller/ControllerAdherent.php" />
+        <option value="$PROJECT_DIR$/controller/ControllerAdmin.php" />
+        <option value="$PROJECT_DIR$/view/admin/update.php" />
       </list>
     </option>
   </component>
@@ -102,8 +246,11 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="67" />
     <option name="y" value="25" />
-    <option name="width" value="907" />
-    <option name="height" value="789" />
+    <option name="width" value="927" />
+    <option name="height" value="1055" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -125,23 +272,40 @@
             <path>
               <item name="monAMAP" type="b2602c69:ProjectViewProjectNode" />
               <item name="monAMAP" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="monAMAP" type="b2602c69:ProjectViewProjectNode" />
-              <item name="monAMAP" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="monAMAP" type="b2602c69:ProjectViewProjectNode" />
               <item name="monAMAP" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="monAMAP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="monAMAP" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="accueil" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="monAMAP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="monAMAP" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="adherent" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="monAMAP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="monAMAP" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="monAMAP" type="b2602c69:ProjectViewProjectNode" />
               <item name="monAMAP" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
               <item name="monProfil" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="monAMAP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="bcb0276e:PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
             </path>
           </expand>
           <select />
@@ -151,13 +315,15 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SONARLINT_PRECOMMIT_ANALYSIS" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="full.screen.before.presentation.mode" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PHP/TD5" />
+    <property name="js.last.introduce.type" value="VAR" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="SQL Dialects" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -171,12 +337,22 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Node.js.adminscript.js">
     <configuration name="ControllerAdherent.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost/Mon AMAP/controller/ControllerAdherent.php">
+      <method v="2" />
+    </configuration>
+    <configuration name="adminscript.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/script/adminscript.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="ControllerAdherent.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/controller/ControllerAdherent.php">
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Node.js.adminscript.js" />
+        <item itemvalue="PHP Script.ControllerAdherent.php" />
+        <item itemvalue="JavaScript Debug.ControllerAdherent.php" />
+        <item itemvalue="PHP Script.ControllerAdherent.php" />
         <item itemvalue="JavaScript Debug.ControllerAdherent.php" />
       </list>
     </recent_temporary>
@@ -199,14 +375,349 @@
       <workItem from="1543072169539" duration="3951000" />
       <workItem from="1543262430963" duration="14851000" />
       <workItem from="1543597570007" duration="3123000" />
-      <workItem from="1543683938882" duration="2462000" />
+      <workItem from="1543683938882" duration="3142000" />
+      <workItem from="1543688510367" duration="21000" />
+      <workItem from="1543689892112" duration="977000" />
+      <workItem from="1543869783640" duration="162000" />
+      <workItem from="1544011861901" duration="623000" />
+      <workItem from="1544025940121" duration="22000" />
+      <workItem from="1544039893707" duration="47000" />
+      <workItem from="1544042187518" duration="38000" />
+      <workItem from="1544089025456" duration="828000" />
+      <workItem from="1544100916096" duration="642000" />
+      <workItem from="1544203706903" duration="489000" />
+      <workItem from="1544211967797" duration="653000" />
+      <workItem from="1544601156050" duration="1432000" />
+      <workItem from="1545560691051" duration="16655000" />
+      <workItem from="1545605484903" duration="4079000" />
+      <workItem from="1545638098590" duration="9952000" />
+      <workItem from="1545655754885" duration="11425000" />
+      <workItem from="1545818956592" duration="11444000" />
+      <workItem from="1545908779998" duration="234000" />
+      <workItem from="1546168789491" duration="7379000" />
+      <workItem from="1546193558008" duration="1177000" />
+      <workItem from="1546439167920" duration="23850000" />
+      <workItem from="1546511799933" duration="30852000" />
+      <workItem from="1546593811744" duration="5279000" />
+      <workItem from="1546610719461" duration="27397000" />
+      <workItem from="1546688582035" duration="42455000" />
+      <workItem from="1546796417170" duration="19327000" />
+      <workItem from="1546858620514" duration="182000" />
+      <workItem from="1546952775873" duration="4595000" />
+      <workItem from="1546959041948" duration="28110000" />
+      <workItem from="1547036440096" duration="31661000" />
+      <workItem from="1547127066331" duration="2456000" />
+      <workItem from="1547137796493" duration="4820000" />
+      <workItem from="1547150808972" duration="117000" />
+      <workItem from="1547150978488" duration="13734000" />
+      <workItem from="1547166619481" duration="505000" />
+      <workItem from="1547195067246" duration="2119000" />
+      <workItem from="1547218087020" duration="9703000" />
+      <workItem from="1547229009139" duration="16870000" />
+      <workItem from="1547292542225" duration="22175000" />
+      <workItem from="1547375661345" duration="1351000" />
     </task>
+    <task id="LOCAL-00001" summary="Model generique et petits fix">
+      <created>1545583549669</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1545583549669</updated>
+    </task>
+    <task id="LOCAL-00002" summary="fix inscription">
+      <created>1545605634685</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1545605634685</updated>
+    </task>
+    <task id="LOCAL-00003" summary="correction offset total don">
+      <created>1545609490322</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1545609490322</updated>
+    </task>
+    <task id="LOCAL-00004" summary="modif extends">
+      <created>1545609687209</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1545609687209</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Livre d'or">
+      <created>1545640843488</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1545640843488</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Update fichiers pas fini">
+      <created>1545670782888</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1545670782889</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Update fichiers producteur">
+      <created>1545821966068</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1545821966068</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Modif nous soutenir, création de personne et deplacement du sql">
+      <created>1545824412651</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1545824412651</updated>
+    </task>
+    <task id="LOCAL-00009" summary="suppr var dump">
+      <created>1545824486269</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1545824486269</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fin déplacement sql controller-&gt;model(dons)">
+      <created>1545848939812</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1545848939812</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Update mon profil ac upload de fichier">
+      <created>1546175998810</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1546175998810</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Début du back office">
+      <created>1546476891595</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1546476891595</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Update presque fini (il ne manque que l'upload de fichier)&#10;+ refactor de ModelArticles en ModelArticle">
+      <created>1546529605187</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1546529605187</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Fin update">
+      <created>1546534172465</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1546534172465</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Fin upload fichier produit et article">
+      <created>1546535684163</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1546535684163</updated>
+    </task>
+    <task id="LOCAL-00016" summary="améloration de l'affichage du back office">
+      <created>1546541691951</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1546541691951</updated>
+    </task>
+    <task id="LOCAL-00017" summary="update/create en cours, il manque juste le traitement de la création des objets">
+      <created>1546562216027</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1546562216027</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Debut create">
+      <created>1546600135180</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1546600135180</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Debut validation">
+      <created>1546651115563</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1546651115564</updated>
+    </task>
+    <task id="LOCAL-00020" summary="milieu validation">
+      <created>1546655636820</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1546655636820</updated>
+    </task>
+    <task id="LOCAL-00021" summary="fin validation (il manque juste les envois de mail aux adminet aux adhérents lors des demandes de validations et des validations)">
+      <created>1546696296513</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1546696296514</updated>
+    </task>
+    <task id="LOCAL-00022" summary="test mailer">
+      <created>1546701747955</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1546701747955</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Mail finis">
+      <created>1546713233811</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1546713233811</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Accueil complétement dynamique manque juste le traitement des modifs">
+      <created>1546796533625</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1546796533625</updated>
+    </task>
+    <task id="LOCAL-00025" summary="BDD + images">
+      <created>1546796744640</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1546796744640</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Validation par mail">
+      <created>1546799777977</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1546799777977</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Verif mail testée avec msg de confirmation">
+      <created>1546801180860</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1546801180860</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Connection empechée si l'adresse mail n'est pas validée(a comenté quand on test des inscriptions)">
+      <created>1546801558243</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1546801558243</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Début Article qui s'aggrandissent">
+      <created>1546812430778</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1546812430778</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Paiement cotisation">
+      <created>1546910906776</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1546910906776</updated>
+    </task>
+    <task id="LOCAL-00031" summary="setrole() fixed fonctionnel">
+      <created>1546956956735</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1546956956735</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Fin back-end du back-office (modif de la page d'accueil fonctionnelle)">
+      <created>1546999853149</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1546999853149</updated>
+    </task>
+    <task id="LOCAL-00033" summary="JS prévisualisation + CSS &#10;Manque previsu des images et des listes">
+      <created>1547076516913</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1547076516913</updated>
+    </task>
+    <task id="LOCAL-00034" summary="fixs prod mon profil">
+      <created>1547140168788</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1547140168789</updated>
+    </task>
+    <task id="LOCAL-00035" summary="JS Prévisu manque juste liste middle et previsu newsnameandarticle&#10;Affichage des articles et messages validés seulement&#10;Lien vers la page d'accueil du site dans le back office">
+      <created>1547165898061</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1547165898062</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Fin du js des prévisu&#10;Ajout du choix de la langue sur la page d'accueil en cookie">
+      <created>1547239867222</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1547239867222</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Refactor des fonctions display en cours">
+      <created>1547251481252</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1547251481252</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Refactor display fini">
+      <created>1547253888558</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1547253888559</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Encodage des variables&#10;htaccess pour gerer la redirection d'erreur 404&#10;routeur updated&#10;Confirmation sur les delete">
+      <created>1547317616340</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1547317616340</updated>
+    </task>
+    <task id="LOCAL-00040" summary="From becomprod/payment et fix liens">
+      <created>1547319285290</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1547319285290</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Récupération de mot de passe">
+      <created>1547328450036</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1547328450036</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Fix chgt mot de passe">
+      <created>1547329675826</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1547329675826</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35191000" />
+    <option name="totallyTimeSpent" value="430488000" />
   </component>
-  <component name="TodoView">
+  <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
     </todo-panel>
@@ -219,47 +730,52 @@
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49947312" visible="true" weight="0.124123044" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49947312" visible="true" weight="0.17874931" />
+      <window_info id="Structure" order="1" sideWeight="0.50052685" side_tool="true" weight="0.124123044" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32937366" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49973017" weight="0.39848813" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32937366" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49550128" weight="0.32721382" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49973017" weight="0.30777538" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50064266" side_tool="true" weight="0.32829374" />
+      <window_info anchor="bottom" id="Inspection Results" order="12" weight="0.32974428" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32937366" />
+      <window_info active="true" anchor="bottom" id="SonarLint" order="14" sideWeight="0.4993573" visible="true" weight="0.3293011" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="right" x="0" y="0" width="413" height="855" id="Documentation" order="4" side_tool="true" weight="0.32982844" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49947312" visible="true" weight="0.13613725" />
       <window_info id="Structure" order="1" sideWeight="0.50052685" side_tool="true" weight="0.124123044" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49973017" visible="true" weight="0.39936775" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49973017" weight="0.39936775" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32974428" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49973017" weight="0.32982087" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49973017" weight="0.30874604" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50026983" side_tool="true" visible="true" weight="0.0" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4964029" weight="0.32829374" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49973017" weight="0.30777538" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50359714" side_tool="true" weight="0.32937366" />
       <window_info anchor="bottom" id="Inspection Results" order="12" weight="0.32974428" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.32937366" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" />
-    </layout>
-    <layout-to-restore>
-      <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.1188946" />
-      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="1" />
-      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Database Changes" order="3" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="4" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Message" order="5" />
-      <window_info anchor="bottom" id="Find" order="6" />
-      <window_info anchor="bottom" id="Run" order="7" />
-      <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="11" />
-      <window_info anchor="right" id="Database" order="0" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,6 +816,48 @@
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Debut validation" />
+    <MESSAGE value="milieu validation" />
+    <MESSAGE value="fin validation (il manque juste les envois de mail aux adminet aux adhérents lors des demandes de validations et des validations)" />
+    <MESSAGE value="test mailer" />
+    <MESSAGE value="Mail finis" />
+    <MESSAGE value="Accueil complétement dynamique manque juste le traitement des modifs" />
+    <MESSAGE value="BDD + images" />
+    <MESSAGE value="Validation par mail" />
+    <MESSAGE value="Verif mail testée avec msg de confirmation" />
+    <MESSAGE value="Connection empechée si l'adresse mail n'est pas validée(a comenté quand on test des inscriptions)" />
+    <MESSAGE value="Début Article qui s'aggrandissent" />
+    <MESSAGE value="Fix reset scroll" />
+    <MESSAGE value="Paiement cotisation" />
+    <MESSAGE value="setrole() fixed fonctionnel" />
+    <MESSAGE value="Fin back-end du back-office (modif de la page d'accueil fonctionnelle)" />
+    <MESSAGE value="JS prévisualisation + CSS &#10;Manque previsu des images et des listes" />
+    <MESSAGE value="fixs prod mon profil" />
+    <MESSAGE value="JS Prévisu manque juste liste middle et previsu newsnameandarticle&#10;Affichage des articles et messages validés seulement&#10;Lien vers la page d'accueil du site dans le back office" />
+    <MESSAGE value="Fin du js des prévisu&#10;Ajout du choix de la langue sur la page d'accueil en cookie" />
+    <MESSAGE value="Refactor des fonctions display en cours" />
+    <MESSAGE value="Refactor display fini" />
+    <MESSAGE value="Encodage des variables&#10;htaccess pour gerer la redirection d'erreur 404&#10;routeur updated&#10;Confirmation sur les delete" />
+    <MESSAGE value="From becomprod/payment et fix liens" />
+    <MESSAGE value="Récupération de mot de passe" />
+    <MESSAGE value="Fix chgt mot de passe" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix chgt mot de passe" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand>
@@ -311,188 +869,266 @@
     <select />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/controller/ControllerLaVieAlAMAP.php">
+    <entry file="file://$PROJECT_DIR$/view/monProfil/updateAdrP.php" />
+    <entry file="file://$PROJECT_DIR$/view/monProfil/updateAdrM.php" />
+    <entry file="file://$PROJECT_DIR$/view/monProfil/updatePW.php">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/nosContrats/contrats.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/nosContrats/detailcontrat.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="130" selection-start-line="4" selection-start-column="130" selection-end-line="4" selection-end-column="130" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/nosContrats/error.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/nosContrats/souscripted.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="50" selection-start-column="50" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/nosContrats/souscrire.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-221" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/nosProduits/createProd.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/nosProduits/error.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/nosProduits/nosproducteurs.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="300" selection-start-line="15" selection-start-column="300" selection-end-line="15" selection-end-column="300" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/nosProduits/produits.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/nosProduits/produitsdumoment.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/nousConnaitre/connaitre.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/nousConnaitre/contacted.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/nousConnaitre/error.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/nousConnaitre/lamap.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/nousConnaitre/nousContacter.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/nousConnaitre/nousTrouver.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/adminmenu.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/adminpanel.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/footer.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/menu.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="8" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/nousSoutenir/donnated.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="84" selection-start-line="4" selection-start-column="84" selection-end-line="4" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/nousSoutenir/erreurMontant.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/nousSoutenir/error.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/nousSoutenir/soutenir.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/monProfil/update.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="84" selection-start-line="25" selection-start-column="84" selection-end-line="25" selection-end-column="84" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/ControllerAccueil.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="27" lean-forward="true" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/view.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/adherent/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="42" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/adherent/detail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/personne/detail.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/ControllerNousSoutenir.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="202" column="51" lean-forward="true" selection-start-line="202" selection-start-column="30" selection-end-line="202" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/ModelDon.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/adherent/connect.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="12" lean-forward="true" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/personne/create.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Projetgpmachat/view/commande/commande.php" />
-    <entry file="file://$PROJECT_DIR$/view/adherent/create.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="26" column="63" selection-start-line="26" selection-start-column="63" selection-end-line="26" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/ModelDonnateur.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1055" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/ModelLivreDor.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/ModelPersonne.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="64" column="33" selection-start-line="64" selection-start-column="33" selection-end-line="64" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/ControllerPersonne.php">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
-          <caret line="51" column="27" selection-start-line="51" selection-start-column="27" selection-end-line="51" selection-end-column="27" />
-          <folding>
-            <element signature="n#readAll#0;n#ControllerPersonne#0;n#!!top" />
-            <element signature="n#read#0;n#ControllerPersonne#0;n#!!top" />
-            <element signature="n#create#0;n#ControllerPersonne#0;n#!!top" />
-          </folding>
+          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/ModelContrat.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="68" selection-start-line="68" selection-end-line="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/File.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controller/routeur.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="46" column="2" selection-start-line="46" selection-start-column="2" selection-end-line="46" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/ModelAdherent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="113" selection-start-line="113" selection-end-line="113" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml">
+    <entry file="file://$PROJECT_DIR$/view/adherent/payment.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/conf/Conf.php">
+    <entry file="file://$PROJECT_DIR$/controller/ControllerLaVieAlAMAP.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
+        <state relative-caret-position="281">
+          <caret line="215" column="30" selection-start-line="215" selection-start-column="21" selection-end-line="215" selection-end-column="30" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/Model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
-          <folding>
-            <element signature="n#Init#0;n#Model#0;n#!!top" />
-            <element signature="n#selectAll#0;n#Model#0;n#!!top" />
-            <element signature="n#delete#0;n#Model#0;n#!!top" />
-            <element signature="n#countAll#0;n#Model#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/Conf.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/monProfil/voirmonprofil.php">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/ControllerMonProfil.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+        <state relative-caret-position="-30" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/ControllerNosContrats.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-30" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/ControllerNosProduits.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-30" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/ControllerNousConnaitre.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-30" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/ControllerNousSoutenir.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-30" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/ControllerPersonne.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/routeur.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="664">
+          <caret line="45" column="8" lean-forward="true" selection-start-line="45" selection-start-column="8" selection-end-line="45" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/monProfil/devenirproducteur.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/monProfil/voirmonprofil.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="60" column="70" selection-start-line="60" selection-start-column="70" selection-end-line="60" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/adherent/connect.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/adherent/connectErreur.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/adherent/resetpwd.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="114" selection-start-line="4" selection-start-column="114" selection-end-line="4" selection-end-column="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/adherent/reset.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="56" selection-start-line="4" selection-start-column="56" selection-end-line="4" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/accueil/accueil.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="148" selection-start-line="1" selection-start-column="148" selection-end-line="1" selection-end-column="148" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="10470">
+          <caret line="698" column="35" selection-start-line="698" selection-start-column="35" selection-end-line="698" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/adherent/formprod.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="58" selection-start-line="13" selection-start-column="58" selection-end-line="13" selection-end-column="58" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controller/ControllerAdherent.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="129" column="54" selection-start-line="129" selection-start-column="54" selection-end-line="129" selection-end-column="54" />
+        <state relative-caret-position="335">
+          <caret line="338" column="5" lean-forward="true" selection-start-line="338" selection-start-column="5" selection-end-line="338" selection-end-column="5" />
+          <folding>
+            <element signature="n#create#0;n#ControllerAdherent#0;n#!!top" />
+            <element signature="n#created#0;n#ControllerAdherent#0;n#!!top" />
+            <element signature="n#payment#0;n#ControllerAdherent#0;n#!!top" />
+            <element signature="n#reset#0;n#ControllerAdherent#0;n#!!top" />
+            <element signature="n#extendSubscription#0;n#ControllerAdherent#0;n#!!top" />
+            <element signature="n#validatedMail#0;n#ControllerAdherent#0;n#!!top" />
+            <element signature="n#becomeprod#0;n#ControllerAdherent#0;n#!!top" />
+            <element signature="n#newprod#0;n#ControllerAdherent#0;n#!!top" />
+            <element signature="n#connect#0;n#ControllerAdherent#0;n#!!top" />
+            <element signature="n#connected#0;n#ControllerAdherent#0;n#!!top" />
+            <element signature="n#deconnect#0;n#ControllerAdherent#0;n#!!top" />
+            <element signature="n#error#0;n#ControllerAdherent#0;n#!!top" />
+            <element signature="n#connectError#0;n#ControllerAdherent#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/menu.php">
+    <entry file="file://$PROJECT_DIR$/controller/ControllerAdmin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="687">
-          <caret line="116" column="53" selection-start-line="116" selection-start-column="53" selection-end-line="116" selection-end-column="53" />
+        <state relative-caret-position="311">
+          <caret line="210" column="71" selection-start-line="210" selection-start-column="71" selection-end-line="210" selection-end-column="71" />
+          <folding>
+            <element signature="n#update#0;n#ControllerAdmin#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/admin/update.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="43" column="91" selection-start-line="43" selection-start-column="91" selection-end-line="43" selection-end-column="91" />
         </state>
       </provider>
     </entry>
