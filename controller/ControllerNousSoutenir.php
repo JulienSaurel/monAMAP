@@ -1,17 +1,24 @@
 <?php 
 require_once File::build_path(array('model','ModelDonnateur.php')); // chargement du modèle
 require_once File::build_path(array('model','ModelDon.php')); // chargement du modèle
+require_once File::build_path(array('model','ModelAdherent.php')); // chargement du modèle
 class ControllerNousSoutenir
 {
 	protected static $object='nousSoutenir';
 
-	public static function display()
+	/* 
+		Redirige vers la vue de donnation
+	*/
+	public static function donnate()
 	{
         $view = 'soutenir';
         $pagetitle = 'Nous Soutenir';
         require File::build_path(array('view','view.php')); 
 	}
 
+	/* 
+		redirige vers la page d'erreur
+	*/
 	 public static function error()
     {
     $view = 'error';
@@ -19,44 +26,54 @@ class ControllerNousSoutenir
     require File::build_path(array('view','view.php'));
     }
 	
+	/* 
+		Crée ou update le donnateur, lui envoie un mail de remerciements et redirige vers la page de remerciements
+	*/
 	public static function donnated(){
 		$nom = $_GET['Nom_donnateur']; //on récupère les données passées dans le formulaire
         $prenom = $_GET['Prenom_donnateur'];
         $mail = $_GET['Mail_donnateur'];
 		$montant = $_GET['Montant_don'];
 		
-		if($montant > 0){ // si le montant n'est pas correct
+		if($montant > 0){ // si le montant est correct
 
         // création donnateur ou update
-		$sql="SELECT COUNT(*) FROM donnateur WHERE mailAddressDonnateur=:tag";
 
-    	$req_prep = Model::$pdo->prepare($sql);
+    	$nbDonnateur = ModelDonnateur::count($mail);
+    	//passe
 
-    	$valeurs = array(
-    		"tag" => $mail);
-
-    	$req_prep->execute($valeurs);
-    	$resultat = $req_prep->fetch();
-    	$nbDonnateur = $resultat[0];
-		
 		if($nbDonnateur == 0){ // si le donnateur n'existe pas on le crée
-			$instanceDonnateur = new ModelDonnateur($mail, $nom, $prenom,$montant);
-			$instanceDonnateur->save();
-		} else { // sinon on l'update 
-			$sql="UPDATE donnateur SET montantTotal = montantTotal + :montant WHERE mailAddressDonnateur= :mail;";
+		    $arraypersonne = [
+                'mailPersonne' => $mail,
+                'nomPersonne' => $nom,
+                'prenomPersonne' => $prenom,
+            ];
 
-			$req_prep = Model::$pdo->prepare($sql);
+		    ModelPersonne::save($arraypersonne);
 
-			$valeurs = array(
-				"mail" => $mail,
-				"montant" => $montant);
+			$arraydonnateur = [
+                'mailAddressDonnateur' => $mail,
+                'montantTotal' => $montant,
+            ];
+			ModelDonnateur::save($arraydonnateur);
 
-			$req_prep->execute($valeurs);
+		} else { // sinon on l'update
+            $d = ModelDonnateur::select($mail);
+
+            $valeurs = array(
+                "mailAddressDonnateur" => $mail,
+                "montantTotal" => $montant + $d->get('montantTotal'),
+            );
+
+            ModelDonnateur::update($valeurs);
 		}
 
-        $instanceDon = new ModelDon($montant,$mail); // on crée un don
-        $instanceDon->save(); // et on l'enregistre dans la BD
-		
+		$arraydon = [
+            'mailAddressDonnateur' => $mail,
+            'montantDon' => $montant,
+        ];
+        ModelDon::save($arraydon);
+
         //envoi de mail
 		
         $to  = $mail; 
@@ -91,19 +108,10 @@ class ControllerNousSoutenir
         // génération de la page de remerciments 
 
 
-		$sql="SELECT * FROM donnateur WHERE mailAddressDonnateur=:tag";
 
-    	$req_prep = Model::$pdo->prepare($sql);
+		$donnateur = ModelDonnateur::select($mail);
 
-    	$valeurs = array(
-    		"tag" => $mail);
 
-    	$req_prep->execute($valeurs);
-    	$req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelDonnateur');
-		$tab_donn = $req_prep->fetchAll();
-		$donnateur = $tab_donn[0];
-
-		
         $view = 'donnated';
         $pagetitle = 'Merci !';
         require File::build_path(array('view','view.php'));
@@ -115,47 +123,24 @@ class ControllerNousSoutenir
     }
 }
 
-    
-    public static function generePDF(){
+    /* 
+		Génère le recu de la donnation dans un nouvel onglet
+	*/
+	public static function generePDF(){
         $mail = $_GET['mail'];
 
-
-        $sql="SELECT * FROM donnateur WHERE mailAddressDonnateur=:tag";
-
-        $req_prep = Model::$pdo->prepare($sql);
-
-        $valeurs = array(
-            "tag" => $mail);
-
-        $req_prep->execute($valeurs);
-        $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelDonnateur');
-        $tab_donn = $req_prep->fetchAll();
-        $donnateur = $tab_donn[0];
+        $donnateur = ModelDonnateur::select($mail);
+        $personne = ModelAdherent::getPersonneByIdAdh($mail);
+        $don = ModelDon::getLastDonFrom($mail);
 
 
-        $sql="SELECT * FROM don WHERE mailAddressDonnateur=:tag AND idDon = (SELECT MAX(idDon) FROM don WHERE mailAddressDonnateur=:tag )";
+    include_once('libExternes/phpToPDF/phpToPDF1.php');
 
-        $req_prep = Model::$pdo->prepare($sql);
-
-        $valeur = array(
-            "tag" => $mail);
-
-        $req_prep->execute($valeur);
-        $req_prep->setFetchMode(PDO::FETCH_CLASS, 'ModelDon');
-        $tab_don = $req_prep->fetchAll();
-        $don = $tab_don[0];
-
-        include_once('libExternes/phpToPDF/phpToPDF.php');
-
-    // quelques remarques :
-    // 1. FPDF ne gère pas les accents => utilisation de utf8_decode()
-    // 2. FPDF de gère pas le caractère € => chr(128)
     
-
     // l'adhérent à qui s'adresse la facture
     $adh = array(
-        'nom' => $donnateur->get('nomDonnateur'),
-        'prenom' => $donnateur->get('prenomDonnateur'),
+        'nom' => $personne->get('nomPersonne'),
+        'prenom' => $personne->get('prenomPersonne'),
         'email' => $donnateur->get('mailAddressDonnateur')
     );
 
@@ -175,6 +160,8 @@ class ControllerNousSoutenir
     //$url = '../images/logo.png';
     
     // création de la page et définition d'éléments
+    ob_get_clean();
+            
     $PDF=new phpToPDF();
     $PDF->SetFillColor( 197, 223, 179 );
     $PDF->AddPage();
@@ -223,21 +210,8 @@ class ControllerNousSoutenir
     // ligne par article, et calcul du prix total au fur et à mesure
     $prixTotal = 0;
     foreach ($A as $i => $article) {
-        //$lib = utf8_decode($article['libelleArticle']);
-        //$qte = $article['quantite'];
-        //$prU = $article['prixUnitaire'];
-        //$prT = $qte * $prU;
-        //$prixTotal += $prT;
-        //$PDF->Cell(100,$hau,$lib,1,0,'L');
-        //$PDF->Cell(30,$hau,$qte,1,0,'C');
-        //$PDF->Cell(30,$hau,number_format($prU,2,',',' ').' '.chr(128),1,0,'R');
-        //$PDF->Cell(30,$hau,number_format($prT,2,',',' ').' '.chr(128),1,0,'R');
         $PDF->Ln();
     }
-
-    // ligne du prix total
-    //$PDF->Cell(160,$hau,utf8_decode("total "),0,0,'R',false);
-    //$PDF->Cell(30,$hau,number_format($prixTotal,2,',',' ').' '.chr(128),1,0,'R');
 
     // export du pdf avec sauvegarde selon le nom spécifié
     //$namefile = "../files/facturedonnation/facture_$numFacture.pdf";

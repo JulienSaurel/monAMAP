@@ -19,6 +19,7 @@ src: url("font/Philosopher-Regular.ttf");
 
       #navMenu {
       text-align: center;
+      z-index: 50;
     }
 
     #menu, #menu ul {
@@ -27,6 +28,8 @@ src: url("font/Philosopher-Regular.ttf");
       list-style-type: none;
       position: absolute;
       top: 0;
+      z-index: 50;
+
 
 
      }
@@ -130,7 +133,39 @@ src: url("font/Philosopher-Regular.ttf");
       color: #a9f49e;
       transition: color 500ms;
     }
-}
+    .liensfooter ul{
+  width: 100%;
+    list-style: none;
+    padding: 0;
+    list-style-type: none;
+    padding-left: 15px;
+  padding-right: 15px; 
+  border-left: 1px solid #adbfab;
+ }
+  .liensfooter ul li{
+    width: 100%;
+    padding-top: 10px;
+    border-bottom: 2px solid #adbfab;
+    opacity: 0.7;
+    transition: background-color 0.5s;
+ }
+ .liensfooter ul li:hover{
+    background-color: #727272;
+    color: white;
+    opacity: 0.7;
+    transition: background-color 0.5s;
+ }
+ .liensfooter ul li:hover a{
+
+    color: white;
+    transition: background-color 0.5s;
+ }
+
+}   
+    
+  .bold {
+    font-weight: bold;
+  }
 
   #donne {
     background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
@@ -145,18 +180,18 @@ src: url("font/Philosopher-Regular.ttf");
     display: inline-block;
   }
 
-  .usercontent article{ 
+  .usercontent article{
     display: block;
     width: 60%;
     float: left;
 
   }
-    .usercontent aside{ 
+    .usercontent aside{
     width: 40%;
     float: right;
   }
 
-  .usercontent > aside > img{ 
+  .usercontent > aside > img{
     width: inherit;
     width: 100px;
     height: 500px;
@@ -194,11 +229,6 @@ main {
     flex: 1 0 auto !important;
 }
 
-header {
-
-
-}
-
 label {
   vertical-align: top;
 }
@@ -233,7 +263,7 @@ input:not([type='submit']) {
     background-color: #cce3ce;
   }
 
-input:not([type='submit']):not([type='number']) {
+input:not([type='submit']):not([type='number']):not([type='radio']) {
   height: 25px;
   width:200px;
   transition: width 500ms;
@@ -241,7 +271,7 @@ input:not([type='submit']):not([type='number']) {
 
 }
 
-input:not([type='submit']):not([type='number']):focus {
+input:not([type='submit']):not([type='number']):not([type='radio']):focus {
     width:250px;
   transition: width 500ms;
 
@@ -320,21 +350,41 @@ transition: background-color 500ms;
 
 /* Reglage footer */
 footer {
+  position: relative;
   margin-left: 10%;
   margin-right: 10%;
-   flex-shrink: 0 !important;
-}
-
-#logos {
+  flex-shrink: 0 !important;
   display: inline-block;
   height: 15%;
   width: 100%;
-  display: inline-block;
+ 
   margin-top: 10%;
   border-top: 1px solid #adbfab;
 }
 
-#logoFB , #logoTT , #logoGP, #logoBurger {
+
+
+.article img, .article p {
+  vertical-align: top;
+  width: 45%;
+  position: relative;
+  display: inline-block;
+  margin-left: 15px;
+
+
+}
+.article {
+
+  position: relative;
+  width: 85%;
+  display: block;
+  margin: 25px;
+  padding: 25px;
+  border: 2px solid #adbfab;
+  vertical-align: top;
+
+}
+  #logoFB , #logoTT , #logoGP, #logoBurger {
   padding-left: 1%;
   height: 25px;
   width: 25px;
@@ -343,6 +393,55 @@ footer {
 
 
 @media screen and (max-width: 1315px) {
+
+
+  section.usercontent {
+    width: 100%;
+    display: block;
+  }
+
+  .usercontent article{
+    display: block;
+    width: 100%;
+    
+
+  }
+    .usercontent aside{
+          display: block;
+    width: 100%;
+
+    
+    
+  }
+
+  .usercontent > aside > img{
+    width: inherit;
+    width: 100px;
+    height: 500px;
+    width: 100%;
+    float: left;
+  }
+
+
+
+    #logoBurger {
+    padding-left: 1%;
+    height: 15%;
+    width: 15%;
+    text-decoration: none;
+  }
+  
+
+    .article img, .article p {
+    vertical-align: top;
+    width: 90%;
+    position: relative;
+    display: block;
+    }
+
+    .article img {
+      width: 200px;
+    }
 
       div form{
         width: 95%;
@@ -419,7 +518,7 @@ footer {
         z-index: 50; /* Stay on top */
         top: 0; /* Stay at the top */
         left: 0;
-        background-color: #adbfab; /* Black*/
+        background-color: #adbfab; 
         overflow-x: hidden; /* Disable horizontal scroll */
         padding-top: 60px; /* Place content 60px from the top */
         transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
@@ -522,7 +621,11 @@ footer {
     #openav {
       z-index: 20;
     }
- 
+
+    .liensfooter {
+      display: none;
+    }
+
 
 }
 
@@ -533,10 +636,161 @@ footer {
   z-index: 5;*/
   display: none;
 }
- body {
-  z-index: 2;
- }
+
 
  main {
   
  }
+
+ .imgprofil, .fruits img, .legumes img, .saison img{
+    width: 250px;
+    padding: 10px;
+    border: 2px solid #adbfab;
+ }
+ footer {
+  width: 80%;
+ }
+
+ footer div {
+  display: inline-block;
+  position: relative;
+  height: 100%;
+  vertical-align: top;
+  padding-left: 15px;
+  padding-right: 15px; 
+  
+  
+ }
+
+
+ /*
+ CSS ARTICLES
+ */
+#sourceplus1, #sourceplus2, #sourceplus3, #sourceplus4, #sourceplus5, #sourceplus6, #sourceplus7, #sourceplus8, #sourceplus9, #sourceplus10, #sourceplus11, #sourceplus12 {
+    display: inline;
+    position: relative;
+    right: auto;
+}
+
+#sourcemoins1, #sourcemoins2, #sourcemoins3, #sourcemoins4, #sourcemoins5, #sourcemoins6, #sourcemoins7, #sourcemoins8, #sourcemoins9, #sourcemoins10, #sourcemoins11, #sourcemoins12 {
+    display: none;
+    position: relative;
+    right: auto;
+}
+
+#target1, #target2, #target3, #target4, #target5, #target6, #target7, #target8, #target9, #target10, #target11, #target12 {
+    height: 50px;
+    overflow: hidden;
+}
+
+.bouton {
+    background: center
+}
+
+.imgArt {
+    width: 5px;
+    height: auto;
+}
+/*
+ CSS ARTICLES
+ */
+
+.flagicon {
+    border-bottom: none !important;
+}
+
+ 
+
+/*css diapo */
+
+ .contener_slideshow
+{
+  width:700px;
+  height:500px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 70px;
+
+}
+
+.slid_1, .slid_2, .slid_3
+{
+  position: absolute;
+  width:700px;
+  height:600px;
+}
+
+.slid_1{left: 0;}
+.slid_2{left: 700px;}
+.slid_3{left: 1400px;}
+
+
+.contener_slide
+{
+  width: 700px;
+  height: 600px;
+  left:0px;
+  position: relative;
+  animation-duration: 10s;
+  animation-iteration-count:infinite;
+  animation-name: anim_slide;
+}
+
+@keyframes anim_slide 
+{
+  0% {left:0px;}
+  22% {left:0px;}
+  33% {left:-705px;}
+  45% {left:-705px;}
+  66% {left:-1405px;}
+  99% {left:-1405px;}
+
+
+}
+
+/* fin diapo */
+@media screen and (max-width: 1498px) {
+    
+ .contener_slideshow
+{
+  width:350px;
+  height:250px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 70px;
+
+}
+
+.slid_1, .slid_2, .slid_3
+{
+  position: absolute;
+  width:350px;
+  height:300px;
+}
+
+.slid_1{left: 0;}
+.slid_2{left: 350px;}
+.slid_3{left: 700px;}
+
+
+.contener_slide
+{
+  width: 350px;
+  height: 300px;
+  left:0px;
+  position: relative;
+  animation-duration: 10s;
+  animation-iteration-count:infinite;
+  animation-name: anim_slide;
+}
+
+@keyframes anim_slide 
+{
+  0% {left:0px;}
+  22% {left:0px;}
+  33% {left:-355px;}
+  45% {left:-355px;}
+  66% {left:-705px;}
+  99% {left:-705px;}
+}
+}

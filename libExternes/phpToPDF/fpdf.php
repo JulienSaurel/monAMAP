@@ -6,7 +6,7 @@
 * Auteur :   Olivier PLATHEY                                                   *
 * Licence :  Freeware                                                          *
 *                                                                              *
-* Vous pouvez utiliser et modifier ce logiciel comme vous le souhaitez <3.     *
+* Vous pouvez utiliser et modifier ce logiciel comme vous le souhaitez .       *
 *******************************************************************************/
 
 if(!class_exists('FPDF'))
